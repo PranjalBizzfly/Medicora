@@ -1,0 +1,281 @@
+/* ==========================================================================
+   Expertise template (10 pages)
+   ========================================================================== */
+
+.expertise-hero-card .badge {
+  margin-bottom: 0.9rem;
+}
+
+.expertise-hero-card h4 {
+  font-size: 1.15rem;
+  margin-bottom: 0.45rem;
+}
+
+.expertise-hero-card p {
+  font-size: 0.9rem;
+  margin-bottom: 1.25rem;
+}
+
+.expertise-hero-card ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--border-light);
+  font-size: 0.875rem;
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+.expertise-hero-card li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.expertise-hero-card-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--color-primary-soft);
+  color: var(--color-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Understanding */
+.expertise-understanding {
+  align-items: start;
+  margin-bottom: 4rem;
+}
+
+.expertise-lead {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--text-main);
+  margin-bottom: 1.5rem;
+}
+
+.expertise-pillars {
+  background-color: var(--color-primary-soft);
+  border-radius: var(--radius-xl);
+  padding: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.expertise-pillars h3 {
+  font-size: 1.3rem;
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+}
+
+.expertise-pillars ol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.expertise-pillars li {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-md);
+  padding: 1.1rem 1.2rem;
+  box-shadow: var(--shadow-xs);
+}
+
+.expertise-pillar-number {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  min-width: 2rem;
+  line-height: 1.4;
+}
+
+.expertise-pillars h4 {
+  font-size: 1.025rem;
+  margin-bottom: 0.2rem;
+}
+
+.expertise-pillars p {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Detail cards */
+.expertise-detail-card .icon-tile {
+  margin-bottom: 1.25rem;
+}
+
+.expertise-detail-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.65rem;
+}
+
+.expertise-detail-card > p {
+  font-size: 0.925rem;
+}
+
+.expertise-impact-text {
+  color: var(--text-main) !important;
+  line-height: 1.7;
+}
+
+/* Approach cards */
+.expertise-approach-card {
+  background-color: var(--bg-surface);
+}
+
+.expertise-approach-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.35rem;
+}
+
+.expertise-approach-index {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-accent-sand);
+}
+
+.expertise-approach-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.expertise-approach-card p {
+  font-size: 0.925rem;
+  line-height: 1.6;
+}
+
+/* Safety + testimonials */
+.expertise-safety-grid {
+  align-items: start;
+  gap: 3rem;
+}
+
+.expertise-safety {
+  background-color: var(--color-accent-mint-soft);
+  border: 1px solid var(--color-accent-mint);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 4vw, 2.25rem);
+}
+
+.expertise-safety-head {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.expertise-safety-head .icon-tile {
+  background-color: var(--bg-surface);
+  color: var(--color-secondary);
+}
+
+.expertise-safety-head h3 {
+  font-size: 1.25rem;
+  margin: 0;
+  color: var(--color-secondary);
+}
+
+.expertise-safety > p {
+  font-size: 0.925rem;
+  margin-bottom: 0.75rem;
+}
+
+.expertise-safety .check-list svg {
+  color: var(--color-secondary);
+}
+
+.expertise-emergency {
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-main);
+  background-color: var(--bg-surface);
+  border-left: 3px solid var(--color-primary);
+  padding: 0.9rem 1.1rem;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.expertise-emergency strong {
+  color: var(--color-primary);
+}
+
+.expertise-testimonials {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.expertise-testimonials .testimonial-card {
+  height: auto;
+}
+
+/* Related resources */
+.expertise-related {
+  margin-top: 3.5rem;
+  padding: 2rem;
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+}
+
+.expertise-related h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+}
+
+.expertise-related > p {
+  font-size: 0.9rem;
+  margin-bottom: 1.25rem;
+}
+
+.expertise-related-links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.expertise-related-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  font-family: var(--font-heading);
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: var(--text-main);
+  transition: var(--transition-fast);
+}
+
+.expertise-related-link svg {
+  color: var(--color-primary);
+  transition: transform var(--transition-fast);
+}
+
+.expertise-related-link:hover {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+.expertise-related-link:hover svg {
+  transform: translateX(3px);
+}
+
+@media (max-width: 640px) {
+  .expertise-related-links {
+    grid-template-columns: 1fr;
+  }
+}
