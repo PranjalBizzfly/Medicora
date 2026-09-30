@@ -1,145 +1,98 @@
 import React from 'react';
-import '../../styles/approach.css';
-import Hero from '../../components/Hero';
+import Link from 'next/link';
+import { Brain, Flower2, Sparkles } from 'lucide-react';
+import ApproachTemplate from './ApproachTemplate';
 import SectionHeader from '../../components/SectionHeader';
-import CTABanner from '../../components/CTABanner';
-import BrandMark from '../../components/BrandMark';
-import {
-  Brain,
-  Sparkles,
-  Activity
-} from 'lucide-react';
 
-const pillars = [
-  {
-    icon: Sparkles,
-    title: 'Homeopathic Care',
-    text: 'Personalised homeopathic medicine formulated according to your individual constitutional portrait, physical symptoms, and health history.'
-  },
-  {
-    icon: Brain,
-    title: 'Psychological Counselling',
-    text: 'A supportive, confidential space to unpack emotions, identify chronic stress triggers, and explore thought patterns affecting your physical wellbeing.'
-  },
-  {
-    icon: Activity,
-    title: 'Mind-Body Practices',
-    text: 'Gentle breathing exercises, Bach flower emotional remedies, and restorative routines that support nervous system balance and everyday relaxation.'
-  }
-];
-
-const steps = [
-  {
-    title: 'Understand:',
-    text: 'Look at your concerns in the complete context of your health, experiences, and everyday life.'
-  },
-  {
-    title: 'Connect:',
-    text: 'Consider the relationship between physical symptoms, emotional states, sleep patterns, and lifestyle factors.'
-  },
-  {
-    title: 'Personalise:',
-    text: 'Bring the right combination of approaches together around your individual needs and ongoing feedback.'
-  }
-];
-
-const quotes = [
-  'I appreciated having space to discuss both my physical and emotional concerns.',
-  'The approach felt personal and considered the different aspects of my wellbeing.',
-  'I valued the combination of thoughtful consultation and practical guidance.'
+// Source: Website Content PDF, Page 17 - Integrated Healing (pp.138-140); Sitemap brief p.22.
+const equation = [
+  'Homeopathy',
+  'Psychological counselling perspective',
+  'Lifestyle awareness',
+  'Patient communication',
 ];
 
 export default function IntegratedHealingPage() {
   return (
-    <div className="integrated-healing-page">
-      <Hero
-        badge="My Approach · Integration"
-        title="Integrated Healing"
-        subtitle="Looking at the person, not just the symptom. Bringing classical homeopathy, psychological counselling, and supportive mind-body practices into one thoughtful approach."
-        breadcrumbs={[
-          { label: "My Approach", path: "/my-approach" },
-          { label: "Integrated Healing" }
-        ]}
-        primaryCtaText="Book a Consultation"
-        primaryCtaLink="/book-a-consultation"
-        secondaryCtaText="Consultation Process"
-        secondaryCtaLink="/my-approach/consultation-process"
-      />
-
-      {/* 3 Pillars of Integrated Care */}
-      <section className="section bg-surface">
-        <div className="container">
-          <SectionHeader
-            badge="Care Modalities"
-            title="Three Connected Elements of Integrated Care"
-            subtitle="The focus is on integrated patient care, not claiming that one modality replaces another."
-            centered={true}
-          />
-
-          <div className="grid-3">
-            {pillars.map(({ icon: Icon, title, text }, i) => (
-              <div className="card ap-card" key={title}>
-                <div className="ap-card-top">
-                  <span className="icon-tile"><Icon size={24} /></span>
-                  <span className="ap-card-num">0{i + 1}</span>
-                </div>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </div>
-            ))}
+    <ApproachTemplate
+      className="integrated-healing-page"
+      hero={{
+        badge: 'My Approach',
+        title: 'Integrated Healing',
+        subtitle: 'Bringing homeopathy, counselling and mind-body practices into one thoughtful approach.',
+        breadcrumbs: [
+          { label: 'My Approach', path: '/my-approach' },
+          { label: 'Integrated Healing' },
+        ],
+      }}
+      cards={[
+        {
+          icon: Sparkles,
+          title: 'Homeopathic care',
+          text: 'Personalised homeopathic care based on your individual concerns, symptoms and health history.',
+          linkText: 'Discover more',
+          href: '/my-approach/why-homeopathy',
+        },
+        {
+          icon: Brain,
+          title: 'Psychological counselling',
+          text: 'A supportive space to explore emotions, stress and experiences that may affect your wellbeing.',
+          linkText: 'Discover more',
+          href: '/expertise/mental-emotional-psychosomatic-wellness',
+        },
+        {
+          icon: Flower2,
+          title: 'Mind-body practices',
+          text: 'Yoga and meditation can complement your care by supporting relaxation and everyday balance.',
+          linkText: 'Discover more',
+          href: '/expertise/sleep-lifestyle-concerns',
+        },
+      ]}
+      afterCards={(
+        <section className="section-sm bg-mint">
+          <div className="container">
+            <SectionHeader badge="Integrated care" title="Looking at the person, not just the symptom" centered={true} />
+            <ul className="ap-equation" aria-label="Elements of integrated care">
+              {equation.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+            <p className="ap-related">
+              See also: <Link href="/clinical-philosophy">Clinical Philosophy</Link>
+              {' · '}
+              <Link href="/">Integrated Anxiety Care</Link>
+            </p>
           </div>
-        </div>
-      </section>
-
-      {/* Connected Approach */}
-      <section className="section bg-mint">
-        <div className="container">
-          <div className="split-section ap-split">
-            <div className="ap-split-content">
-              <span className="badge">Connected Care</span>
-              <h2>A More Connected Approach to Wellbeing</h2>
-              <p className="ap-lead">
-                Different aspects of wellbeing constantly influence one another. Physical distress triggers emotional strain, and chronic mental worry manifests as physical tension, digestive unrest, or poor sleep. Integrated care brings these elements together.
-              </p>
-
-              <ol className="ap-points">
-                {steps.map(({ title, text }, i) => (
-                  <li className="ap-point" key={title}>
-                    <span className="ap-point-icon ap-point-num">{i + 1}</span>
-                    <div>
-                      <strong>{title}</strong>
-                      <p>{text}</p>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-            </div>
-
-            <div className="ap-panel">
-              <BrandMark className="ap-panel-mark" />
-              <div className="ap-panel-head">
-                <span className="ap-panel-avatar"><BrandMark className="ap-panel-avatar-mark" /></span>
-                <h3>Patient Perspectives</h3>
-              </div>
-              <div className="ap-quotes">
-                {quotes.map((quote) => (
-                  <div className="ap-quote" key={quote}>
-                    <p>"{quote}"</p>
-                    <span className="ap-quote-label">Patient experience</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <CTABanner
-        badge="Care That Brings Everything Together"
-        title="Care That Brings Everything Together"
-        subtitle="Consider an approach that brings together relevant aspects of your health, based on your individual needs."
-      />
-    </div>
+        </section>
+      )}
+      approach={{
+        badge: 'Our approach',
+        title: 'A more connected approach to wellbeing',
+        lead: 'Different aspects of wellbeing can influence one another. Integrated care brings them together around your individual needs.',
+        points: [
+          { title: 'Understand', text: 'Look at your concerns in the context of your health, experiences and everyday life.' },
+          { title: 'Connect', text: 'Consider the relationship between physical, emotional and lifestyle factors.' },
+          { title: 'Personalise', text: 'Bring appropriate approaches together around your individual needs.' },
+        ],
+      }}
+      quotes={[
+        'I appreciated having space to discuss both my physical and emotional concerns.',
+        'The approach felt personal and considered the different aspects of my wellbeing.',
+        'I valued the combination of thoughtful consultation and practical guidance.',
+      ]}
+      cta={{
+        title: 'Care that brings everything together',
+        subtitle: 'Consider an approach that brings together relevant aspects of your health, based on your individual needs.',
+        tiles: [
+          { kind: 'explore', title: 'Explore your care options', text: 'Understand the different approaches available to you.', href: '/my-approach' },
+          { kind: 'chat', title: 'Chat with me', text: 'Discuss your needs and questions.' },
+          { kind: 'book', title: 'Book a consultation', text: 'Choose a convenient time to connect.' },
+        ],
+      }}
+      image={{
+        src: '/images/photos/meditation-practice.jpg',
+        alt: 'Guided meditation as part of integrated mind-body care',
+      }}
+    />
   );
 }

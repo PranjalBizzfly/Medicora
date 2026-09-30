@@ -136,7 +136,7 @@
   font-family: var(--font-heading);
   font-size: 1.15rem;
   color: var(--color-primary);
-  min-width: 4.5rem;
+  min-width: 5.75rem;
 }
 
 /* Soft rounded panel with brand mark watermark */
@@ -322,7 +322,7 @@
   width: 56px;
   height: 56px;
   border-radius: var(--radius-full);
-  background-color: var(--color-primary);
+  background-color: var(--brand-maroon);
   color: #FFFFFF;
   display: inline-flex;
   align-items: center;
@@ -336,7 +336,7 @@
 .ab-timeline-card {
   background-color: var(--bg-surface);
   display: grid;
-  grid-template-columns: 150px 1fr;
+  grid-template-columns: 180px 1fr;
   gap: 1.5rem;
 }
 
@@ -347,7 +347,9 @@
   font-weight: 700;
   color: var(--color-primary);
   margin-bottom: 0.5rem;
-  overflow-wrap: anywhere;
+  line-height: 1.25;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .ab-timeline-card h3 {
@@ -499,7 +501,7 @@
 
 .ab-eq-result {
   padding: 1rem 1.1rem;
-  background-color: var(--color-primary);
+  background-color: var(--brand-maroon);
   color: #FFFFFF;
   border-radius: var(--radius-md);
   text-align: center;
@@ -509,7 +511,7 @@
 /* Responsive */
 @media (max-width: 1024px) {
   .ab-timeline-card {
-    grid-template-columns: 130px 1fr;
+    grid-template-columns: 160px 1fr;
   }
 }
 
@@ -558,4 +560,203 @@
   .ab-panel-mark {
     width: 160px;
   }
+}
+
+/* ==========================================================================
+   Content integration (Prompt 3)
+   ========================================================================== */
+
+.stats-grid.stats-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.stats-strip-head .badge {
+  margin-bottom: 0.75rem;
+}
+
+.ab-credentials-line {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  margin: 1.5rem 0 0;
+  padding: 1rem 1.25rem;
+  background-color: var(--color-accent-mint-soft);
+  border-radius: var(--radius-md);
+  color: var(--color-primary);
+}
+
+.ab-credentials-line svg {
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.ab-credentials-line p {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.ab-credentials-line a {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.ab-center-link {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.ab-closing {
+  text-align: center;
+  max-width: 720px;
+  margin: 2.5rem auto 0;
+  font-size: 1.05rem;
+  color: var(--text-main);
+}
+
+.ab-card-title {
+  font-size: 1.25rem;
+  margin: 0 0 0.55rem;
+}
+
+/* Linked cards: breathing room above the CTA, pinned to the card bottom */
+.card-link.ab-card .link-arrow {
+  margin-top: auto;
+  padding-top: 1rem;
+  align-self: flex-start;
+}
+
+.ab-chapter-title {
+  font-size: 1.35rem;
+  margin-bottom: 0.75rem;
+}
+
+.ab-timeline-card p + p,
+.ab-timeline-card p + .link-arrow {
+  margin-top: 0.75rem;
+}
+
+.ab-timeline-card .badge + .ab-timeline-year {
+  display: block;
+  margin-top: 0.6rem;
+}
+
+.ab-emphasis {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.ab-timeline-card .ab-emphasis {
+  color: var(--color-primary);
+  font-size: 1.05rem;
+}
+
+.ab-check-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.ab-check-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.02rem;
+  color: var(--text-main);
+}
+
+.ab-check-list svg {
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.ab-tagline-list strong {
+  min-width: 0;
+}
+
+/* Camp photos */
+.ab-photo {
+  margin: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-light);
+}
+
+.ab-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ab-photo figcaption {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  padding: 0.75rem 1rem;
+}
+
+.ab-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.ab-photo-grid .ab-photo {
+  aspect-ratio: 2 / 1;
+}
+
+.ab-photo-grid .ab-photo-portrait {
+  grid-row: span 2;
+  aspect-ratio: auto;
+  position: relative;
+  min-height: 100%;
+}
+
+/* Portrait fills the two stacked 2:1 tiles instead of dictating row height */
+.ab-photo-grid .ab-photo-portrait img {
+  position: absolute;
+  inset: 0;
+}
+
+@media (max-width: 900px) {
+  .stats-grid.stats-grid-3 {
+    grid-template-columns: 1fr;
+  }
+  .stats-grid.stats-grid-3 .stat-box {
+    border-right: none;
+    border-bottom: 1px solid var(--border-light);
+  }
+  .stats-grid.stats-grid-3 .stat-box:last-child {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .ab-photo-grid {
+    grid-template-columns: 1fr;
+  }
+  .ab-photo-grid .ab-photo-portrait {
+    grid-row: auto;
+    aspect-ratio: 4 / 5;
+    max-height: 420px;
+  }
+}
+
+/* Wrapping chapter links: keep the arrow next to the last word instead of
+   floating at the far edge of a full-width flex item. */
+.ab-timeline-card .link-arrow {
+  display: inline;
+  line-height: 1.5;
+}
+
+.ab-timeline-card .link-arrow svg {
+  display: inline-block;
+  vertical-align: -2px;
+  margin-left: 0.4rem;
 }

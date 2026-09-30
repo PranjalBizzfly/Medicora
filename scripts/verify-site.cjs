@@ -38,7 +38,7 @@ const base = process.argv[2] || 'http://localhost:3000';
 
   const fontFiles = [...home.matchAll(/\/_next\/static\/media\/[^"')]+\.(woff2|ttf)/g)].length;
   const notFound = await fetch(base + '/does-not-exist');
-  const notFoundShowsHome = (await notFound.text()).includes('Personalised Care for Better');
+  const notFoundShowsHome = (await notFound.text()).includes('A thoughtful approach to your health and wellbeing');
 
   console.log({
     routes: routes.length,

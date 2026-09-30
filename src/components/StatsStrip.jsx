@@ -1,29 +1,40 @@
 import React from 'react';
 
-const stats = [
-  { number: '14+', label: 'Years of Clinical Experience', note: 'Practising homeopathy since 2012' },
-  { number: '12,000+', label: 'Patients Consulted', note: 'Personalised patient-centred care' },
-  { number: '8 Years', label: 'Consultant at ONGC', note: 'Structured institutional healthcare (2018–Present)' },
-  { number: '3', label: 'Countries Consulted', note: 'Patients across India, UAE & USA' },
+// Default captions follow the source "Page 2 – About Me", Section 2 (Intro / Statistics).
+const defaultStats = [
+  { number: '12,000+', label: 'Patients consulted' },
+  { number: '14+', label: 'Years of clinical experience' },
+  {
+    number: '8 Years',
+    label: 'Consultant Homoeopathic Physician at ONGC',
+    note: 'Since 2018, Dr. Mohini Mutha has served as a Consultant Homoeopathic Physician with ONGC, alongside her clinical practice.',
+  },
+  { number: '3 Countries', label: 'Patients consulted across India, UAE & USA' },
 ];
 
-export default function StatsStrip({ title = "Experience You Can Count On", subtitle = "More than a decade dedicated to understanding people and their health" }) {
+export default function StatsStrip({
+  eyebrow,
+  title = "Experience you can count on",
+  subtitle = "More than a decade dedicated to understanding people and their health",
+  items = defaultStats,
+}) {
   return (
     <section className="section-sm stats-strip">
       <div className="container">
-        {title && (
+        {(eyebrow || title) && (
           <div className="stats-strip-head">
-            <h3>{title}</h3>
+            {eyebrow && <span className="badge">{eyebrow}</span>}
+            {title && <h3>{title}</h3>}
             {subtitle && <p>{subtitle}</p>}
           </div>
         )}
 
-        <div className="stats-grid">
-          {stats.map((stat) => (
+        <div className={`stats-grid ${items.length === 3 ? 'stats-grid-3' : ''}`}>
+          {items.map((stat) => (
             <div key={stat.label} className="stat-box">
               <div className="stat-number">{stat.number}</div>
               <div className="stat-label">{stat.label}</div>
-              <p className="stat-note">{stat.note}</p>
+              {stat.note && <p className="stat-note">{stat.note}</p>}
             </div>
           ))}
         </div>

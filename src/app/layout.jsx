@@ -1,8 +1,18 @@
 import localFont from 'next/font/local';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import ScrollReveal from '../components/ScrollReveal';
+import ScrollButtons from '../components/ScrollButtons';
+import BookingModal from '../components/BookingModal';
 import '../index.css';
 import '../styles/components.css';
+import '../styles/motion.css';
+import '../styles/theme.css';
+import '../styles/header-tools.css';
+import '../styles/inner.css';
+
+// Applies the saved theme (or the device preference) before first paint, so pages never flash.
+const themeInitScript = `(function(){try{var t=localStorage.getItem('medicora-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();`;
 
 const parkinsans = localFont({
   src: [
@@ -30,22 +40,28 @@ const geist = localFont({
 export const metadata = {
   metadataBase: new URL('https://drmohinimutha.com'),
   title: {
-    default: 'Dr. Mohini Mutha | Homeopathic Physician & Psychological Counsellor',
+    default: 'Dr. Mohini Mutha | Homeopathy · Counselling · Mind-Body Care',
     template: '%s | Dr. Mohini Mutha',
   },
   description:
-    'Personalised healthcare combining 14+ years of clinical homeopathy, psychological counselling, and mind-body care. Consultations available online (India, UAE, USA) and in-person in Navi Mumbai.',
+    'With 14+ years of clinical experience and 12,000+ patients consulted, Dr. Mohini Mutha combines homeopathy, counselling and a personalised understanding of every patient.',
   icons: { icon: '/brand/logo-icon.png' },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${parkinsans.variable} ${geist.variable}`}>
+    <html lang="en" className={`${parkinsans.variable} ${geist.variable}`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body>
         <div className="site-shell">
           <Header />
           <main className="site-main">{children}</main>
           <Footer />
+          <ScrollReveal />
+          <ScrollButtons />
+          <BookingModal />
         </div>
       </body>
     </html>

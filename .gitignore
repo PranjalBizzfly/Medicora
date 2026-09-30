@@ -30,3 +30,13 @@ next-env.d.ts
 
 # Old Vite entry files kept locally for reference
 _vite-legacy/
+.vercel
+.env*
+
+# Client source documents (certificates, brand book) - private, never publish
+source-docs/
+
+qa-screens/
+
+# Local booking store written by /api/book (patient data, never commit)
+/data/

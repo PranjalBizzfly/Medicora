@@ -1,123 +1,109 @@
 import React from 'react';
 import Link from 'next/link';
 import Hero from '../../components/Hero';
-import SectionHeader from '../../components/SectionHeader';
 import { ArrowRight, Home, HeartPulse, Compass, Award, BookOpen, CalendarCheck, Scale } from 'lucide-react';
 import '../../styles/legal.css';
 
+// Source: Website Content PDF, "Page 34 - Sitemap" (pp.168–172).
+// Every path below is one of the 34 existing routes (src/app/**/page.jsx).
 const sitemapStructure = [
   {
-    category: "Main Pages",
+    category: 'Main pages',
     icon: Home,
-    description: "Foundational information about Dr. Mohini Mutha and her clinical journey",
+    // Full width: followed by a wide card, so a half-width card left an empty column.
+    wide: true,
     links: [
-      { name: "1. Home", path: "/", desc: "Starting point for exploring clinical care, anxiety support, and consultations" },
-      { name: "2. About Me", path: "/about-me", desc: "Dr. Mohini's professional identity, values, background, and patient philosophy" },
-      { name: "3. My Journey", path: "/my-journey", desc: "A chronological timeline from clinical start in 2012 to Trivana Wellness" },
-      { name: "4. My Approach", path: "/my-approach", desc: "Care that starts with understanding and patient-first listening" },
-      { name: "5. Clinical Philosophy", path: "/clinical-philosophy", desc: "Why health is more than a set of symptoms; the mind-body connection" }
-    ]
+      { name: 'Home', path: '/', desc: 'Your starting point for exploring Trivana Wellness, online consultations and personalised care.', cta: 'Visit Home' },
+      { name: 'About Dr. Mohini', path: '/about-me', desc: 'Learn about Dr. Mohini Mutha, her experience, education, professional journey and approach to patient care.', cta: 'Explore About' },
+      { name: 'My Approach', path: '/my-approach', desc: "Understand the principles that shape Dr. Mohini's consultations and personalised approach to care.", cta: 'Explore My Approach' },
+      { name: 'My Journey', path: '/my-journey', desc: "Discover Dr. Mohini's professional journey, from clinical practice to Trivana Wellness.", cta: 'Explore My Journey' },
+    ],
   },
   {
-    category: "Areas of Care",
+    category: 'Areas of Care',
     icon: HeartPulse,
     wide: true,
-    description: "10 independent patient-facing clinical expertise pages",
     links: [
-      { name: "6. General Health & Wellness", path: "/expertise/general-health-wellness", desc: "Everyday care for energy, immunity, and overall vitality" },
-      { name: "7. Respiratory Health", path: "/expertise/respiratory-health", desc: "Support for recurring coughs, sinus congestion, and seasonal allergies" },
-      { name: "8. Headache & Migraine Care", path: "/expertise/headache-migraine-care", desc: "Identifying headache patterns, triggers, and individualised care" },
-      { name: "9. Digestive & Gut Health", path: "/expertise/digestive-gut-health", desc: "Constitutional care for acidity, bloating, indigestion, and IBS" },
-      { name: "10. Skin, Hair & Allergies", path: "/expertise/skin-hair-allergies", desc: "Internal homeopathic care for eczema, acne, allergic hives, and hair fall" },
-      { name: "11. Women's Wellness", path: "/expertise/womens-wellness", desc: "Hormonal balance, menstrual health, PCOS/PCOD, and perimenopause" },
-      { name: "12. Child & Adolescent Wellness", path: "/expertise/child-adolescent-wellness", desc: "Gentle sweet-pill care for recurring childhood ailments and teen stress" },
-      { name: "13. Joint, Muscle & Pain Management", path: "/expertise/joint-muscle-pain-management", desc: "Relief for joint stiffness, back pain, and everyday muscular discomfort" },
-      { name: "14. Sleep & Lifestyle Concerns", path: "/expertise/sleep-lifestyle-concerns", desc: "Non-habit-forming support for restless sleep and daily stress routines" },
-      { name: "15. Mental, Emotional & Psychosomatic Wellness", path: "/expertise/mental-emotional-psychosomatic-wellness", desc: "Key clinical differentiator bridging homeopathy and psychological counselling" }
-    ]
+      { name: 'General Health & Wellness', path: '/expertise/general-health-wellness', desc: 'Personalised support for everyday health, lifestyle and overall wellbeing.' },
+      { name: 'Respiratory Health', path: '/expertise/respiratory-health', desc: 'Support for common respiratory concerns and breathing-related wellbeing.' },
+      { name: 'Headache & Migraine Care', path: '/expertise/headache-migraine-care', desc: 'Personalised care focused on understanding headaches, migraine patterns and related concerns.' },
+      { name: 'Digestive & Gut Health', path: '/expertise/digestive-gut-health', desc: 'Support for digestive concerns, gut health and everyday digestive wellbeing.' },
+      { name: 'Skin, Hair & Allergies', path: '/expertise/skin-hair-allergies', desc: 'Care for common skin, hair, scalp and allergic concerns.' },
+      { name: "Women's Wellness", path: '/expertise/womens-wellness', desc: "Thoughtful support for women's health, emotional wellbeing and changing needs." },
+      { name: 'Child & Adolescent Wellness', path: '/expertise/child-adolescent-wellness', desc: 'Personalised support for children and adolescents through different stages of growing.' },
+      { name: 'Joint, Muscle & Pain Management', path: '/expertise/joint-muscle-pain-management', desc: 'Support for joint, muscle and recurring pain concerns affecting everyday comfort.' },
+      { name: 'Sleep & Lifestyle Concerns', path: '/expertise/sleep-lifestyle-concerns', desc: 'Guidance for sleep, stress, routines and lifestyle factors affecting everyday wellbeing.' },
+      { name: 'Mental, Emotional & Psychosomatic Wellness', path: '/expertise/mental-emotional-psychosomatic-wellness', desc: 'Support for emotional wellbeing and concerns involving the connection between mind and body.' },
+    ],
   },
   {
-    category: "Understanding Care",
+    category: 'Understanding Care',
     icon: Compass,
-    description: "Core principles and methodology behind personalised consultations",
     links: [
-      { name: "16. Why Homeopathy", path: "/my-approach/why-homeopathy", desc: "Understanding the individualised role of homeopathy in modern healthcare" },
-      { name: "17. Integrated Healing", path: "/my-approach/integrated-healing", desc: "Bringing homeopathy, counselling, and mind-body practices together" },
-      { name: "18. Consultation Process", path: "/my-approach/consultation-process", desc: "Exact 5-step flow: Listen, Assess, Understand, Personalise, Follow Up" },
-      { name: "19. Personalised Treatment", path: "/my-approach/personalised-treatment", desc: "Why your health story is unique and why care should be too" }
-    ]
+      { name: 'Clinical Philosophy', path: '/clinical-philosophy', desc: "Explore the thinking and principles behind Dr. Mohini's approach to patient care." },
+      { name: 'Why Homeopathy', path: '/my-approach/why-homeopathy', desc: 'Understand the individualised approach of homeopathy and how it may fit within personalised care.' },
+      { name: 'Integrated Healing', path: '/my-approach/integrated-healing', desc: 'Discover how homeopathy, psychological counselling and mind-body practices can be considered together.' },
+      { name: 'Consultation Process', path: '/my-approach/consultation-process', desc: 'Understand what to expect before, during and after an online consultation.' },
+      { name: 'Personalised Treatment', path: '/my-approach/personalised-treatment', desc: 'Learn how care is considered around your individual concerns, needs and circumstances.' },
+    ],
   },
   {
-    category: "About Dr. Mohini",
+    category: 'About Dr. Mohini',
     icon: Award,
-    description: "Verified qualifications, clinical appointments, and social contribution",
     links: [
-      { name: "20. Professional Experience", path: "/credentials/professional-experience", desc: "Clinical journey since 2012 and 8 years at ONGC" },
-      { name: "21. Education & Qualifications", path: "/credentials/education-qualifications", desc: "BHMS (2012), MD in Homeopathy (2016), and PGDPC in Counselling" },
-      { name: "22. Achievements", path: "/credentials/achievements", desc: "12,000+ patients, ONGC appointment, and free community medical camps" }
-    ]
+      { name: 'Professional Experience', path: '/credentials/professional-experience', desc: "Explore Dr. Mohini's clinical and institutional professional experience." },
+      { name: 'Education & Qualifications', path: '/credentials/education-qualifications', desc: "View Dr. Mohini's academic qualifications and additional training." },
+      { name: 'Achievements', path: '/credentials/achievements', desc: 'Discover key milestones from her clinical and professional journey.' },
+      { name: 'Patient Stories', path: '/resources/patient-stories', desc: 'Read experiences shared by patients about their consultations and care.' },
+      { name: 'Case Studies', path: '/resources/case-studies', desc: 'Explore selected patient journeys and understand the approach taken in individual cases.' },
+    ],
   },
   {
-    category: "Resources",
+    category: 'Resources',
     icon: BookOpen,
-    description: "Authentic patient experiences, case studies, insights, and FAQs",
     links: [
-      { name: "23. Patient Stories", path: "/resources/patient-stories", desc: "Genuine, permission-based reflections from cared-for patients" },
-      { name: "24. Case Studies", path: "/resources/case-studies", desc: "Anonymised clinical journeys from presenting concern to care outcome" },
-      { name: "25. Health & Wellness Blogs", path: "/resources/blogs", desc: "10 content pillars and educational articles on mind-body health" },
-      { name: "26. Invite Me To Speak", path: "/resources/invite-me-to-speak", desc: "Keynotes and wellness workshops for corporate and community groups" },
-      { name: "27. FAQs", path: "/resources/faqs", desc: "Categorized answers on consultations, procedures, and homeopathy" },
-      { name: "28. Myths vs Facts", path: "/resources/myths-vs-facts", desc: "Educational breakdowns of common misconceptions about homeopathy & anxiety" }
-    ]
+      { name: 'Blogs', path: '/resources/blogs', desc: 'Explore articles and insights about anxiety, wellbeing, homeopathy, sleep and everyday health.', cta: 'Explore Blogs' },
+      { name: 'Myths vs Facts', path: '/resources/myths-vs-facts', desc: 'Explore common health and homeopathy beliefs through clear, balanced explanations.' },
+      { name: 'FAQs', path: '/resources/faqs', desc: 'Find answers to common questions about consultations, care and Trivana Wellness.' },
+    ],
   },
   {
-    category: "Connect",
+    category: 'Connect',
     icon: CalendarCheck,
-    description: "Online and in-person consultation booking",
     links: [
-      { name: "29. Book a Consultation", path: "/book-a-consultation", desc: "Interactive 4-step scheduling for online & in-clinic appointments" }
-    ]
+      { name: 'Invite Me To Speak', path: '/resources/invite-me-to-speak', desc: 'Explore speaking, workshop, panel and health-awareness opportunities with Dr. Mohini.', cta: 'Invite Me' },
+      // No dedicated /contact route exists; "Contact" points to the booking page.
+      { name: 'Contact', path: '/book-a-consultation', key: 'contact', desc: 'Have a question or want to discuss a consultation? Get in touch with Trivana Wellness.', cta: 'Contact Us' },
+      { name: 'Book a Consultation', path: '/book-a-consultation', desc: 'Choose a convenient time for an online consultation with Dr. Mohini.', cta: 'Book Consultation' },
+    ],
   },
   {
-    category: "Legal",
+    category: 'Legal & Privacy',
     icon: Scale,
-    description: "Mandatory compliance, patient privacy rights, and medical disclaimers",
+    wide: true,
     links: [
-      { name: "30. Privacy Policy", path: "/privacy-policy", desc: "DPDP compliance, health data confidentiality, and privacy practices" },
-      { name: "31. Terms & Conditions", path: "/terms-and-conditions", desc: "Website use, patient responsibilities, and service management" },
-      { name: "32. Medical Disclaimer", path: "/disclaimer", desc: "Important educational notice, non-emergency care, and complementary scope" },
-      { name: "33. Cookie Policy", path: "/cookie-policy", desc: "Technical cookies explanation and preference management" },
-      { name: "34. Website Sitemap", path: "/sitemap", desc: "Complete architectural directory of all 34 approved website pages" }
-    ]
-  }
+      { name: 'Privacy Policy', path: '/privacy-policy', desc: 'Learn how Trivana Wellness collects, uses and protects personal information.', cta: 'View Privacy Policy' },
+      { name: 'Cookie Policy', path: '/cookie-policy', desc: 'Understand how cookies and similar technologies may be used on this website.', cta: 'View Cookie Policy' },
+      { name: 'Disclaimer', path: '/disclaimer', desc: 'Important information about the educational content, consultations and services provided through this website.', cta: 'View Disclaimer' },
+      // Not listed in the Sitemap source; description is the Terms page hero line (source p.162).
+      { name: 'Terms and Conditions', path: '/terms-and-conditions', desc: 'These terms explain the use of the Trivana Wellness website, online consultations and related services.', cta: 'View Terms and Conditions' },
+    ],
+  },
 ];
 
 export default function SitemapPage() {
   return (
     <div className="sitemap-page">
       <Hero
-        badge="Architecture & Navigation"
-        title="Website Sitemap"
-        subtitle="A complete, transparent guide to all 34 approved pages of Dr. Mohini Mutha's website, consultations, health resources, and clinical philosophy."
-        breadcrumbs={[
-          { label: "Utility", path: "/sitemap" },
-          { label: "Sitemap" }
-        ]}
-        primaryCtaText="Book a Consultation"
-        primaryCtaLink="/book-a-consultation"
-        secondaryCtaText="Back to Home"
-        secondaryCtaLink="/"
+        badge="Sitemap"
+        title="Explore Dr. Mohini Mutha's website and find the information you need"
+        subtitle="A simple guide to our website, consultations, health resources and information about Dr. Mohini Mutha."
+        breadcrumbs={[{ label: 'Sitemap' }]}
+        primaryCtaText={null}
       />
 
       <section className="section lg-section">
         <div className="container">
-          <SectionHeader
-            badge="Exact 34-Page Structure"
-            title="Complete 34-Page Website Directory"
-            subtitle="Browse all approved sections, clinical specialties, and healthcare resources."
-            centered={true}
-          />
-
           <div className="lg-sitemap-grid">
             {sitemapStructure.map((group) => {
               const Icon = group.icon;
@@ -129,23 +115,20 @@ export default function SitemapPage() {
                   <div className="lg-sitemap-head">
                     <span className="icon-tile"><Icon size={22} /></span>
                     <div>
-                      <h3 className="lg-sitemap-title">{group.category}</h3>
-                      <p className="lg-sitemap-desc">{group.description}</p>
+                      <h2 className="lg-sitemap-title">{group.category}</h2>
                     </div>
-                    <span className="badge badge-mint lg-sitemap-count">
-                      {group.links.length} {group.links.length === 1 ? 'page' : 'pages'}
-                    </span>
                   </div>
 
                   <ul className="lg-sitemap-links">
                     {group.links.map((link) => (
-                      <li key={link.path}>
+                      <li key={link.key || link.path}>
                         <Link href={link.path} className="lg-sitemap-link">
                           <span className="lg-sitemap-text">
                             <span className="lg-sitemap-name">{link.name}</span>
                             <span className="lg-sitemap-link-desc">{link.desc}</span>
+                            <span className="lg-sitemap-cta">{link.cta || 'Explore'}</span>
                           </span>
-                          <ArrowRight size={16} className="lg-sitemap-arrow" />
+                          <ArrowRight size={16} className="lg-sitemap-arrow" aria-hidden="true" />
                         </Link>
                       </li>
                     ))}

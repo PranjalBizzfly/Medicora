@@ -1,127 +1,139 @@
 import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 import '../../styles/credentials.css';
 import Hero from '../../components/Hero';
 import SectionHeader from '../../components/SectionHeader';
-import CTABanner from '../../components/CTABanner';
-import BrandMark from '../../components/BrandMark';
-import { GraduationCap, Brain, Award } from 'lucide-react';
+import ActionTilesCTA from '../resources/ActionTilesCTA';
+import { defaultTiles } from '../resources/actionTiles';
+import { GraduationCap, BookOpen, HeartHandshake, BadgeCheck, ArrowRight } from 'lucide-react';
 
+// Source: Website Content PDF, Page 21 – Education & Qualifications (pp.144–145).
+// Institution / university / year details verified from the certificates
+// supplied in source-docs/Profile Summary (see docs-audit/AGENT_BRIEF.md).
 const qualifications = [
   {
     icon: GraduationCap,
-    tag: 'Completed 2012',
     title: 'BHMS',
-    sub: 'Bachelor of Homeopathic Medicine and Surgery',
-    text: 'Provided comprehensive clinical foundation in human anatomy, pathology, medicine, and homeopathic therapeutics, establishing independent clinical practice in 2012.',
+    text: 'Bachelor of Homeopathic Medicine and Surgery, completed in 2012.',
+    meta: [
+      ['Institution', 'Motiwala Homoeopathic Medical College & Hospital, Nashik'],
+      ['University', 'Maharashtra University of Health Sciences (MUHS), Nashik'],
+      ['Year', '2012'],
+    ],
+    link: { label: 'Learn more', href: '/about-me' },
   },
   {
-    icon: Award,
-    tag: 'Completed 2016',
+    icon: BookOpen,
     title: 'MD in Homeopathy',
-    sub: 'Specialisation in Homeopathic Materia Medica',
-    text: 'Rigorous postgraduate medical training strengthening deep understanding of homeopathic medicinal profiles, constitutional case analysis, and chronic disease therapeutics.',
+    text: 'Postgraduate specialisation in Homeopathic Materia Medica, completed in 2016.',
+    meta: [
+      ['Institution', "SNJB's Bhamashah Shri V. D. Mehata, Dev-Vijay (Pune) Post Graduate Institute of Homoeopathy & Research Centre, Chandwad"],
+      ['University', 'Maharashtra University of Health Sciences (MUHS), Nashik'],
+      ['Year', '2016'],
+    ],
+    link: { label: 'Discover more', href: '/my-approach/why-homeopathy' },
   },
   {
-    icon: Brain,
-    tag: 'Postgraduate Diploma',
-    title: 'PGDPC',
-    sub: 'Post Graduate Diploma in Psychological Counselling',
-    text: 'Postgraduate training focusing on psychological assessment, empathetic listening, cognitive coping frameworks, and psychosomatic health dynamics.',
+    icon: HeartHandshake,
+    title: 'Psychological Counselling',
+    text: 'Post Graduate Diploma in Psychological Counselling, adding another perspective to patient care.',
+    meta: [['Qualification', 'PGDPC']],
+    link: { label: 'Discover more', href: '/expertise/mental-emotional-psychosomatic-wellness' },
   },
 ];
 
-const pillars = [
-  {
-    title: 'Clinical Foundation',
-    text: 'BHMS provided the thorough grounding for evidence-conscious homeopathic medical practice.',
-  },
-  {
-    title: 'Specialised Knowledge',
-    text: 'MD in Homeopathy deepened understanding of Materia Medica and individualised constitutional treatment.',
-  },
-  {
-    title: 'Broader Human Perspective',
-    text: 'PGDPC added psychological counselling methodologies to evaluate stress, emotional trauma, and psychosomatic links.',
-  },
+const learning = [
+  { title: 'Clinical foundation', text: 'BHMS provided the foundation for my clinical practice in homeopathy.' },
+  { title: 'Specialised knowledge', text: 'MD in Homeopathy strengthened my understanding of Homeopathic Materia Medica.' },
+  { title: 'Broader perspective', text: 'PGDPC added training in psychological counselling and emotional wellbeing.' },
 ];
 
 export default function EducationQualificationsPage() {
   return (
     <div className="education-qualifications-page">
       <Hero
-        badge="Credentials · Academics"
+        badge="Credentials"
         title="Education & Qualifications"
-        subtitle="Qualifications that support thoughtful, evidence-conscious patient care."
+        subtitle="Qualifications that support thoughtful patient care"
         breadcrumbs={[
-          { label: "Credentials", path: "/credentials/professional-experience" },
-          { label: "Education & Qualifications" }
+          { label: 'Credentials', path: '/credentials/professional-experience' },
+          { label: 'Education & Qualifications' },
         ]}
-        primaryCtaText="Book a Consultation"
+        primaryCtaText="Book a consultation"
         primaryCtaLink="/book-a-consultation"
-        secondaryCtaText="View Achievements"
-        secondaryCtaLink="/credentials/achievements"
+        secondaryCtaText="Professional Experience"
+        secondaryCtaLink="/credentials/professional-experience"
       />
 
-      <section className="section bg-surface">
+      <section className="section bg-sand">
+        <div className="container">
+          <div className="grid-3">
+            {qualifications.map(({ icon: Icon, title, text, meta, link }) => (
+              <div className="card cr-card" key={title}>
+                <div className="cr-card-top">
+                  <span className="icon-tile"><Icon size={22} aria-hidden="true" /></span>
+                </div>
+                <h3>{title}</h3>
+                <p>{text}</p>
+                <ul className="cr-credential-meta">
+                  {meta.map(([k, v]) => (
+                    <li key={k}><strong>{k}:</strong> {v}</li>
+                  ))}
+                </ul>
+                <Link href={link.href} className="link-arrow cr-card-footer">
+                  <span>{link.label}</span>
+                  <ArrowRight size={14} aria-hidden="true" />
+                </Link>
+              </div>
+            ))}
+          </div>
+
+          <div className="cr-panel rs-section-gap">
+            <div style={{ marginBottom: '1.5rem', borderRadius: 'var(--radius-lg)', overflow: 'hidden' }}>
+              <Image
+                src="/images/credentials/education-materia-medica.webp"
+                alt="Classical Materia Medica study desk and academic medical texts"
+                width={900}
+                height={600}
+                style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }}
+              />
+            </div>
+            <h3>Registration</h3>
+            <p className="cr-registration">
+              <BadgeCheck size={18} aria-hidden="true" />
+              <span>Registered with the Maharashtra Council of Homoeopathy, Mumbai (2012).</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="section photo-band" style={{ '--band-img': "url('/images/photos/homeopathy-remedies-desk.jpg')" }}>
         <div className="container">
           <SectionHeader
-            badge="Credentials"
-            title="Academic Qualifications"
-            subtitle="Presenting medical foundation and psychological training without inflated claims."
+            badge="Education"
+            title="Learning that continues beyond qualification"
+            subtitle="My education has given me different perspectives to understand health, symptoms and the individual behind them."
             centered={true}
           />
-
           <div className="grid-3">
-            {qualifications.map(({ icon: Icon, tag, title, sub, text }) => (
-              <div className="card cr-card cr-card-accent" key={title}>
-                <span className="icon-tile"><Icon size={24} /></span>
-                <span className="badge badge-mint cr-tag">{tag}</span>
-                <h3>{title}</h3>
-                <h4 className="cr-card-sub">{sub}</h4>
-                <p>{text}</p>
+            {learning.map((l, i) => (
+              <div className="card cr-card" key={l.title}>
+                <div className="cr-card-top">
+                  <span className="cr-card-num" aria-hidden="true">0{i + 1}</span>
+                </div>
+                <h3>{l.title}</h3>
+                <p>{l.text}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section bg-sand">
-        <div className="container">
-          <div className="split-section cr-split">
-            <div className="cr-copy">
-              <span className="badge">Philosophy of Learning</span>
-              <h2>Learning That Continues Beyond Qualification</h2>
-              <p className="cr-lead">
-                My education has given me different perspectives to understand health, symptoms, and the individual behind them. But a degree is merely the starting line.
-              </p>
-              <p className="cr-body">
-                Over 14+ years of clinical practice, interacting with more than 12,000 patients has provided invaluable real-world clinical education—teaching that symptoms are never just textbook cases, but living human narratives.
-              </p>
-            </div>
-
-            <div className="cr-panel">
-              <BrandMark className="cr-panel-mark" />
-              <h3>Three Educational Pillars</h3>
-              <ol className="cr-timeline">
-                {pillars.map((p, i) => (
-                  <li key={p.title}>
-                    <span className="cr-timeline-num">{i + 1}</span>
-                    <div>
-                      <h4>{p.title}</h4>
-                      <p>{p.text}</p>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <CTABanner
-        badge="Knowledge with a Human Perspective"
-        title="Knowledge with a Human Perspective"
+      <ActionTilesCTA
+        title="Knowledge with a human perspective"
         subtitle="Qualifications provide the foundation. Listening, experience and understanding shape how that knowledge is used in practice."
+        tiles={defaultTiles({ message: 'Share your questions.', chat: 'Discuss your concerns.' })}
       />
     </div>
   );

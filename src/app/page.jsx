@@ -2,7 +2,7 @@ import HomePage from "../views/HomePage";
 
 export const metadata = {
   title: { absolute: "Dr. Mohini Mutha | Homeopathy, Counselling & Mind-Body Care" },
-  description: "Personalised care from Dr. Mohini Mutha, MD (Homeopathy) & PGDPC, combining homeopathy, psychological counselling and mind-body support. Online and in-person consultations.",
+  description: "A thoughtful approach to your health and wellbeing. Dr. Mohini Mutha, MD (Homeopathy) & PGDPC, offers personalised online anxiety care combining homeopathy, counselling, and mind-body support, with in-person consultations in Navi Mumbai.",
   alternates: { canonical: "/" },
 };
 

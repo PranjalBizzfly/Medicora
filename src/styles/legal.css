@@ -17,7 +17,7 @@
 .lg-toc {
   position: sticky;
   top: calc(var(--nav-height) + var(--topbar-height) + 1.5rem);
-  background-color: #FFFFFF;
+  background-color: var(--bg-surface);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-lg);
   padding: 1.5rem;
@@ -88,7 +88,7 @@
 
 /* ---------- Document panel ---------- */
 .lg-doc {
-  background-color: #FFFFFF;
+  background-color: var(--bg-surface);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-xl);
   padding: 3rem;
@@ -219,7 +219,7 @@
   width: 48px;
   height: 48px;
   border-radius: var(--radius-md);
-  background-color: #FFFFFF;
+  background-color: var(--bg-surface);
   color: var(--color-secondary);
 }
 
@@ -275,7 +275,7 @@
 }
 
 .lg-sitemap-card {
-  background-color: #FFFFFF;
+  background-color: var(--bg-surface);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-xl);
   padding: 2rem;
@@ -383,6 +383,13 @@
 }
 
 /* ---------- Responsive ---------- */
+/* Top bar is hidden at <=1100px (Header.css), so only the nav bar overlaps anchors. */
+@media (max-width: 1100px) {
+  .lg-doc-section {
+    scroll-margin-top: calc(var(--nav-height) + 1.25rem);
+  }
+}
+
 @media (max-width: 1024px) {
   .lg-layout {
     grid-template-columns: minmax(0, 1fr);
@@ -451,4 +458,34 @@
   .lg-sitemap-count {
     margin-left: 0;
   }
+}
+
+/* ---------- Source-content additions (Prompt 3) ---------- */
+.lg-prose .lg-doc-intro {
+  font-size: 1.1rem;
+  color: var(--text-main);
+  margin-bottom: 2.5rem;
+}
+
+.lg-doc-subheading {
+  font-size: 1.15rem;
+  color: var(--color-secondary);
+  margin: 1.5rem 0 0.6rem;
+}
+
+.lg-doc-footnotes {
+  margin-top: 2.75rem;
+  padding-top: 2rem;
+  border-top: 1px dashed var(--border-light);
+}
+
+.lg-contact-cta {
+  margin-top: 1rem;
+}
+
+.lg-sitemap-cta {
+  margin-top: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-primary);
 }

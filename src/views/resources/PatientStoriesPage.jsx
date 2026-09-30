@@ -1,131 +1,113 @@
 import React from 'react';
-import { Ear, HeartHandshake, UserRound } from 'lucide-react';
+import Link from 'next/link';
+import { Users, MessageCircle, HeartHandshake, Ear, Handshake, UserCheck, ArrowRight } from 'lucide-react';
 import Hero from '../../components/Hero';
 import SectionHeader from '../../components/SectionHeader';
 import TestimonialCard from '../../components/TestimonialCard';
-import CTABanner from '../../components/CTABanner';
+import ActionTilesCTA from './ActionTilesCTA';
 import { patientTestimonials } from '../../data/websiteContent';
 import '../../styles/resources.css';
 
+// Source: Website Content PDF, Page 23 – Patient Stories (pp.148–149).
+// The source testimonial slots are "[Patient testimonial to be added]"
+// placeholders, so only the genuine approved quote is shown plus a
+// structure-ready state (sitemap brief: Challenge → Consultation Experience
+// → Patient Perspective; genuine, permission-based testimonials only).
 const themes = [
   {
-    num: '01',
-    title: 'Every Story Is Different',
-    text: 'Each patient comes with their own unique concerns, lived experiences, physical reactions, and expectations. We tailor the consultation to meet you where you are.'
+    Icon: Users,
+    title: 'Every story is different',
+    text: 'Each patient comes with their own concerns, experiences and expectations.',
+    link: { label: 'Learn about the consultation', href: '/my-approach/consultation-process' },
   },
   {
-    num: '02',
-    title: 'A Space to Be Heard',
-    text: 'Many patients value having dedicated, unhurried time and psychological safety to openly discuss what they are experiencing—both physically and emotionally.'
-  },
-  {
-    num: '03',
-    title: 'Care That Feels Personal',
-    text: 'The most meaningful part of clinical practice is seeing patients feel genuinely understood throughout their care journey, supporting their everyday wellbeing.'
-  }
-];
-
-const principles = [
-  {
-    Icon: Ear,
-    title: 'Understanding',
-    text: "Taking time to listen to each patient's concerns, background, and personal health experiences."
+    Icon: MessageCircle,
+    title: 'A space to be heard',
+    text: 'Many patients value having the time and space to openly discuss what they are experiencing.',
+    link: { label: 'Read the story', href: '#patient-stories' },
   },
   {
     Icon: HeartHandshake,
-    title: 'Personal Connection',
-    text: 'Creating a consultation atmosphere where patients feel comfortable speaking openly without hesitation.'
+    title: 'Care that feels personal',
+    text: 'The most meaningful part of practice is seeing patients feel understood throughout their journey.',
+    link: { label: 'Read the story', href: '#patient-stories' },
   },
-  {
-    Icon: UserRound,
-    title: 'Individual Care',
-    text: "Keeping each person's unique concerns, pace, and lifestyle at the centre of ongoing care."
-  }
+];
+
+const storyStructure = ['Challenge', 'Consultation Experience', 'Patient Perspective'];
+
+const principles = [
+  { Icon: Ear, title: 'Understanding', text: "Taking time to listen to each patient's concerns and experiences." },
+  { Icon: Handshake, title: 'Personal connection', text: 'Creating a consultation where patients feel comfortable speaking openly.' },
+  { Icon: UserCheck, title: 'Individual care', text: "Keeping each person's concerns and needs at the centre of the consultation." },
 ];
 
 export default function PatientStoriesPage() {
   return (
     <div className="patient-stories-page">
       <Hero
-        badge="Resources · Patient Voices"
+        badge="Resources"
         title="Patient Stories"
-        subtitle="Real experiences from people I have cared for. Building trust through authentic patient reflections without exaggerated claims."
+        subtitle="Real experiences from people I have cared for"
         breadcrumbs={[
-          { label: "Resources", path: "/resources/patient-stories" },
-          { label: "Patient Stories" }
+          { label: 'Resources', path: '/resources/patient-stories' },
+          { label: 'Patient Stories' },
         ]}
-        primaryCtaText="Book a Consultation"
+        primaryCtaText="Book a consultation"
         primaryCtaLink="/book-a-consultation"
-        secondaryCtaText="Explore Case Studies"
+        secondaryCtaText="Case Studies"
         secondaryCtaLink="/resources/case-studies"
       />
 
-      {/* 3 Key Themes */}
-      <section className="section bg-surface">
+      <section className="section photo-band" style={{ '--band-img': "url('/images/photos/consultation-woman-patient.jpg')" }}>
         <div className="container">
-          <SectionHeader
-            badge="Guiding Values"
-            title="Three Key Themes of Patient Care"
-            subtitle="The cornerstones that define our consultation environment."
-            centered={true}
-          />
-
           <div className="grid-3">
-            {themes.map((theme) => (
-              <div key={theme.num} className="card rs-card">
-                <span className="rs-card-num" aria-hidden="true">{theme.num}</span>
-                <span className="badge badge-mint">Theme {theme.num}</span>
-                <h3>{theme.title}</h3>
-                <p>{theme.text}</p>
+            {themes.map(({ Icon, title, text, link }) => (
+              <div key={title} className="card rs-card">
+                <span className="icon-tile"><Icon size={22} aria-hidden="true" /></span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+                <Link href={link.href} className="link-arrow">
+                  <span>{link.label}</span>
+                  <ArrowRight size={14} aria-hidden="true" />
+                </Link>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Testimonials Grid (Authentic Only) */}
-      <section className="section bg-sand">
+      <section id="patient-stories" className="section bg-sand">
         <div className="container">
           <SectionHeader
-            badge="Authentic Reflections"
-            title="What Patients Have to Say"
+            badge="Patient stories"
+            title="What patients have to say"
             subtitle="Real experiences from patients who have taken the time to share their thoughts about their consultations and care."
             centered={true}
           />
 
-          <div className="grid-2 rs-testimonials">
+          <div className="rs-featured-quote">
             {patientTestimonials.map((t) => (
-              <TestimonialCard
-                key={t.id}
-                quote={t.quote}
-                author="Patient experience"
-                category={t.category}
-                condition={t.condition}
-              />
+              <TestimonialCard key={t.id} quote={t.quote} author={t.author} />
             ))}
           </div>
 
-          {/* Genuine Structure - No Fake Data */}
-          <div className="rs-note">
-            <h4>Our Testimonial Policy</h4>
-            <p>
-              In accordance with ethical medical practice and approved source guidelines, we only display genuine, permission-based reflections. We do not manufacture artificial testimonials or make promises of guaranteed health outcomes.
-            </p>
+          <div className="rs-pending">
+            <span className="rs-pending-tag">Patient story</span>
+            <h3>More patient stories will be shared here with patients&rsquo; permission.</h3>
+            <ol className="rs-structure">
+              {storyStructure.map((s) => (
+                <li key={s}><h3>{s}</h3></li>
+              ))}
+            </ol>
           </div>
-        </div>
-      </section>
 
-      {/* Core Principles */}
-      <section className="section bg-surface">
-        <div className="container">
-          <div className="grid-3">
+          <div className="grid-3 rs-section-gap">
             {principles.map(({ Icon, title, text }) => (
-              <div key={title} className="card rs-card rs-principle">
-                <span className="icon-tile icon-tile-mint">
-                  <Icon size={22} aria-hidden="true" />
-                </span>
+              <div key={title} className="rs-principle">
+                <span className="icon-tile"><Icon size={20} aria-hidden="true" /></span>
                 <div>
-                  <h4>{title}</h4>
+                  <h3>{title}</h3>
                   <p>{text}</p>
                 </div>
               </div>
@@ -134,10 +116,8 @@ export default function PatientStoriesPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <CTABanner
-        badge="Your Story Matters"
-        title="Your Story Starts with a Conversation"
+      <ActionTilesCTA
+        title="Your story starts with a conversation"
         subtitle="If you're considering personalised care, you can begin by sharing what you're experiencing."
       />
     </div>

@@ -19,7 +19,7 @@
   padding: 2rem 2.25rem;
   margin-bottom: 4rem;
   border-radius: var(--radius-lg);
-  background-color: var(--color-primary);
+  background-color: var(--brand-maroon);
 }
 
 .footer-cta h3 {
@@ -171,6 +171,12 @@ a.footer-contact-item:hover {
 
 .footer-disclaimer-box strong {
   color: rgba(255, 255, 255, 0.88);
+}
+
+.footer-disclaimer-box a {
+  color: #FFFFFF;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 /* Bottom bar */

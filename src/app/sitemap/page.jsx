@@ -2,7 +2,7 @@ import SitemapPage from "../../views/legal/SitemapPage";
 
 export const metadata = {
   title: "Sitemap",
-  description: "A simple guide to every page on Dr. Mohini Mutha's website.",
+  description: "A simple guide to our website, consultations, health resources and information about Dr. Mohini Mutha.",
   alternates: { canonical: "/sitemap" },
 };
 

@@ -36,12 +36,12 @@ export const navigationLinks = [
     path: "/"
   },
   {
-    label: "About",
+    label: "About Us",
     children: [
       { label: "About Me", path: "/about-me", desc: "Clinical experience with a personal approach" },
-      { label: "My Journey", path: "/my-journey", desc: "A journey built on experience, learning & care" },
+      { label: "My Journey", path: "/my-journey", desc: "From studying medicine to understanding the person behind it" },
       { label: "My Approach", path: "/my-approach", desc: "Care that starts with understanding" },
-      { label: "Clinical Philosophy", path: "/clinical-philosophy", desc: "Health is more than a set of symptoms" }
+      { label: "Clinical Philosophy", path: "/clinical-philosophy", desc: "Good care begins with understanding the person behind the symptoms" }
     ]
   },
   {
@@ -57,7 +57,7 @@ export const navigationLinks = [
       { label: "Child & Adolescent Wellness", path: "/expertise/child-adolescent-wellness", desc: "Thoughtful care for growing minds and bodies" },
       { label: "Joint, Muscle & Pain Management", path: "/expertise/joint-muscle-pain-management", desc: "Support for easier movement and everyday comfort" },
       { label: "Sleep & Lifestyle Concerns", path: "/expertise/sleep-lifestyle-concerns", desc: "Better sleep starts with understanding your routine" },
-      { label: "Mental, Emotional & Psychosomatic", path: "/expertise/mental-emotional-psychosomatic-wellness", desc: "Support for emotional concerns affecting how you feel" }
+      { label: "Mental, Emotional & Psychosomatic", path: "/expertise/mental-emotional-psychosomatic-wellness", desc: "Support for emotional concerns that may affect how you feel and function" }
     ]
   },
   {
@@ -65,22 +65,22 @@ export const navigationLinks = [
     children: [
       { label: "Why Homeopathy", path: "/my-approach/why-homeopathy", desc: "Looking at the individual, not just the condition" },
       { label: "Integrated Healing", path: "/my-approach/integrated-healing", desc: "Homeopathy, counselling and mind-body practices" },
-      { label: "Consultation Process", path: "/my-approach/consultation-process", desc: "What to expect during your consultation" },
-      { label: "Personalised Treatment", path: "/my-approach/personalised-treatment", desc: "Your health story is unique. Your care should be too" }
+      { label: "Consultation Process", path: "/my-approach/consultation-process", desc: "A simple, thoughtful approach to your care" },
+      { label: "Personalised Treatment", path: "/my-approach/personalised-treatment", desc: "Learn how care is considered around your individual concerns, needs and circumstances" }
     ]
   },
   {
     label: "Credentials",
     children: [
       { label: "Professional Experience", path: "/credentials/professional-experience", desc: "A clinical journey shaped by years of patient care" },
-      { label: "Education & Qualifications", path: "/credentials/education-qualifications", desc: "Academic foundation supporting thoughtful care" },
+      { label: "Education & Qualifications", path: "/credentials/education-qualifications", desc: "Qualifications that support thoughtful patient care" },
       { label: "Achievements", path: "/credentials/achievements", desc: "Milestones built through practice and dedication" }
     ]
   },
   {
     label: "Resources",
     children: [
-      { label: "Patient Stories", path: "/resources/patient-stories", desc: "Real experiences from people cared for" },
+      { label: "Patient Stories", path: "/resources/patient-stories", desc: "Real experiences from people I have cared for" },
       { label: "Case Studies", path: "/resources/case-studies", desc: "Understanding the person behind the concern" },
       { label: "Blogs", path: "/resources/blogs", desc: "Simple insights for better everyday wellbeing" },
       { label: "Invite Me To Speak", path: "/resources/invite-me-to-speak", desc: "Conversations that create awareness and understanding" },
@@ -90,37 +90,13 @@ export const navigationLinks = [
   }
 ];
 
+// Source: Website Sitemap brief, "Consultation Process — Use a simple 4–5 step process".
 export const consultationSteps = [
-  {
-    number: "01",
-    title: "Listen",
-    subtitle: "Understand your concerns",
-    description: "Every consultation begins with listening. You are given ample time and space to explain what you are experiencing, without rushed checklists."
-  },
-  {
-    number: "02",
-    title: "Assess",
-    subtitle: "Explore health history and relevant factors",
-    description: "We carefully review your past medical history, presenting symptoms, previous treatments, and contributing physical or emotional factors."
-  },
-  {
-    number: "03",
-    title: "Understand",
-    subtitle: "Look at physical, emotional and lifestyle context",
-    description: "Health is rarely isolated to one symptom. We explore how daily routines, stress patterns, sleep, and emotional wellbeing interact."
-  },
-  {
-    number: "04",
-    title: "Personalise",
-    subtitle: "Develop an individualised care approach",
-    description: "Building a tailored plan combining classical homeopathic remedies, counselling guidance, and practical lifestyle adjustments."
-  },
-  {
-    number: "05",
-    title: "Follow Up",
-    subtitle: "Review progress and adapt as appropriate",
-    description: "Care is an evolving partnership. We track your response over time, listen to ongoing experiences, and adapt remedies thoughtfully."
-  }
+  { number: "01", title: "Listen", subtitle: "Understand your concerns." },
+  { number: "02", title: "Assess", subtitle: "Explore health history and relevant factors." },
+  { number: "03", title: "Understand", subtitle: "Look at physical, emotional and lifestyle context." },
+  { number: "04", title: "Personalise", subtitle: "Develop an individualised care approach." },
+  { number: "05", title: "Follow Up", subtitle: "Review progress and adapt as appropriate." }
 ];
 
 export const credibilityPillars = [
@@ -146,6 +122,44 @@ export const credibilityPillars = [
   }
 ];
 
+// Expertise pages — source: Website Content PDF "Whole Website Content" Pages 6–15 (pp.124–135);
+// concerns lists: Sitemap brief pp.18–22; shortDesc: Content PDF Sitemap page (p.169);
+// FAQs: verbatim from Content PDF FAQ page (pp.153–155).
+const EXPERTISE_FAQ = {
+  sameApproach: { q: "Does every person receive the same approach?", a: "No. Each consultation begins by understanding your symptoms, health history, lifestyle and individual concerns." },
+  whatToDiscuss: { q: "What can I discuss during a consultation?", a: "You can discuss your physical symptoms, emotional concerns, lifestyle, sleep and other health-related experiences." },
+  firstConsultation: { q: "What happens during my first consultation?", a: "The consultation focuses on understanding your concerns, symptoms, health history, lifestyle and overall wellbeing." },
+  askBeforeBooking: { q: "Can I ask a question before booking?", a: "Yes. If you are unsure whether an online consultation is right for your concern, you can get in touch before booking." },
+  anxietyOnline: { q: "Do you provide online anxiety consultations?", a: "Yes. You can discuss anxiety, stress, emotional concerns and related wellbeing challenges during an online consultation." },
+  counselling: { q: "Does Dr. Mohini provide psychological counselling?", a: "Dr. Mohini holds a Post Graduate Diploma in Psychological Counselling and incorporates counselling perspectives where appropriate." },
+  homeopathyCounselling: { q: "Can homeopathy and counselling be part of the same care plan?", a: "Depending on your needs, homeopathy and counselling may be considered as complementary parts of an individualised approach." },
+  yogaMeditation: { q: "Do you offer yoga and meditation guidance?", a: "Yoga and meditation may be included as supportive mind-body practices where they are appropriate for your individual needs." }
+};
+
+// Standard final-CTA tiles used on most expertise pages (source: "Message me / Chat with me / Book a consultation").
+const standardTiles = (messageText, chatText) => [
+  { type: "message", label: "Message me", text: messageText },
+  { type: "chat", label: "Chat with me", text: chatText },
+  { type: "book", label: "Book a consultation", text: "Choose a convenient time to connect." }
+];
+
+const REL = {
+  general: { label: "General Health & Wellness", path: "/expertise/general-health-wellness" },
+  respiratory: { label: "Respiratory Health", path: "/expertise/respiratory-health" },
+  headache: { label: "Headache & Migraine Care", path: "/expertise/headache-migraine-care" },
+  digestive: { label: "Digestive & Gut Health", path: "/expertise/digestive-gut-health" },
+  skin: { label: "Skin, Hair & Allergies", path: "/expertise/skin-hair-allergies" },
+  mental: { label: "Mental, Emotional & Psychosomatic Wellness", path: "/expertise/mental-emotional-psychosomatic-wellness" },
+  child: { label: "Child & Adolescent Wellness", path: "/expertise/child-adolescent-wellness" },
+  sleep: { label: "Sleep & Lifestyle Concerns", path: "/expertise/sleep-lifestyle-concerns" },
+  integrated: { label: "Integrated Healing", path: "/my-approach/integrated-healing" },
+  personalised: { label: "Personalised Treatment", path: "/my-approach/personalised-treatment" },
+  whyHomeopathy: { label: "Why Homeopathy", path: "/my-approach/why-homeopathy" },
+  blogs: { label: "Blogs", path: "/resources/blogs" },
+  myths: { label: "Myths vs Facts", path: "/resources/myths-vs-facts" },
+  book: { label: "Book a Consultation", path: "/book-a-consultation" }
+};
+
 export const expertiseSpecialties = [
   {
     id: "general-health-wellness",
@@ -153,20 +167,30 @@ export const expertiseSpecialties = [
     tagline: "Everyday care for your overall wellbeing",
     path: "/expertise/general-health-wellness",
     icon: "HeartPulse",
-    shortDesc: "Support for maintaining energy, preventive balance, and addressing recurring everyday health concerns through individualised care.",
+    shortDesc: "Personalised support for everyday health, lifestyle and overall wellbeing.",
     careAreas: [
-      { title: "General Wellness", text: "Support for maintaining your energy, balance and general wellbeing through personalised care." },
-      { title: "Lifestyle Concerns", text: "Guidance for sleep, stress, nutrition and daily habits that may influence your overall wellbeing." },
-      { title: "Common Health Concerns", text: "Personalised support for everyday concerns affecting your comfort, routine and quality of life." }
+      { title: "General Wellness", text: "Support for maintaining your energy, balance and general wellbeing through personalised care.", linkLabel: "Discover more", href: "#concerns" },
+      { title: "Lifestyle concerns", text: "Guidance for sleep, stress, nutrition and daily habits that may influence your overall wellbeing.", linkLabel: "Discover more", href: "/expertise/sleep-lifestyle-concerns" },
+      { title: "Common health concerns", text: "Personalised support for everyday concerns affecting your comfort, routine and quality of life.", linkLabel: "Discover more", href: "#concerns" }
     ],
-    faqs: [
-      { q: "What does general health and wellness care cover?", a: "It focuses on everyday vitality, preventive health awareness, recurrent seasonal imbalances, and lifestyle guidance tailored to your constitution." },
-      { q: "How is homeopathic wellness care different from conventional supplements?", a: "Rather than providing a generic supplement, homeopathic care focuses on assessing individual symptom patterns and overall vitality." }
-    ],
-    relatedPages: [
-      { label: "Lifestyle & Sleep Concerns", path: "/expertise/sleep-lifestyle-concerns" },
-      { label: "Personalised Treatment", path: "/my-approach/personalised-treatment" }
-    ]
+    concerns: ["Overall wellbeing", "Preventive health awareness", "Lifestyle", "Individualised wellness"],
+    approach: {
+      heading: "Thoughtful care for your overall wellbeing",
+      intro: "A personalized approach that considers your health, lifestyle and individual needs.",
+      items: [
+        { title: "Health matters", text: "Understand the concerns that may be affecting your everyday wellbeing." },
+        { title: "Lifestyle matters", text: "Small, sustainable changes can support healthier and more balanced daily routines." },
+        { title: "Your Wellbeing Matters", text: "Your care should reflect your individual needs, experiences and circumstances." }
+      ]
+    },
+    testimonials: [],
+    faqs: [EXPERTISE_FAQ.sameApproach, EXPERTISE_FAQ.whatToDiscuss, EXPERTISE_FAQ.askBeforeBooking],
+    relatedPages: [REL.sleep, REL.personalised, REL.whyHomeopathy, REL.blogs, REL.book],
+    cta: {
+      heading: "Start a conversation about your health",
+      intro: "Whether you have a specific concern or simply want to understand your health better, begin with a conversation.",
+      tiles: standardTiles("Share what's concerning you.", "Discuss your health and wellbeing.")
+    }
   },
   {
     id: "respiratory-health",
@@ -174,20 +198,30 @@ export const expertiseSpecialties = [
     tagline: "Support for healthier breathing and wellbeing",
     path: "/expertise/respiratory-health",
     icon: "Wind",
-    shortDesc: "Thoughtful homeopathic support for recurring coughs, sinus congestion, seasonal allergies, and breathing comfort.",
+    shortDesc: "Support for common respiratory concerns and breathing-related wellbeing.",
     careAreas: [
-      { title: "Breathing Concerns", text: "Personalised care for common respiratory concerns that may affect your comfort, breathing and daily life." },
-      { title: "Recurrent Symptoms", text: "Support for recurring cough, congestion, sinus heaviness and other breathing-related discomfort." },
-      { title: "Long-term Wellbeing", text: "Thoughtful care that considers respiratory health, environmental triggers, lifestyle and your overall wellbeing." }
+      { title: "Breathing concerns", text: "Personalised care for common respiratory concerns that may affect your comfort, breathing and daily life.", linkLabel: "Discover more", href: "#concerns" },
+      { title: "Recurrent symptoms", text: "Support for recurring cough, congestion and other breathing-related discomfort.", linkLabel: "Discover more", href: "#concerns" },
+      { title: "Long-term wellbeing", text: "Thoughtful care that considers respiratory health, lifestyle and your overall wellbeing.", linkLabel: "Discover more", href: "#approach" }
     ],
-    faqs: [
-      { q: "Can homeopathy help with seasonal respiratory flare-ups?", a: "Yes. By understanding your specific triggers, weather sensitivities, and symptom presentation, care is individualised to support recovery." },
-      { q: "Does this replace emergency breathing assistance?", a: "No. Acute or severe respiratory distress requires immediate conventional emergency care. Homeopathy serves as supportive complementary care." }
-    ],
-    relatedPages: [
-      { label: "Skin, Hair & Allergies", path: "/expertise/skin-hair-allergies" },
-      { label: "Why Homeopathy", path: "/my-approach/why-homeopathy" }
-    ]
+    concerns: ["Recurring respiratory concerns", "Allergic tendencies", "Sinus-related concerns", "Seasonal respiratory issues"],
+    approach: {
+      heading: "Understanding your respiratory health",
+      intro: "Explore how personalised care can support your breathing, comfort and everyday wellbeing.",
+      items: [
+        { title: "Listen carefully", text: "Your symptoms, health history and experiences help shape a more informed consultation." },
+        { title: "Understand patterns", text: "Understand your health patterns and the factors that may influence how you feel." },
+        { title: "Personalise care", text: "Your care is considered around your individual needs, lifestyle and circumstances." }
+      ]
+    },
+    testimonials: [],
+    faqs: [EXPERTISE_FAQ.sameApproach, EXPERTISE_FAQ.whatToDiscuss, EXPERTISE_FAQ.askBeforeBooking],
+    relatedPages: [REL.skin, REL.child, REL.whyHomeopathy, REL.blogs, REL.myths],
+    cta: {
+      heading: "Start a conversation about your health",
+      intro: "Have a respiratory concern? Begin with a conversation and explore the right next step for you.",
+      tiles: standardTiles("Share your respiratory concern.", "Discuss your symptoms and concerns.")
+    }
   },
   {
     id: "headache-migraine-care",
@@ -195,24 +229,34 @@ export const expertiseSpecialties = [
     tagline: "Understand your headaches and find better support",
     path: "/expertise/headache-migraine-care",
     icon: "Brain",
-    shortDesc: "Identifying migraine patterns, lifestyle triggers, stress relationships, and individualised support for head pain.",
+    shortDesc: "Personalised care focused on understanding headaches, migraine patterns and related concerns.",
     careAreas: [
-      { title: "Headache Concerns", text: "Personalised support for headaches and tension-related discomfort that may affect your comfort and routine." },
-      { title: "Migraine Support", text: "Care focused on understanding migraine patterns, environmental or dietary triggers, and related symptoms." },
-      { title: "Lifestyle Factors", text: "Explore how sleep, screen fatigue, stress and daily habits may influence your head comfort." }
+      { title: "Headache concerns", text: "Personalised support for headaches and migraine-related concerns that may affect your comfort and routine.", linkLabel: "Explore care", href: "#concerns" },
+      { title: "Migraine support", text: "Care focused on understanding migraine patterns, triggers and related concerns.", linkLabel: "Discover more", href: "#approach" },
+      { title: "Lifestyle factors", text: "Explore how sleep, stress and daily habits may influence your overall health and comfort.", linkLabel: "Learn more", href: "/expertise/sleep-lifestyle-concerns" }
     ],
+    concerns: ["Headaches", "Migraine patterns", "Triggers", "Lifestyle factors", "Patient assessment"],
+    approach: {
+      heading: "Understanding your headache concerns",
+      intro: "Learn more about your symptoms, patterns and the factors that may be influencing your wellbeing.",
+      items: [
+        { title: "Listen carefully", text: "Your symptoms, experiences and health history help create a clearer picture of your concerns." },
+        { title: "Understand patterns", text: "Recurring headaches and migraines can have different patterns, triggers and associated concerns." },
+        { title: "Personalise care", text: "Your care is considered around your individual symptoms, lifestyle and circumstances." }
+      ]
+    },
     testimonials: [
-      { quote: "I felt heard and understood throughout my consultation, and my concerns were discussed with genuine care.", patient: "Patient Experience", location: "" },
-      { quote: "The consultation gave me a clearer understanding of my recurring headaches and what I could work on.", patient: "Patient Experience", location: "" },
-      { quote: "I appreciated the time taken to understand my symptoms instead of rushing through the consultation.", patient: "Patient Experience", location: "" }
+      { quote: "I felt heard and understood throughout my consultation, and my concerns were discussed with genuine care." },
+      { quote: "The consultation gave me a clearer understanding of my recurring headaches and what I could work on." },
+      { quote: "I appreciated the time taken to understand my symptoms instead of rushing through the consultation." }
     ],
-    faqs: [
-      { q: "Why do you ask about stress and sleep during a headache consultation?", a: "Headaches and migraines are deeply connected to nervous system tension, sleep disruption, emotional stress, and daily lifestyle rhythms." }
-    ],
-    relatedPages: [
-      { label: "Sleep & Lifestyle Concerns", path: "/expertise/sleep-lifestyle-concerns" },
-      { label: "Consultation Process", path: "/my-approach/consultation-process" }
-    ]
+    faqs: [EXPERTISE_FAQ.sameApproach, EXPERTISE_FAQ.whatToDiscuss, EXPERTISE_FAQ.firstConsultation],
+    relatedPages: [REL.sleep, REL.mental, REL.personalised, REL.blogs],
+    cta: {
+      heading: "Start a conversation about your health",
+      intro: "Share what you have been experiencing and take the first step towards personalised care.",
+      tiles: standardTiles("Share your concerns with me.", "Discuss your symptoms and questions.")
+    }
   },
   {
     id: "digestive-gut-health",
@@ -220,23 +264,34 @@ export const expertiseSpecialties = [
     tagline: "Understand your digestion. Support your overall health.",
     path: "/expertise/digestive-gut-health",
     icon: "Utensils",
-    shortDesc: "Gentle, non-invasive support for recurring acidity, bloating, indigestion, sluggish bowel habits, and IBS-related discomfort.",
+    shortDesc: "Support for digestive concerns, gut health and everyday digestive wellbeing.",
     careAreas: [
-      { title: "Digestive Concerns", text: "Personalised support for common digestive concerns affecting comfort and everyday wellbeing." },
-      { title: "Gut Health Patterns", text: "Understand digestive patterns, food habits and lifestyle factors that may influence your gut health." },
-      { title: "Recurring Discomfort", text: "Thoughtful care for recurring bloating, acidity, indigestion, constipation and IBS-related concerns." }
+      { title: "Digestive concerns", text: "Personalised support for common digestive concerns affecting comfort and everyday wellbeing.", linkLabel: "Discover more", href: "#concerns" },
+      { title: "Gut health", text: "Understand digestive patterns, food habits and lifestyle factors that may influence your gut health.", linkLabel: "Explore care", href: "#approach" },
+      { title: "Recurring discomfort", text: "Thoughtful care for recurring bloating, acidity, indigestion and digestive discomfort.", linkLabel: "Discover more", href: "#concerns" }
     ],
+    concerns: ["Acidity", "Indigestion", "Bloating", "Constipation", "IBS-related concerns"],
+    approach: {
+      heading: "Thoughtful care for digestive wellbeing",
+      intro: "Understand your symptoms, daily habits and lifestyle factors to support better digestive wellbeing.",
+      items: [
+        { title: "Listen carefully", text: "Your symptoms, experiences and health history help create a better understanding of your digestive concerns." },
+        { title: "Understand patterns", text: "Digestive symptoms can be influenced by food habits, lifestyle and everyday routines." },
+        { title: "Personalise care", text: "Your care is considered around your individual symptoms, needs and circumstances." }
+      ]
+    },
     testimonials: [
-      { quote: "The consultation gave me time to explain my concerns and helped me understand my digestive symptoms better.", patient: "Patient Experience", location: "" },
-      { quote: "I appreciated the thoughtful questions and personalized approach throughout my consultation.", patient: "Patient Experience", location: "" }
+      { quote: "The consultation gave me time to explain my concerns and helped me understand my digestive symptoms better." },
+      { quote: "I appreciated the thoughtful questions and personalized approach throughout my consultation." },
+      { quote: "The consultation felt comfortable and focused on understanding my concerns." }
     ],
-    faqs: [
-      { q: "How does emotional stress affect digestion?", a: "The gut-brain axis is a direct link between emotional stress and digestive discomfort. Our counselling background helps evaluate both sides." }
-    ],
-    relatedPages: [
-      { label: "Mental & Psychosomatic Wellness", path: "/expertise/mental-emotional-psychosomatic-wellness" },
-      { label: "Integrated Healing", path: "/my-approach/integrated-healing" }
-    ]
+    faqs: [EXPERTISE_FAQ.sameApproach, EXPERTISE_FAQ.whatToDiscuss, EXPERTISE_FAQ.firstConsultation],
+    relatedPages: [REL.mental, REL.sleep, REL.integrated, REL.blogs],
+    cta: {
+      heading: "Find the right support for your digestive health",
+      intro: "Share what you've been experiencing and take the first step towards personalised digestive care.",
+      tiles: standardTiles("Share your digestive concerns.", "Discuss your symptoms and questions.")
+    }
   },
   {
     id: "skin-hair-allergies",
@@ -244,19 +299,30 @@ export const expertiseSpecialties = [
     tagline: "Personalised care for healthier skin and hair",
     path: "/expertise/skin-hair-allergies",
     icon: "Sparkles",
-    shortDesc: "In-depth constitutional care for eczema, acne flare-ups, chronic allergic sensitivities, and persistent hair fall.",
+    shortDesc: "Care for common skin, hair, scalp and allergic concerns.",
     careAreas: [
-      { title: "Skin Concerns", text: "Personalised support for common skin concerns affecting comfort, confidence and everyday wellbeing like acne and eczema." },
-      { title: "Hair & Scalp Health", text: "Care for recurring hair fall, dandruff, and scalp concerns with attention to your overall health and nutrition." },
-      { title: "Allergic Concerns", text: "Support for recurring allergic symptoms and sensitivities that may affect your everyday life." }
+      { title: "Skin concerns", text: "Personalised support for common skin concerns affecting comfort, confidence and everyday wellbeing.", linkLabel: "Learn more", href: "#concerns" },
+      { title: "Hair & scalp health", text: "Care for recurring hair and scalp concerns with attention to your overall health and wellbeing.", linkLabel: "Discover more", href: "#concerns" },
+      { title: "Allergic concerns", text: "Support for recurring allergic symptoms and sensitivities that may affect your everyday life.", linkLabel: "Discover more", href: "/expertise/respiratory-health" }
     ],
-    faqs: [
-      { q: "Can skin conditions be managed with internal remedies alone?", a: "Homeopathy considers skin manifestations as an expression of the body's internal state, addressing underlying constitutional factors." }
-    ],
-    relatedPages: [
-      { label: "General Health & Wellness", path: "/expertise/general-health-wellness" },
-      { label: "Why Homeopathy", path: "/my-approach/why-homeopathy" }
-    ]
+    concerns: ["Acne", "Eczema", "Allergic skin concerns", "Hair fall", "Recurring skin issues"],
+    approach: {
+      heading: "Understanding your Skin and Wellbeing",
+      intro: "Explore your symptoms, lifestyle and individual concerns through a personalised consultation.",
+      items: [
+        { title: "Listen carefully", text: "Your symptoms, experiences and health history help create a clearer understanding of your concerns." },
+        { title: "Understand patterns", text: "Recurring skin, hair and allergic concerns can be influenced by different patterns and everyday factors." },
+        { title: "Personalise care", text: "Your care is considered around your individual symptoms, needs and circumstances." }
+      ]
+    },
+    testimonials: [],
+    faqs: [EXPERTISE_FAQ.sameApproach, EXPERTISE_FAQ.whatToDiscuss, EXPERTISE_FAQ.askBeforeBooking],
+    relatedPages: [REL.respiratory, REL.general, REL.whyHomeopathy, REL.blogs],
+    cta: {
+      heading: "Start a conversation about your concerns",
+      intro: "Share what you have been experiencing and begin a personalised conversation about your wellbeing.",
+      tiles: standardTiles("Share your concerns with me.", "Discuss your symptoms and questions.")
+    }
   },
   {
     id: "womens-wellness",
@@ -264,19 +330,34 @@ export const expertiseSpecialties = [
     tagline: "Personalised care for women at every stage",
     path: "/expertise/womens-wellness",
     icon: "UserCheck",
-    shortDesc: "Empathetic, confidential healthcare supporting menstrual regularity, hormonal shifts, PCOS/PCOD, and emotional equilibrium.",
+    shortDesc: "Thoughtful support for women's health, emotional wellbeing and changing needs.",
     careAreas: [
-      { title: "Women's Health", text: "Thoughtful support for common concerns affecting women's health, menstrual comfort and overall vitality." },
-      { title: "Hormonal Wellbeing", text: "Care that considers hormonal changes, PCOS/PCOD, lifestyle, and everyday factors influencing wellbeing." },
-      { title: "Emotional Wellbeing", text: "Personalised support when stress, hormonal transitions, or major life changes begin to affect how you feel." }
+      { title: "Women's health", text: "Thoughtful support for common concerns affecting women's health, comfort and overall wellbeing.", linkLabel: "Learn more", href: "#concerns" },
+      { title: "Hormonal wellbeing", text: "Care that considers hormonal changes, lifestyle and everyday factors that may influence wellbeing.", linkLabel: "Discover more", href: "#concerns" },
+      { title: "Emotional wellbeing", text: "Personalised support when stress, emotions or life changes begin to affect your wellbeing.", linkLabel: "Discover more", href: "/expertise/mental-emotional-psychosomatic-wellness" }
     ],
-    faqs: [
-      { q: "Is homeopathic support suitable for PCOS/PCOD?", a: "Homeopathy looks at the whole hormonal, metabolic, and emotional portrait to support natural hormonal balance and cycle regularity." }
-    ],
-    relatedPages: [
-      { label: "Mental, Emotional & Psychosomatic", path: "/expertise/mental-emotional-psychosomatic-wellness" },
-      { label: "Personalised Treatment", path: "/my-approach/personalised-treatment" }
-    ]
+    concerns: ["Menstrual health", "Hormonal concerns", "PCOS/PCOD", "Women's overall wellness"],
+    approach: {
+      heading: "Care that listens to what women experience",
+      intro: "Every woman's health journey is different. Understanding your concerns is where personalised care begins.",
+      items: [
+        { title: "Listen carefully", text: "Your symptoms, experiences and health history help create a clearer understanding of your concerns." },
+        { title: "Understand your needs", text: "Health, hormonal and emotional concerns can be influenced by different stages of life and everyday circumstances." },
+        { title: "Personalise care", text: "Your care is considered around your individual needs, experiences and wellbeing." }
+      ]
+    },
+    testimonials: [],
+    faqs: [EXPERTISE_FAQ.sameApproach, EXPERTISE_FAQ.whatToDiscuss, EXPERTISE_FAQ.firstConsultation],
+    relatedPages: [REL.mental, REL.sleep, REL.personalised, REL.blogs, REL.myths, REL.book],
+    cta: {
+      heading: "Begin your personalised care",
+      intro: "Share what you have been experiencing and take the first step towards personalised care.",
+      tiles: [
+        { type: "book", label: "Book a consultation", text: "Choose a convenient time to speak with Dr. Mohini." },
+        { type: "link", label: "Meet Dr. Mohini", text: "Learn about her experience and approach to patient care.", href: "/about-me" },
+        { type: "chat", label: "Chat with me", text: "Discuss your health and wellbeing." }
+      ]
+    }
   },
   {
     id: "child-adolescent-wellness",
@@ -284,19 +365,30 @@ export const expertiseSpecialties = [
     tagline: "Thoughtful care for growing minds and bodies",
     path: "/expertise/child-adolescent-wellness",
     icon: "Smile",
-    shortDesc: "Gentle, sweet-pill homeopathic care designed for children and teenagers navigating allergies, immunity, and growing stress.",
+    shortDesc: "Personalised support for children and adolescents through different stages of growing.",
     careAreas: [
-      { title: "Childhood Wellbeing", text: "Personalised support for common health, immunity, and recurring seasonal concerns during childhood." },
-      { title: "Growing Years", text: "Care that considers changing physical needs, routines, school pressures, and developmental comfort." },
-      { title: "Adolescent Emotional Wellbeing", text: "Gentle guidance and support for children and adolescents navigating stress, emotional shifts, and life transitions." }
+      { title: "Childhood wellbeing", text: "Personalised support for common health and wellbeing concerns during childhood.", linkLabel: "Explore care", href: "#concerns" },
+      { title: "Growing years", text: "Care that considers changing needs, routines, emotions and everyday wellbeing through the growing years.", linkLabel: "Discover more", href: "#approach" },
+      { title: "Emotional wellbeing", text: "Support for children and adolescents navigating stress, emotions and life changes.", linkLabel: "Discover more", href: "/expertise/mental-emotional-psychosomatic-wellness" }
     ],
-    faqs: [
-      { q: "Is homeopathy safe and palatable for young children?", a: "Yes. Homeopathic remedies are easy to administer, non-invasive, and well-tolerated by infants, children, and teenagers." }
-    ],
-    relatedPages: [
-      { label: "Respiratory Health", path: "/expertise/respiratory-health" },
-      { label: "Consultation Process", path: "/my-approach/consultation-process" }
-    ]
+    concerns: ["Common childhood concerns", "Allergies", "Respiratory concerns", "Digestive concerns", "Adolescent wellbeing"],
+    approach: {
+      heading: "Care that understands every stage of growing",
+      intro: "Every child is different. Understanding their needs, experiences and individual circumstances is an important part of thoughtful care.",
+      items: [
+        { title: "Understand their needs", text: "Your child's symptoms, experiences and daily routines help provide context for their concerns." },
+        { title: "Understand their stage", text: "Growing years bring changing physical, emotional and lifestyle needs that deserve thoughtful attention." },
+        { title: "Personalise care", text: "Care is considered around your child's individual needs, circumstances and overall wellbeing." }
+      ]
+    },
+    testimonials: [],
+    faqs: [EXPERTISE_FAQ.sameApproach, EXPERTISE_FAQ.whatToDiscuss, EXPERTISE_FAQ.askBeforeBooking],
+    relatedPages: [REL.respiratory, REL.digestive, REL.skin, REL.blogs],
+    cta: {
+      heading: "Explore care for your child",
+      intro: "Tell us about your child's health and take the next step towards personalised care.",
+      tiles: standardTiles("Discuss your concerns with me.", "Discuss your child's wellbeing.")
+    }
   },
   {
     id: "joint-muscle-pain-management",
@@ -304,19 +396,36 @@ export const expertiseSpecialties = [
     tagline: "Support for easier movement and everyday comfort",
     path: "/expertise/joint-muscle-pain-management",
     icon: "Activity",
-    shortDesc: "Comprehensive support for joint stiffness, recurring back discomfort, muscular soreness, and mobility concerns.",
+    shortDesc: "Support for joint, muscle and recurring pain concerns affecting everyday comfort.",
     careAreas: [
-      { title: "Joint Concerns", text: "Personalised support for common joint stiffness and discomfort that may affect movement and daily activities." },
-      { title: "Muscle Discomfort", text: "Thoughtful care for recurring muscle soreness, neck and back pain, tension, and postural strain." },
-      { title: "Ongoing Pain Management", text: "Support for persistent pain concerns with attention to your symptoms, lifestyle, movement, and overall wellbeing." }
+      { title: "Joint concerns", text: "Personalised support for common joint concerns that may affect movement, comfort and daily activities.", linkLabel: "Discover more", href: "#concerns" },
+      { title: "Muscle discomfort", text: "Thoughtful care for recurring muscle pain, stiffness and everyday discomfort.", linkLabel: "Discover more", href: "#concerns" },
+      { title: "Ongoing pain", text: "Support for persistent pain concerns with attention to your symptoms, lifestyle and overall wellbeing.", linkLabel: "Discover more", href: "#approach" }
     ],
-    faqs: [
-      { q: "Can homeopathy be used alongside physiotherapy or pain relief medication?", a: "Yes. Homeopathy can complement your overall pain care regimen without unwanted medicinal interactions." }
-    ],
-    relatedPages: [
-      { label: "Sleep & Lifestyle Concerns", path: "/expertise/sleep-lifestyle-concerns" },
-      { label: "Integrated Healing", path: "/my-approach/integrated-healing" }
-    ]
+    concerns: ["Joint discomfort", "Stiffness", "Back pain", "Muscle discomfort", "Mobility-related concerns"],
+    approach: {
+      heading: "Understanding your pain and movement",
+      intro: "Every pain experience is different. Understanding your symptoms, daily routine and individual circumstances helps shape personalised care.",
+      items: [
+        { title: "Movement matters", text: "Understanding how pain and discomfort may affect your everyday activities and movement." },
+        { title: "Your experience matters", text: "Looking at your symptoms within the context of your individual experiences and circumstances." },
+        { title: "Personalised care matters", text: "Consider your needs, concerns and lifestyle when discussing the way forward." }
+      ]
+    },
+    testimonials: [],
+    faqs: [EXPERTISE_FAQ.sameApproach, EXPERTISE_FAQ.whatToDiscuss, EXPERTISE_FAQ.firstConsultation],
+    relatedPages: [REL.sleep, REL.general, REL.personalised, REL.blogs],
+    cta: {
+      heading: "Take the next step for your mobility",
+      intro: "Learn more about personalised support for movement, stiffness and pain-related concerns.",
+      primaryLabel: "View consultation options",
+      primaryHref: "/book-a-consultation",
+      tiles: [
+        { type: "link", label: "See your options", text: "Move towards more comfortable days", href: "/my-approach/personalised-treatment" },
+        { type: "link", label: "Explore your care options", text: "Understand the consultation approach.", href: "/my-approach/consultation-process" },
+        { type: "book", label: "Book an appointment", text: "Choose a convenient time for your consultation." }
+      ]
+    }
   },
   {
     id: "sleep-lifestyle-concerns",
@@ -324,246 +433,184 @@ export const expertiseSpecialties = [
     tagline: "Better sleep starts with understanding your routine",
     path: "/expertise/sleep-lifestyle-concerns",
     icon: "Moon",
-    shortDesc: "Exploring sleep latency, broken sleep patterns, daytime fatigue, and high-stress professional lifestyle habits.",
+    shortDesc: "Guidance for sleep, stress, routines and lifestyle factors affecting everyday wellbeing.",
     careAreas: [
-      { title: "Sleep Difficulties", text: "Personalised support for sleep difficulties, restless nights, and unrefreshing sleep that affect your daily energy." },
-      { title: "Stress & Daily Life", text: "Understand how work pressures, erratic schedules, and constant mental chatter impact rest cycles." },
-      { title: "Healthy Routines", text: "Practical guidance around wind-down habits, relaxation techniques, and sustainable lifestyle practices." }
+      { title: "Sleep concerns", text: "Personalised support for sleep difficulties that may affect your energy, routine and everyday wellbeing.", linkLabel: "Discover more", href: "#concerns" },
+      { title: "Stress & daily life", text: "Understand how stress, routines and lifestyle habits may influence your sleep and overall wellbeing.", linkLabel: "Discover more", href: "/expertise/mental-emotional-psychosomatic-wellness" },
+      { title: "Healthy routines", text: "Practical guidance around sleep, movement, relaxation and everyday lifestyle habits.", linkLabel: "Discover more", href: "/my-approach/integrated-healing" }
     ],
-    faqs: [
-      { q: "Are homeopathic sleep remedies habit-forming?", a: "No. Classical homeopathic remedies are non-sedative and do not cause morning grogginess or physiological dependency." }
-    ],
-    relatedPages: [
-      { label: "Mental, Emotional & Psychosomatic", path: "/expertise/mental-emotional-psychosomatic-wellness" },
-      { label: "Clinical Philosophy", path: "/clinical-philosophy" }
-    ]
+    concerns: ["Sleep difficulties", "Stress", "Lifestyle patterns", "Work-life pressures", "Wellness routines"],
+    approach: {
+      heading: "Understanding your sleep patterns",
+      intro: "Explore the habits, routines and lifestyle factors that may influence your rest.",
+      items: [
+        { title: "Sleep matters", text: "Understanding how your sleep patterns may affect your energy, mood and everyday wellbeing." },
+        { title: "Lifestyle matters", text: "Looking at the habits, routines and everyday factors that shape your daily life." },
+        { title: "Your needs matter", text: "Creating personalised guidance around your individual concerns, lifestyle and circumstances." }
+      ]
+    },
+    testimonials: [],
+    faqs: [EXPERTISE_FAQ.whatToDiscuss, EXPERTISE_FAQ.yogaMeditation, EXPERTISE_FAQ.sameApproach],
+    relatedPages: [REL.mental, REL.headache, REL.integrated, REL.blogs],
+    cta: {
+      heading: "Start a conversation about your wellbeing",
+      intro: "Share what you've been experiencing and begin a personalised conversation about your sleep and lifestyle.",
+      tiles: standardTiles("Share your concerns with me.", "Discuss your sleep and wellbeing.")
+    }
   },
   {
     id: "mental-emotional-psychosomatic-wellness",
     title: "Mental, Emotional & Psychosomatic Wellness",
-    tagline: "Support for emotional concerns that may affect how you feel and function",
+    tagline: "Support for emotional concerns that may affect how you feel and function.",
     path: "/expertise/mental-emotional-psychosomatic-wellness",
     icon: "ShieldAlert",
     isKeyDifferentiator: true,
-    shortDesc: "A core differentiator combining homeopathic clinical insight, psychological counselling, and Bach flower remedies for anxiety and stress.",
+    shortDesc: "Support for emotional wellbeing and concerns involving the connection between mind and body.",
     careAreas: [
-      { title: "Emotional Wellbeing", text: "Personalised support when chronic worry, low mood, or life transitions begin affecting your everyday wellbeing." },
-      { title: "Stress & Anxiety", text: "Thoughtful care for persistent tension, nervous agitation, panic sensations, and feelings of emotional overwhelm." },
-      { title: "Mind-Body & Psychosomatic Concerns", text: "Care that considers how emotional experiences manifest as physical symptoms like stomach distress, palpitations, and muscle tension." }
+      { title: "Emotional wellbeing", text: "Personalised support when stress, emotions or life changes begin affecting your everyday wellbeing.", linkLabel: "Discover more", href: "#concerns" },
+      { title: "Stress & anxiety", text: "Thoughtful care for persistent worry, stress and feelings of emotional overwhelm.", linkLabel: "Learn more", href: "#concerns" },
+      { title: "Mind-body concerns", text: "Care that considers how emotional experiences and physical symptoms may interact.", linkLabel: "Discover more", href: "/my-approach/integrated-healing" }
     ],
-    faqs: [
-      { q: "How do homeopathy and psychological counselling work together?", a: "Counselling provides a safe space to unpack thought patterns and triggers, while individualised remedies and Bach flower remedies support internal physiological and emotional calming." },
-      { q: "Is this appropriate for psychiatric emergencies?", a: "Important: Homeopathy and counselling do not replace emergency psychiatric care. If you are experiencing an acute crisis or severe symptoms, please seek immediate local medical assistance." }
-    ],
-    relatedPages: [
-      { label: "Integrated Healing", path: "/my-approach/integrated-healing" },
-      { label: "Consultation Process", path: "/my-approach/consultation-process" },
-      { label: "Book a Consultation", path: "/book-a-consultation" }
-    ]
+    concerns: ["Stress", "Anxiety", "Emotional wellbeing", "Psychosomatic concerns", "Mind-body connection", "Counselling support"],
+    approach: {
+      heading: "Care that considers the whole experience",
+      intro: "Understanding what you're going through is an important part of meaningful, personalised care.",
+      items: [
+        { title: "Your emotions matter", text: "Making space to understand what you are experiencing and how it may be affecting your everyday life." },
+        { title: "Your symptoms matter", text: "Considering physical concerns alongside emotional wellbeing to understand the wider picture." },
+        { title: "Your story matters", text: "Understanding your experiences, individual needs and concerns within the bigger picture." }
+      ]
+    },
+    testimonials: [],
+    mentalHealthNote: true,
+    faqs: [EXPERTISE_FAQ.anxietyOnline, EXPERTISE_FAQ.counselling, EXPERTISE_FAQ.homeopathyCounselling],
+    relatedPages: [REL.sleep, REL.integrated, REL.blogs, REL.myths, REL.book],
+    cta: {
+      heading: "Take the first step towards better health",
+      intro: "You don't need to have everything figured out. Start by sharing what you're experiencing and take the next step together.",
+      tiles: [
+        { type: "link", label: "Explore your care options", text: "Learn more about the approach that may suit your needs.", href: "/my-approach/integrated-healing" },
+        { type: "chat", label: "Chat with me", text: "Discuss your concerns openly." },
+        { type: "book", label: "Book a consultation", text: "Choose a convenient time to connect." }
+      ]
+    }
   }
 ];
 
+// Only genuine patient message in the approved content document
+// (Page 24 – Case Studies, "Testimonial 01"). Do not add invented testimonials.
 export const patientTestimonials = [
   {
     id: 1,
-    quote: "I honestly don't know how to put my gratitude into words. When I was going through those difficult moments of panic and anxiety, there were times when I felt helpless and frightened. Your medicines helped me, but more than that, your patience, understanding and reassuring words gave me the courage to face those moments.",
+    quote: "I honestly don't know how to put my gratitude into words. When I was going through those difficult moments of panic and anxiety, there were times when I felt helpless and frightened. Your medicines helped me, but more than that, your patience, understanding and reassuring words gave me the courage to face those moments...",
     author: "Patient experience",
     location: "",
-    category: "Anxiety & Panic Care",
-    condition: "Anxiety & Emotional Support"
-  },
-  {
-    id: 2,
-    quote: "I felt heard and understood throughout my consultation, and my concerns were discussed with genuine care. The consultation gave me a clearer understanding of my recurring headaches and what I could work on.",
-    author: "Patient experience",
-    location: "",
-    category: "Headache & Migraine",
-    condition: "Recurring Headaches"
-  },
-  {
-    id: 3,
-    quote: "The consultation gave me time to explain my concerns and helped me understand my digestive symptoms better. I appreciated the thoughtful questions and personalized approach throughout my consultation.",
-    author: "Patient experience",
-    location: "",
-    category: "Digestive Health",
-    condition: "Gut Health & Indigestion"
-  },
-  {
-    id: 4,
-    quote: "I appreciated how much time was taken to understand my concerns before discussing my care. The consultation felt personal and gave me space to explain what I was experiencing.",
-    author: "Patient experience",
-    location: "",
-    category: "General Wellbeing",
-    condition: "Fatigue & Routine Stress"
+    category: "",
+    condition: ""
   }
 ];
 
-export const caseStudiesList = [
-  {
-    id: "anxiety-panic-case",
-    title: "Managing Recurrent Anxiety and Somatic Tension",
-    patientProfile: "Adult professional experiencing persistent worry and somatic tension",
-    presentingConcern: "Frequent feelings of panic, tightness in chest, and unrefreshing sleep interfering with daily work routines.",
-    assessment: "Detailed consultation exploring life stressors, onset patterns, emotional suppression, and previous health history.",
-    careApproach: "Integrated care combining individualised classical homeopathic remedy, Bach flower emotional remedies, and counselling support.",
-    outcome: "Illustrative example pending Dr. Mohini's review: the patient described feeling better able to understand and manage daily triggers. Individual experiences vary."
-  },
-  {
-    id: "headache-stress-case",
-    title: "Addressing Recurring Tension Headaches Linked to Screen Fatigue",
-    patientProfile: "Corporate employee presenting with weekly throbbing temple headaches",
-    presentingConcern: "Recurring headache attacks accompanied by eye strain, neck stiffness, and irritability.",
-    assessment: "Explored ergonomic routines, hydration, screen schedules, and emotional stress build-up.",
-    careApproach: "Homeopathic remedy tailored to pain modality paired with lifestyle boundary adjustments and relaxation breathing routines.",
-    outcome: "Illustrative example pending Dr. Mohini's review: the patient described a clearer understanding of their headache patterns and triggers across follow-up sessions. Individual experiences vary."
-  },
-  {
-    id: "digestive-gut-case",
-    title: "Support for Chronic Bloating, Acidity and Food Sensitivity",
-    patientProfile: "Patient with longstanding digestive discomfort and irregular habits",
-    presentingConcern: "Daily post-meal abdominal fullness, acidity, and discomfort exacerbated by stressful work deadlines.",
-    assessment: "Holistic case-taking considering dietary patterns, stress triggers, and constitutional symptom profile.",
-    careApproach: "Personalised constitutional homeopathic protocol along with practical guidance on meal timing and hydration.",
-    outcome: "Illustrative example pending Dr. Mohini's review: the patient described better awareness of the habits and stressors linked to their digestive discomfort. Individual experiences vary."
-  }
+// Page 24 – Case Studies. No approved case details exist yet: only the
+// recommended structure (sitemap brief) is published. Add anonymised,
+// consented cases here later.
+export const caseStudiesList = [];
+
+export const caseStudyStructure = [
+  { title: "Patient Profile", text: "Understanding what brought the patient to consultation." },
+  { title: "Presenting Concern", text: "Every case begins with understanding the symptoms, history and concerns shared by the patient." },
+  { title: "Consultation & Assessment", text: "A detailed consultation helps create a complete picture of your health concerns and individual needs." },
+  { title: "Care Approach", text: "Care is considered around the patient's needs, circumstances and ongoing experience." },
+  { title: "Follow-up/Outcome", text: "Following the patient's experience through personalised care." }
+];
+
+// Page 25 – Blogs: titles and one-line descriptions only (no article bodies yet).
+export const blogCategories = [
+  { id: "anxiety", title: "Anxiety & emotional wellbeing", text: "Understand anxiety, stress, emotional health and the connection between mind and body." },
+  { id: "sleep", title: "Sleep & lifestyle", text: "Discover practical insights on sleep, daily routines, relaxation and healthier lifestyle habits." },
+  { id: "homeopathy", title: "Homeopathy & health", text: "Learn more about homeopathy, common health concerns and personalised approaches to wellbeing." }
 ];
 
 export const blogArticles = [
   {
     id: "anxiety-myths-and-facts",
-    title: "Anxiety Myths and Facts: What Should You Know?",
-    category: "Mental & Emotional Wellness",
-    date: "September 2026",
-    readTime: "4 min read",
-    summary: "Simple insights to help you understand common misconceptions about anxiety and why emotional wellbeing is deeply tied to physical health.",
-    content: "Anxiety is frequently misunderstood as merely feeling nervous or stressed. In reality, anxiety involves emotional, physical, and behavioural experiences that differ from person to person. Understanding these layers is the first step toward compassionate, personalised care."
+    title: "Anxiety myths and facts: what should you know?",
+    category: "Anxiety",
+    categoryId: "anxiety",
+    summary: "Simple insights to help you understand common misconceptions about anxiety."
   },
   {
-    id: "anxiety-and-sleep-patterns",
-    title: "Can Anxiety Affect Your Sleep? The Link Between Worry and Rest",
-    category: "Lifestyle & Sleep",
-    date: "September 2026",
-    readTime: "5 min read",
-    summary: "Explore the connection between persistent worry, bedtime rumination, and disrupted sleep patterns.",
-    content: "When our nervous system remains on alert, restorative sleep cycles are easily interrupted. Addressing sleep difficulties requires looking beyond quick fixes to understand daily routines, work-life pressure, and underlying emotional tension."
+    id: "can-anxiety-affect-your-sleep",
+    title: "Can anxiety affect your sleep?",
+    category: "Sleep",
+    categoryId: "sleep",
+    summary: "Explore the connection between worry, stress and everyday sleep patterns."
   },
   {
-    id: "homeopathy-for-anxiety-evidence",
-    title: "Does Homeopathy Work for Anxiety? An Evidence-Conscious Exploration",
-    category: "Homeopathy Education",
-    date: "September 2026",
-    readTime: "6 min read",
-    summary: "Understand the individualised homeopathic approach, clinical case-taking, and questions worth considering.",
-    content: "Homeopathic consultations allow time to understand how stress presents uniquely in each individual. By matching remedies to the total symptom picture, homeopathy provides gentle, non-sedating complementary support alongside counselling."
-  },
-  {
-    id: "looking-beyond-symptoms",
-    title: "Looking at the Person, Not Just the Symptom: What Is Integrated Healing?",
-    category: "Health Education",
-    date: "September 2026",
-    readTime: "4 min read",
-    summary: "Why treating the physical and emotional person together creates more sustainable healthcare outcomes.",
-    content: "When healthcare isolates symptoms from the human experiencing them, vital clues are lost. Integrated healing combines clinical homeopathy, psychological counselling, and lifestyle awareness for complete patient care."
+    id: "does-homeopathy-work-for-anxiety",
+    title: "Does homeopathy work for anxiety?",
+    category: "Homeopathy",
+    categoryId: "homeopathy",
+    summary: "Understand the approach, evidence and questions worth considering."
   }
 ];
 
+// Page 28 – Myths vs Facts (3 source myths) + sitemap brief example myth.
 export const mythsAndFactsList = [
   {
+    title: "Homeopathy is the same for everyone",
     myth: "Everyone with the same condition receives the same homeopathic approach.",
-    fact: "Homeopathy is traditionally individualised around the person's unique symptoms, triggers, emotional state, and overall health picture."
+    fact: "Homeopathy is traditionally individualised around the person's symptoms and overall health picture."
   },
   {
+    title: "Anxiety is only about worrying",
     myth: "Anxiety is simply feeling worried or stressed.",
-    fact: "Anxiety can involve emotional, physical, and behavioural experiences—including palpitations, muscle tension, and digestive upset—that differ from person to person."
+    fact: "Anxiety can involve emotional, physical and behavioural experiences that differ from person to person."
   },
   {
+    title: "Talking about emotions isn't healthcare",
     myth: "Emotional concerns should be kept separate from physical health.",
-    fact: "Discussing emotional wellbeing provides crucial context when understanding physical symptoms, especially in psychosomatic and chronic conditions."
+    fact: "Discussing emotional wellbeing can provide important context when understanding a person's overall experience."
   },
   {
+    title: "Holistic care and conventional medicine",
     myth: "Holistic healthcare means ignoring conventional medicine.",
     fact: "Holistic care focuses on understanding the individual as a whole. Patients should receive appropriate medical evaluation and care based on their individual circumstances."
-  },
-  {
-    myth: "Homeopathy offers instant universal cures for all diseases.",
-    fact: "Responsible healthcare avoids unrealistic guarantees. Homeopathy works systematically as complementary and constitutional care with careful monitoring over time."
   }
 ];
 
+// Page 27 – FAQs: exactly the 15 source questions and answers.
 export const generalFaqs = [
   {
     category: "General Questions",
+    intro: "Learn more about Dr. Mohini, online consultations, homeopathy and who Trivana Wellness is for.",
     items: [
-      {
-        q: "Who is Dr. Mohini Mutha?",
-        a: "Dr. Mohini Mutha is an experienced Homeopathic Physician with 14+ years of clinical practice. She completed her BHMS and MD in Homeopathy (specialising in Homeopathic Materia Medica) and holds a Post Graduate Diploma in Psychological Counselling (PGDPC). She has also served as a Consultant Homoeopathic Physician with ONGC since 2018."
-      },
-      {
-        q: "What is Trivana Wellness?",
-        a: "Trivana Wellness is Dr. Mohini's digital practice offering personalised homeopathic care, psychological counselling, and supportive mind-body practices for patients in India and abroad."
-      },
-      {
-        q: "Who can consult Dr. Mohini?",
-        a: "Consultations are open to individuals and families seeking personalised care for chronic and acute health concerns, women's wellness, child and adolescent health, digestive health, headaches, and emotional or anxiety-related challenges."
-      },
-      {
-        q: "Can I consult from outside India?",
-        a: "Yes. Dr. Mohini provides online video and audio consultations for international patients, including individuals and families in the UAE and USA."
-      },
-      {
-        q: "Does every person receive the same treatment?",
-        a: "No. In homeopathy, treatment is strictly individualised. Two people with the same medical diagnosis may receive entirely different remedies based on their constitutional portrait and symptom expression."
-      }
+      { q: "Who is Dr. Mohini Mutha?", a: "Dr. Mohini Mutha is a Homeopathic Physician with 14+ years of clinical experience. She holds BHMS, MD in Homeopathy and PGDPC qualifications." },
+      { q: "What is Trivana Wellness?", a: "Trivana Wellness is Dr. Mohini's digital practice offering personalised homeopathic care, counselling and supportive mind-body practices." },
+      { q: "Who can consult Dr. Mohini?", a: "Online consultations are available for individuals seeking support for a range of health, emotional and wellbeing concerns." },
+      { q: "Can I consult from outside India?", a: "Yes. Dr. Mohini has consulted patients from India, the UAE and the USA through online consultations." },
+      { q: "Does every person receive the same approach?", a: "No. Each consultation begins by understanding your symptoms, health history, lifestyle and individual concerns." }
     ]
   },
   {
     category: "Service Details",
+    intro: "Understand what you can discuss during a consultation and how different areas of care can support your wellbeing.",
     items: [
-      {
-        q: "What can I discuss during a consultation?",
-        a: "You can discuss physical symptoms, emotional concerns, daily stress patterns, sleep routines, past medical history, and anything else relevant to your health journey."
-      },
-      {
-        q: "Do you provide online anxiety consultations?",
-        a: "Yes. You can consult specifically for anxiety, stress, emotional fatigue, and psychosomatic concerns through private online sessions."
-      },
-      {
-        q: "Does Dr. Mohini provide psychological counselling?",
-        a: "Yes. Dr. Mohini holds a Post Graduate Diploma in Psychological Counselling and integrates counselling perspectives where appropriate."
-      },
-      {
-        q: "Can homeopathy and counselling be part of the same care plan?",
-        a: "Depending on your needs, homeopathy and counselling can be complementary components of one unified, personalised approach."
-      },
-      {
-        q: "Do you offer yoga and meditation guidance?",
-        a: "Simple, supportive mind-body practices and breathing routines may be recommended where beneficial to complement your recovery."
-      }
+      { q: "What can I discuss during a consultation?", a: "You can discuss your physical symptoms, emotional concerns, lifestyle, sleep and other health-related experiences." },
+      { q: "Do you provide online anxiety consultations?", a: "Yes. You can discuss anxiety, stress, emotional concerns and related wellbeing challenges during an online consultation." },
+      { q: "Does Dr. Mohini provide psychological counselling?", a: "Dr. Mohini holds a Post Graduate Diploma in Psychological Counselling and incorporates counselling perspectives where appropriate." },
+      { q: "Can homeopathy and counselling be part of the same care plan?", a: "Depending on your needs, homeopathy and counselling may be considered as complementary parts of an individualised approach." },
+      { q: "Do you offer yoga and meditation guidance?", a: "Yoga and meditation may be included as supportive mind-body practices where they are appropriate for your individual needs." }
     ]
   },
   {
-    category: "Procedures & Appointments",
+    category: "Procedures",
+    intro: "Understand how online consultations work, what to expect and how to prepare for your appointment.",
     items: [
-      {
-        q: "How do I book an online or in-person consultation?",
-        a: "You can use our online booking page to select your preferred format, date, and time, or reach out directly via phone or WhatsApp at +91 942 397 2150."
-      },
-      {
-        q: "What happens during my first consultation?",
-        a: "The initial consultation focuses on comprehensive case-taking. Dr. Mohini listens to your history, examines your symptom patterns, and discusses a personalised care roadmap."
-      },
-      {
-        q: "What should I prepare before my consultation?",
-        a: "Keep your previous medical reports, prescriptions, timeline of symptoms, and any specific questions ready for the discussion."
-      },
-      {
-        q: "Can I reschedule my appointment?",
-        a: "Yes. If you need to modify your appointment time, please inform us as early as possible so we can adjust the schedule."
-      },
-      {
-        q: "Can I ask a question before booking?",
-        a: "Absolutely. If you are unsure whether consultation is right for your concern, feel free to send a message or email beforehand."
-      }
+      { q: "How do I book an online consultation?", a: "Choose your preferred consultation option and complete the booking process to schedule your appointment with Dr. Mohini." },
+      { q: "What happens during my first consultation?", a: "The consultation focuses on understanding your concerns, symptoms, health history, lifestyle and overall wellbeing." },
+      { q: "What should I prepare before my consultation?", a: "Keep your relevant medical information, current concerns and questions ready so you can discuss them comfortably during the consultation." },
+      { q: "Can I reschedule my consultation?", a: "If you need to change your appointment, please contact Trivana Wellness as early as possible to discuss the available options." },
+      { q: "Can I ask a question before booking?", a: "Yes. If you are unsure whether an online consultation is right for your concern, you can get in touch before booking." }
     ]
   }
 ];

@@ -2,7 +2,7 @@ import PatientStoriesPage from "../../../views/resources/PatientStoriesPage";
 
 export const metadata = {
   title: "Patient Stories",
-  description: "Experiences shared by patients about their consultations and care with Dr. Mohini Mutha.",
+  description: "Real experiences from people Dr. Mohini Mutha has cared for, shared with patients’ permission.",
   alternates: { canonical: "/resources/patient-stories" },
 };
 

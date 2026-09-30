@@ -1,0 +1,27 @@
+process.env.PLAYWRIGHT_BROWSERS_PATH = '0';
+const { chromium } = require('playwright');
+(async () => {
+  const b = await chromium.launch();
+  const p = await b.newPage({ viewport: { width: 1440, height: 900 } });
+  await p.goto('http://localhost:3123/expertise/womens-wellness', { waitUntil: 'networkidle' });
+  const btns = p.locator('.faq-item button, [aria-expanded]').filter({ hasNotText: /About|Expertise|Approach|Credentials|Resources/ });
+  const n = await btns.count();
+  const state = async () => p.$$eval('[aria-expanded]', els => els.map(e => e.textContent.trim().slice(0,30) + '=' + e.getAttribute('aria-expanded')).filter(s=>!/^(About|Expertise|My Approach|Credentials|Resources)/.test(s)));
+  console.log('count', n, await state());
+  const second = btns.nth(1);
+  await second.focus(); await p.keyboard.press('Enter'); await p.waitForTimeout(400);
+  console.log('after enter', await state());
+  await second.scrollIntoViewIfNeeded();
+  await p.screenshot({ path: 'qa-screens/expertise-approach/faq-focus.png' });
+  await p.keyboard.press('Space'); await p.waitForTimeout(400);
+  console.log('after space', await state());
+  const tile = p.locator('.expertise-cta-tile').first();
+  await tile.focus(); await tile.scrollIntoViewIfNeeded();
+  await p.screenshot({ path: 'qa-screens/expertise-approach/exp-tile-focus.png' });
+  await p.goto('http://localhost:3123/my-approach/why-homeopathy', { waitUntil: 'networkidle' });
+  const t2 = p.locator('.ap-tile').first(); await t2.scrollIntoViewIfNeeded(); await t2.hover();
+  await p.screenshot({ path: 'qa-screens/expertise-approach/ap-tile-hover.png' });
+  const sw = await p.evaluate(() => document.documentElement.scrollWidth);
+  console.log('scrollWidth', sw);
+  await b.close();
+})();

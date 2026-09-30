@@ -167,7 +167,7 @@ a.topbar-item:hover {
   height: 5px;
   margin-left: -2.5px;
   border-radius: 50%;
-  background-color: var(--color-primary);
+  background-color: var(--brand-maroon);
 }
 
 .nav-chevron {
@@ -206,8 +206,7 @@ a.topbar-item:hover {
   height: 0.6rem;
 }
 
-.nav-item.is-open .dropdown-menu,
-.nav-item:focus-within .dropdown-menu {
+.nav-item.is-open .dropdown-menu {
   opacity: 1;
   visibility: visible;
   transform: translate(-50%, 0);

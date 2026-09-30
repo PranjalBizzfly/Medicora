@@ -7,6 +7,10 @@
 
 /* CSS Variables */
 :root {
+  /* Fixed brand maroon for solid surfaces (unchanged in dark mode). */
+  --brand-maroon: #641703;
+  --brand-maroon-deep: #4D1102;
+
   /* Brand Palette from Brand Book */
   --color-primary: #641703;
   --color-primary-hover: #4D1102;
@@ -215,14 +219,14 @@ button, input, select, textarea {
 }
 
 .btn-primary {
-  background-color: var(--color-primary);
+  background-color: var(--brand-maroon);
   color: #FFFFFF;
   border-color: var(--color-primary);
   box-shadow: 0 4px 14px rgba(100, 23, 3, 0.22);
 }
 
 .btn-primary:hover {
-  background-color: var(--color-primary-hover);
+  background-color: var(--brand-maroon-deep);
   border-color: var(--color-primary-hover);
   color: #FFFFFF;
   transform: translateY(-1px);
@@ -419,7 +423,7 @@ button, input, select, textarea {
 
 /* Stats Counter Box */
 .stat-box {
-  background: #FFFFFF;
+  background: var(--bg-surface);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-md);
   padding: 1.75rem;
@@ -449,7 +453,7 @@ button, input, select, textarea {
 
 /* Floating Contact strip on KeyDesign reference */
 .quick-info-strip {
-  background-color: #FFFFFF;
+  background-color: var(--bg-surface);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
   display: grid;
@@ -576,7 +580,7 @@ button, input, select, textarea {
 }
 
 .card:hover .icon-tile {
-  background-color: var(--color-primary);
+  background-color: var(--brand-maroon);
   color: #FFFFFF;
 }
 

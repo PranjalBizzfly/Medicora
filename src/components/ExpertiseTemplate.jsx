@@ -1,255 +1,329 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import Hero from './Hero';
 import SectionHeader from './SectionHeader';
 import FAQAccordion from './FAQAccordion';
-import CTABanner from './CTABanner';
 import TestimonialCard from './TestimonialCard';
+import BrandMark from './BrandMark';
 import {
-  HeartHandshake,
-  Search,
-  CheckCircle2,
-  ShieldAlert,
   ArrowRight,
-  Sparkles,
+  Calendar,
+  CheckCircle2,
   Ear,
+  HeartHandshake,
+  Mail,
+  MessageCircle,
+  Search,
+  ShieldAlert,
+  Sparkles,
   Stethoscope,
-  Video
+  UserRound,
+  ListChecks
 } from 'lucide-react';
+import { expertiseSpecialties, siteConfig } from '../data/websiteContent';
 import '../styles/expertise.css';
 
-const approachSteps = [
-  {
-    icon: Ear,
-    title: 'Listen Carefully',
-    text: 'Your symptoms, health history and personal experiences help shape a more informed, empathetic consultation. No rushed appointments.',
-  },
-  {
-    icon: Search,
-    title: 'Understand Patterns',
-    text: 'Recurring health concerns can be influenced by underlying stress, dietary patterns, sleep disruption, and emotional factors.',
-  },
-  {
-    icon: Sparkles,
-    title: 'Personalise Care',
-    text: 'Care is considered around your individual needs and circumstances rather than applying a generic one-size-fits-all prescription.',
-  },
-];
+const approachIcons = [Ear, Search, Sparkles];
 
-// Safety notes are shown in the dedicated emergency box, not as a list item.
-const isSafetyNote = (point) => /^critical medical disclaimer/i.test(point);
+const WHATSAPP_URL = 'https://wa.me/919423972150';
 
-export default function ExpertiseTemplate({
-  title,
-  tagline,
-  badge = "Area of Expertise",
-  understandingText,
-  commonSymptoms = [],
-  everydayImpactText,
-  careAreas = [],
-  testimonials = [],
-  whenToSeekHelp = [],
-  faqs = [],
-  relatedResources = []
-}) {
-  const seekHelpPoints = whenToSeekHelp.filter((p) => !isSafetyNote(p));
-  const hasSafetyNote = whenToSeekHelp.some(isSafetyNote);
+// Resolve a CTA tile (source: "Message me / Chat with me / Book a consultation" or page variant).
+function tileTarget(tile) {
+  switch (tile.type) {
+    case 'message':
+      return { href: `mailto:${siteConfig.email}`, external: true, Icon: Mail };
+    case 'chat':
+      return { href: WHATSAPP_URL, external: true, Icon: MessageCircle };
+    case 'book':
+      return { href: '/book-a-consultation', external: false, Icon: Calendar };
+    default:
+      return { href: tile.href, external: false, Icon: tile.href === '/about-me' ? UserRound : ArrowRight };
+  }
+}
+
+function CareAreaLink({ href, children }) {
+  if (href.startsWith('#')) {
+    return <a href={href} className="link-arrow">{children}</a>;
+  }
+  return <Link href={href} className="link-arrow">{children}</Link>;
+}
+
+const EXPERTISE_HERO_IMAGES = {
+  'mental-emotional-psychosomatic-wellness': {
+    src: '/images/photos/anxiety-consultation.jpg',
+    alt: 'A patient sharing emotional concerns during a consultation',
+  },
+  'sleep-lifestyle-concerns': {
+    src: '/images/photos/sleep-evening-routine.jpg',
+    alt: 'A calm evening routine before sleep',
+  },
+  'headache-migraine-care': {
+    src: '/images/photos/doctor-male-patient.jpg',
+    alt: 'Dr. Mohini Mutha in consultation with a patient',
+  },
+  'respiratory-health': {
+    src: '/images/photos/mind-body-nature.jpg',
+    alt: 'Breathing calmly outdoors in fresh air',
+  },
+  'skin-hair-allergies': {
+    src: '/images/photos/patient-conversation.jpg',
+    alt: 'A patient discussing her concerns with Dr. Mohini Mutha',
+  },
+  'womens-wellness': {
+    src: '/images/photos/womens-wellness-consultation.png',
+    alt: 'Dr. Mohini Mutha in consultation with a woman patient',
+  },
+  'child-adolescent-wellness': {
+    src: '/images/photos/active-child-outdoors.jpg',
+    alt: 'A healthy, active child playing outdoors',
+  },
+  'general-health-wellness': {
+    src: '/images/photos/senior-patient-examination.jpg',
+    alt: 'Dr. Mohini Mutha examining an elderly patient',
+  },
+  'digestive-gut-health': {
+    src: '/images/photos/healthy-eating.jpg',
+    alt: 'A balanced, wholesome meal at home',
+  },
+  'joint-muscle-pain-management': {
+    src: '/images/photos/shoulder-pain-home.jpg',
+    alt: 'Shoulder discomfort affecting everyday comfort',
+  },
+};
+
+export default function ExpertiseTemplate({ id, badge = 'Area of Expertise' }) {
+  const page = expertiseSpecialties.find((item) => item.id === id);
+  if (!page) return null;
+
+  const { title, tagline, shortDesc, careAreas, concerns, approach, testimonials, faqs, relatedPages, cta, mentalHealthNote } = page;
 
   return (
     <div className="expertise-page">
-      {/* 1. Hero */}
+      {/* 1. Hero — source: Content PDF expertise Section 1 */}
       <Hero
         badge={badge}
         title={title}
         subtitle={tagline}
         breadcrumbs={[
-          { label: "Expertise", path: "/sitemap" },
+          { label: 'Expertise', path: '/sitemap' },
           { label: title }
         ]}
-        primaryCtaText="Book a Consultation"
+        primaryCtaText="Book a consultation"
         primaryCtaLink="/book-a-consultation"
-        secondaryCtaText="Explore Her Approach"
-        secondaryCtaLink="/my-approach"
+        secondaryCtaText="Consultation process"
+        secondaryCtaLink="/my-approach/consultation-process"
         sideCard={
           <div className="expertise-hero-card">
-            <span className="badge badge-mint">Personalised Care</span>
-            <h4>Consultation Focus</h4>
-            <p>Every case begins with careful listening to understand your unique health story and lifestyle factors.</p>
+            {EXPERTISE_HERO_IMAGES[id] && (
+              <div style={{ marginBottom: '1.25rem', borderRadius: 'var(--radius-md)', overflow: 'hidden' }}>
+                <Image
+                  src={EXPERTISE_HERO_IMAGES[id].src}
+                  alt={EXPERTISE_HERO_IMAGES[id].alt}
+                  width={600}
+                  height={400}
+                  style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }}
+                />
+              </div>
+            )}
+            <span className="badge badge-mint">Areas of Care</span>
+            <p>{shortDesc}</p>
             <ul>
-              <li><span className="expertise-hero-card-icon"><Stethoscope size={16} /></span> 14+ years clinical experience</li>
-              <li><span className="expertise-hero-card-icon"><HeartHandshake size={16} /></span> Classical homeopathy + counselling</li>
-              <li><span className="expertise-hero-card-icon"><Video size={16} /></span> Online & in-person care</li>
+              <li><span className="expertise-hero-card-icon"><Stethoscope size={16} /></span> Homeopathic Physician, 14+ years</li>
+              <li><span className="expertise-hero-card-icon"><HeartHandshake size={16} /></span> BHMS, MD (Homoeopathy), PGDPC</li>
             </ul>
           </div>
         }
       />
 
-      {/* 2. Understanding the concern + care areas */}
-      <section className="section bg-surface">
-        <div className="container">
-          <div className="split-section expertise-understanding">
-            <div>
-              <SectionHeader
-                badge="Understanding The Concern"
-                title={`Understanding Your ${title}`}
-                subtitle="A personalised approach that considers your health, lifestyle and individual needs."
-              />
-              <p className="expertise-lead">{understandingText}</p>
-              <div className="medical-disclaimer-box">
-                <p>
-                  <strong>Patient-Centred Insight:</strong> Rather than viewing symptoms in isolation, Dr. Mohini explores how physical discomfort interacts with sleep, daily habits, and emotional wellbeing.
-                </p>
-              </div>
-            </div>
-
-            <div className="expertise-pillars">
-              <h3>Care Focus Areas</h3>
-              <ol>
-                {careAreas.map((area, idx) => (
-                  <li key={area.title}>
-                    <span className="expertise-pillar-number">0{idx + 1}</span>
-                    <div>
-                      <h4>{area.title}</h4>
-                      <p>{area.text}</p>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          </div>
-
-          {/* 3. Common concerns + 4. everyday impact */}
-          <div className="grid-2 expertise-detail-grid">
-            <div className="card expertise-detail-card">
-              <span className="icon-tile"><Search size={22} /></span>
-              <h3>Common Concerns & Patterns</h3>
-              <p>Patients often consult Dr. Mohini for concerns such as:</p>
-              <ul className="check-list">
-                {commonSymptoms.map((symptom) => (
-                  <li key={symptom}>
-                    <CheckCircle2 size={17} />
-                    <span>{symptom}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="card expertise-detail-card">
-              <span className="icon-tile icon-tile-mint"><HeartHandshake size={22} /></span>
-              <h3>How It Can Affect Everyday Life</h3>
-              <p className="expertise-impact-text">{everydayImpactText}</p>
-              <p>
-                When symptoms persist, they can gradually interfere with work, concentration, family life, mood, and sleep. Seeking guidance early can help you understand what may be contributing to them.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. Dr. Mohini's approach */}
+      {/* 2. Three care areas — source: Section 2 */}
       <section className="section bg-sand">
         <div className="container">
-          <SectionHeader
-            badge="Care Philosophy"
-            title="Dr. Mohini's Approach to Care"
-            subtitle="Thoughtful care built around your health, lifestyle and individual needs."
-            centered={true}
-          />
-
           <div className="grid-3">
-            {approachSteps.map(({ icon: Icon, title: stepTitle, text }, idx) => (
-              <div key={stepTitle} className="card expertise-approach-card">
-                <div className="expertise-approach-top">
-                  <span className="icon-tile"><Icon size={22} /></span>
-                  <span className="expertise-approach-index">0{idx + 1}</span>
-                </div>
-                <h3>{stepTitle}</h3>
-                <p>{text}</p>
+            {careAreas.map((area, idx) => (
+              <div key={area.title} className="card expertise-area-card">
+                <span className="expertise-pillar-number">0{idx + 1}</span>
+                <h3>{area.title}</h3>
+                <p>{area.text}</p>
+                <CareAreaLink href={area.href}>
+                  <span>{area.linkLabel}</span>
+                  <ArrowRight size={14} />
+                </CareAreaLink>
               </div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* 6. Patient experiences + 7. when to seek help */}
-      <section className="section bg-surface">
-        <div className="container">
-          <div className="grid-2 expertise-safety-grid">
-            <div className="expertise-safety">
-              <div className="expertise-safety-head">
-                <span className="icon-tile"><ShieldAlert size={22} /></span>
-                <h3>When to Seek Professional Guidance</h3>
-              </div>
-              <p>Your safety comes first. Please consider booking a consultation if:</p>
-              <ul className="check-list">
-                {seekHelpPoints.map((point) => (
-                  <li key={point}>
-                    <CheckCircle2 size={17} />
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="expertise-emergency">
-                <strong>Emergency notice:</strong> If you experience acute severe distress, sudden intense chest pain, shortness of breath or high fever, seek emergency medical care immediately.
-                {hasSafetyNote && (
-                  <> This practice does not provide emergency psychiatric crisis care. If you are having thoughts of self-harm or are in an immediate mental health crisis, contact your local emergency helpline or hospital emergency department.</>
-                )}
-              </div>
-            </div>
-
-            <div>
-              <SectionHeader
-                badge="Patient Experiences"
-                title="In Their Words"
-                subtitle="Reflections shared by patients about their consultations. Individual experiences vary."
-              />
-              <div className="expertise-testimonials">
-                {(testimonials.length > 0 ? testimonials : [
-                  { quote: "The consultation gave me time to explain my concerns and helped me understand my symptoms better.", patient: "Patient experience", location: "" },
-                  { quote: "I felt heard and understood throughout my consultation, and my concerns were discussed with genuine care.", patient: "Patient experience", location: "" }
-                ]).map((t) => (
-                  <TestimonialCard key={t.quote} quote={t.quote} author={t.patient} location={t.location} />
-                ))}
-              </div>
-            </div>
+          {/* 3. Concerns you can discuss — source: Sitemap brief expertise topics list */}
+          <div id="concerns" className="expertise-pillars expertise-concerns">
+            <h3>Concerns you can discuss</h3>
+            <ul className="check-list expertise-concerns-list">
+              {concerns.map((item) => (
+                <li key={item}>
+                  <CheckCircle2 size={17} />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
 
-      {/* 8. FAQs + related resources */}
-      <section className="section">
-        <div className="container-narrow">
+      {/* 4. Approach — source: Section 3 */}
+      <section id="approach" className="section photo-band" style={{ '--band-img': `url('${(EXPERTISE_HERO_IMAGES[id] || { src: '/images/photos/remedy-preparation.jpg' }).src}')` }}>
+        <div className="container">
           <SectionHeader
-            badge="Frequently Asked Questions"
-            title={`Common Questions on ${title}`}
-            subtitle="Clear, honest answers to help you make informed decisions about your care."
+            badge="Our approach"
+            title={approach.heading}
+            subtitle={approach.intro}
             centered={true}
           />
-          <FAQAccordion items={faqs} />
-
-          {relatedResources.length > 0 && (
-            <div className="expertise-related">
-              <h4>Related Care & Educational Resources</h4>
-              <p>Explore connected areas of care and Dr. Mohini's clinical perspective:</p>
-              <div className="expertise-related-links">
-                {relatedResources.map((res) => (
-                  <Link key={res.path + res.label} href={res.path} className="expertise-related-link">
-                    <span>{res.label}</span>
-                    <ArrowRight size={15} />
-                  </Link>
-                ))}
-              </div>
-            </div>
-          )}
+          <div className="grid-3">
+            {approach.items.map((item, idx) => {
+              const Icon = approachIcons[idx % approachIcons.length];
+              return (
+                <div key={item.title} className="card expertise-approach-card">
+                  <div className="expertise-approach-top">
+                    <span className="icon-tile"><Icon size={22} /></span>
+                    <span className="expertise-approach-index">0{idx + 1}</span>
+                  </div>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
-      {/* 9. Final CTA */}
-      <CTABanner
-        badge="Start a Conversation"
-        title={`Start a Conversation About Your ${title}`}
-        subtitle="Share what you have been experiencing and take the first step towards personalised, thoughtful care."
-      />
+      {/* 5. Patient experience — only where the source provides quotes */}
+      {testimonials.length > 0 && (
+        <section className="section bg-surface">
+          <div className="container">
+            <SectionHeader title="Patient experience" centered={true} />
+            <div className="grid-3 expertise-testimonials">
+              {testimonials.map((t) => (
+                <TestimonialCard key={t.quote} quote={t.quote} author="Patient experience" location="" />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 6. When to seek professional help — source: Disclaimer "Emergency situations" + "Homeopathy and complementary care" */}
+      <section className="section">
+        <div className="container-narrow">
+          <div className="expertise-safety">
+            <div className="expertise-safety-head">
+              <span className="icon-tile"><ShieldAlert size={22} /></span>
+              <h2>When to seek professional help</h2>
+            </div>
+            <p>Dr. Mohini Mutha does not provide emergency medical services through this website.</p>
+            <p>
+              If you are experiencing a medical emergency, severe symptoms or a situation requiring immediate
+              attention, contact your local emergency medical service or visit the nearest emergency department.
+            </p>
+            <p className={mentalHealthNote ? 'expertise-emergency' : undefined}>
+              For urgent mental health concerns or an immediate risk of harm, seek emergency or crisis support
+              available in your location.
+            </p>
+            <p>
+              Homeopathy is a system of complementary medicine. Information presented on this website is not
+              intended to suggest that homeopathy should replace medically necessary conventional care.
+            </p>
+            <Link href="/disclaimer" className="link-arrow">
+              <span>Read the full disclaimer</span>
+              <ArrowRight size={14} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. FAQs — verbatim from source FAQ page */}
+      <section className="section bg-surface">
+        <div className="container-narrow">
+          <SectionHeader badge="FAQ" title="Questions about your care?" centered={true} />
+          <FAQAccordion items={faqs} />
+          <div className="expertise-faq-more">
+            <Link href="/resources/faqs" className="link-arrow">
+              <span>View all FAQs</span>
+              <ArrowRight size={14} />
+            </Link>
+          </div>
+
+          {/* 8. Related care & resources */}
+          <div className="expertise-related">
+            <h2>Related care &amp; resources</h2>
+            <div className="expertise-related-links">
+              {relatedPages.map((res) => (
+                <Link key={res.path} href={res.path} className="expertise-related-link">
+                  <span>{res.label}</span>
+                  <ArrowRight size={15} />
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* 9. Consultation process link */}
+          <Link href="/my-approach/consultation-process" className="card card-link expertise-process-link">
+            <span className="icon-tile"><ListChecks size={22} /></span>
+            <span className="expertise-process-text">
+              <strong>Consultation process</strong>
+              <span>Listen · Assess · Understand · Personalise · Follow Up</span>
+            </span>
+            <ArrowRight size={18} />
+          </Link>
+        </div>
+      </section>
+
+      {/* 10. Final CTA — source: Section 4 with the page's three action tiles */}
+      <section className="section cta-section">
+        <div className="container">
+          <div className="cta-panel">
+            <BrandMark className="cta-panel-mark" />
+            <div className="cta-panel-content expertise-cta-content">
+              <h2>{cta.heading}</h2>
+              <p className="cta-panel-subtitle">{cta.intro}</p>
+              {cta.primaryLabel && (
+                <div className="cta-panel-actions">
+                  <Link href={cta.primaryHref} className="btn btn-primary btn-lg">
+                    <span>{cta.primaryLabel}</span>
+                    <ArrowRight size={18} />
+                  </Link>
+                </div>
+              )}
+              <ul className="expertise-cta-tiles">
+                {cta.tiles.map((tile) => {
+                  const { href, external, Icon } = tileTarget(tile);
+                  const inner = (
+                    <>
+                      <span className="expertise-cta-tile-icon"><Icon size={20} /></span>
+                      <span className="expertise-cta-tile-text">
+                        <strong>{tile.label}</strong>
+                        <span>{tile.text}</span>
+                      </span>
+                    </>
+                  );
+                  return (
+                    <li key={tile.label}>
+                      {external ? (
+                        <a
+                          href={href}
+                          className="expertise-cta-tile"
+                          {...(href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                        >
+                          {inner}
+                        </a>
+                      ) : (
+                        <Link href={href} className="expertise-cta-tile">{inner}</Link>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

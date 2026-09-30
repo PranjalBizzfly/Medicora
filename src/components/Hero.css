@@ -1,128 +1,85 @@
-/* ==========================================================================
-   Page hero
-   ========================================================================== */
-
+/* Inner-page banner — compact brand band with title and breadcrumbs only. */
 .page-hero {
   position: relative;
-  background-color: var(--color-primary-soft);
-  padding-top: 2.5rem;
-  padding-bottom: 4.5rem;
   overflow: hidden;
   isolation: isolate;
+  padding: clamp(3.5rem, 7vw, 5.5rem) 0;
+  background:
+    radial-gradient(ellipse 55% 110% at 88% 0%, rgba(255, 255, 255, 0.12), transparent 60%),
+    linear-gradient(160deg, var(--brand-maroon) 0%, var(--brand-maroon-deep) 100%);
+  color: #FFFFFF;
+  text-align: center;
 }
 
-.page-hero-decor {
+.page-hero-img { object-fit: cover; z-index: -2; }
+
+.page-hero.has-image .page-hero-decor {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background:
-    radial-gradient(circle at 88% 20%, rgba(207, 225, 229, 0.55) 0, rgba(207, 225, 229, 0) 38%),
-    linear-gradient(180deg, var(--color-primary-soft) 0%, var(--bg-page) 100%);
+  background: linear-gradient(180deg, rgba(60, 14, 3, 0.86), rgba(40, 10, 2, 0.92));
 }
 
-.page-hero-inner {
-  display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
-  gap: 4rem;
-  align-items: center;
-  margin-top: 1.5rem;
-}
+.page-hero-content { display: flex; flex-direction: column; align-items: center; }
 
-.page-hero-inner.has-card {
-  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
-}
-
-.page-hero-content {
-  max-width: 720px;
-}
-
-.hero-badge-row {
-  margin-bottom: 1.25rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-
-.hero-badge-row .badge {
-  background-color: var(--bg-surface);
-  box-shadow: var(--shadow-xs);
-}
-
-.hero-title {
-  font-size: clamp(2.1rem, 3.4vw + 0.6rem, 3.4rem);
+.page-hero .hero-title {
+  max-width: 980px;
+  color: #FFFFFF;
+  font-size: clamp(2.1rem, 3.4vw + 0.6rem, 3.5rem);
   line-height: 1.12;
-  letter-spacing: -0.03em;
-  margin-bottom: 1.25rem;
-  color: var(--text-main);
+  margin: 0;
   text-wrap: balance;
 }
 
-.hero-subtitle {
-  font-size: clamp(1.05rem, 0.3vw + 1rem, 1.2rem);
+/* Breadcrumbs: plain "Home   Page" row, no icons or chevrons */
+.page-hero .breadcrumbs { margin-top: 1.4rem; }
+.page-hero .breadcrumbs ol { justify-content: center; gap: 0.9rem; font-size: 0.95rem; }
+.page-hero .breadcrumbs svg { display: none; }
+.page-hero .breadcrumbs a { color: #FFFFFF; font-weight: 500; }
+.page-hero .breadcrumbs a:hover { color: #CFE1E5; }
+.page-hero .breadcrumbs [aria-current='page'],
+.page-hero .breadcrumbs li > span { color: #CFE1E5; font-weight: 500; }
+
+/* Intro below the banner: centred label, lead text and actions */
+.page-intro { padding: clamp(3.5rem, 7vw, 5.5rem) 0 clamp(2.5rem, 5vw, 3.5rem); background: var(--bg-surface); }
+
+.page-intro-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.page-intro-inner .badge { margin-bottom: 1.4rem; }
+
+.page-intro-text {
+  max-width: 760px;
+  margin: 0;
+  font-size: clamp(1.08rem, 0.5vw + 0.95rem, 1.3rem);
+  line-height: 1.75;
   color: var(--text-muted);
-  line-height: 1.65;
-  margin-bottom: 2rem;
-  max-width: 620px;
+  text-wrap: pretty;
 }
 
-.hero-actions {
+.page-intro .hero-actions {
   display: flex;
-  align-items: center;
-  gap: 0.85rem;
   flex-wrap: wrap;
-}
-
-/* Side card variant */
-.hero-side-card {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-lg);
-  padding: 2rem;
-  box-shadow: var(--shadow-lg);
-}
-
-/* Brand visual variant */
-.hero-visual {
-  position: relative;
-  justify-self: center;
-  width: min(100%, 340px);
-  aspect-ratio: 1;
-  display: flex;
-  align-items: center;
   justify-content: center;
+  gap: 0.85rem;
+  margin-top: 2rem;
 }
 
-.hero-visual::before {
-  content: '';
-  position: absolute;
-  inset: 12%;
-  border-radius: 50%;
+/* Fact card below the intro */
+.page-hero-card-wrap { position: relative; z-index: 2; padding-bottom: clamp(2rem, 4vw, 3rem); background: var(--bg-surface); }
+
+.hero-side-card {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
   background: var(--bg-surface);
-  box-shadow: var(--shadow-lg);
-}
-
-.hero-visual-ring {
-  position: absolute;
-  border-radius: 50%;
-  border: 1px solid rgba(100, 23, 3, 0.14);
-}
-
-.hero-visual-ring-lg {
-  inset: 0;
-}
-
-.hero-visual-ring-sm {
-  inset: 6%;
-  border-style: dashed;
-  border-color: rgba(26, 26, 26, 0.16);
-}
-
-.hero-visual-mark {
-  position: relative;
-  width: 52%;
-  aspect-ratio: 1005 / 861;
-  color: var(--color-primary);
+  box-shadow: var(--shadow-md);
 }
 
 /* Shared brand mark (masked PNG) */
@@ -137,16 +94,10 @@
   mask-size: contain;
 }
 
-@media (max-width: 900px) {
-  .page-hero {
-    padding-bottom: 3.5rem;
-  }
-  .page-hero-inner,
-  .page-hero-inner.has-card {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-  .hero-visual {
-    display: none;
-  }
+@media (max-width: 640px) {
+  .page-intro .hero-actions .btn { width: 100%; justify-content: center; }
 }
+
+/* The banner keeps its own brand background in both themes. */
+:root[data-theme='dark'] .page-hero:not(.has-image) .page-hero-decor { display: none; }
+:root[data-theme='dark'] .page-hero { background: radial-gradient(ellipse 55% 110% at 88% 0%, rgba(207, 225, 229, 0.08), transparent 60%), linear-gradient(160deg, #4D1102 0%, #2A0901 100%); }

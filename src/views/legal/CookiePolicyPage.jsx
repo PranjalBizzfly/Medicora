@@ -1,159 +1,121 @@
 import React from 'react';
-import { CalendarDays, Mail, Phone, Cookie } from 'lucide-react';
-import Hero from '../../components/Hero';
-import { siteConfig } from '../../data/websiteContent';
-import '../../styles/legal.css';
+import LegalDocument from './LegalDocument';
 
+// Source: Website Content PDF, "Page 33 - Cookie Policy" (pp.166–168).
 const sections = [
   {
-    id: 'how-cookies-work',
-    title: 'Understanding How Cookies Work',
-    body: (
-      <p>
-        This Cookie Policy explains how Dr. Mohini Mutha's website may use cookies and similar technologies when you visit our website.
-      </p>
-    )
-  },
-  {
     id: 'what-are-cookies',
-    title: 'What Are Cookies?',
-    body: (
-      <p>
-        Cookies are small text files stored on your computer, tablet, or smartphone when you visit a website. They help websites remember preferences, understand how visitors interact with the site, and ensure smooth and secure navigation.
-      </p>
-    )
+    title: 'What are cookies?',
+    content: [
+      'Cookies are small text files stored on your device when you visit a website. They can help websites remember preferences, understand how visitors use the site and improve your browsing experience.',
+    ],
   },
   {
     id: 'why-we-use-cookies',
-    title: 'Why We Use Cookies',
-    body: (
-      <>
-        <p>Depending on the features enabled on our website, cookies may be used to:</p>
-        <ul className="lg-list">
-          <li>Keep the website functioning properly and securely</li>
-          <li>Remember your site preferences and display settings</li>
-          <li>Understand how visitors navigate between health pages</li>
-          <li>Improve page loading performance and interface stability</li>
-          <li>Measure website traffic anonymously without identifying you individually</li>
-        </ul>
-      </>
-    )
+    title: 'Why we use cookies',
+    content: [
+      'Depending on the features enabled on our website, cookies may be used to:',
+      {
+        list: [
+          'Keep the website functioning properly',
+          'Remember your preferences',
+          'Understand how visitors use our website',
+          'Improve website performance',
+          'Measure website traffic',
+          'Support website security',
+          'Understand the effectiveness of our marketing',
+        ],
+      },
+    ],
   },
   {
     id: 'types-of-cookies',
-    title: 'Types of Cookies We Use',
-    body: (
-      <>
-        <p>
-          <strong>Essential Cookies:</strong> These cookies are necessary for the website to function correctly. They support core features such as navigation, form submissions, and appointment scheduling.
-        </p>
-        <p>
-          <strong>Analytics Cookies:</strong> These help us understand visitor counts and popular health topics, allowing us to improve content readability.
-        </p>
-        <p>
-          <strong>Preference Cookies:</strong> These remember choices you make while browsing to provide a more convenient experience upon return.
-        </p>
-      </>
-    )
+    title: 'Types of cookies',
+    content: [
+      { sub: 'Essential cookies' },
+      'These cookies may be necessary for the website to function correctly. They can support features such as navigation, security and appointment or form functionality.',
+      { sub: 'Analytics cookies' },
+      'These cookies help us understand how visitors interact with our website, such as which pages are visited and how the website is performing.',
+      { sub: 'Preference cookies' },
+      'These cookies may remember choices you make while using the website to provide a more convenient experience.',
+      { sub: 'Marketing cookies' },
+      'Where used, these cookies may help measure advertising activity or provide more relevant marketing. Where required, we will request your consent before placing these cookies.',
+    ],
   },
   {
-    id: 'sensitive-health-information',
-    title: 'Do Cookies Collect Sensitive Health Information?',
-    body: (
-      <p>
-        <strong>No.</strong> Cookies used for website functionality and analytics are strictly technical and are not designed or used to collect your confidential medical history or sensitive health symptoms.
-      </p>
-    )
+    id: 'third-party-cookies',
+    title: 'Third-party cookies',
+    content: [
+      'Some services used on our website may place their own cookies or similar technologies.',
+      'These may include providers used for:',
+      {
+        list: [
+          'Website analytics',
+          'Appointment booking',
+          'Payments',
+          'Embedded content',
+          'Advertising',
+          'Website security',
+        ],
+      },
+      'Third-party providers may have their own privacy and cookie policies.',
+    ],
   },
   {
     id: 'managing-cookie-preferences',
-    title: 'Managing Your Cookie Preferences',
-    body: (
-      <p>
-        You can control or delete cookies through your web browser settings at any time. Disabling certain essential cookies may affect how some interactive parts of the website (such as scheduling forms) function.
-      </p>
-    )
+    title: 'Managing your cookie preferences',
+    content: [
+      'Where required, we provide options to accept, reject or manage non-essential cookies.',
+      'You can also control or delete cookies through your browser settings. Disabling certain cookies may affect how some parts of the website function.',
+    ],
+  },
+  {
+    id: 'cookies-health-information',
+    title: 'Do cookies collect health information?',
+    content: [
+      'Cookies used for website functionality or analytics are not intended to collect your medical history or health information.',
+      'Please avoid entering sensitive health information into non-secure website fields unless specifically requested through an appropriate consultation or communication channel.',
+    ],
+  },
+  {
+    id: 'your-privacy',
+    title: 'Your privacy',
+    content: [
+      'Our use of cookies is connected to our broader approach to protecting personal information.',
+      'For more information about how we collect and use personal information, please read our Privacy Policy.',
+    ],
+  },
+  {
+    id: 'changes-to-this-policy',
+    title: 'Changes to this policy',
+    content: [
+      'We may update this Cookie Policy when our website, technology, services or applicable requirements change.',
+      'The updated version will be published on this page with a revised date.',
+    ],
   },
   {
     id: 'cookie-contact',
-    title: 'Contact Us',
-    body: (
-      <>
-        <p>
-          If you have questions about how cookies are used on this website, please contact:
-        </p>
-        <div className="lg-contact">
-          <span className="lg-contact-icon"><Cookie size={22} /></span>
-          <div className="lg-contact-body">
-            <p className="lg-contact-name">Dr. Mohini Mutha · Trivana Wellness</p>
-            <ul className="lg-contact-list">
-              <li><Mail size={15} /><span>Email: <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a></span></li>
-              <li><Phone size={15} /><span>Phone: <a href={`tel:${siteConfig.phone.replace(/\s/g, '')}`}>{siteConfig.phone}</a></span></li>
-            </ul>
-          </div>
-        </div>
-      </>
-    )
-  }
+    title: 'Questions about cookies?',
+    content: [
+      { sub: "We're here to help" },
+      'If you have questions about how cookies are used on the Trivana Wellness website, please contact us.',
+      { contact: { name: 'Trivana Wellness', cta: 'Contact us' } },
+    ],
+  },
 ];
 
 export default function CookiePolicyPage() {
   return (
-    <div className="cookie-policy-page">
-      <Hero
-        badge="Legal & Privacy"
-        title="Cookie Policy"
-        subtitle="Understanding how cookies and similar web technologies are used on Dr. Mohini Mutha's website to enhance your browsing experience."
-        breadcrumbs={[
-          { label: "Legal", path: "/cookie-policy" },
-          { label: "Cookie Policy" }
-        ]}
-        primaryCtaText={null}
-        secondaryCtaText="Privacy Policy"
-        secondaryCtaLink="/privacy-policy"
-      />
-
-      <section className="section lg-section">
-        <div className="container">
-          <div className="lg-layout">
-            <aside className="lg-toc" aria-label="Cookie Policy contents">
-              <p className="lg-toc-title">On this page</p>
-              <ol className="lg-toc-list">
-                {sections.map((s, i) => (
-                  <li key={s.id}>
-                    <a className="lg-toc-link" href={`#${s.id}`}>
-                      <span className="lg-toc-num">{i + 1}.</span>
-                      <span>{s.title}</span>
-                    </a>
-                  </li>
-                ))}
-              </ol>
-              <div className="lg-toc-cta">
-                Questions about cookies?
-                <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
-              </div>
-            </aside>
-
-            <article className="lg-doc">
-              <div className="lg-doc-meta">
-                <CalendarDays size={16} />
-                <span>Last updated: September 2026</span>
-              </div>
-              <div className="lg-prose">
-                {sections.map((s, i) => (
-                  <section key={s.id} id={s.id} className="lg-doc-section">
-                    <h2 className="lg-doc-heading">
-                      <span className="lg-doc-num">{i + 1}</span>
-                      <span>{s.title}</span>
-                    </h2>
-                    {s.body}
-                  </section>
-                ))}
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-    </div>
+    <LegalDocument
+      hero={{
+        badge: 'Cookie Policy',
+        title: 'Understanding how cookies work',
+        subtitle: 'This Cookie Policy explains how Dr. Mohini Mutha Website may use cookies and similar technologies when you visit our website.',
+        crumb: 'Cookie Policy',
+      }}
+      tocLabel="Cookie Policy contents"
+      tocCta="Questions about cookies?"
+      sections={sections}
+    />
   );
 }

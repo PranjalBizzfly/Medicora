@@ -1,0 +1,509 @@
+/* ==========================================================================
+   Medicora theme system — light (default) and dark.
+   Dark mode is derived from the logo: maroon #641703 on mint #CFE1E5.
+   In dark it inverts — a deep maroon-black base, maroon brand surfaces,
+   and the logo mint as the accent (links, highlights, and primary buttons
+   with maroon text, exactly like the logo lockup).
+   Chosen via the header toggle (saved) or the device setting by default.
+   ========================================================================== */
+
+:root { color-scheme: light; }
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  /* Accent: logo mint. */
+  --color-primary: #CFE1E5;
+  --color-primary-hover: #E6EFF2;
+  --color-primary-light: #E6EFF2;
+  --color-primary-soft: #1E2A2D;
+  --color-primary-muted: rgba(207, 225, 229, 0.10);
+
+  --color-secondary: #F3ECE6;
+  --color-secondary-light: #E2D6CC;
+  --color-secondary-dark: #FAF6F2;
+  --color-accent-mint: #CFE1E5;          /* true logo mint; background uses overridden below */
+  --color-accent-mint-soft: #1B2528;
+  --color-accent-sand: #3E2A21;
+  --color-accent-sand-soft: #22140F;
+  --color-accent-gold: #3E2A21;
+
+  /* Surfaces: maroon-tinted near-black, stepping up in warmth. */
+  --bg-page: #140906;
+  --bg-surface: #1E100B;
+  --bg-card: #24140E;
+  --bg-subtle: #1A0D09;
+  --bg-dark: #641703;          /* brand maroon panels stay maroon */
+  --bg-dark-card: #7A2410;
+
+  --text-main: #F3ECE6;
+  --text-muted: #C8B7AD;
+  --text-light: #9A867B;
+  --text-inverse: #FFFFFF;
+  --text-inverse-muted: rgba(255, 255, 255, 0.78);
+
+  --border-light: #3A2319;
+  --border-subtle: #2C1912;
+  --border-focus: #CFE1E5;
+
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.45);
+  --shadow-sm: 0 4px 14px rgba(10, 3, 1, 0.45);
+  --shadow-md: 0 12px 32px rgba(10, 3, 1, 0.55);
+  --shadow-lg: 0 24px 60px rgba(10, 3, 1, 0.65);
+  --shadow-hover: 0 18px 40px rgba(100, 23, 3, 0.45);
+}
+
+:root[data-theme='dark'] body { background-color: var(--bg-page); }
+
+/* Primary buttons mirror the logo: mint fill, maroon text. */
+:root[data-theme='dark'] .btn-primary {
+  background-color: #CFE1E5;
+  border-color: #CFE1E5;
+  color: #641703;
+}
+:root[data-theme='dark'] .btn-primary:hover {
+  background-color: #E6EFF2;
+  border-color: #E6EFF2;
+  color: #4D1102;
+}
+
+/* White buttons sit on maroon panels: keep maroon text. */
+:root[data-theme='dark'] .btn-white { color: #641703; }
+:root[data-theme='dark'] .btn-white:hover { background-color: #CFE1E5; color: #641703; }
+
+/* Header logo: swap to the white brand lockup. */
+.brand-logo-crop .brand-logo-img-dark { display: none; }
+:root[data-theme='dark'] .brand-logo-crop .brand-logo-img-light { display: none; }
+:root[data-theme='dark'] .brand-logo-crop .brand-logo-img-dark { display: block; }
+
+/* Header surfaces. */
+:root[data-theme='dark'] .header-wrapper { background-color: #1A0D09; }
+:root[data-theme='dark'] .navbar { border-bottom-color: #2C1912; }
+:root[data-theme='dark'] .dropdown-menu,
+:root[data-theme='dark'] .mobile-drawer { background-color: #24140E; }
+
+/* ---------- Premium dark navbar ---------- */
+:root[data-theme='dark'] .topbar {
+  background: linear-gradient(90deg, #4A1103 0%, #641703 50%, #4A1103 100%);
+}
+
+:root[data-theme='dark'] .header-wrapper {
+  background-color: rgba(20, 9, 6, 0.82);
+  backdrop-filter: saturate(160%) blur(14px);
+  -webkit-backdrop-filter: saturate(160%) blur(14px);
+}
+:root[data-theme='dark'] .header-wrapper.is-scrolled {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Hairline under the navbar: maroon → mint → maroon, echoing the logo. */
+:root[data-theme='dark'] .navbar {
+  position: relative;
+  border-bottom-color: transparent;
+}
+:root[data-theme='dark'] .navbar::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(100, 23, 3, 0.9) 20%, rgba(207, 225, 229, 0.45) 50%, rgba(100, 23, 3, 0.9) 80%, transparent);
+  pointer-events: none;
+}
+
+:root[data-theme='dark'] .nav-link {
+  color: #E9DFD8;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+:root[data-theme='dark'] .nav-link:hover,
+:root[data-theme='dark'] .nav-item.is-open > .nav-link {
+  color: #CFE1E5;
+  background-color: rgba(207, 225, 229, 0.07);
+}
+
+/* Active + hover: a mint underline that grows from the centre. */
+:root[data-theme='dark'] .nav-link::after,
+:root[data-theme='dark'] .nav-link.active::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0.1rem;
+  width: 0;
+  height: 2px;
+  margin-left: 0;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, #CFE1E5, transparent);
+  transform: translateX(-50%);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+:root[data-theme='dark'] .nav-link:hover::after,
+:root[data-theme='dark'] .nav-item.is-open > .nav-link::after { width: 55%; }
+:root[data-theme='dark'] .nav-link.active { color: #CFE1E5; }
+:root[data-theme='dark'] .nav-link.active::after { width: 60%; }
+
+/* Icon buttons: glassy circles with a mint ring on hover. */
+:root[data-theme='dark'] .header-icon-btn {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(207, 225, 229, 0.16);
+  color: #E9DFD8;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+:root[data-theme='dark'] .header-icon-btn:hover,
+:root[data-theme='dark'] .header-icon-btn[aria-expanded='true'] {
+  background: rgba(207, 225, 229, 0.1);
+  border-color: rgba(207, 225, 229, 0.5);
+  color: #CFE1E5;
+  box-shadow: 0 0 0 4px rgba(207, 225, 229, 0.08);
+  transform: translateY(-1px);
+}
+:root[data-theme='dark'] .header-tool-theme .header-icon-btn:hover svg {
+  transform: rotate(45deg);
+}
+:root[data-theme='dark'] .header-icon-btn svg { transition: transform 0.4s ease; }
+
+/* Book button: mint pill with a soft glow and a lift. */
+:root[data-theme='dark'] .navbar-cta {
+  box-shadow: 0 0 0 0 rgba(207, 225, 229, 0), 0 6px 18px rgba(207, 225, 229, 0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.2s ease;
+}
+:root[data-theme='dark'] .navbar-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 4px rgba(207, 225, 229, 0.12), 0 10px 26px rgba(207, 225, 229, 0.22);
+}
+
+/* Dropdowns: warm glass card with mint-accented active item. */
+:root[data-theme='dark'] .dropdown-menu {
+  /* Fully opaque: a nested backdrop-filter doesn't work under the blurred header,
+     so any transparency lets page text show through. */
+  background: linear-gradient(160deg, #2A1811 0%, #1E100B 100%);
+  border-color: rgba(207, 225, 229, 0.12);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(207, 225, 229, 0.06);
+}
+:root[data-theme='dark'] .dropdown-link {
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+:root[data-theme='dark'] .dropdown-link:hover {
+  background-color: rgba(207, 225, 229, 0.07);
+  transform: translateX(3px);
+}
+:root[data-theme='dark'] .dropdown-link.active {
+  background-color: rgba(207, 225, 229, 0.1);
+  box-shadow: inset 2px 0 0 #CFE1E5;
+}
+
+/* CTA panel: deep brand maroon with a soft mint glow, like the logo inverted. */
+:root[data-theme='dark'] .cta-panel {
+  background: radial-gradient(120% 140% at 100% 0%, rgba(207, 225, 229, 0.12), transparent 55%), #4A1103;
+  color: #F3ECE6;
+}
+:root[data-theme='dark'] .cta-panel h2 { color: #FFFFFF; }
+:root[data-theme='dark'] .cta-panel-mark { color: rgba(207, 225, 229, 0.07); }
+
+/* ==========================================================================
+   Site-wide premium dark layer — logo maroon + mint on warm near-black.
+   ========================================================================== */
+
+/* Ambient page glow: faint maroon warmth top-left, cool mint bottom-right. */
+:root[data-theme='dark'] body {
+  background:
+    radial-gradient(1200px 700px at 0% 0%, rgba(100, 23, 3, 0.22), transparent 60%),
+    radial-gradient(900px 600px at 100% 100%, rgba(207, 225, 229, 0.05), transparent 60%),
+    var(--bg-page);
+  background-attachment: fixed;
+}
+
+:root[data-theme='dark'] ::selection { background: #CFE1E5; color: #641703; }
+
+/* Scrollbar in brand tones. */
+:root[data-theme='dark'] { scrollbar-color: #641703 #140906; }
+
+/* Hero backdrops: maroon bloom + restrained mint halo instead of grey haze. */
+:root[data-theme='dark'] .home-hero-decor,
+:root[data-theme='dark'] .page-hero-decor {
+  background:
+    radial-gradient(circle at 85% 25%, rgba(207, 225, 229, 0.10) 0, rgba(207, 225, 229, 0) 42%),
+    radial-gradient(circle at 10% 10%, rgba(100, 23, 3, 0.55) 0, rgba(100, 23, 3, 0) 50%),
+    linear-gradient(180deg, #1E0C07 0%, var(--bg-page) 100%);
+  background-size: 130% 130%, 130% 130%, 100% 100%;
+}
+
+/* Section tints. */
+:root[data-theme='dark'] .bg-soft,
+:root[data-theme='dark'] .bg-sand {
+  background: linear-gradient(180deg, rgba(100, 23, 3, 0.14), rgba(100, 23, 3, 0.04));
+}
+:root[data-theme='dark'] .bg-mint {
+  background: linear-gradient(180deg, rgba(207, 225, 229, 0.05), rgba(207, 225, 229, 0.015));
+}
+:root[data-theme='dark'] .bg-surface { background-color: rgba(30, 16, 11, 0.6); }
+:root[data-theme='dark'] .bg-dark {
+  background: radial-gradient(100% 120% at 100% 0%, rgba(207, 225, 229, 0.08), transparent 55%), #4A1103;
+}
+
+:root[data-theme='dark'] h1,
+:root[data-theme='dark'] h2 { color: #F7F1EC; }
+
+/* ---------- Cards: glass surfaces, mint edge light, lift on hover ---------- */
+:root[data-theme='dark'] :is(.card, .ap-card, .rs-card, .rs-blog-card, .rs-myth-card, .rs-form-card,
+  .cr-card, .cr-info-card, .ab-card, .ab-timeline-card, .home-expertise-card,
+  .home-blog-card, .home-service-card, .home-about-card, .home-contact-card, .expertise-area-card,
+  .expertise-approach-card, .expertise-hero-card, .hero-side-card, .testimonial-card, .ap-quote-card,
+  .stat-box, .quick-info-strip) {
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.045) 0%, rgba(255, 255, 255, 0.01) 100%), #1E100B;
+  border-color: rgba(207, 225, 229, 0.09);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 8px 24px rgba(0, 0, 0, 0.3);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.35s ease;
+}
+:root[data-theme='dark'] :is(.card, .ap-card, .rs-card, .rs-blog-card, .rs-myth-card, .cr-card,
+  .cr-info-card, .ab-card, .ab-timeline-card, .home-expertise-card,
+  .home-blog-card, .home-service-card, .expertise-area-card, .expertise-approach-card,
+  .testimonial-card):hover {
+  border-color: rgba(207, 225, 229, 0.32);
+  box-shadow: inset 0 1px 0 rgba(207, 225, 229, 0.08), 0 18px 44px rgba(0, 0, 0, 0.5), 0 10px 40px -12px rgba(100, 23, 3, 0.7);
+  transform: translateY(-4px);
+}
+
+/* Icon tiles: maroon chip that flips to mint on card hover (the logo pairing). */
+:root[data-theme='dark'] .icon-tile {
+  background: linear-gradient(145deg, #641703, #4A1103);
+  color: #CFE1E5;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+:root[data-theme='dark'] :is(.card, .ap-card, .rs-card, .cr-card, .ab-card, .home-expertise-card, .expertise-area-card):hover .icon-tile {
+  background: #CFE1E5;
+  color: #641703;
+  transform: scale(1.06) rotate(-4deg);
+}
+:root[data-theme='dark'] .icon-tile-mint { background: rgba(207, 225, 229, 0.1); color: #CFE1E5; }
+
+/* Stats: mint numbers with a soft sheen. */
+:root[data-theme='dark'] .stat-number {
+  background: linear-gradient(180deg, #F2F8F9 0%, #CFE1E5 60%, #9FBCC2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+:root[data-theme='dark'] .stats-grid { background-color: transparent; }
+:root[data-theme='dark'] .stats-grid .stat-box:hover { background: rgba(207, 225, 229, 0.06); }
+
+:root[data-theme='dark'] .link-arrow { color: #CFE1E5; }
+:root[data-theme='dark'] .link-arrow:hover { color: #FFFFFF; }
+
+/* Buttons: outline gets the mint edge; primary gains a light sweep on hover. */
+:root[data-theme='dark'] .btn-outline {
+  border-color: rgba(207, 225, 229, 0.4);
+  color: #CFE1E5;
+}
+:root[data-theme='dark'] .btn-outline:hover {
+  background: rgba(207, 225, 229, 0.1);
+  border-color: #CFE1E5;
+  color: #FFFFFF;
+}
+:root[data-theme='dark'] .btn-primary {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(207, 225, 229, 0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.2s ease;
+}
+:root[data-theme='dark'] .btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+  pointer-events: none;
+}
+:root[data-theme='dark'] .btn-primary:hover::before { left: 140%; }
+:root[data-theme='dark'] .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 4px rgba(207, 225, 229, 0.12), 0 12px 28px rgba(207, 225, 229, 0.2);
+}
+
+/* Badges / chips. */
+/* Only the pill itself — .section-tag / .cta-panel-badge are full-width wrappers. */
+:root[data-theme='dark'] :is(.badge, .home-hero-chip) {
+  background-color: rgba(207, 225, 229, 0.08);
+  border: 1px solid rgba(207, 225, 229, 0.22);
+  color: #CFE1E5;
+}
+:root[data-theme='dark'] :is(.section-tag, .cta-panel-badge) {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+/* Badges on photo / maroon sections: frosted light pill so they stay legible. */
+:root[data-theme='dark'] :is(.badge-dark, .home-photo-section .badge, .bg-dark .badge, .cta-panel .badge) {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.28);
+  color: #FFFFFF;
+}
+
+/* Forms: dark wells with a mint focus ring. */
+:root[data-theme='dark'] :is(input, select, textarea):not([type='checkbox']):not([type='radio']) {
+  background-color: #1A0D09;
+  border-color: #3A2319;
+  color: #F3ECE6;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+:root[data-theme='dark'] :is(input, textarea)::placeholder { color: #8A766B; }
+:root[data-theme='dark'] :is(input, select, textarea):not([type='checkbox']):not([type='radio']):hover { border-color: #5A3426; }
+:root[data-theme='dark'] :is(input, select, textarea):not([type='checkbox']):not([type='radio']):focus {
+  outline: none;
+  background-color: #1E100B;
+  border-color: #CFE1E5;
+  box-shadow: 0 0 0 4px rgba(207, 225, 229, 0.12);
+}
+:root[data-theme='dark'] :is(input[type='checkbox'], input[type='radio']) { accent-color: #CFE1E5; }
+:root[data-theme='dark'] :focus-visible { outline-color: #CFE1E5; }
+
+/* Mint-filled surfaces that would glare on dark. */
+:root[data-theme='dark'] .bk-privacy { background-color: rgba(207, 225, 229, 0.06); }
+:root[data-theme='dark'] :is(.home-blog-card-media, .rs-blog-media) {
+  background: linear-gradient(145deg, #2A1209 0%, #1B2528 100%);
+}
+:root[data-theme='dark'] :is(.home-blog-card:nth-child(2) .home-blog-card-media, .rs-blog-card:nth-child(4n + 2) .rs-blog-media, .rs-case-aside) {
+  background: linear-gradient(145deg, #3A1406 0%, #22140F 100%);
+}
+:root[data-theme='dark'] :is(.home-blog-card:nth-child(3) .home-blog-card-media, .rs-blog-card:nth-child(4n + 3) .rs-blog-media) {
+  background: linear-gradient(145deg, #1A0D09 0%, #243236 100%);
+}
+
+/* Footer: deep maroon with a mint hairline and glow. */
+:root[data-theme='dark'] .footer {
+  position: relative;
+  background:
+    radial-gradient(80% 60% at 85% 0%, rgba(207, 225, 229, 0.07), transparent 60%),
+    linear-gradient(180deg, #3E0E03 0%, #240803 100%);
+}
+:root[data-theme='dark'] .footer::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(207, 225, 229, 0.5), transparent);
+}
+:root[data-theme='dark'] .footer-social-links a:hover { color: #641703; }
+
+@media (prefers-reduced-motion: reduce) {
+  :root[data-theme='dark'] .btn-primary::before { display: none; }
+  :root[data-theme='dark'] :is(.card, .ap-card, .rs-card, .cr-card, .ab-card, .home-expertise-card, .expertise-area-card, .testimonial-card):hover { transform: none; }
+}
+
+/* Smooth colour change when switching theme (not on first paint). */
+.theme-transition,
+.theme-transition *,
+.theme-transition *::before,
+.theme-transition *::after {
+  transition: background-color 300ms ease, color 300ms ease, border-color 300ms ease !important;
+}
+
+/* ==========================================================================
+   Calm layer — same maroon + mint palette, quieter delivery.
+   Borrows the feel of a restrained clinical dark theme: flat, even surfaces,
+   hairline borders, soft diffused light and small, slow motion.
+   ========================================================================== */
+
+/* Page: a barely-there maroon warmth instead of a strong bloom. */
+:root[data-theme='dark'] body {
+  background:
+    radial-gradient(1200px 700px at 0% 0%, rgba(100, 23, 3, 0.10), transparent 65%),
+    var(--bg-page);
+  background-attachment: fixed;
+}
+
+/* Hero backdrops: gentle, low-contrast wash. */
+:root[data-theme='dark'] .home-hero-decor,
+:root[data-theme='dark'] .page-hero-decor {
+  background:
+    radial-gradient(circle at 85% 25%, rgba(207, 225, 229, 0.05) 0, rgba(207, 225, 229, 0) 45%),
+    radial-gradient(circle at 10% 10%, rgba(100, 23, 3, 0.25) 0, rgba(100, 23, 3, 0) 55%),
+    linear-gradient(180deg, #1A0B07 0%, var(--bg-page) 100%);
+}
+
+/* Section tints: even, low-contrast bands. */
+:root[data-theme='dark'] .bg-soft,
+:root[data-theme='dark'] .bg-sand { background: rgba(100, 23, 3, 0.06); }
+:root[data-theme='dark'] .bg-mint { background: rgba(207, 225, 229, 0.025); }
+
+/* Headings: soft off-white rather than bright white. */
+:root[data-theme='dark'] h1,
+:root[data-theme='dark'] h2 { color: #EFE7E1; }
+
+/* Cards: flat solid surface, hairline border, soft diffuse shadow. */
+:root[data-theme='dark'] :is(.card, .ap-card, .rs-card, .rs-blog-card, .rs-myth-card, .rs-form-card,
+  .cr-card, .cr-info-card, .ab-card, .ab-timeline-card, .home-expertise-card,
+  .home-blog-card, .home-service-card, .home-about-card, .home-contact-card, .expertise-area-card,
+  .expertise-approach-card, .expertise-hero-card, .hero-side-card, .testimonial-card, .ap-quote-card,
+  .stat-box, .quick-info-strip) {
+  background: var(--bg-surface);
+  border-color: rgba(207, 225, 229, 0.07);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+  transition: transform 0.45s ease, border-color 0.45s ease, box-shadow 0.45s ease;
+}
+:root[data-theme='dark'] :is(.card, .ap-card, .rs-card, .rs-blog-card, .rs-myth-card, .cr-card,
+  .cr-info-card, .ab-card, .ab-timeline-card, .home-expertise-card,
+  .home-blog-card, .home-service-card, .expertise-area-card, .expertise-approach-card,
+  .testimonial-card):hover {
+  border-color: rgba(207, 225, 229, 0.18);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  transform: translateY(-2px);
+}
+
+/* Icon tiles: soft tinted chip; hover just brightens, no spin. */
+:root[data-theme='dark'] .icon-tile {
+  background: rgba(100, 23, 3, 0.45);
+  color: #CFE1E5;
+  box-shadow: none;
+}
+:root[data-theme='dark'] :is(.card, .ap-card, .rs-card, .cr-card, .ab-card, .home-expertise-card, .expertise-area-card):hover .icon-tile {
+  background: #641703;
+  color: #CFE1E5;
+  transform: none;
+}
+
+/* Stats: calm solid mint, no metallic sheen. */
+:root[data-theme='dark'] .stat-number {
+  background: none;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  color: #CFE1E5;
+}
+
+/* Buttons: no shine sweep, no glow halo — a quiet lift only. */
+:root[data-theme='dark'] .btn-primary::before { display: none; }
+:root[data-theme='dark'] .btn-primary { box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35); }
+:root[data-theme='dark'] .btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
+}
+:root[data-theme='dark'] .navbar-cta,
+:root[data-theme='dark'] .navbar-cta:hover {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+:root[data-theme='dark'] .navbar-cta:hover { transform: translateY(-1px); }
+
+/* Header: plain hairline, calm icon buttons. */
+:root[data-theme='dark'] .navbar::after { background: rgba(207, 225, 229, 0.08); }
+:root[data-theme='dark'] .header-icon-btn:hover,
+:root[data-theme='dark'] .header-icon-btn[aria-expanded='true'] {
+  box-shadow: none;
+  transform: none;
+}
+:root[data-theme='dark'] .header-tool-theme .header-icon-btn:hover svg { transform: none; }
+:root[data-theme='dark'] .dropdown-link:hover { transform: none; }
+
+/* Brand panels: even maroon with only a faint mint light. */
+:root[data-theme='dark'] .cta-panel,
+:root[data-theme='dark'] .bg-dark {
+  background: radial-gradient(100% 120% at 100% 0%, rgba(207, 225, 229, 0.04), transparent 60%), #4A1103;
+}
+:root[data-theme='dark'] .footer {
+  background: linear-gradient(180deg, #2E0B03 0%, #1C0703 100%);
+}
+:root[data-theme='dark'] .footer::before { background: rgba(207, 225, 229, 0.12); }

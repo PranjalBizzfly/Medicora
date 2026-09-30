@@ -2,7 +2,7 @@ import ProfessionalExperiencePage from "../../../views/credentials/ProfessionalE
 
 export const metadata = {
   title: "Professional Experience",
-  description: "A clinical journey shaped by 14+ years of patient care, including service as a Consultant Homoeopathic Physician with ONGC since 2018.",
+  description: "A clinical journey shaped by years of patient care: clinical practice since 2012, 14+ years of experience, 12,000+ patients and Consultant Homoeopathic Physician with ONGC since 2018.",
   alternates: { canonical: "/credentials/professional-experience" },
 };
 

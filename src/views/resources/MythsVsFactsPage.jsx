@@ -1,98 +1,50 @@
 import React from 'react';
+import { XCircle, CheckCircle2, HelpCircle, User, MessageSquareText } from 'lucide-react';
 import Hero from '../../components/Hero';
 import SectionHeader from '../../components/SectionHeader';
-import CTABanner from '../../components/CTABanner';
+import ActionTilesCTA from './ActionTilesCTA';
+import { defaultTiles } from './actionTiles';
 import { mythsAndFactsList } from '../../data/websiteContent';
-import {
-  XCircle,
-  CheckCircle,
-  HelpCircle,
-  UserRound,
-  MessagesSquare
-} from 'lucide-react';
 import '../../styles/resources.css';
 
-const principles = [
-  {
-    Icon: HelpCircle,
-    title: 'Question Assumptions',
-    text: 'Not everything circulated about health or alternative medicine is supported by genuine clinical evidence or medical responsibility.'
-  },
-  {
-    Icon: UserRound,
-    title: 'Look at the Individual',
-    text: 'The same health condition or emotional challenge affects different people in markedly different ways across their physiology and life.'
-  },
-  {
-    Icon: MessagesSquare,
-    title: 'Ask Informed Questions',
-    text: 'Understanding your treatment options empowers you to have more meaningful, collaborative conversations with your healthcare provider.'
-  }
+// Source: Website Content PDF, Page 28 – Myths vs Facts (pp.155–156);
+// fourth myth is the example from the Sitemap brief Section 05.
+const betterInfo = [
+  { Icon: HelpCircle, title: 'Question assumptions', text: 'Not everything we hear about health is supported by reliable information.' },
+  { Icon: User, title: 'Look at the individual', text: 'The same health concern can affect different people differently.' },
+  { Icon: MessageSquareText, title: 'Ask informed questions', text: 'Understanding your options helps you have more meaningful conversations about care.' },
 ];
 
 export default function MythsVsFactsPage() {
   return (
-    <div className="myths-vs-facts-page">
+    <div className="myths-facts-page">
       <Hero
-        badge="Resources · Truth in Health"
+        badge="Resources"
         title="Myths vs Facts"
-        subtitle="Separating common beliefs from better understanding. Clear, balanced explanations to help you ask informed questions about homeopathy, anxiety, and holistic care."
+        subtitle="Separating common beliefs from better understanding"
         breadcrumbs={[
-          { label: "Resources", path: "/resources/patient-stories" },
-          { label: "Myths vs Facts" }
+          { label: 'Resources', path: '/resources/patient-stories' },
+          { label: 'Myths vs Facts' },
         ]}
-        primaryCtaText="Book a Consultation"
+        primaryCtaText="Book a consultation"
         primaryCtaLink="/book-a-consultation"
-        secondaryCtaText="Frequently Asked Questions"
-        secondaryCtaLink="/resources/faqs"
+        secondaryCtaText="Blogs"
+        secondaryCtaLink="/resources/blogs"
       />
 
-      {/* Intro Philosophy: Better Information, Better Conversations */}
       <section className="section bg-surface">
         <div className="container">
-          <SectionHeader
-            badge="Evidence & Responsibility"
-            title="Better Information Leads to Better Conversations"
-            subtitle="Health information can often be confusing or contradictory. Understanding what is known, what is uncertain, and what is strictly individual helps you make confident healthcare choices."
-            centered={true}
-          />
-
-          <div className="grid-3 rs-principles">
-            {principles.map(({ Icon, title, text }) => (
-              <div key={title} className="card rs-card">
-                <span className="icon-tile">
-                  <Icon size={22} aria-hidden="true" />
-                </span>
-                <h4>{title}</h4>
-                <p>{text}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* Myths vs Facts Detailed Cards */}
           <div className="rs-myth-list">
-            {mythsAndFactsList.map((item, idx) => (
-              <article key={idx} className="card rs-myth-card">
-                {/* Myth Row */}
+            {mythsAndFactsList.map((item) => (
+              <article key={item.myth} className="card rs-myth-card">
                 <div className="rs-myth">
-                  <span className="rs-mf-icon">
-                    <XCircle size={20} aria-hidden="true" />
-                  </span>
-                  <div>
-                    <span className="rs-mf-label">Common Myth</span>
-                    <h3>"{item.myth}"</h3>
-                  </div>
+                  <span className="rs-mf-label"><XCircle size={16} aria-hidden="true" /> Myth</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.myth}</p>
                 </div>
-
-                {/* Fact Row */}
                 <div className="rs-fact">
-                  <span className="rs-mf-icon">
-                    <CheckCircle size={20} aria-hidden="true" />
-                  </span>
-                  <div>
-                    <span className="rs-mf-label">Clinical Fact</span>
-                    <p>{item.fact}</p>
-                  </div>
+                  <span className="rs-mf-label"><CheckCircle2 size={16} aria-hidden="true" /> Fact</span>
+                  <p>{item.fact}</p>
                 </div>
               </article>
             ))}
@@ -100,11 +52,30 @@ export default function MythsVsFactsPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <CTABanner
-        badge="Have a Question About Homeopathy?"
-        title="Have a Question About Homeopathy?"
+      <section className="section photo-band" style={{ '--band-img': "url('/images/photos/patient-conversation.jpg')" }}>
+        <div className="container">
+          <SectionHeader
+            badge="Better information"
+            title="Better information, better conversations"
+            subtitle="Health information can be confusing. Understanding what is known, what is uncertain and what is individual can help you ask better questions."
+            centered={true}
+          />
+          <div className="grid-3">
+            {betterInfo.map(({ Icon, title, text }) => (
+              <div key={title} className="card rs-card">
+                <span className="icon-tile"><Icon size={22} aria-hidden="true" /></span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <ActionTilesCTA
+        title="Have a question about homeopathy?"
         subtitle="If you've heard something you're unsure about, bring your questions to the conversation and explore them openly."
+        tiles={defaultTiles({ message: "Share what you've heard." })}
       />
     </div>
   );

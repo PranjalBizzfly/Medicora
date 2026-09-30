@@ -35,7 +35,7 @@ export default function ConsultationProcess({
                 </div>
                 <h3>{step.title}</h3>
                 <p className="process-step-subtitle">{step.subtitle}</p>
-                <p>{step.description}</p>
+                {step.description && <p>{step.description}</p>}
               </li>
             );
           })}

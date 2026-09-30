@@ -1,12 +1,14 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Phone, Mail, MapPin, ChevronDown, Menu, X, Calendar } from 'lucide-react';
 import { siteConfig, navigationLinks } from '../data/websiteContent';
 import { SocialLinks } from './SocialIcons';
+import ThemeToggle from './ThemeToggle';
+import SiteSearch from './SiteSearch';
 import './Header.css';
 
 function BrandLogo() {
@@ -18,7 +20,15 @@ function BrandLogo() {
         width={1702}
         height={445}
         priority
-        className="brand-logo-img"
+        className="brand-logo-img brand-logo-img-light"
+      />
+      <Image
+        src="/brand/logo-footer-white.png"
+        alt=""
+        aria-hidden="true"
+        width={1702}
+        height={445}
+        className="brand-logo-img brand-logo-img-dark"
       />
     </span>
   );
@@ -30,6 +40,9 @@ export default function Header() {
   const [expandedMobileItem, setExpandedMobileItem] = useState(null);
   const [openDropdown, setOpenDropdown] = useState(null);
   const [scrolled, setScrolled] = useState(false);
+  const drawerRef = useRef(null);
+  const toggleRef = useRef(null);
+  const wasOpen = useRef(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -41,6 +54,8 @@ export default function Header() {
   useEffect(() => {
     const onKey = (e) => {
       if (e.key === 'Escape') {
+        // Return focus to the menu button that owned the open dropdown.
+        document.querySelector('.nav-item.is-open > .nav-link')?.focus();
         setMobileMenuOpen(false);
         setOpenDropdown(null);
       }
@@ -48,6 +63,31 @@ export default function Header() {
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, []);
+
+  // Mobile drawer: move focus in, trap Tab inside, restore focus on close.
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      wasOpen.current = true;
+      const drawer = drawerRef.current;
+      drawer?.querySelector('button')?.focus();
+      const trap = (e) => {
+        if (e.key !== 'Tab' || !drawer) return;
+        const items = drawer.querySelectorAll('a[href], button:not([disabled])');
+        if (!items.length) return;
+        const first = items[0];
+        const last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      };
+      document.addEventListener('keydown', trap);
+      return () => document.removeEventListener('keydown', trap);
+    }
+    if (wasOpen.current) {
+      wasOpen.current = false;
+      toggleRef.current?.focus();
+    }
+    return undefined;
+  }, [mobileMenuOpen]);
 
   useEffect(() => {
     document.body.style.overflow = mobileMenuOpen ? 'hidden' : '';
@@ -104,6 +144,10 @@ export default function Header() {
                 className={`nav-item ${openDropdown === item.label ? 'is-open' : ''}`}
                 onMouseEnter={() => item.children && setOpenDropdown(item.label)}
                 onMouseLeave={() => item.children && setOpenDropdown(null)}
+                onFocus={() => item.children && setOpenDropdown(item.label)}
+                onBlur={(e) => {
+                  if (item.children && !e.currentTarget.contains(e.relatedTarget)) setOpenDropdown(null);
+                }}
               >
                 {item.children ? (
                   <>
@@ -144,12 +188,17 @@ export default function Header() {
           </ul>
 
           <div className="navbar-actions">
+            <div className="header-tools">
+              <SiteSearch />
+              <span className="header-tool-theme"><ThemeToggle /></span>
+            </div>
             <Link href="/book-a-consultation" className="btn btn-primary btn-sm navbar-cta">
               <Calendar size={15} />
               <span>Book a Consultation</span>
             </Link>
             <button
               type="button"
+              ref={toggleRef}
               className="mobile-toggle"
               onClick={() => setMobileMenuOpen(true)}
               aria-label="Open navigation menu"
@@ -165,9 +214,10 @@ export default function Header() {
       {mobileMenuOpen && (
         <>
           <div className="mobile-drawer-backdrop" onClick={closeMobileMenu} />
-          <div className="mobile-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+          <div ref={drawerRef} className="mobile-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
             <div className="mobile-drawer-header">
               <BrandLogo />
+              <span className="mobile-drawer-theme"><ThemeToggle /></span>
               <button type="button" className="mobile-toggle" onClick={closeMobileMenu} aria-label="Close menu">
                 <X size={24} />
               </button>

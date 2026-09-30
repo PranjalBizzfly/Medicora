@@ -2,7 +2,7 @@ import PersonalisedTreatmentPage from "../../../views/approach/PersonalisedTreat
 
 export const metadata = {
   title: "Personalised Treatment",
-  description: "An individualised approach that considers your health history, symptoms, lifestyle and personal needs.",
+  description: "Your health story is unique. Your care should be too. An individualised approach that considers your health history, presenting symptoms, lifestyle and personal needs to shape your care.",
   alternates: { canonical: "/my-approach/personalised-treatment" },
 };
 

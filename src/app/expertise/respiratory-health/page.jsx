@@ -2,7 +2,7 @@ import RespiratoryHealthPage from "../../../views/expertise/RespiratoryHealthPag
 
 export const metadata = {
   title: "Respiratory Health",
-  description: "Support for healthier breathing and wellbeing, including recurring cough, congestion and seasonal respiratory concerns.",
+  description: "Support for healthier breathing and wellbeing. Support for common respiratory concerns and breathing-related wellbeing.",
   alternates: { canonical: "/expertise/respiratory-health" },
 };
 

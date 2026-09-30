@@ -1,138 +1,125 @@
 import React from 'react';
-import { Info } from 'lucide-react';
+import { Stethoscope, MessagesSquare, Route, ArrowRight } from 'lucide-react';
 import Hero from '../../components/Hero';
 import SectionHeader from '../../components/SectionHeader';
-import CTABanner from '../../components/CTABanner';
-import BrandMark from '../../components/BrandMark';
-import { caseStudiesList } from '../../data/websiteContent';
+import TestimonialCard from '../../components/TestimonialCard';
+import ActionTilesCTA from './ActionTilesCTA';
+import { patientTestimonials, caseStudyStructure } from '../../data/websiteContent';
 import '../../styles/resources.css';
 
+// Source: Website Content PDF, Page 24 – Case Studies (pp.149–150);
+// structure from Sitemap brief Section 05. No approved case details exist,
+// so no clinical case content is published.
 const stages = [
-  {
-    num: '01',
-    title: 'The Concern',
-    text: 'Every case begins with understanding the symptoms, onset history, and specific daily limitations shared by the patient.'
-  },
-  {
-    num: '02',
-    title: 'The Consultation',
-    text: 'A detailed consultation explores physical patterns, emotional stresses, lifestyle factors, and unique constitutional characteristics.'
-  },
-  {
-    num: '03',
-    title: 'The Care Journey',
-    text: "Care is formulated and adapted around the patient's evolving needs, circumstances, and ongoing progress over follow-ups."
-  }
+  { Icon: Stethoscope, title: 'The concern', text: 'Every case begins with understanding the symptoms, history and concerns shared by the patient.' },
+  { Icon: MessagesSquare, title: 'The consultation', text: 'A detailed consultation helps create a complete picture of your health concerns and individual needs.' },
+  { Icon: Route, title: 'The care journey', text: "Care is considered around the patient's needs, circumstances and ongoing experience." },
+];
+
+const pendingTestimonials = [
+  { label: 'Testimonial 02', title: "A patient's experience of care", text: 'A personal account of their consultation experience, communication and support received during their care.' },
+  { label: 'Testimonial 03', title: 'Real experiences. Real perspectives.', text: 'Hear directly from patients about their experience with Dr. Mohini and the care they received.' },
+];
+
+const perspective = [
+  { title: 'Individual concerns', text: 'Understanding what brought the patient to consultation.' },
+  { title: 'Clinical perspective', text: 'Looking at the information shared during the consultation.' },
+  { title: 'Ongoing journey', text: "Following the patient's experience through personalised care." },
 ];
 
 export default function CaseStudiesPage() {
+  const testimonial = patientTestimonials[0];
   return (
     <div className="case-studies-page">
       <Hero
-        badge="Resources · Clinical Case Studies"
+        badge="Resources"
         title="Case Studies"
-        subtitle="Understanding the person behind the concern. Anonymised clinical perspectives illustrating the journey from initial consultation to tailored care."
+        subtitle="Understanding the person behind the concern"
         breadcrumbs={[
-          { label: "Resources", path: "/resources/patient-stories" },
-          { label: "Case Studies" }
+          { label: 'Resources', path: '/resources/patient-stories' },
+          { label: 'Case Studies' },
         ]}
-        primaryCtaText="Book a Consultation"
+        primaryCtaText="Book a consultation"
         primaryCtaLink="/book-a-consultation"
-        secondaryCtaText="Consultation Process"
-        secondaryCtaLink="/my-approach/consultation-process"
+        secondaryCtaText="Patient Stories"
+        secondaryCtaLink="/resources/patient-stories"
       />
 
-      {/* 3 Key Stages of Case Study Architecture */}
-      <section className="section bg-surface">
+      <section className="section photo-band" style={{ '--band-img': "url('/images/photos/anxiety-consultation.jpg')" }}>
         <div className="container">
-          <SectionHeader
-            badge="Clinical Architecture"
-            title="Three Key Stages of Every Clinical Case"
-            subtitle="How patient concerns are systematically evaluated and addressed."
-            centered={true}
-          />
-
           <div className="grid-3">
-            {stages.map((stage) => (
-              <div key={stage.num} className="card rs-card">
-                <span className="rs-card-num" aria-hidden="true">{stage.num}</span>
-                <span className="badge badge-mint">Stage {stage.num}</span>
-                <h3>{stage.title}</h3>
-                <p>{stage.text}</p>
+            {stages.map(({ Icon, title, text }) => (
+              <div key={title} className="card rs-card">
+                <span className="icon-tile"><Icon size={22} aria-hidden="true" /></span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+                <a href="#case-structure" className="link-arrow">
+                  <span>View case</span>
+                  <ArrowRight size={14} aria-hidden="true" />
+                </a>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Real Cases & Clinical Perspective */}
-      <section className="section bg-sand">
+      <section id="real-cases" className="section bg-sand">
         <div className="container">
           <SectionHeader
-            badge="Clinical Perspective"
-            title="Real Cases, Thoughtfully Presented"
-            subtitle="These case studies share selected patient journeys while strictly respecting privacy and confidentiality."
+            badge="Real cases & clinical perspective"
+            title="Real cases, thoughtfully presented"
+            subtitle="These case studies will share selected patient journeys while respecting privacy and confidentiality."
             centered={true}
           />
 
-          <div className="rs-case-notice" role="note">
-            <Info size={18} aria-hidden="true" />
-            <p>
-              Details below are anonymised and illustrative, and are pending review by Dr. Mohini. Each account describes an individual experience only; it is not evidence that the same approach will produce a similar outcome for anyone else.
-            </p>
+          <div className="rs-featured-quote">
+            <span className="rs-pending-tag">Testimonial 01</span>
+            <TestimonialCard quote={testimonial.quote} author={testimonial.author} />
           </div>
 
-          <div className="rs-case-list">
-            {caseStudiesList.map((cs) => (
-              <article key={cs.id} className="card rs-case">
-                <div className="rs-case-aside">
-                  <span className="badge badge-mint">Anonymised Clinical Record</span>
-                  <div>
-                    <span className="rs-label">Patient Profile:</span>
-                    <p>{cs.patientProfile}</p>
-                  </div>
-                  <BrandMark className="rs-case-aside-mark" />
-                </div>
-
-                <div className="rs-case-body">
-                  <h3>{cs.title}</h3>
-
-                  <div className="rs-case-field">
-                    <strong>Presenting Concern:</strong>
-                    <p>{cs.presentingConcern}</p>
-                  </div>
-
-                  <div className="rs-case-field">
-                    <strong>Consultation & Assessment:</strong>
-                    <p>{cs.assessment}</p>
-                  </div>
-
-                  <div className="rs-case-field">
-                    <strong>Care Approach:</strong>
-                    <p>{cs.careApproach}</p>
-                  </div>
-
-                  <div className="rs-case-field rs-case-outcome">
-                    <strong>Follow-up / Outcome:</strong>
-                    <p>{cs.outcome}</p>
-                  </div>
-                </div>
-              </article>
+          <div className="grid-2">
+            {pendingTestimonials.map((t) => (
+              <div key={t.label} className="rs-pending">
+                <span className="rs-pending-tag">{t.label}</span>
+                <h3>{t.title}</h3>
+                <p>{t.text}</p>
+                <p><em>To be shared with the patient&rsquo;s consent.</em></p>
+              </div>
             ))}
           </div>
 
-          <div className="medical-disclaimer-box rs-disclaimer">
-            <p>
-              <strong>Important Medical Responsibility Note:</strong> Avoid presenting individual cases as proof that a treatment will produce the exact same outcome for other patients. In individualised homeopathy and counselling, each patient's response depends on their constitutional factors, duration of condition, and adherence to care.
-            </p>
+          <div className="grid-3 rs-section-gap">
+            {perspective.map((p) => (
+              <div key={p.title} className="card rs-card">
+                <h3>{p.title}</h3>
+                <p>{p.text}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <CTABanner
-        badge="Every Case Tells a Different Story"
-        title="Every Case Tells a Different Story"
+      <section id="case-structure" className="section photo-band" style={{ '--band-img': "url('/images/photos/doctor-male-patient.jpg')" }}>
+        <div className="container">
+          <SectionHeader
+            badge="How each case is presented"
+            title="Case study structure"
+            subtitle="Case studies are fully anonymised unless explicit consent exists."
+            centered={true}
+          />
+          <ol className="rs-structure">
+            {caseStudyStructure.map((s) => (
+              <li key={s.title}>
+                <h3>{s.title}</h3>
+                <p>{s.text}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <ActionTilesCTA
+        title="Every case tells a different story"
         subtitle="Patient experiences are individual. Case studies are shared to help you understand the approach, not to promise a particular outcome."
       />
     </div>

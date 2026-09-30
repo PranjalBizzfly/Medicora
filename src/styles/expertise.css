@@ -6,11 +6,6 @@
   margin-bottom: 0.9rem;
 }
 
-.expertise-hero-card h4 {
-  font-size: 1.15rem;
-  margin-bottom: 0.45rem;
-}
-
 .expertise-hero-card p {
   font-size: 0.9rem;
   margin-bottom: 1.25rem;
@@ -45,85 +40,6 @@
   flex-shrink: 0;
 }
 
-/* Understanding */
-.expertise-understanding {
-  align-items: start;
-  margin-bottom: 4rem;
-}
-
-.expertise-lead {
-  font-size: 1.05rem;
-  line-height: 1.75;
-  color: var(--text-main);
-  margin-bottom: 1.5rem;
-}
-
-.expertise-pillars {
-  background-color: var(--color-primary-soft);
-  border-radius: var(--radius-xl);
-  padding: clamp(1.75rem, 4vw, 2.5rem);
-}
-
-.expertise-pillars h3 {
-  font-size: 1.3rem;
-  color: var(--color-primary);
-  margin-bottom: 1.5rem;
-}
-
-.expertise-pillars ol {
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-}
-
-.expertise-pillars li {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
-  background-color: var(--bg-surface);
-  border-radius: var(--radius-md);
-  padding: 1.1rem 1.2rem;
-  box-shadow: var(--shadow-xs);
-}
-
-.expertise-pillar-number {
-  font-family: var(--font-heading);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--color-primary);
-  min-width: 2rem;
-  line-height: 1.4;
-}
-
-.expertise-pillars h4 {
-  font-size: 1.025rem;
-  margin-bottom: 0.2rem;
-}
-
-.expertise-pillars p {
-  font-size: 0.9rem;
-  margin: 0;
-}
-
-/* Detail cards */
-.expertise-detail-card .icon-tile {
-  margin-bottom: 1.25rem;
-}
-
-.expertise-detail-card h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.65rem;
-}
-
-.expertise-detail-card > p {
-  font-size: 0.925rem;
-}
-
-.expertise-impact-text {
-  color: var(--text-main) !important;
-  line-height: 1.7;
-}
-
 /* Approach cards */
 .expertise-approach-card {
   background-color: var(--bg-surface);
@@ -155,11 +71,6 @@
 }
 
 /* Safety + testimonials */
-.expertise-safety-grid {
-  align-items: start;
-  gap: 3rem;
-}
-
 .expertise-safety {
   background-color: var(--color-accent-mint-soft);
   border: 1px solid var(--color-accent-mint);
@@ -179,7 +90,7 @@
   color: var(--color-secondary);
 }
 
-.expertise-safety-head h3 {
+.expertise-safety-head h2 {
   font-size: 1.25rem;
   margin: 0;
   color: var(--color-secondary);
@@ -188,10 +99,6 @@
 .expertise-safety > p {
   font-size: 0.925rem;
   margin-bottom: 0.75rem;
-}
-
-.expertise-safety .check-list svg {
-  color: var(--color-secondary);
 }
 
 .expertise-emergency {
@@ -210,9 +117,7 @@
 }
 
 .expertise-testimonials {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  align-items: stretch;
 }
 
 .expertise-testimonials .testimonial-card {
@@ -228,14 +133,9 @@
   border: 1px solid var(--border-light);
 }
 
-.expertise-related h4 {
+.expertise-related h2 {
   font-size: 1.1rem;
-  margin-bottom: 0.4rem;
-}
-
-.expertise-related > p {
-  font-size: 0.9rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
 }
 
 .expertise-related-links {
@@ -272,6 +172,168 @@
 
 .expertise-related-link:hover svg {
   transform: translateX(3px);
+}
+
+/* Care area cards */
+.expertise-area-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.expertise-area-card h3 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.expertise-area-card p {
+  font-size: 0.925rem;
+  flex-grow: 1;
+}
+
+.expertise-pillar-number {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+/* Concerns you can discuss */
+.expertise-pillars {
+  background-color: var(--color-primary-soft);
+  border-radius: var(--radius-xl);
+  padding: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.expertise-concerns {
+  margin-top: 3rem;
+  scroll-margin-top: 6rem;
+}
+
+.expertise-pillars h3 {
+  font-size: 1.3rem;
+  color: var(--color-primary);
+  margin-bottom: 1.25rem;
+}
+
+.expertise-concerns-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.75rem 1.5rem;
+}
+
+#approach {
+  scroll-margin-top: 6rem;
+}
+
+.expertise-safety p {
+  font-size: 0.925rem;
+  margin-bottom: 0.75rem;
+}
+
+.expertise-faq-more {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+/* Consultation process link */
+/* .card-link (index.css) forces column + height:100%; restore a single row */
+.expertise-process-link {
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  align-items: center;
+  text-align: left;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.expertise-process-link > svg {
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.expertise-process-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex-grow: 1;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.expertise-process-text strong {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  color: var(--text-main);
+}
+
+/* CTA action tiles */
+.expertise-cta-tiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+.expertise-cta-tile {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  height: 100%;
+  padding: 1.1rem 1.2rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  color: var(--text-main);
+  transition: var(--transition-fast);
+}
+
+.expertise-cta-tile:hover,
+.expertise-cta-tile:focus-visible {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  box-shadow: var(--shadow-hover);
+}
+
+.expertise-cta-tile:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Give the three tiles room so titles like "Book a consultation" stay on one line */
+.expertise-cta-content {
+  max-width: 880px;
+}
+
+.expertise-cta-tile-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-primary-soft);
+  color: var(--color-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.expertise-cta-tile-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.85rem;
+}
+
+.expertise-cta-tile-text strong {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+}
+
+@media (max-width: 900px) {
+  .expertise-cta-tiles {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 640px) {

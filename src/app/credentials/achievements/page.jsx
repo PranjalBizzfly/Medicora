@@ -2,7 +2,7 @@ import AchievementsPage from "../../../views/credentials/AchievementsPage";
 
 export const metadata = {
   title: "Achievements",
-  description: "Milestones built through practice and dedication: 12,000+ patients, 14+ years of practice and community medical camps.",
+  description: "Milestones built through practice and dedication: 12,000+ patient consultations, 14+ years of practice, Consultant at ONGC and free homeopathic medical camps.",
   alternates: { canonical: "/credentials/achievements" },
 };
 

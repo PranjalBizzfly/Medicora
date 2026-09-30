@@ -1,151 +1,157 @@
 import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 import Hero from '../components/Hero';
 import SectionHeader from '../components/SectionHeader';
 import CTABanner from '../components/CTABanner';
 import BrandMark from '../components/BrandMark';
-import { Quote } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import '../styles/about.css';
 
-const timelineEvents = [
+// Source: Website Content PDF, "Page 3 – My Journey", Sections 2–6
+const chapters = [
   {
-    year: "2012",
-    title: "Beginning of Clinical Practice",
-    badge: "Clinical Foundation",
-    description: "Started practising homeopathy and working directly with patients across a broad range of acute and chronic health concerns with a simple belief: good care starts with understanding the person."
+    id: 'beginning',
+    eyebrow: 'The beginning',
+    year: '2012',
+    title: 'My clinical journey started',
+    paragraphs: [
+      'I began practising homeopathy in 2012 with a simple belief: good care starts with understanding the person.',
+      'Over the years, treating different patients and health concerns taught me symptoms can have a very different story behind it.',
+      'That lesson continues to shape my practice today.'
+    ]
   },
   {
-    year: "2016",
-    title: "MD in Homeopathy — Materia Medica Specialisation",
-    badge: "Advanced Academic Training",
-    description: "Deepened clinical expertise in individualized, case-based homeopathic treatment and constitutional remedies through formal postgraduate studies."
+    id: 'education',
+    eyebrow: 'Education',
+    title: 'Every qualification added another perspective.',
+    paragraphs: [
+      'After completing my BHMS, I pursued an MD in Homeopathy with specialisation in Homeopathic Materia Medica.',
+      'As my clinical experience grew, I became interested in the emotional side of health - anxiety, stress, sleep and concerns that people often find difficult to discuss.',
+      'That led me to complete a Post Graduate Diploma in Psychological Counselling (PGDPC).',
+      'It gave me another way to understand what patients were experiencing beyond their physical symptoms.'
+    ],
+    link: { href: '/credentials/education-qualifications', label: 'Education & Qualifications' }
   },
   {
-    year: "2018",
-    title: "Appointed Consultant Homoeopathic Physician with ONGC",
-    badge: "Institutional Healthcare",
-    description: "Began serving as a Consultant Homoeopathic Physician with ONGC, providing care within a structured corporate healthcare setting while maintaining private practice."
+    id: 'experience',
+    eyebrow: 'Years of experience',
+    title: 'Every patient has taught me something.',
+    paragraphs: [
+      "Over 14+ years, I have consulted more than 12,000 patients across a broad range of health concerns from respiratory and digestive health to headaches, allergies, women's wellness, sleep and emotional well-being.",
+      'These experiences reinforced one thing:'
+    ],
+    emphasis: 'Healthcare should never be one-size-fits-all.'
   },
   {
-    year: "Counselling",
-    title: "The Turning Point: PGDPC in Psychological Counselling",
-    badge: "Emotional Understanding",
-    description: "Noticing how frequently physical complaints (headaches, gut troubles, fatigue) stemmed from unspoken stress, completed a Post Graduate Diploma in Psychological Counselling to better understand the emotional side of health."
+    id: 'turning-point',
+    eyebrow: 'What changed my perspective',
+    title: 'Some health concerns are easier to hide than others.',
+    paragraphs: [
+      'One of the challenges I noticed throughout my practice was how often anxiety and emotional concerns remained unspoken.',
+      'People may seek help for physical symptoms while quietly dealing with constant worry, poor sleep, emotional exhaustion or stress.',
+      'I wanted to understand these concerns better and create more awareness around emotional health.',
+      'That became an important direction in my professional journey.'
+    ]
   },
   {
-    year: "Integration",
-    title: "Integrating Bach Flower Remedies",
-    badge: "Holistic Healing",
-    description: "Began pairing classical homeopathic medicine with Bach flower remedies as supportive care aimed at emotional balance and inner calm."
-  },
-  {
-    year: "Today",
-    title: "Founded Trivana Wellness & International Online Practice",
-    badge: "Accessible Digital Care",
-    description: "Launched Trivana Wellness, bringing together homeopathy, counselling, and mind-body routines for patients across India, the UAE, and the USA. Personal care for more than 12,000 patients."
+    id: 'ongc',
+    eyebrow: 'Another chapter',
+    year: '2018',
+    title: 'Expanding my professional experience',
+    paragraphs: [
+      'In 2018, I joined ONGC as a Consultant Homoeopathic Physician.',
+      'Over approximately eight years, this experience has strengthened my understanding of structured healthcare, professional responsibility and consistent patient care - while I continued my clinical practice.'
+    ],
+    link: { href: '/credentials/professional-experience', label: 'Professional Experience' }
   }
 ];
 
+// Section 9 – What I have learned
 const learnings = [
-  {
-    title: "Listen First",
-    desc: "Because the most important part of a consultation isn't always what is said first."
-  },
-  {
-    title: "Keep Learning",
-    desc: "Every patient and every clinical experience adds another perspective to understanding health."
-  },
-  {
-    title: "Look at the Whole Picture",
-    desc: "Health is influenced by more than a single symptom—mind, body, sleep, and lifestyle are interconnected."
-  },
-  {
-    title: "Keep Care Personal",
-    desc: "Because every person's story, physiology, and emotional circumstances are completely unique."
-  }
+  { title: 'Listen first.', desc: "Because the most important part of a consultation isn't always what is said first." },
+  { title: 'Keep learning.', desc: 'Every patient and every experience adds another perspective.' },
+  { title: 'Look at the whole picture.', desc: 'Health is influenced by more than a single symptom.' },
+  { title: 'Keep care personal.', desc: "Because every person's story is different." }
 ];
 
 export default function MyJourneyPage() {
   return (
     <div className="my-journey-page">
+      {/* Section 1 – Hero */}
       <Hero
-        badge="Professional Timeline"
-        title="A Journey Built on Experience, Learning & Care"
-        subtitle="From studying medicine to understanding the person behind it. Since 2012, shaped by thousands of patient conversations and a growing understanding of mind-body wellbeing."
+        badge="My Journey"
+        title="From studying medicine to understanding the person behind it."
+        subtitle="Since 2012, my journey has been shaped by thousands of patient conversations, continuous learning and a growing understanding of the connection between physical and emotional well-being."
         breadcrumbs={[
           { label: "About", path: "/about-me" },
           { label: "My Journey" }
         ]}
-        primaryCtaText="Book a Consultation"
+        primaryCtaText="Book an online consultation"
         primaryCtaLink="/book-a-consultation"
-        secondaryCtaText="Read Clinical Philosophy"
-        secondaryCtaLink="/clinical-philosophy"
         sideCard={
           <div>
-            <h4 className="ab-side-title">Journey Milestones</h4>
             <ul className="ab-milestones">
-              <li><strong>14+</strong><span>Years Clinical Experience</span></li>
-              <li><strong>12,000+</strong><span>Patients Consulted</span></li>
-              <li><strong>3</strong><span>Countries (India · UAE · USA)</span></li>
-              <li><strong>8</strong><span>Years Institutional Practice (ONGC)</span></li>
+              <li><strong>14+</strong><span>years</span></li>
+              <li><strong>12,000+</strong><span>patients</span></li>
+              <li><strong>3</strong><span>countries</span></li>
             </ul>
           </div>
         }
       />
 
-      {/* Narrative Section - The Turning Point */}
-      <section className="section section-lg bg-surface">
+      {/* Sections 2–6 – chapters */}
+      <section className="section bg-surface">
         <div className="container">
-          <div className="split-section ab-split">
-            <div>
-              <span className="badge ab-eyebrow">An Important Turning Point</span>
-              <h2 className="ab-title">What Changed My Clinical Perspective</h2>
-              <p className="ab-lead">
-                Early in my practice, I noticed how often physical complaints—headaches, chronic fatigue, digestive distress, unexplained body pain—traced back to stress and emotional weight that patients carried silently.
-              </p>
-              <p className="ab-body">
-                People would seek help for physical symptoms while quietly dealing with constant worry, poor sleep, emotional exhaustion, or work-life pressures. I wanted to look beyond the surface and understand what might be contributing to them.
-              </p>
-              <p className="ab-body">
-                That realization led me back to studying for a Post Graduate Diploma in Psychological Counselling. It wasn't a detour from homeopathy; it was the essential completion of it.
-              </p>
-            </div>
-
-            <div className="ab-quote">
-              <BrandMark className="ab-panel-mark" />
-              <Quote size={32} className="ab-quote-icon" />
-              <p className="ab-quote-text">
-                "I still believe what I believed the day I noticed that first pattern — that anxiety and chronic distress aren't something to push through quietly, and they aren't something a rushed prescription can fix. It deserves a doctor who asks the right questions, has the training to understand them, and takes the time most clinics don't."
-              </p>
-              <span className="ab-quote-author">— Dr. Mohini Mutha</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Visual Timeline */}
-      <section className="section bg-sand">
-        <div className="container">
-          <SectionHeader
-            badge="Chronological Path"
-            title="Growing Through Every Stage of Practice"
-            subtitle="Every milestone below added something essential to how Dr. Mohini treats patients today."
-            centered={true}
-          />
-
-          <ol className="ab-timeline">
-            {timelineEvents.map((evt, idx) => (
-              <li key={evt.title} className="ab-timeline-item">
+          <ol className="ab-timeline ab-chapters">
+            {chapters.map((ch, idx) => (
+              <li key={ch.id} className="ab-timeline-item" id={ch.id}>
                 <span className="ab-timeline-dot" aria-hidden="true">
                   {String(idx + 1).padStart(2, '0')}
                 </span>
                 <div className="card ab-timeline-card">
                   <div>
-                    <span className="ab-timeline-year">{evt.year}</span>
-                    <span className="badge badge-mint">{evt.badge}</span>
+                    <span className="badge badge-mint">{ch.eyebrow}</span>
+                    {ch.year && <span className="ab-timeline-year">{ch.year}</span>}
                   </div>
                   <div>
-                    <h3>{evt.title}</h3>
-                    <p>{evt.description}</p>
+                    <h2 className="ab-chapter-title">{ch.title}</h2>
+                    {ch.paragraphs.map((p) => (
+                      <p key={p}>{p}</p>
+                    ))}
+                    {ch.id === 'beginning' && (
+                      <figure className="ab-photo" style={{ margin: '1.25rem 0' }}>
+                        <Image
+                          src="/images/about/dr-mohini-portrait.webp"
+                          alt="Dr. Mohini Mutha, Homeopathic Physician"
+                          width={800}
+                          height={1067}
+                          sizes="(max-width: 900px) 100vw, 400px"
+                          style={{ width: '100%', maxHeight: '420px', objectFit: 'cover', objectPosition: 'top', borderRadius: 'var(--radius-md)' }}
+                        />
+                        <figcaption>Dr. Mohini Mutha · Homeopathic Physician &amp; Consultant</figcaption>
+                      </figure>
+                    )}
+                    {ch.id === 'education' && (
+                      <figure className="ab-photo" style={{ margin: '1.25rem 0' }}>
+                        <Image
+                          src="/images/journey/clinical-study-materia-medica.webp"
+                          alt="Classical Homeopathic Materia Medica study desk and clinical reference materials"
+                          width={1200}
+                          height={800}
+                          sizes="(max-width: 900px) 100vw, 600px"
+                          style={{ width: '100%', height: 'auto', borderRadius: 'var(--radius-md)' }}
+                        />
+                        <figcaption>Dedicated study in Homeopathic Materia Medica and clinical practice</figcaption>
+                      </figure>
+                    )}
+                    {ch.emphasis && <p className="ab-emphasis">{ch.emphasis}</p>}
+                    {ch.link && (
+                      <Link href={ch.link.href} className="link-arrow">
+                        <span>{ch.link.label}</span>
+                        <ArrowRight size={14} />
+                      </Link>
+                    )}
                   </div>
                 </div>
               </li>
@@ -154,15 +160,81 @@ export default function MyJourneyPage() {
         </div>
       </section>
 
-      {/* What I Have Learned */}
-      <section className="section bg-surface">
+      {/* Section 7 – Beyond the clinic */}
+      <section className="section photo-band" style={{ '--band-img': "url('/images/photos/dr-mohini-garden-portrait.jpg')" }}>
         <div className="container">
-          <SectionHeader
-            badge="Core Takeaways"
-            title="What I Have Learned Along the Way"
-            subtitle="Four guiding insights distilled from thousands of patient conversations."
-            centered={true}
-          />
+          <div className="split-section ab-split">
+            <div>
+              <span className="badge ab-eyebrow">Community work</span>
+              <h2 className="ab-title">Care should reach beyond the consultation room.</h2>
+              <p className="ab-body">
+                I have conducted and participated in free homeopathic medical camps in Navi Mumbai, with a focus on health awareness and encouraging people to recognise the importance of emotional well-being.
+              </p>
+              <p className="ab-body">
+                These experiences reminded me that sometimes awareness is the first step towards seeking care.
+              </p>
+              <Link href="/credentials/achievements" className="link-arrow">
+                <span>Achievements</span>
+                <ArrowRight size={14} />
+              </Link>
+            </div>
+
+            <div className="ab-photo-grid">
+              <figure className="ab-photo ab-photo-portrait">
+                <Image
+                  src="/images/camp/medical-camp-2.jpg"
+                  alt="Dr. Mohini Mutha consulting a patient at a free homeopathic medical camp held during Navratri"
+                  width={640}
+                  height={1280}
+                  sizes="(max-width: 900px) 50vw, 25vw"
+                />
+              </figure>
+              <figure className="ab-photo">
+                <Image
+                  src="/images/camp/medical-camp-3.jpg"
+                  alt="Free homeopathic medical camp in Navi Mumbai"
+                  width={1280}
+                  height={640}
+                  sizes="(max-width: 900px) 50vw, 25vw"
+                />
+              </figure>
+              <figure className="ab-photo">
+                <Image
+                  src="/images/camp/medical-camp-1.jpg"
+                  alt="Patients gathered under the tent at a free homeopathic medical camp in Navi Mumbai"
+                  width={1280}
+                  height={640}
+                  sizes="(max-width: 900px) 50vw, 25vw"
+                />
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 8 – Today */}
+      <section className="section bg-surface">
+        <div className="container-narrow ab-note">
+          <div>
+            <span className="badge ab-eyebrow">Where I am now</span>
+          </div>
+          <h2 className="ab-title">The journey continues.</h2>
+          <p className="ab-body">
+            Today, I bring together my experience in homeopathy, psychological counselling and patient care through Trivana Wellness.
+          </p>
+          <p className="ab-body">
+            I have had the opportunity to consult patients from India, the UAE and the USA, making online care an important part of how I connect with people.
+          </p>
+          <p className="ab-body">
+            My focus continues to be personalised care for anxiety, emotional well-being, sleep, lifestyle and a broad range of health concerns.
+          </p>
+        </div>
+      </section>
+
+      {/* Section 9 – What I have learned */}
+      <section className="section bg-sand">
+        <div className="container">
+          <SectionHeader badge="Along the way" title="What I have learned" centered={true} />
 
           <div className="grid-4">
             {learnings.map((item, idx) => (
@@ -176,25 +248,29 @@ export default function MyJourneyPage() {
         </div>
       </section>
 
-      {/* Personal Note */}
-      <section className="section bg-soft">
+      {/* Section 10 – A note from me */}
+      <section className="section bg-surface">
         <div className="container-narrow ab-note">
           <BrandMark className="ab-note-mark" />
           <div>
-            <span className="badge ab-eyebrow">A Personal Note</span>
+            <span className="badge ab-eyebrow">A note from me</span>
           </div>
-          <h2 className="ab-title">My Practice Continues to Evolve Through Learning and Experience</h2>
+          <h2 className="ab-title">My practice continues to evolve through learning and experience.</h2>
           <p className="ab-note-lead">
-            More than a decade into my practice, I don't see my journey as something that has reached an endpoint. There is always another person to understand, another question to explore, and another opportunity to become a better doctor.
+            More than a decade into my practice, I don&apos;t see my journey as something that has reached an endpoint.
           </p>
-          <p className="ab-note-sign">For me, that is what makes this journey meaningful.</p>
+          <p className="ab-note-lead">
+            There is always another person to understand, another question to explore and another opportunity to become a better doctor.
+          </p>
+          <p className="ab-note-lead">For me, that&apos;s what makes this journey meaningful.</p>
+          <p className="ab-note-sign">Dr. Mohini Mutha</p>
         </div>
       </section>
 
-      {/* CTA */}
+      {/* Section 11 – Final CTA */}
       <CTABanner
-        badge="Your Journey Matters Too"
-        title="Your Journey Matters Too. Start With a Conversation."
+        badge="Trivana Wellness · Doctor-led · Personalised · Online"
+        title="Your journey matters too. Start with a conversation."
         subtitle="Whether you're looking for support with anxiety, emotional well-being, sleep or another health concern, you can begin with a personalised online consultation."
       />
     </div>
