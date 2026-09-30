@@ -10,6 +10,12 @@ import ActionTilesCTA from './ActionTilesCTA';
 import { blogArticles, blogCategories, siteConfig } from '../../data/websiteContent';
 import '../../styles/resources.css';
 
+const blogAlts = {
+  'anxiety-myths-and-facts': 'A thoughtful woman on a sofa gazing out of a garden window',
+  'can-anxiety-affect-your-sleep': 'An unmade bed beside a glowing lamp as evening falls',
+  'does-homeopathy-work-for-anxiety': 'Homeopathic dropper bottles with lavender, rosemary and chamomile',
+};
+
 const blogImages = {
   'anxiety-myths-and-facts': '/images/blog/anxiety-myths-and-facts.webp',
   'can-anxiety-affect-your-sleep': '/images/blog/can-anxiety-affect-your-sleep.webp',
@@ -54,10 +60,10 @@ export default function BlogsPage() {
         title="Blogs"
         subtitle="Simple insights for better everyday wellbeing. Explore practical, easy-to-understand insights on anxiety, sleep, lifestyle and everyday health."
         breadcrumbs={[
-          { label: 'Resources', path: '/resources/patient-stories' },
+          { label: 'Resources' },
           { label: 'Blogs' },
         ]}
-        primaryCtaText="Book a consultation"
+        primaryCtaText="Book a Consultation"
         primaryCtaLink="/book-a-consultation"
         secondaryCtaText="Myths vs Facts"
         secondaryCtaLink="/resources/myths-vs-facts"
@@ -118,11 +124,11 @@ export default function BlogsPage() {
           <div className="grid-3">
             {visible.map((a) => (
               <article key={a.id} className="card rs-blog-card">
-                <div className="rs-blog-media" aria-hidden="true">
+                <div className="rs-blog-media">
                   {blogImages[a.id] ? (
                     <Image
                       src={blogImages[a.id]}
-                      alt={a.title}
+                      alt={blogAlts[a.id]}
                       fill
                       sizes="(max-width: 768px) 100vw, 33vw"
                       style={{ objectFit: 'cover' }}
@@ -175,7 +181,7 @@ export default function BlogsPage() {
         tiles={[
           { icon: BookOpen, title: 'Explore all blogs', text: 'Browse our latest health insights.', href: '/resources/blogs#latest-insights' },
           { icon: Mail, title: 'Ask a question', text: "Share something you'd like to understand.", href: `mailto:${siteConfig.email}` },
-          { icon: Calendar, title: 'Book a consultation', text: 'Choose a convenient time to connect.', href: '/book-a-consultation' },
+          { icon: Calendar, title: 'Book a Consultation', text: 'Choose a convenient time to connect.', href: '/book-a-consultation' },
         ]}
       />
     </div>

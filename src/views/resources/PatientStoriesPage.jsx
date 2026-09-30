@@ -50,16 +50,16 @@ export default function PatientStoriesPage() {
         title="Patient Stories"
         subtitle="Real experiences from people I have cared for"
         breadcrumbs={[
-          { label: 'Resources', path: '/resources/patient-stories' },
+          { label: 'Resources' },
           { label: 'Patient Stories' },
         ]}
-        primaryCtaText="Book a consultation"
+        primaryCtaText="Book a Consultation"
         primaryCtaLink="/book-a-consultation"
         secondaryCtaText="Case Studies"
         secondaryCtaLink="/resources/case-studies"
       />
 
-      <section className="section photo-band" style={{ '--band-img': "url('/images/photos/consultation-woman-patient.jpg')" }}>
+      <section className="section photo-band" style={{ '--band-img': "url('/images/photos/consultation-woman-patient.webp')" }}>
         <div className="container">
           <div className="grid-3">
             {themes.map(({ Icon, title, text, link }) => (

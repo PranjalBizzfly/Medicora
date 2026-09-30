@@ -9,7 +9,7 @@ export default function WhyHomeopathyPage() {
       className="why-homeopathy-page"
       hero={{
         badge: 'My Approach',
-        title: 'Why Homeopathy?',
+        title: 'Why Homeopathy',
         subtitle: 'Looking at the individual, not just the condition',
         breadcrumbs: [
           { label: 'My Approach', path: '/my-approach' },
@@ -64,7 +64,7 @@ export default function WhyHomeopathyPage() {
         tiles: [
           { kind: 'explore', title: 'Explore your options', text: 'Learn more about the approach and what to expect.', href: '/my-approach/consultation-process' },
           { kind: 'chat', title: 'Chat with me', text: 'Discuss your concerns openly.' },
-          { kind: 'book', title: 'Book a consultation', text: 'Choose a convenient time to connect.' },
+          { kind: 'book', title: 'Book a Consultation', text: 'Choose a convenient time to connect.' },
         ],
       }}
       image={{

@@ -57,10 +57,10 @@ export default function EducationQualificationsPage() {
         title="Education & Qualifications"
         subtitle="Qualifications that support thoughtful patient care"
         breadcrumbs={[
-          { label: 'Credentials', path: '/credentials/professional-experience' },
+          { label: 'Credentials' },
           { label: 'Education & Qualifications' },
         ]}
-        primaryCtaText="Book a consultation"
+        primaryCtaText="Book a Consultation"
         primaryCtaLink="/book-a-consultation"
         secondaryCtaText="Professional Experience"
         secondaryCtaLink="/credentials/professional-experience"
@@ -93,7 +93,7 @@ export default function EducationQualificationsPage() {
             <div style={{ marginBottom: '1.5rem', borderRadius: 'var(--radius-lg)', overflow: 'hidden' }}>
               <Image
                 src="/images/credentials/education-materia-medica.webp"
-                alt="Classical Materia Medica study desk and academic medical texts"
+                alt="An open Materia Medica notebook, fountain pen and remedy bottles on a library desk"
                 width={900}
                 height={600}
                 style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }}
@@ -108,7 +108,7 @@ export default function EducationQualificationsPage() {
         </div>
       </section>
 
-      <section className="section photo-band" style={{ '--band-img': "url('/images/photos/homeopathy-remedies-desk.jpg')" }}>
+      <section className="section photo-band" style={{ '--band-img': "url('/images/photos/homeopathy-remedies-desk.webp')" }}>
         <div className="container">
           <SectionHeader
             badge="Education"

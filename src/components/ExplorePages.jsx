@@ -23,7 +23,7 @@ const GROUPS = [
       { label: 'Terms & Conditions', path: '/terms-and-conditions' },
       { label: 'Disclaimer', path: '/disclaimer' },
       { label: 'Cookie Policy', path: '/cookie-policy' },
-      { label: 'Sitemap', path: '/sitemap' },
+      { label: 'Site Map', path: '/sitemap' },
     ],
   },
 ];

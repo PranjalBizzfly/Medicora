@@ -35,7 +35,7 @@
   color: #FFFFFF;
   background:
     linear-gradient(180deg, rgba(50, 12, 2, 0.88), rgba(26, 12, 8, 0.9)),
-    var(--band-img, url('/images/photos/clinic-lounge.jpg')) center / cover no-repeat;
+    var(--band-img, url('/images/photos/clinic-lounge.webp')) center / cover no-repeat;
 }
 
 .section.photo-band :is(h2, h3, h4, strong, blockquote, figcaption, cite) { color: #FFFFFF; }
@@ -75,7 +75,7 @@
 :root[data-theme='dark'] .section.photo-band {
   background:
     linear-gradient(180deg, rgba(20, 9, 6, 0.9), rgba(20, 9, 6, 0.94)),
-    var(--band-img, url('/images/photos/clinic-lounge.jpg')) center / cover no-repeat;
+    var(--band-img, url('/images/photos/clinic-lounge.webp')) center / cover no-repeat;
 }
 
 /* Cards: larger radius, soft lift. */

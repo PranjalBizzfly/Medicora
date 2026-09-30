@@ -3,13 +3,17 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ScrollReveal from '../components/ScrollReveal';
 import ScrollButtons from '../components/ScrollButtons';
+import InteractiveEffects from '../components/InteractiveEffects';
 import BookingModal from '../components/BookingModal';
+import PageNameCase from '../components/PageNameCase';
 import '../index.css';
 import '../styles/components.css';
 import '../styles/motion.css';
 import '../styles/theme.css';
 import '../styles/header-tools.css';
 import '../styles/inner.css';
+import '../styles/titlecase.css';
+import '../styles/responsive.css';
 
 // Applies the saved theme (or the device preference) before first paint, so pages never flash.
 const themeInitScript = `(function(){try{var t=localStorage.getItem('medicora-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();`;
@@ -45,7 +49,7 @@ export const metadata = {
   },
   description:
     'With 14+ years of clinical experience and 12,000+ patients consulted, Dr. Mohini Mutha combines homeopathy, counselling and a personalised understanding of every patient.',
-  icons: { icon: '/brand/logo-icon.png' },
+  icons: { icon: '/brand/logo-icon.webp' },
 };
 
 export default function RootLayout({ children }) {
@@ -61,7 +65,9 @@ export default function RootLayout({ children }) {
           <Footer />
           <ScrollReveal />
           <ScrollButtons />
+          <InteractiveEffects />
           <BookingModal />
+          <PageNameCase />
         </div>
       </body>
     </html>

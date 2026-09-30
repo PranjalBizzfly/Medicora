@@ -9,7 +9,7 @@ import './Footer.css';
 const currentYear = 2026;
 
 const aboutLinks = [
-  { href: '/about-me', label: 'About Dr. Mohini' },
+  { href: '/about-me', label: 'About Me' },
   { href: '/my-journey', label: 'My Journey' },
   { href: '/my-approach', label: 'My Approach' },
   { href: '/clinical-philosophy', label: 'Clinical Philosophy' },
@@ -66,8 +66,8 @@ export default function Footer() {
         <div className="footer-grid">
           {/* Brand */}
           <div className="footer-brand">
-            <Link href="/" className="footer-logo" aria-label="Dr. Mohini Mutha — Home">
-              <Image src="/brand/logo-footer-white.png" alt="Dr. Mohini Mutha" width={1702} height={445} />
+            <Link href="/" className="footer-logo" aria-label="Dr. Mohini Mutha, Home">
+              <Image src="/brand/logo-footer-white.webp" alt="Dr. Mohini Mutha logo in white" width={1702} height={445} />
             </Link>
             <span className="footer-brand-subtitle">Homeopathy · Counselling · Mind-Body Care</span>
             <p className="footer-brand-bio">
@@ -81,7 +81,7 @@ export default function Footer() {
               </a>
               <a href={`mailto:${siteConfig.email}`} className="footer-contact-item">
                 <Mail size={16} />
-                <span>{siteConfig.email}</span>
+                <span className="email-text">{siteConfig.email}</span>
               </a>
               <div className="footer-contact-item">
                 <MapPin size={16} />
@@ -116,7 +116,7 @@ export default function Footer() {
             <Link href="/terms-and-conditions">Terms & Conditions</Link>
             <Link href="/disclaimer">Disclaimer</Link>
             <Link href="/cookie-policy">Cookie Policy</Link>
-            <Link href="/sitemap">Sitemap</Link>
+            <Link href="/sitemap">Site Map</Link>
           </div>
         </div>
       </div>

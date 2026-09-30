@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Breadcrumbs from './Breadcrumbs';
+import ParticleSphere from './ParticleSphere';
 import { ArrowRight, Calendar } from 'lucide-react';
 import './Hero.css';
 
@@ -32,6 +33,7 @@ export default function Hero({
           <Image src={image} alt="" fill priority sizes="100vw" className="page-hero-img" />
         )}
         <div className="page-hero-decor" aria-hidden="true" />
+        <ParticleSphere className="page-hero-sphere" />
         <div className="container page-hero-content">
           <h1 className="hero-title">{title}</h1>
           {breadcrumbs && breadcrumbs.length > 0 && <Breadcrumbs items={breadcrumbs} />}

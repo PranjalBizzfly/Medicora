@@ -56,10 +56,10 @@ export default function ProfessionalExperiencePage() {
         title="Professional Experience"
         subtitle="A clinical journey shaped by years of patient care"
         breadcrumbs={[
-          { label: 'Credentials', path: '/credentials/professional-experience' },
+          { label: 'Credentials' },
           { label: 'Professional Experience' },
         ]}
-        primaryCtaText="Book a consultation"
+        primaryCtaText="Book a Consultation"
         primaryCtaLink="/book-a-consultation"
         secondaryCtaText="Education & Qualifications"
         secondaryCtaLink="/credentials/education-qualifications"
@@ -86,7 +86,7 @@ export default function ProfessionalExperiencePage() {
         </div>
       </section>
 
-      <section className="section photo-band" style={{ '--band-img': "url('/images/photos/consultation-desk.jpg')" }}>
+      <section className="section photo-band" style={{ '--band-img': "url('/images/photos/consultation-desk.webp')" }}>
         <div className="container">
           <SectionHeader
             badge="Experience"
@@ -137,7 +137,7 @@ export default function ProfessionalExperiencePage() {
               <div style={{ borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: 'var(--shadow-md)' }}>
                 <Image
                   src="/images/camp/medical-camp-2.webp"
-                  alt="Dr. Mohini Mutha consulting a patient at a community health camp"
+                  alt="Dr. Mohini Mutha seeing a patient inside the medical camp tent"
                   width={640}
                   height={1280}
                   sizes="(max-width: 900px) 100vw, 450px"

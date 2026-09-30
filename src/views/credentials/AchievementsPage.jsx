@@ -42,14 +42,14 @@ const campPhotos = [
     src: '/images/camp/medical-camp-1.webp',
     width: 1280,
     height: 640,
-    alt: 'Patients gathered under the tent at a free homeopathic medical camp conducted by Dr. Mohini Mutha in Navi Mumbai',
+    alt: 'Women seated under a tent while a camp worker records patient details in Navi Mumbai',
     caption: 'Free homeopathic medical camp, Navi Mumbai.',
   },
   {
     src: '/images/camp/medical-camp-3.webp',
     width: 1280,
     height: 640,
-    alt: 'Free homeopathic medical camp in Navi Mumbai focused on health awareness',
+    alt: 'Patients lined up on red chairs outside the camp consultation area in Navi Mumbai',
     caption: 'Health awareness at a free homeopathic medical camp in Navi Mumbai.',
   },
 ];
@@ -62,10 +62,10 @@ export default function AchievementsPage() {
         title="Achievements"
         subtitle="Milestones built through practice and dedication"
         breadcrumbs={[
-          { label: 'Credentials', path: '/credentials/professional-experience' },
+          { label: 'Credentials' },
           { label: 'Achievements' },
         ]}
-        primaryCtaText="Book a consultation"
+        primaryCtaText="Book a Consultation"
         primaryCtaLink="/book-a-consultation"
         secondaryCtaText="Education & Qualifications"
         secondaryCtaLink="/credentials/education-qualifications"
@@ -91,7 +91,7 @@ export default function AchievementsPage() {
         </div>
       </section>
 
-      <section className="section photo-band" style={{ '--band-img': "url('/images/photos/couple-consultation.png')" }}>
+      <section className="section photo-band" style={{ '--band-img': "url('/images/photos/couple-consultation.webp')" }}>
         <div className="container">
           <SectionHeader
             badge="Milestones"

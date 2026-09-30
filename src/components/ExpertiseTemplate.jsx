@@ -51,44 +51,44 @@ function CareAreaLink({ href, children }) {
 
 const EXPERTISE_HERO_IMAGES = {
   'mental-emotional-psychosomatic-wellness': {
-    src: '/images/photos/anxiety-consultation.jpg',
-    alt: 'A patient sharing emotional concerns during a consultation',
+    src: '/images/photos/anxiety-consultation.webp',
+    alt: 'A worried woman holding her head while talking with a doctor at a clinic desk',
   },
   'sleep-lifestyle-concerns': {
-    src: '/images/photos/sleep-evening-routine.jpg',
-    alt: 'A calm evening routine before sleep',
+    src: '/images/photos/sleep-evening-routine.webp',
+    alt: 'A man sitting cross-legged on his bed at dusk, unwinding before sleep',
   },
   'headache-migraine-care': {
-    src: '/images/photos/doctor-male-patient.jpg',
-    alt: 'Dr. Mohini Mutha in consultation with a patient',
+    src: '/images/photos/doctor-male-patient.webp',
+    alt: 'A doctor in scrubs talking with a male patient at a round consultation table',
   },
   'respiratory-health': {
-    src: '/images/photos/mind-body-nature.jpg',
-    alt: 'Breathing calmly outdoors in fresh air',
+    src: '/images/photos/mind-body-nature.webp',
+    alt: 'A young man sitting on a rock beside a forest stream, breathing slowly with eyes closed',
   },
   'skin-hair-allergies': {
-    src: '/images/photos/patient-conversation.jpg',
-    alt: 'A patient discussing her concerns with Dr. Mohini Mutha',
+    src: '/images/photos/patient-conversation.webp',
+    alt: 'A woman in a sari describing her concerns to a doctor who takes notes',
   },
   'womens-wellness': {
-    src: '/images/photos/womens-wellness-consultation.png',
-    alt: 'Dr. Mohini Mutha in consultation with a woman patient',
+    src: '/images/photos/womens-wellness-consultation.webp',
+    alt: 'A doctor showing an ultrasound scan to a pregnant woman during a consultation',
   },
   'child-adolescent-wellness': {
-    src: '/images/photos/active-child-outdoors.jpg',
-    alt: 'A healthy, active child playing outdoors',
+    src: '/images/photos/hd/child-consultation-hd.webp',
+    alt: "A doctor listening to a young girl's heartbeat with a stethoscope as her mother holds her",
   },
   'general-health-wellness': {
-    src: '/images/photos/senior-patient-examination.jpg',
-    alt: 'Dr. Mohini Mutha examining an elderly patient',
+    src: '/images/photos/senior-patient-examination.webp',
+    alt: 'A doctor gently examining an elderly woman in a bright clinic room',
   },
   'digestive-gut-health': {
-    src: '/images/photos/healthy-eating.jpg',
-    alt: 'A balanced, wholesome meal at home',
+    src: '/images/photos/healthy-eating.webp',
+    alt: 'A woman eating a bowl of fresh salad beside a sunny window',
   },
   'joint-muscle-pain-management': {
-    src: '/images/photos/shoulder-pain-home.jpg',
-    alt: 'Shoulder discomfort affecting everyday comfort',
+    src: '/images/photos/shoulder-pain-home.webp',
+    alt: 'A woman sitting on her living room floor, holding her sore shoulder',
   },
 };
 
@@ -106,10 +106,10 @@ export default function ExpertiseTemplate({ id, badge = 'Area of Expertise' }) {
         title={title}
         subtitle={tagline}
         breadcrumbs={[
-          { label: 'Expertise', path: '/sitemap' },
+          { label: 'Expertise' },
           { label: title }
         ]}
-        primaryCtaText="Book a consultation"
+        primaryCtaText="Book a Consultation"
         primaryCtaLink="/book-a-consultation"
         secondaryCtaText="Consultation process"
         secondaryCtaLink="/my-approach/consultation-process"
@@ -169,7 +169,7 @@ export default function ExpertiseTemplate({ id, badge = 'Area of Expertise' }) {
       </section>
 
       {/* 4. Approach — source: Section 3 */}
-      <section id="approach" className="section photo-band" style={{ '--band-img': `url('${(EXPERTISE_HERO_IMAGES[id] || { src: '/images/photos/remedy-preparation.jpg' }).src}')` }}>
+      <section id="approach" className="section photo-band" style={{ '--band-img': `url('${(EXPERTISE_HERO_IMAGES[id] || { src: '/images/photos/remedy-preparation.webp' }).src}')` }}>
         <div className="container">
           <SectionHeader
             badge="Our approach"

@@ -57,12 +57,12 @@ export default function TermsConditionsPage() {
   return (
     <LegalDocument
       hero={{
-        badge: 'Terms and Conditions',
+        badge: 'Terms & Conditions',
         title: 'Our terms and conditions',
         subtitle: 'These terms explain the use of the Trivana Wellness website, online consultations and related services.',
-        crumb: 'Terms and Conditions',
+        crumb: 'Terms & Conditions',
       }}
-      tocLabel="Terms and Conditions contents"
+      tocLabel="Terms & Conditions contents"
       tocCta="Questions about these terms?"
       sections={sections}
       footnotes={footnotes}

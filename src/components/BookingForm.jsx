@@ -291,7 +291,7 @@ export default function BookingForm({ variant = 'page', onClose }) {
         <p>Schedule a consultation with Dr. Mohini Mutha. Fields marked <span aria-hidden="true">*</span><span className="bk-sr">with an asterisk</span> are required.</p>
       </div>
 
-      <fieldset className="bk-section" disabled={isSending}>
+      <fieldset className="bk-section bk-section--details" disabled={isSending}>
         <legend className="bk-kicker">Your details</legend>
         <div className="bk-grid">
           <Field id="bk-name" label="Full Name" required error={errors.name}>
@@ -328,7 +328,7 @@ export default function BookingForm({ variant = 'page', onClose }) {
         <Honeypot value={data.website} onChange={(v) => set('website', v)} />
       </fieldset>
 
-      <fieldset className="bk-section" disabled={isSending}>
+      <fieldset className="bk-section bk-section--appt" disabled={isSending}>
         <legend className="bk-kicker">Appointment</legend>
 
         <div className="bk-field">

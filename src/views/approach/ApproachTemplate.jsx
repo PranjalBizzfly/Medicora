@@ -27,7 +27,7 @@ export default function ApproachTemplate({
     <div className={className}>
       <Hero {...hero} />
 
-      <section className="section photo-band" style={{ '--band-img': "url('/images/photos/meditation-practice.jpg')" }}>
+      <section className="section photo-band" style={{ '--band-img': "url('/images/photos/meditation-practice.webp')" }}>
         <div className="container">
           {cardsHeader && <SectionHeader {...cardsHeader} centered={true} />}
           <div className="grid-3">

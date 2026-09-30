@@ -120,7 +120,7 @@
 }
 
 .lg-doc-section {
-  scroll-margin-top: calc(var(--nav-height) + var(--topbar-height) + 1.5rem);
+  scroll-margin-top: 0.5rem;
 }
 
 .lg-doc-section + .lg-doc-section {
@@ -383,10 +383,10 @@
 }
 
 /* ---------- Responsive ---------- */
-/* Top bar is hidden at <=1100px (Header.css), so only the nav bar overlaps anchors. */
+/* html scroll-padding-top clears the sticky header; sections only add a small gap. */
 @media (max-width: 1100px) {
   .lg-doc-section {
-    scroll-margin-top: calc(var(--nav-height) + 1.25rem);
+    scroll-margin-top: 0.25rem;
   }
 }
 

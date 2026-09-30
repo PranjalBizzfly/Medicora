@@ -54,7 +54,7 @@ export default function InviteMeToSpeakPage() {
         title="Invite Me To Speak"
         subtitle="Conversations that create awareness and understanding"
         breadcrumbs={[
-          { label: 'Resources', path: '/resources/patient-stories' },
+          { label: 'Resources' },
           { label: 'Invite Me To Speak' },
         ]}
         primaryCtaText="Invite Dr. Mohini to Speak"
@@ -63,7 +63,7 @@ export default function InviteMeToSpeakPage() {
         secondaryCtaLink="/credentials/achievements"
       />
 
-      <section id="speaking-areas" className="section photo-band" style={{ '--band-img': "url('/images/photos/clinic-lounge.jpg')" }}>
+      <section id="speaking-areas" className="section photo-band" style={{ '--band-img': "url('/images/photos/clinic-lounge.webp')" }}>
         <div className="container">
           <div className="grid-3">
             {topics.map(({ Icon, title, text }) => (

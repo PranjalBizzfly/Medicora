@@ -1,0 +1,38 @@
+/* ==========================================================================
+   Responsive fixes (320px to 1920px). Sizing and spacing only: no content,
+   structure or behaviour changes.
+   ========================================================================== */
+
+/* Narrow phones: logo, search and menu button fit in one row at 320px. */
+@media (max-width: 360px) {
+  .header-wrapper .navbar-brand .brand-logo-crop { width: 156px; height: 25px; }
+  .header-wrapper .navbar-brand .brand-logo-img { width: 205px; left: -24px; top: -14px; }
+  .header-wrapper .navbar > .container { gap: 0.5rem; }
+  .header-wrapper .navbar-actions { gap: 0.35rem; }
+  .header-wrapper .header-icon-btn { width: 36px; height: 36px; }
+}
+
+/* Hero slider dots: same thin bar, but a 24px-tall tap area. */
+.hero-slider .hero-slider-dot {
+  height: 24px;
+  padding: 10px 0;
+  background-clip: content-box;
+}
+
+/* Text-style buttons get a comfortable tap height on touch screens. */
+@media (max-width: 767px) {
+  .site-main .rs-link-button { min-height: 40px; display: inline-flex; align-items: center; }
+  .bk-cal .bk-cal-nav { width: 40px; height: 40px; }
+}
+
+/* Booking calendar: more room for the seven day columns on small phones. */
+@media (max-width: 420px) {
+  .bk-form .bk-cal { padding: 0.75rem 0.5rem; }
+  .bk-cal .bk-cal-grid { border-spacing: 0.12rem; margin: -0.12rem; width: calc(100% + 0.24rem); }
+  .bk-cal .bk-cal-grid .bk-cal-day { height: 40px; font-size: 0.85rem; }
+}
+
+/* Very wide screens: keep the decorative banner sphere near the content. */
+@media (min-width: 1600px) {
+  .page-hero-sphere { right: calc((100vw - 1320px) / 2 - 40px); }
+}

@@ -93,7 +93,7 @@ export default function BookConsultationPage() {
               <div className="cr-info-card" style={{ padding: 0, overflow: 'hidden' }}>
                 <Image
                   src="/images/booking/online-consultation-desk.webp"
-                  alt="Online consultation with Dr. Mohini Mutha"
+                  alt="A doctor on a video call with a patient on her laptop"
                   width={480}
                   height={320}
                   style={{ width: '100%', height: 'auto', display: 'block' }}
@@ -164,7 +164,7 @@ export default function BookConsultationPage() {
       </section>
 
       {/* The consultation experience */}
-      <section className="section photo-band" style={{ '--band-img': "url('/images/photos/doctor-male-patient.jpg')" }} id="consultation-experience">
+      <section className="section photo-band" style={{ '--band-img': "url('/images/photos/doctor-male-patient.webp')" }} id="consultation-experience">
         <div className="container">
           <SectionHeader
             badge="The consultation experience"

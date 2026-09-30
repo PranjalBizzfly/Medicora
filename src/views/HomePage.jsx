@@ -5,6 +5,7 @@ import StatsStrip from '../components/StatsStrip';
 import SectionHeader from '../components/SectionHeader';
 import ExpertiseIcon from '../components/ExpertiseIcon';
 import HeroSlider from '../components/HeroSlider';
+import ParticleSphere from '../components/ParticleSphere';
 import {
   Building2,
   Video,
@@ -32,22 +33,25 @@ const heroSlides = [
     eyebrow: 'Homeopathy • Counselling • Mind-Body Care',
     title: 'A thoughtful approach to your health and wellbeing',
     secondary: { href: '/about-me', label: 'Meet Dr. Mohini' },
-    image: '/images/photos/patient-consultation.png',
+    image: '/images/photos/patient-consultation.webp',
+    alt: 'A smiling doctor listening to a patient across her clinic desk',
     position: '65% center',
   },
   {
     title: 'Feel better. Understand your anxiety',
     subtitle: 'Personalised online anxiety care combining homeopathy, counselling, and mind-body support.',
     secondary: { href: '/expertise/mental-emotional-psychosomatic-wellness', label: 'Explore her expertise' },
-    image: '/images/photos/hd/caring-hands.jpg',
-    position: '70% center',
+    image: '/images/hero2.webp',
+    alt: 'A counsellor holding a patient\'s hands in reassurance on a sofa',
+    position: '65% center',
   },
   {
     eyebrow: 'Integrated Healing',
     title: 'Homeopathy, counselling, yoga and meditation in one care plan',
     secondary: { href: '/my-approach/integrated-healing', label: 'See how it works' },
-    image: '/images/photos/hd/meditation-sunset.jpg',
-    position: '70% center',
+    image: '/images/hero3.webp',
+    alt: 'A woman meditating cross-legged on a terrace at sunset, overlooking the sea',
+    position: '60% center',
   },
 ];
 
@@ -57,21 +61,21 @@ const quickInfo = [
     icon: Building2,
     title: 'In-Person Consultations',
     text: "Dr. Mohini practices at Dr. Mutha's Homeopathic Clinic in Kopar Khairne, Navi Mumbai.",
-    link: 'View clinic details',
+    link: 'Book a Consultation',
     href: '/book-a-consultation',
   },
   {
     icon: Video,
     title: 'Online Consultations',
     text: 'Connect with Dr. Mohini from the comfort of your home, wherever you are.',
-    link: 'Book online consultation',
+    link: 'Book a Consultation',
     href: '/book-a-consultation',
   },
   {
     icon: Clock,
     title: 'Flexible Appointments',
     text: 'Choose a consultation format and appointment time that works for you.',
-    link: 'Schedule a consultation',
+    link: 'Book a Consultation',
     href: '/book-a-consultation',
   },
 ];
@@ -151,24 +155,33 @@ const homeSteps = [
 // Section 6 – differentiator (3 source cards only)
 const differences = [
   {
-    image: '/images/photos/dr-mohini-desk-portrait.jpg',
+    image: '/images/photos/dr-mohini-desk-portrait.webp',
+    alt: 'A doctor in a white coat seated at her desk before bookshelves and framed certificates',
     icon: Stethoscope,
     title: '14+ Years of Clinical Experience',
     text: 'Dr. Mohini has been practising since 2012 across clinical and institutional healthcare settings.',
   },
   {
-    image: '/images/photos/homeopathy-remedies-desk.jpg',
+    image: '/images/photos/homeopathy-remedies-desk.webp',
+    alt: 'A homeopathic remedy bottle, mortar and pestle and dried herbs on a study desk',
     icon: Brain,
     title: 'MD + Psychological Counselling',
     text: 'Her MD in Homeopathy is complemented by postgraduate training in psychological counselling.',
   },
   {
-    image: '/images/photos/lifestyle-nutrition-guidance.jpg',
+    image: '/images/photos/lifestyle-nutrition-guidance.webp',
+    alt: 'A woman sharing a home-cooked thali with an elderly woman at the dining table',
     icon: Leaf,
     title: 'Integrated Mind-Body Care',
     text: 'Homeopathy, counselling and supportive mind-body practices may be considered together, based on individual needs.',
   },
 ];
+
+const blogAlts = {
+  Anxiety: 'A woman sitting calmly by a sunlit garden window with a cup of tea',
+  Sleep: 'A softly lit bedroom with an open journal on the bedside table',
+  Homeopathy: 'Amber dropper bottles, fresh herbs and white pillules on a stone tray',
+};
 
 const blogImages = {
   Anxiety: '/images/blog/anxiety-myths-and-facts.webp',
@@ -238,11 +251,12 @@ export default function HomePage() {
           <div className="home-about-media">
             <div className="home-about-photo">
               <Image
-                src="/images/photos/dr-mohini-case-notes.jpg"
-                alt="Dr. Mohini Mutha reviewing case notes at her clinic desk"
+                src="/images/founder-mohini-mutha-2026-hd.webp"
+                alt="Portrait of Dr. Mohini Mutha in her white coat with a stethoscope"
                 fill
+                quality={85}
                 sizes="(max-width: 900px) 100vw, 45vw"
-                style={{ objectFit: 'cover' }}
+                style={{ objectFit: 'cover', objectPosition: 'center 22%' }}
               />
             </div>
             <div className="home-about-stat">
@@ -267,12 +281,12 @@ export default function HomePage() {
 
           <div className="home-about-copy">
             <span className="badge">A Word About Dr. Mutha</span>
-            <h2>Experienced Care for Anxiety, Stress &amp; Emotional Well-being</h2>
+            <h2>Experienced Care for Anxiety, Stress &amp; Emotional Wellbeing</h2>
             <p className="home-lead">
               Dr. Mohini Mutha, MD (Homeopathy) &amp; PGDPC, brings 14+ years of clinical experience to personalised patient care. Her work combines homeopathic practice with psychological counselling and mind-body approaches.
             </p>
             <p className="home-body">
-              Her approach looks beyond individual symptoms to understand the person, the pattern and the factors influencing their well-being.
+              Her approach looks beyond individual symptoms to understand the person, the pattern and the factors influencing their wellbeing.
             </p>
             <p className="home-body">
               <strong>Areas of interest:</strong> anxiety, stress-related concerns, emotional wellbeing and psychosomatic concerns.
@@ -298,7 +312,7 @@ export default function HomePage() {
         <div className="container">
           <SectionHeader
             badge="What we do"
-            title="Holistic care for Psychosomatic & Emotional well-being"
+            title="Holistic care for Psychosomatic & Emotional wellbeing"
             subtitle="From online anxiety consultations to counselling and mind-body support, our approach is designed around the individual, not just the symptoms."
             centered={true}
           />
@@ -326,7 +340,7 @@ export default function HomePage() {
 
       {/* Areas of expertise – photo background with glass cards */}
       <section className="section home-photo-section home-expertise-section">
-        <Image src="/images/photos/hd/remedy-dropper.jpg" alt="" fill sizes="100vw" className="home-photo-bg" />
+        <Image src="/images/photos/hd/green-leaves.webp" alt="Close-up of lush green leaves, reflecting a natural and holistic approach to care" fill sizes="100vw" className="home-photo-bg" />
         <div className="home-photo-overlay" aria-hidden="true" />
         <div className="container home-photo-inner">
           <SectionHeader badge="Expertise" badgeType="dark" title="Areas of Expertise" centered={true} />
@@ -373,10 +387,10 @@ export default function HomePage() {
           </ul>
 
           <div className="home-people-grid">
-            {differences.map(({ image, title, text }) => (
+            {differences.map(({ image, alt, title, text }) => (
               <article key={title} className="home-people-card">
                 <div className="home-people-media">
-                  <Image src={image} alt="" fill sizes="(max-width: 900px) 100vw, 33vw" style={{ objectFit: 'cover' }} />
+                  <Image src={image} alt={alt} fill sizes="(max-width: 900px) 100vw, 33vw" style={{ objectFit: 'cover' }} />
                 </div>
                 <div className="home-people-body">
                   <h3>{title}</h3>
@@ -400,13 +414,13 @@ export default function HomePage() {
 
       {/* 5. Our approach – four steps on a photo background */}
       <section className="section home-photo-section home-steps-section">
-        <Image src="/images/photos/hd/caring-hands.jpg" alt="" fill sizes="100vw" className="home-photo-bg" />
+        <Image src="/images/photos/hd/caring-hands.webp" alt="Two people holding hands in a gesture of comfort and support" fill sizes="100vw" className="home-photo-bg" />
         <div className="home-photo-overlay" aria-hidden="true" />
         <div className="container home-photo-inner">
           <SectionHeader
             badge="Our approach"
             badgeType="dark"
-            title="Four steps towards better well-being"
+            title="Four steps towards better wellbeing"
             subtitle="A simple, considered process designed to understand your concerns and build care around you."
             centered={true}
           />
@@ -466,7 +480,7 @@ export default function HomePage() {
             {latestBlogs.map((article) => (
               <Link key={article.title} href="/resources/blogs" className="home-blog-card">
                 <div className="home-blog-card-media">
-                  <Image src={blogImages[article.category]} alt="" fill sizes="(max-width: 768px) 100vw, 33vw" style={{ objectFit: 'cover' }} />
+                  <Image src={blogImages[article.category]} alt={blogAlts[article.category]} fill sizes="(max-width: 768px) 100vw, 33vw" style={{ objectFit: 'cover' }} />
                   <span className="home-blog-tag">{article.category}</span>
                 </div>
                 <div className="home-blog-card-body">
@@ -511,7 +525,7 @@ export default function HomePage() {
               </p>
               <Link href="/book-a-consultation" className="btn btn-primary">
                 <Calendar size={16} aria-hidden="true" />
-                <span>Book an online consultation</span>
+                <span>Book a Consultation</span>
               </Link>
               <div className="home-contact-meta">
                 <strong>Trivana Wellness</strong>
@@ -545,6 +559,7 @@ export default function HomePage() {
       <section className="section home-final-section">
         <div className="container">
           <div className="home-final-cta">
+            <ParticleSphere className="home-final-sphere" />
             <h2>Your health deserves a personal approach.</h2>
             <Link href="/book-a-consultation" className="btn btn-lg home-white-btn">
               <Calendar size={18} aria-hidden="true" />

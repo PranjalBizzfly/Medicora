@@ -3,7 +3,7 @@
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  padding: clamp(3.5rem, 7vw, 5.5rem) 0;
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
   background:
     radial-gradient(ellipse 55% 110% at 88% 0%, rgba(255, 255, 255, 0.12), transparent 60%),
     linear-gradient(160deg, var(--brand-maroon) 0%, var(--brand-maroon-deep) 100%);
@@ -41,7 +41,7 @@
 .page-hero .breadcrumbs li > span { color: #CFE1E5; font-weight: 500; }
 
 /* Intro below the banner: centred label, lead text and actions */
-.page-intro { padding: clamp(3.5rem, 7vw, 5.5rem) 0 clamp(2.5rem, 5vw, 3.5rem); background: var(--bg-surface); }
+.page-intro { padding: clamp(2.5rem, 5vw, 4rem) 0 clamp(1.75rem, 4vw, 2.5rem); background: var(--bg-surface); }
 
 .page-intro-inner {
   display: flex;

@@ -44,7 +44,7 @@ export function validatePhone(v, countryCode = 'IN') {
   if (!digits) return 'Please enter your mobile number.';
   const [min, max] = c.digits;
   if (digits.length < min || digits.length > max) {
-    return min === max ? `Enter a ${min}-digit mobile number for ${c.name}.` : `Enter a ${min}–${max} digit mobile number for ${c.name}.`;
+    return min === max ? `Enter a ${min}-digit mobile number for ${c.name}.` : `Enter a ${min} to ${max} digit mobile number for ${c.name}.`;
   }
   if (c.code === 'IN' && !/^[6-9]/.test(digits)) return 'Indian mobile numbers start with 6, 7, 8 or 9.';
   return '';

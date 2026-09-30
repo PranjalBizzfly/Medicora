@@ -20,10 +20,10 @@ export default function FAQsPage() {
         title="Questions about your care? We're here to help."
         subtitle="Find answers to common questions about consultations, homeopathy, personalised care and the Trivana Wellness approach."
         breadcrumbs={[
-          { label: 'Resources', path: '/resources/patient-stories' },
+          { label: 'Resources' },
           { label: 'FAQs' },
         ]}
-        primaryCtaText="Book a consultation"
+        primaryCtaText="Book a Consultation"
         primaryCtaLink="/book-a-consultation"
         secondaryCtaText="Myths vs Facts"
         secondaryCtaLink="/resources/myths-vs-facts"

@@ -63,12 +63,12 @@ export default function ConsultationProcessPage() {
         tiles: [
           { kind: 'explore', title: 'Explore your care options', text: 'Learn about the approach that may suit your needs.', href: '/my-approach/personalised-treatment' },
           { kind: 'chat', title: 'Chat with me', text: 'Ask your questions.' },
-          { kind: 'book', title: 'Book a consultation', text: 'Choose a convenient time to connect.' },
+          { kind: 'book', title: 'Book a Consultation', text: 'Choose a convenient time to connect.' },
         ],
       }}
       image={{
-        src: '/images/photos/consultation-woman-patient.jpg',
-        alt: 'Dr. Mohini Mutha listening to a patient during a consultation',
+        src: '/images/photos/hd/doctor-welcome-desk-hd.webp',
+        alt: 'A smiling doctor seated at her clinic desk, ready to welcome a patient',
       }}
     />
   );

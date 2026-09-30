@@ -133,6 +133,174 @@
 .site-main figure img { transition: transform 1.1s var(--motion-ease); }
 .site-main figure:hover img { transform: scale(1.03); }
 
+/* ---------- Reveal variants ---------- */
+.motion-ready [data-reveal='left']:not(.is-revealed) { transform: translateX(calc(var(--motion-distance) * -2)); }
+.motion-ready [data-reveal='right']:not(.is-revealed) { transform: translateX(calc(var(--motion-distance) * 2)); }
+.motion-ready [data-reveal='zoom']:not(.is-revealed) { transform: translateY(var(--motion-distance)) scale(0.96); }
+
+/* Cards tip up gently in 3D as they arrive: one subtle movement, once. */
+.motion-ready :is(.card, .stat-box, .tv-card, .tv-glass-card, .home-service-card, .home-glass-card, .home-contact-card, .home-step)[data-reveal='']:not(.is-revealed) {
+  transform: perspective(1000px) rotateX(8deg) translateY(var(--motion-distance));
+  transform-origin: 50% 100%;
+}
+
+/* Section labels draw in slightly after their section. */
+.motion-ready .section-header[data-reveal] .badge { transition: letter-spacing 900ms var(--motion-ease) 150ms; }
+.motion-ready .section-header[data-reveal]:not(.is-revealed) .badge { letter-spacing: 0.3em; }
+
+/* ---------- Photo sections: slow parallax on the background ---------- */
+@supports (animation-timeline: view()) {
+  @keyframes motion-band-pan {
+    from { background-position: center 30%; }
+    to { background-position: center 70%; }
+  }
+  .section.photo-band,
+  .page-hero.has-image {
+    animation: motion-band-pan linear both;
+    animation-timeline: view();
+  }
+  @keyframes motion-img-pan {
+    from { transform: scale(1.12) translateY(-3%); }
+    to { transform: scale(1.12) translateY(3%); }
+  }
+  .home-photo-bg,
+  .tv-photo-band-bg {
+    animation: motion-img-pan linear both;
+    animation-timeline: view(block);
+  }
+}
+
+/* ---------- Page banner: gentle title entrance ---------- */
+.page-hero .hero-title { animation: motion-rise 900ms var(--motion-ease) 60ms both; }
+.page-hero .breadcrumbs { animation: motion-rise 900ms var(--motion-ease) 220ms both; }
+
+/* ---------- Hover language for the newer cards ---------- */
+.tv-card,
+.tv-photo-card,
+.tv-glass-card,
+.home-contact-card,
+.quick-info-col {
+  transition: transform var(--motion-base) var(--motion-ease), box-shadow var(--motion-base) var(--motion-ease), border-color var(--motion-base) var(--motion-ease), background-color var(--motion-base) var(--motion-ease);
+}
+
+.tv-card:hover,
+.tv-photo-card:hover,
+.home-contact-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.tv-glass-card:hover { transform: translateY(-4px); background: rgba(255, 255, 255, 0.14); }
+
+.tv-photo-card img,
+.home-people-media img,
+.home-blog-card-media img { transition: transform 1.1s var(--motion-ease); }
+.tv-photo-card:hover img,
+.home-people-card:hover .home-people-media img,
+.home-blog-card:hover .home-blog-card-media img { transform: scale(1.05); }
+
+.tv-glass-icon svg,
+.home-glass-icon svg,
+.quick-info-icon svg,
+.home-contact-icon svg { transition: transform var(--motion-base) var(--motion-ease); }
+.tv-glass-card:hover .tv-glass-icon svg,
+.home-glass-card:hover .home-glass-icon svg,
+.quick-info-col:hover .quick-info-icon svg,
+.home-contact-card:hover .home-contact-icon svg { transform: translateY(-2px) scale(1.1); }
+
+/* Primary buttons: a soft light sweep on hover. */
+.btn-primary { position: relative; overflow: hidden; isolation: isolate; }
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.22) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 700ms var(--motion-ease);
+}
+.btn-primary:hover::after { transform: translateX(120%); }
+
+/* Underlines grow in on text links. */
+.link-arrow span,
+.home-glass-link,
+.home-blog-link {
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+  transition: background-size var(--motion-base) var(--motion-ease);
+}
+.link-arrow:hover span,
+.home-glass-card:hover .home-glass-link,
+.home-blog-card:hover .home-blog-link { background-size: 100% 1px; }
+
+/* Scroll buttons pop in and out. */
+.scroll-btn { transition: opacity var(--motion-base) var(--motion-ease), transform var(--motion-base) var(--motion-ease), background-color var(--motion-fast) ease; }
+
+/* FAQ answers open smoothly. */
+@keyframes motion-fade-down {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: none; }
+}
+.faq-item.is-open .faq-answer,
+.faq-item.is-open [class*='answer'] { animation: motion-fade-down var(--motion-base) var(--motion-ease) both; }
+
+/* Search and Explore overlays ease in. */
+.search-dialog { animation: motion-scale-in var(--motion-base) var(--motion-ease) both; }
+.explore-dialog { animation: motion-rise var(--motion-base) var(--motion-ease) both; }
+
+/* ---------- 3D tilt under the pointer (InteractiveEffects.jsx) ---------- */
+.is-tilting {
+  transform: perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) translateY(-4px) !important;
+  transition: transform 120ms linear, box-shadow var(--motion-base) var(--motion-ease) !important;
+  box-shadow: 0 22px 44px -18px rgba(60, 14, 3, 0.35);
+  will-change: transform;
+}
+
+/* Glass cards pick up a soft spotlight that follows the pointer. */
+.is-tilting:is(.tv-glass-card, .home-glass-card),
+.photo-band .is-tilting {
+  background-image: radial-gradient(circle at var(--spot-x, 50%) var(--spot-y, 50%), rgba(255, 255, 255, 0.16), transparent 55%) !important;
+}
+
+/* Portrait depth: while the photo tilts, its experience badge lifts toward
+   the viewer, so the two read as separate layers. Text never tilts. */
+.home-about-stat { transition: transform 450ms var(--motion-ease), box-shadow 450ms var(--motion-ease); }
+.home-about-media:has(.home-about-photo.is-tilting) .home-about-stat {
+  transform: translate(6px, -8px) scale(1.03);
+  box-shadow: 0 24px 48px -16px rgba(60, 14, 3, 0.4);
+}
+
+/* Magnetic buttons */
+.is-magnetic { translate: var(--magnet-x, 0) var(--magnet-y, 0); transition: translate 160ms var(--motion-ease); }
+.btn { transition: translate 400ms var(--motion-ease), transform var(--motion-fast) var(--motion-ease), box-shadow var(--motion-base) var(--motion-ease), background-color var(--motion-base) var(--motion-ease), border-color var(--motion-base) var(--motion-ease), color var(--motion-base) var(--motion-ease); }
+
+/* ---------- 3D mind-body sphere ---------- */
+.particle-sphere { position: absolute; pointer-events: none; }
+
+.page-hero-sphere {
+  top: 0;
+  bottom: 0;
+  margin-block: auto;
+  right: max(2vw, calc((100vw - 1320px) / 2));
+  width: clamp(220px, 26vw, 380px);
+  height: clamp(220px, 26vw, 380px);
+  z-index: -1;
+  opacity: 0.85;
+  animation: motion-scale-in 1.4s var(--motion-ease) 200ms both;
+}
+
+.page-hero-sphere + .container { position: relative; }
+
+.home-final-cta .home-final-sphere {
+  top: 50%;
+  left: 50%;
+  width: min(560px, 90%);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  opacity: 0.45;
+}
+
+.home-final-cta > :not(.particle-sphere) { position: relative; z-index: 1; }
+
+@media (max-width: 900px) {
+  .page-hero-sphere { right: -60px; opacity: 0.35; }
+}
+
 /* ---------- Reduced motion: no movement anywhere ---------- */
 @media (prefers-reduced-motion: reduce) {
   *,

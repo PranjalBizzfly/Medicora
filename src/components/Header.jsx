@@ -15,15 +15,15 @@ function BrandLogo() {
   return (
     <span className="brand-logo-crop">
       <Image
-        src="/brand/logo-header.png"
-        alt="Dr. Mohini Mutha"
+        src="/brand/logo-header.webp"
+        alt="Dr. Mohini Mutha logo"
         width={1702}
         height={445}
         priority
         className="brand-logo-img brand-logo-img-light"
       />
       <Image
-        src="/brand/logo-footer-white.png"
+        src="/brand/logo-footer-white.webp"
         alt=""
         aria-hidden="true"
         width={1702}
@@ -116,7 +116,7 @@ export default function Header() {
             </a>
             <a href={`mailto:${siteConfig.email}`} className="topbar-item">
               <Mail size={14} />
-              <span>{siteConfig.email}</span>
+              <span className="email-text">{siteConfig.email}</span>
             </a>
             <span className="topbar-item">
               <MapPin size={14} />
@@ -133,7 +133,7 @@ export default function Header() {
       {/* Main navbar */}
       <nav className="navbar" aria-label="Main navigation">
         <div className="container">
-          <Link href="/" className="navbar-brand" aria-label="Dr. Mohini Mutha — Home">
+          <Link href="/" className="navbar-brand" aria-label="Dr. Mohini Mutha, Home">
             <BrandLogo />
           </Link>
 
@@ -278,7 +278,7 @@ export default function Header() {
               <a href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`} className="mobile-contact">
                 <Phone size={14} /> {siteConfig.phone}
               </a>
-              <a href={`mailto:${siteConfig.email}`} className="mobile-contact">
+              <a href={`mailto:${siteConfig.email}`} className="mobile-contact email-text">
                 <Mail size={14} /> {siteConfig.email}
               </a>
             </div>

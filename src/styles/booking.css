@@ -142,7 +142,7 @@
   cursor: pointer;
   transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
 }
-.bk-cal-day:hover:not([aria-disabled]) { border-color: var(--color-primary); color: var(--color-primary); transform: translateY(-1px); }
+.bk-cal-day:hover:not([aria-disabled]):not(.is-selected) { border-color: var(--color-primary); color: var(--color-primary); transform: translateY(-1px); }
 .bk-cal-day[aria-disabled] { background: transparent; color: var(--text-light); opacity: 0.45; cursor: not-allowed; }
 .bk-cal-day.is-today:not(.is-selected) { border-color: var(--color-primary); }
 .bk-cal-day.is-selected { background: var(--brand-maroon); border-color: var(--brand-maroon); color: #FFFFFF; font-weight: 600; }
@@ -162,7 +162,7 @@
   cursor: pointer;
   transition: var(--transition-fast);
 }
-.bk-slot:hover:not(:disabled) { border-color: var(--color-primary); color: var(--color-primary); }
+.bk-slot:hover:not(:disabled):not(.is-selected) { border-color: var(--color-primary); color: var(--color-primary); }
 .bk-slot:disabled { opacity: 0.4; text-decoration: line-through; cursor: not-allowed; }
 .bk-slot.is-selected { background: var(--brand-maroon); border-color: var(--brand-maroon); color: #FFFFFF; }
 
@@ -229,7 +229,8 @@
   border: 1px solid var(--border-light);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
-  animation: bk-rise 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: bk-rise 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: 50% 100%;
 }
 .bk-close {
   position: absolute;
@@ -252,7 +253,7 @@
 .bk-form--modal .bk-head { padding-right: 3rem; }
 
 @keyframes bk-fade { from { opacity: 0; } }
-@keyframes bk-rise { from { opacity: 0; transform: translateY(16px) scale(0.98); } }
+@keyframes bk-rise { from { opacity: 0; transform: perspective(1200px) rotateX(7deg) translateY(16px) scale(0.98); } }
 
 /* Dark: mint selection, like the logo. */
 :root[data-theme='dark'] .bk-cal-day.is-selected,
@@ -341,6 +342,21 @@ select.bk-input { appearance: none; padding-right: 2rem; cursor: pointer; }
 :root[data-theme='dark'] .bk-cal.is-invalid,
 :root[data-theme='dark'] .bk-input[aria-invalid='true'] { border-color: #F19A8E !important; }
 .bk-input[aria-invalid='true'] { border-color: #B42318 !important; }
+
+/* Placeholders are examples (emails, names): never title-case them. */
+.bk-input::placeholder { text-transform: none !important; }
+
+/* ---------- Popup: single 560px column that scrolls inside the dialog ---------- */
+@media (min-width: 601px) {
+  .bk-dialog { width: min(560px, 100%); max-height: calc(100dvh - 5rem); padding: 1.5rem 1.5rem 1.25rem; }
+  .bk-form--modal .bk-head h2 { font-size: 1.3rem; margin-bottom: 0.15rem; }
+  .bk-form--modal .bk-head p { font-size: 0.85rem; }
+  .bk-form--modal .bk-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0.85rem; }
+  .bk-form--modal .bk-input { height: 44px; }
+  /* The phone digit hint repeats what the error message says; skip it here. */
+  .bk-form--modal .bk-section--details .bk-field > .bk-hint { display: none; }
+  .bk-form--modal .bk-cal-day { height: 32px; }
+}
 
 @media (max-width: 600px) {
   /* 16px stops iOS zooming into fields on focus. */

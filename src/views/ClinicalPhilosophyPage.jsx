@@ -28,15 +28,15 @@ const equation = [
 const principles = [
   {
     title: 'Individualisation over generalisation',
-    text: 'No two people experience anxiety in exactly the same way. Care is therefore shaped around the individual - their symptoms, experiences, history and needs.'
+    text: 'No two people experience anxiety in exactly the same way. Care is therefore shaped around the individual: their symptoms, experiences, history and needs.'
   },
   {
     title: 'Understanding beyond the symptoms',
-    text: 'Rather than looking at anxiety as an isolated concern, the approach explores the wider patterns surrounding it and how they may be affecting everyday well-being.'
+    text: 'Rather than looking at anxiety as an isolated concern, the approach explores the wider patterns surrounding it and how they may be affecting everyday wellbeing.'
   },
   {
     title: 'Mind and body as one system',
-    text: 'Anxiety can influence more than emotional health. Sleep, digestion, energy, tension and daily routines may also be affected. Understanding these connections helps create a more complete picture of your well-being.'
+    text: 'Anxiety can influence more than emotional health. Sleep, digestion, energy, tension and daily routines may also be affected. Understanding these connections helps create a more complete picture of your wellbeing.'
   }
 ];
 
@@ -55,7 +55,7 @@ const supports = [
   {
     icon: Activity,
     title: 'Lifestyle Guidance',
-    text: 'Practical support around sleep, daily routines and habits that influence emotional well-being.'
+    text: 'Practical support around sleep, daily routines and habits that influence emotional wellbeing.'
   }
 ];
 
@@ -75,7 +75,7 @@ export default function ClinicalPhilosophyPage() {
         title="Good care begins with understanding the person behind the symptoms."
         subtitle="Dr. Mohini Mutha considers your experiences, emotional wellbeing, lifestyle and individual patterns to develop a more personalised approach to care."
         breadcrumbs={[
-          { label: "About", path: "/about-me" },
+          { label: "About" },
           { label: "Clinical Philosophy" }
         ]}
         primaryCtaText="Book a Consultation"
@@ -84,7 +84,7 @@ export default function ClinicalPhilosophyPage() {
           <ul className="ab-milestones ab-tagline-list">
             <li><strong>Understanding</strong></li>
             <li><strong>Individualised</strong></li>
-            <li><strong>Whole-Person</strong></li>
+            <li><strong>Whole Person</strong></li>
           </ul>
         }
       />
@@ -100,7 +100,7 @@ export default function ClinicalPhilosophyPage() {
                 Anxiety does not look the same in every person. That is why care should not begin with a standard checklist.
               </p>
               <p className="ab-body">
-                As a homeopathic physician for anxiety, Dr. Mohini Mutha takes time to understand what may be influencing your symptoms - from personal history and emotional experiences to everyday stress, lifestyle and overall well-being.
+                As a homeopathic physician for anxiety, Dr. Mohini Mutha takes time to understand what may be influencing your symptoms, from personal history and emotional experiences to everyday stress, lifestyle and overall wellbeing.
               </p>
               <p className="ab-body">
                 This forms the foundation of integrated anxiety care, bringing together homeopathy, counselling and practical lifestyle support where appropriate.
@@ -111,7 +111,7 @@ export default function ClinicalPhilosophyPage() {
               <div style={{ marginBottom: '1.5rem', borderRadius: 'var(--radius-lg)', overflow: 'hidden' }}>
                 <Image
                   src="/images/about/philosophy-whole-person.webp"
-                  alt="Whole-person mind-body wellness and tranquility"
+                  alt="A woman meditating peacefully in an armchair by a sunny window"
                   width={800}
                   height={600}
                   style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }}
@@ -137,7 +137,7 @@ export default function ClinicalPhilosophyPage() {
       </section>
 
       {/* Section 3 – Three core principles */}
-      <section className="section photo-band" style={{ '--band-img': "url('/images/photos/dr-mohini-garden-wide.jpg')" }}>
+      <section className="section photo-band" style={{ '--band-img': "url('/images/photos/dr-mohini-garden-wide.webp')" }}>
         <div className="container">
           <SectionHeader
             badge="Three core principles"
@@ -202,7 +202,7 @@ export default function ClinicalPhilosophyPage() {
       <CTABanner
         badge="Start with care that understands you"
         title="Your experience deserves more than a checklist."
-        subtitle="Whether you are seeking support for anxiety, stress, sleep concerns or emotional well-being, begin with a conversation and explore an approach shaped around you."
+        subtitle="Whether you are seeking support for anxiety, stress, sleep concerns or emotional wellbeing, begin with a conversation and explore an approach shaped around you."
       />
     </div>
   );

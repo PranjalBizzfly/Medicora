@@ -99,9 +99,9 @@ export function Field({ id, label, required, hint, error, className = '', childr
 
 export function PhoneField({ id, label = 'Mobile Number', country, onCountry, value, onChange, onBlur, error, required = true }) {
   const c = findCountry(country);
-  const [min, max] = c.digits;
+  const max = c.digits[1];
   return (
-    <Field id={id} label={label} required={required} error={error} hint={`${c.name}: ${min === max ? min : `${min}–${max}`} digits, without the country code.`}>
+    <Field id={id} label={label} required={required} error={error}>
       <div className="bk-phone">
         <div className="bk-select-wrap">
           <select

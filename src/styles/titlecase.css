@@ -1,0 +1,49 @@
+/* ==========================================================================
+   Title Case for all UI text (headings, buttons, links, navigation, labels,
+   cards, FAQs, footer, breadcrumbs). Paragraph / body text is left as written.
+   The source text is unchanged, so search, URLs and meaning stay the same.
+   ========================================================================== */
+
+:is(h1, h2, h3, h4, h5, h6),
+:is(button, .btn, label, legend, summary, th, dt, figcaption, caption),
+:is(.badge, .section-tag, .hero-pill, .page-hero-pill, .page-intro-inner .badge),
+:is(nav, .breadcrumbs, .navbar, .nav-link, .dropdown-link, .dropdown-link-title, .mobile-drawer, .topbar) :is(a, span, button),
+:is(.footer) :is(a, h3, h4, .footer-heading, span:not(p span)),
+:is(.faq-question, .faq-question span),
+:is(.link-arrow, .quick-info-link, .quick-info-title, .home-glass-link, .home-blog-link, .home-blog-tag, .tv-card-tag, .home-step-link),
+:is(.search-item-title, .search-section-label, .search-explore-label, .explore-link, .explore-pill, .explore-count, .explore-collapse-all, .explore-section-meta),
+:is(.home-highlights li, .home-checklist li, .home-service-points li, .home-about-list strong, .home-about-stat small, .stat-label),
+:is(.rs-faq-tab, .rs-label, .lg-toc-title, .lg-doc-meta),
+:is(.check-list li, [class$='-list'] > li > span:only-child, [class$='-tag'], [class$='-label'], [class$='-title'], [class$='-name'], [class$='-cred']),
+a:not(p a, li p a, blockquote a, .lg-prose a) {
+  text-transform: capitalize;
+}
+
+/* Short labels outside paragraphs: list items, captions, stats, bold phrases. */
+:is(li, span, strong, small, .stat-number, [class$='-result'], .footer div):not(:is(p, blockquote, .lg-prose, .faq-answer, .home-quote) *) {
+  text-transform: capitalize;
+}
+
+/* Placeholders in form fields */
+input::placeholder,
+textarea::placeholder { text-transform: capitalize; }
+
+/* Never transform what people type, reading text or legal copy. */
+:is(p, blockquote, .lg-prose, .lg-prose li, .faq-answer, .tv-quote p, .home-quote blockquote),
+:is(p, blockquote) :is(a, span, strong, em),
+.email-text,
+input,
+textarea,
+select,
+option {
+  text-transform: none;
+}
+
+
+/* Uppercase labels stay uppercase. */
+:is(.badge, .section-tag, .hero-pill, .page-hero-pill, .search-section-label, .explore-count, .explore-collapse-all, .explore-section-meta, .footer-heading, .home-blog-tag, .explore-section-head h2) { text-transform: uppercase !important; } 
+.email-text, .email-text * { text-transform: none !important; }
+
+/* Official page names with lowercase words ("Book a Consultation", "Myths vs Facts")
+   are marked by PageNameCase.jsx and shown exactly as named. */
+[data-keep-case] { text-transform: none !important; }

@@ -69,7 +69,7 @@ export default function HeroSlider({ slides }) {
           >
             <Image
               src={slide.image}
-              alt=""
+              alt={slide.alt || ''}
               fill
               priority={idx === 0}
               quality={85}
@@ -85,7 +85,7 @@ export default function HeroSlider({ slides }) {
               <div className="hero-actions">
                 <Link href="/book-a-consultation" className="btn btn-primary btn-lg hero-btn-primary">
                   <Calendar size={18} aria-hidden="true" />
-                  <span>Book a consultation</span>
+                  <span>Book a Consultation</span>
                 </Link>
                 {slide.secondary && (
                   <Link href={slide.secondary.href} className="btn btn-lg hero-btn-outline">

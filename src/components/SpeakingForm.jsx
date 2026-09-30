@@ -150,7 +150,7 @@ export default function SpeakingForm({ eventTypes }) {
             <Field id="sp-message" label="Share your event details" required error={errors.message} className="bk-field--full"
               hint="Audience, expected size, format (in-person or online) and the topic you have in mind.">
               <textarea className="bk-input" rows={5} maxLength={MESSAGE_MAX}
-                placeholder="e.g. A 45-minute talk on managing workplace stress for about 80 employees, in-person in Pune."
+                placeholder="e.g. A 45-minute talk on managing workplace stress for about 80 employees, in person in Pune."
                 value={f.message} onChange={(e) => set('message', e.target.value)} onBlur={() => blur('message')}
                 {...fieldAria('sp-message', { error: errors.message, hint: true, required: true })} />
               <p className="bk-counter" aria-hidden="true">{f.message.length} / {MESSAGE_MAX}</p>

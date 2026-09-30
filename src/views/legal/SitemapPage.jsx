@@ -14,7 +14,7 @@ const sitemapStructure = [
     wide: true,
     links: [
       { name: 'Home', path: '/', desc: 'Your starting point for exploring Trivana Wellness, online consultations and personalised care.', cta: 'Visit Home' },
-      { name: 'About Dr. Mohini', path: '/about-me', desc: 'Learn about Dr. Mohini Mutha, her experience, education, professional journey and approach to patient care.', cta: 'Explore About' },
+      { name: 'About Me', path: '/about-me', desc: 'Learn about Dr. Mohini Mutha, her experience, education, professional journey and approach to patient care.', cta: 'Explore About Me' },
       { name: 'My Approach', path: '/my-approach', desc: "Understand the principles that shape Dr. Mohini's consultations and personalised approach to care.", cta: 'Explore My Approach' },
       { name: 'My Journey', path: '/my-journey', desc: "Discover Dr. Mohini's professional journey, from clinical practice to Trivana Wellness.", cta: 'Explore My Journey' },
     ],
@@ -71,10 +71,10 @@ const sitemapStructure = [
     category: 'Connect',
     icon: CalendarCheck,
     links: [
-      { name: 'Invite Me To Speak', path: '/resources/invite-me-to-speak', desc: 'Explore speaking, workshop, panel and health-awareness opportunities with Dr. Mohini.', cta: 'Invite Me' },
+      { name: 'Invite Me To Speak', path: '/resources/invite-me-to-speak', desc: 'Explore speaking, workshop, panel and health-awareness opportunities with Dr. Mohini.', cta: 'Invite Me To Speak' },
       // No dedicated /contact route exists; "Contact" points to the booking page.
       { name: 'Contact', path: '/book-a-consultation', key: 'contact', desc: 'Have a question or want to discuss a consultation? Get in touch with Trivana Wellness.', cta: 'Contact Us' },
-      { name: 'Book a Consultation', path: '/book-a-consultation', desc: 'Choose a convenient time for an online consultation with Dr. Mohini.', cta: 'Book Consultation' },
+      { name: 'Book a Consultation', path: '/book-a-consultation', desc: 'Choose a convenient time for an online consultation with Dr. Mohini.', cta: 'Book a Consultation' },
     ],
   },
   {
@@ -86,7 +86,7 @@ const sitemapStructure = [
       { name: 'Cookie Policy', path: '/cookie-policy', desc: 'Understand how cookies and similar technologies may be used on this website.', cta: 'View Cookie Policy' },
       { name: 'Disclaimer', path: '/disclaimer', desc: 'Important information about the educational content, consultations and services provided through this website.', cta: 'View Disclaimer' },
       // Not listed in the Sitemap source; description is the Terms page hero line (source p.162).
-      { name: 'Terms and Conditions', path: '/terms-and-conditions', desc: 'These terms explain the use of the Trivana Wellness website, online consultations and related services.', cta: 'View Terms and Conditions' },
+      { name: 'Terms & Conditions', path: '/terms-and-conditions', desc: 'These terms explain the use of the Trivana Wellness website, online consultations and related services.', cta: 'View Terms & Conditions' },
     ],
   },
 ];
@@ -95,10 +95,10 @@ export default function SitemapPage() {
   return (
     <div className="sitemap-page">
       <Hero
-        badge="Sitemap"
+        badge="Site Map"
         title="Explore Dr. Mohini Mutha's website and find the information you need"
         subtitle="A simple guide to our website, consultations, health resources and information about Dr. Mohini Mutha."
-        breadcrumbs={[{ label: 'Sitemap' }]}
+        breadcrumbs={[{ label: 'Site Map' }]}
         primaryCtaText={null}
       />
 

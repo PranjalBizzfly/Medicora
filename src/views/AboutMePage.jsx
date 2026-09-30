@@ -65,9 +65,9 @@ const journey = [
 ];
 
 const campPhotos = [
-  { src: '/images/camp/medical-camp-2.jpg', alt: 'Dr. Mohini Mutha consulting a patient at a free homeopathic medical camp held during Navratri' },
-  { src: '/images/camp/medical-camp-3.jpg', alt: 'Free homeopathic medical camp in Navi Mumbai' },
-  { src: '/images/camp/medical-camp-1.jpg', alt: 'Patients gathered under the tent at a free homeopathic medical camp in Navi Mumbai' },
+  { src: '/images/camp/medical-camp-2.webp', alt: 'Dr. Mohini Mutha consulting a patient at a free Navratri medical camp' },
+  { src: '/images/camp/medical-camp-3.webp', alt: 'Residents seated on red chairs, waiting for consultations at a free camp in Navi Mumbai' },
+  { src: '/images/camp/medical-camp-1.webp', alt: 'A patient being attended to at the camp desk under a white tent in Navi Mumbai' },
 ];
 
 export default function AboutMePage() {
@@ -78,10 +78,10 @@ export default function AboutMePage() {
         title="Clinical experience with a personal approach"
         subtitle="With 14+ years of clinical experience and 12,000+ patients consulted, Dr. Mohini Mutha combines homeopathy, counselling and a personalised understanding of every patient."
         breadcrumbs={[
-          { label: "About", path: "/about-me" },
+          { label: "About" },
           { label: "About Me" }
         ]}
-        primaryCtaText="Book a consultation"
+        primaryCtaText="Book a Consultation"
         primaryCtaLink="/book-a-consultation"
         secondaryCtaText="Learn more about Dr. Mohini"
         secondaryCtaLink="/my-journey"
@@ -100,7 +100,7 @@ export default function AboutMePage() {
           <div className="tv-photo">
             <Image
               src="/images/about/doctor-patient-listening.webp"
-              alt="Dr. Mohini Mutha in an empathetic consultation with a patient"
+              alt="A doctor gently holding an older patient's hand while listening to her"
               fill
               sizes="(max-width: 900px) 100vw, 45vw"
               style={{ objectFit: 'cover' }}
@@ -114,7 +114,7 @@ export default function AboutMePage() {
 
       {/* Section 3b – Values on a photo band */}
       <section className="section tv-photo-band">
-        <Image src="/images/photos/mind-body-nature.jpg" alt="" fill sizes="100vw" className="tv-photo-band-bg" />
+        <Image src="/images/photos/mind-body-nature.webp" alt="A man meditating on a rock by a forest stream in soft morning light" fill sizes="100vw" className="tv-photo-band-bg" />
         <div className="tv-photo-band-overlay" aria-hidden="true" />
         <div className="container tv-photo-band-inner">
           <SectionHeader badge="My approach" badgeType="dark" title="Listen carefully. Understand deeply. Care personally." centered={true} />
@@ -154,9 +154,10 @@ export default function AboutMePage() {
           <div>
             <div className="tv-portrait">
               <Image
-                src="/images/founder-mohini-mutha-2026.webp"
-                alt="Dr. Mohini Mutha, Homeopathic Physician"
+                src="/images/founder-mohini-mutha-2026-hd.webp"
+                alt="Dr. Mohini Mutha, homeopathic physician, standing with her arms folded"
                 fill
+                quality={85}
                 sizes="(max-width: 900px) 100vw, 40vw"
                 style={{ objectFit: 'cover', objectPosition: 'center 25%' }}
               />
@@ -187,9 +188,9 @@ export default function AboutMePage() {
             <div className="ab-credentials-line">
               <GraduationCap size={20} aria-hidden="true" />
               <p>
-                <strong>BHMS</strong> — Motiwala Homoeopathic Medical College &amp; Hospital, Nashik (MUHS), completed in 2012 ·{' '}
-                <strong>MD in Homoeopathy (Homoeopathic Materia Medica)</strong> — SNJB&apos;s Bhamashah Shri V. D. Mehata, Dev-Vijay (Pune) Post Graduate Institute of Homoeopathy &amp; Research Centre, Chandwad (MUHS), completed in 2016 ·{' '}
-                <strong>PGDPC</strong> — Post Graduate Diploma in Psychological Counselling ·{' '}
+                <strong>BHMS</strong>: Motiwala Homoeopathic Medical College &amp; Hospital, Nashik (MUHS), completed in 2012 ·{' '}
+                <strong>MD in Homoeopathy (Homoeopathic Materia Medica)</strong>: SNJB&apos;s Bhamashah Shri V. D. Mehata, Dev-Vijay (Pune) Post Graduate Institute of Homoeopathy &amp; Research Centre, Chandwad (MUHS), completed in 2016 ·{' '}
+                <strong>PGDPC</strong>: Post Graduate Diploma in Psychological Counselling ·{' '}
                 <Link href="/credentials/education-qualifications">Education &amp; Qualifications</Link>
               </p>
             </div>
@@ -204,7 +205,7 @@ export default function AboutMePage() {
       </section>
 
       {/* Section 5 – My journey as step cards */}
-      <section className="section photo-band" style={{ '--band-img': "url('/images/photos/dr-mohini-garden-portrait.jpg')" }}>
+      <section className="section photo-band" style={{ '--band-img': "url('/images/photos/dr-mohini-garden-portrait.webp')" }}>
         <div className="container">
           <SectionHeader badge="My journey" title="Growing through every stage of practice" centered={true} />
           <div className="tv-card-grid tv-card-grid-3">
@@ -234,10 +235,10 @@ export default function AboutMePage() {
               Over the years, Dr. Mohini has worked across different areas of healthcare, including general health and wellness, respiratory concerns, headaches and migraines, digestive health, skin and allergies, women&apos;s wellness, child and adolescent wellness, joint and muscle concerns, sleep and lifestyle issues, as well as mental, emotional and psychosomatic wellness.
             </p>
             <p>
-              Her growing focus on anxiety and emotional well-being comes from recognising how frequently these concerns remain unspoken or overlooked.
+              Her growing focus on anxiety and emotional wellbeing comes from recognising how frequently these concerns remain unspoken or overlooked.
             </p>
             <p>
-              She has also conducted and participated in free homeopathic medical camps in Navi Mumbai, with an emphasis on health awareness and encouraging conversations around emotional well-being.
+              She has also conducted and participated in free homeopathic medical camps in Navi Mumbai, with an emphasis on health awareness and encouraging conversations around emotional wellbeing.
             </p>
           </div>
           <div className="tv-photo-cards">
@@ -257,7 +258,7 @@ export default function AboutMePage() {
       <CTABanner
         badge="Take a step towards better wellbeing"
         title="Your health deserves more than a rushed conversation"
-        subtitle="Whether you're looking for support with anxiety and emotional well-being or another health concern, the first step can simply be a conversation. Connect with Dr. Mohini for a personalised online consultation from wherever you are."
+        subtitle="Whether you're looking for support with anxiety and emotional wellbeing or another health concern, the first step can simply be a conversation. Connect with Dr. Mohini for a personalised online consultation from wherever you are."
       />
     </div>
   );

@@ -207,7 +207,6 @@
 
 .expertise-concerns {
   margin-top: 3rem;
-  scroll-margin-top: 6rem;
 }
 
 .expertise-pillars h3 {
@@ -222,9 +221,6 @@
   gap: 0.75rem 1.5rem;
 }
 
-#approach {
-  scroll-margin-top: 6rem;
-}
 
 .expertise-safety p {
   font-size: 0.925rem;

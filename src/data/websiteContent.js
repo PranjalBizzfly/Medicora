@@ -13,7 +13,7 @@ export const siteConfig = {
   specialization: "Homeopathic Materia Medica & Psychological Counselling",
   experienceYears: "14+",
   patientsTreated: "12,000+",
-  ongcYears: "8 Years (2018 - Present)",
+  ongcYears: "8 Years (2018 to Present)",
   ongcDesignation: "Consultant Homoeopathic Physician with ONGC",
   countriesConsulted: "India, UAE, USA",
   clinicName: "Dr. Mutha's Homeopathic Clinic",
@@ -57,7 +57,7 @@ export const navigationLinks = [
       { label: "Child & Adolescent Wellness", path: "/expertise/child-adolescent-wellness", desc: "Thoughtful care for growing minds and bodies" },
       { label: "Joint, Muscle & Pain Management", path: "/expertise/joint-muscle-pain-management", desc: "Support for easier movement and everyday comfort" },
       { label: "Sleep & Lifestyle Concerns", path: "/expertise/sleep-lifestyle-concerns", desc: "Better sleep starts with understanding your routine" },
-      { label: "Mental, Emotional & Psychosomatic", path: "/expertise/mental-emotional-psychosomatic-wellness", desc: "Support for emotional concerns that may affect how you feel and function" }
+      { label: "Mental, Emotional & Psychosomatic Wellness", path: "/expertise/mental-emotional-psychosomatic-wellness", desc: "Support for emotional concerns that may affect how you feel and function" }
     ]
   },
   {
@@ -140,7 +140,7 @@ const EXPERTISE_FAQ = {
 const standardTiles = (messageText, chatText) => [
   { type: "message", label: "Message me", text: messageText },
   { type: "chat", label: "Chat with me", text: chatText },
-  { type: "book", label: "Book a consultation", text: "Choose a convenient time to connect." }
+  { type: "book", label: "Book a Consultation", text: "Choose a convenient time to connect." }
 ];
 
 const REL = {
@@ -353,7 +353,7 @@ export const expertiseSpecialties = [
       heading: "Begin your personalised care",
       intro: "Share what you have been experiencing and take the first step towards personalised care.",
       tiles: [
-        { type: "book", label: "Book a consultation", text: "Choose a convenient time to speak with Dr. Mohini." },
+        { type: "book", label: "Book a Consultation", text: "Choose a convenient time to speak with Dr. Mohini." },
         { type: "link", label: "Meet Dr. Mohini", text: "Learn about her experience and approach to patient care.", href: "/about-me" },
         { type: "chat", label: "Chat with me", text: "Discuss your health and wellbeing." }
       ]
@@ -423,7 +423,7 @@ export const expertiseSpecialties = [
       tiles: [
         { type: "link", label: "See your options", text: "Move towards more comfortable days", href: "/my-approach/personalised-treatment" },
         { type: "link", label: "Explore your care options", text: "Understand the consultation approach.", href: "/my-approach/consultation-process" },
-        { type: "book", label: "Book an appointment", text: "Choose a convenient time for your consultation." }
+        { type: "book", label: "Book a Consultation", text: "Choose a convenient time for your consultation." }
       ]
     }
   },
@@ -491,7 +491,7 @@ export const expertiseSpecialties = [
       tiles: [
         { type: "link", label: "Explore your care options", text: "Learn more about the approach that may suit your needs.", href: "/my-approach/integrated-healing" },
         { type: "chat", label: "Chat with me", text: "Discuss your concerns openly." },
-        { type: "book", label: "Book a consultation", text: "Choose a convenient time to connect." }
+        { type: "book", label: "Book a Consultation", text: "Choose a convenient time to connect." }
       ]
     }
   }

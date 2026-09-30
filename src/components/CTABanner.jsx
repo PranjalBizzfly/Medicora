@@ -28,7 +28,7 @@ export default function CTABanner({
             <div className="cta-panel-actions">
               <Link href="/book-a-consultation" className="btn btn-primary btn-lg">
                 <Calendar size={18} />
-                <span>Book an Online Consultation</span>
+                <span>Book a Consultation</span>
               </Link>
 
               <a href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`} className="btn btn-secondary">
@@ -39,7 +39,7 @@ export default function CTABanner({
 
             <div className="cta-panel-meta">
               <span><MapPin size={15} /> {siteConfig.clinicLocation}</span>
-              <span><Mail size={15} /> {siteConfig.email}</span>
+              <span className="email-text"><Mail size={15} /> {siteConfig.email}</span>
               <span><Globe size={15} /> Online consultations for India · UAE · USA</span>
             </div>
           </div>

@@ -528,5 +528,5 @@
 .footer-link, .footer-bottom a { display: inline-block; padding-block: 4px; }
 
 /* Stats strip heading matches other section headings. */
-.stats-strip-head { margin-bottom: 2.5rem; }
+.stats-strip-head { margin-bottom: 1.75rem; }
 .stats-strip-head h3 { font-size: clamp(1.5rem, 2.4vw, 2rem); margin-bottom: 0.75rem; }

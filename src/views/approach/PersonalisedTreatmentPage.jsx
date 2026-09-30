@@ -47,8 +47,8 @@ export default function PersonalisedTreatmentPage() {
         badge: 'Our approach',
         title: 'Care that is personal to you',
         image: {
-          src: '/images/photos/family-child-consultation.jpg',
-          alt: 'Dr. Mohini Mutha in a personalised consultation with a mother and child',
+          src: '/images/photos/family-child-consultation.webp',
+          alt: 'A doctor warmly greeting a young girl sitting beside an older woman',
         },
         lead: 'No two people experience health in exactly the same way. Understanding your symptoms, health history, lifestyle and individual needs provides a broader context for your care.',
         points: [
@@ -68,7 +68,7 @@ export default function PersonalisedTreatmentPage() {
         tiles: [
           { kind: 'explore', title: 'Explore your care options', text: 'Learn more about the consultation approach.', href: '/my-approach/consultation-process' },
           { kind: 'chat', title: 'Connect with Dr. Mohini', text: 'Discuss your needs.' },
-          { kind: 'book', title: 'Book a consultation', text: 'Choose a convenient time to connect.' },
+          { kind: 'book', title: 'Book a Consultation', text: 'Choose a convenient time to connect.' },
         ],
       }}
     />

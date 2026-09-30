@@ -36,16 +36,16 @@ export default function CaseStudiesPage() {
         title="Case Studies"
         subtitle="Understanding the person behind the concern"
         breadcrumbs={[
-          { label: 'Resources', path: '/resources/patient-stories' },
+          { label: 'Resources' },
           { label: 'Case Studies' },
         ]}
-        primaryCtaText="Book a consultation"
+        primaryCtaText="Book a Consultation"
         primaryCtaLink="/book-a-consultation"
         secondaryCtaText="Patient Stories"
         secondaryCtaLink="/resources/patient-stories"
       />
 
-      <section className="section photo-band" style={{ '--band-img': "url('/images/photos/anxiety-consultation.jpg')" }}>
+      <section className="section photo-band" style={{ '--band-img': "url('/images/photos/anxiety-consultation.webp')" }}>
         <div className="container">
           <div className="grid-3">
             {stages.map(({ Icon, title, text }) => (
@@ -99,7 +99,7 @@ export default function CaseStudiesPage() {
         </div>
       </section>
 
-      <section id="case-structure" className="section photo-band" style={{ '--band-img': "url('/images/photos/doctor-male-patient.jpg')" }}>
+      <section id="case-structure" className="section photo-band" style={{ '--band-img': "url('/images/photos/hd/doctor-case-notes-hd.webp')" }}>
         <div className="container">
           <SectionHeader
             badge="How each case is presented"

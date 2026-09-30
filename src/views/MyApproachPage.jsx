@@ -58,7 +58,7 @@ const approachStats = [
 ];
 
 const relatedLinks = [
-  { href: '/my-approach/why-homeopathy', label: 'Why Homeopathy?' },
+  { href: '/my-approach/why-homeopathy', label: 'Why Homeopathy' },
   { href: '/my-approach/integrated-healing', label: 'Integrated Healing' },
   { href: '/my-approach/consultation-process', label: 'Consultation Process' },
   { href: '/my-approach/personalised-treatment', label: 'Personalised Treatment' }
@@ -67,7 +67,7 @@ const relatedLinks = [
 // Section 3 – contact tiles
 const tiles = [
   { icon: Mail, title: 'Message me', text: 'Share your concerns with me.', href: `mailto:${siteConfig.email}`, external: true },
-  { icon: Calendar, title: 'Book a consultation', text: 'Choose a convenient consultation time.', href: '/book-a-consultation' },
+  { icon: Calendar, title: 'Book a Consultation', text: 'Choose a convenient consultation time.', href: '/book-a-consultation' },
   { icon: Layers, title: 'Explore your options', text: 'Understand the care available to you.', href: '/my-approach/integrated-healing' }
 ];
 
@@ -79,17 +79,17 @@ export default function MyApproachPage() {
         title="Every patient is different. So should their care be."
         subtitle="Care that starts with understanding"
         breadcrumbs={[
-          { label: "About", path: "/about-me" },
+          { label: "About" },
           { label: "My Approach" }
         ]}
-        primaryCtaText="Book a consultation"
+        primaryCtaText="Book a Consultation"
         primaryCtaLink="/book-a-consultation"
         secondaryCtaText="Consultation Process"
         secondaryCtaLink="/my-approach/consultation-process"
       />
 
       {/* Section 1 – overview cards */}
-      <section className="section photo-band" style={{ '--band-img': "url('/images/photos/calm-woman-nature.jpg')" }}>
+      <section className="section photo-band" style={{ '--band-img': "url('/images/photos/calm-woman-nature.webp')" }}>
         <div className="container">
           <div className="grid-3">
             {overview.map(({ icon: Icon, title, text, href }) => (
@@ -154,7 +154,7 @@ export default function MyApproachPage() {
       <ConsultationProcess />
 
       {/* Section 3 – contact tiles */}
-      <section className="section photo-band" style={{ '--band-img': "url('/images/photos/consultation-desk.jpg')" }}>
+      <section className="section photo-band" style={{ '--band-img': "url('/images/photos/consultation-desk.webp')" }}>
         <div className="container">
           <SectionHeader
             badge="Get started"

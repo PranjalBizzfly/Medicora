@@ -422,6 +422,10 @@ a.topbar-item:hover {
   :root {
     --nav-height: 72px;
   }
+  /* Top bar is hidden here, so only the nav bar needs clearing. */
+  html {
+    scroll-padding-top: calc(var(--nav-height) + 1rem);
+  }
 }
 
 @media (max-width: 420px) {

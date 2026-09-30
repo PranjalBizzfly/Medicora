@@ -7,13 +7,10 @@
   "headings": [
    "A thoughtful approach to your health and wellbeing",
    "Feel better. Understand your anxiety",
-   "In-Person Consultations",
-   "Online Consultations",
-   "Flexible Appointments",
-   "Dr. Mohini Mutha",
-   "Experienced Care for Anxiety, Stress & Emotional Well-being",
+   "Homeopathy, counselling, yoga and meditation in one care plan",
+   "Experienced Care for Anxiety, Stress & Emotional Wellbeing",
    "Experience you can count on",
-   "Holistic care for Psychosomatic & Emotional well-being",
+   "Holistic care for Psychosomatic & Emotional wellbeing",
    "Online Anxiety Care",
    "General Health & Wellness",
    "Psychological Counselling",
@@ -28,20 +25,26 @@
    "Women's Wellness",
    "Child & Adolescent Wellness",
    "Joint, Muscle & Pain Management",
-   "Sleep & Lifestyle Concerns"
+   "Sleep & Lifestyle Concerns",
+   "Experience, empathy, and Approach to anxiety care",
+   "14+ Years of Clinical Experience",
+   "MD + Psychological Counselling"
   ]
  },
  {
   "path": "/about-me",
   "group": "About Us",
-  "title": "About Me – Clinical Experience with a Personal Approach",
+  "title": "About Me",
   "description": "With 14+ years of clinical experience and 12,000+ patients consulted, Dr. Mohini Mutha combines homeopathy, counselling and a personalised understanding of every patient.",
   "headings": [
    "Clinical experience with a personal approach",
    "More than a decade dedicated to understanding people and their health",
-   "“A doctor who believes every patient deserves to be heard”",
    "Listen carefully. Understand deeply. Care personally.",
+   "Patient first",
+   "Thoughtful clinical perspective",
+   "Continuous learning",
    "Good healthcare begins with care and understanding",
+   "Dr. Mohini Mutha",
    "Growing through every stage of practice",
    "Beginning of clinical practice",
    "Deepening clinical knowledge",
@@ -65,7 +68,6 @@
    "Online Consultation",
    "Dr. Mutha's Homeopathic Clinic",
    "Get in touch",
-   "Choose Consultation",
    "What your consultation can cover",
    "Anxiety & emotional wellbeing",
    "Sleep & lifestyle",
@@ -105,19 +107,19 @@
   "description": "Understand how cookies and similar technologies may be used on this website.",
   "headings": [
    "Understanding how cookies work",
-   "1 What are cookies?",
-   "2 Why we use cookies",
-   "3 Types of cookies",
+   "1 . What are cookies?",
+   "2 . Why we use cookies",
+   "3 . Types of cookies",
    "Essential cookies",
    "Analytics cookies",
    "Preference cookies",
    "Marketing cookies",
-   "4 Third-party cookies",
-   "5 Managing your cookie preferences",
-   "6 Do cookies collect health information?",
-   "7 Your privacy",
-   "8 Changes to this policy",
-   "9 Questions about cookies?",
+   "4 . Third-party cookies",
+   "5 . Managing your cookie preferences",
+   "6 . Do cookies collect health information?",
+   "7 . Your privacy",
+   "8 . Changes to this policy",
+   "9 . Questions about cookies?",
    "We're here to help"
   ]
  },
@@ -143,7 +145,7 @@
   "path": "/credentials/education-qualifications",
   "group": "Credentials",
   "title": "Education & Qualifications",
-  "description": "Qualifications that support thoughtful patient care: BHMS (2012), MD in Homeopathy – Homoeopathic Materia Medica (2016) and a Post Graduate Diploma in Psychological Counselling.",
+  "description": "Qualifications that support thoughtful patient care: BHMS (2012), MD in Homeopathy, Homoeopathic Materia Medica (2016) and a Post Graduate Diploma in Psychological Counselling.",
   "headings": [
    "Education & Qualifications",
    "BHMS",
@@ -182,15 +184,15 @@
   "description": "Important information about the educational content, consultations and services provided through this website.",
   "headings": [
    "Important information about this website",
-   "1 Information on this website",
-   "2 Online consultations",
-   "3 No guaranteed outcomes",
-   "4 Emergency situations",
-   "5 Homeopathy and complementary care",
-   "6 Testimonials and patient stories",
-   "7 External information",
-   "8 Changes to this disclaimer",
-   "9 Questions?",
+   "1 . Information on this website",
+   "2 . Online consultations",
+   "3 . No guaranteed outcomes",
+   "4 . Emergency situations",
+   "5 . Homeopathy and complementary care",
+   "6 . Testimonials and patient stories",
+   "7 . External information",
+   "8 . Changes to this disclaimer",
+   "9 . Questions?",
    "Need clarification?"
   ]
  },
@@ -427,7 +429,7 @@
    "Follow Up",
    "Start your journey towards better wellbeing.",
    "Message me",
-   "Book a consultation",
+   "Book a Consultation",
    "Explore your options"
   ]
  },
@@ -487,7 +489,7 @@
   "title": "Why Homeopathy",
   "description": "Why homeopathy? Looking at the individual, not just the condition. Understanding the role of homeopathy in personalised care with Dr. Mohini Mutha, homeopathic doctor.",
   "headings": [
-   "Why Homeopathy?",
+   "Why Homeopathy",
    "Understanding the role of homeopathy in personalised care",
    "Individualised care",
    "A deeper conversation",
@@ -500,7 +502,7 @@
   "path": "/my-journey",
   "group": "About Us",
   "title": "My Journey",
-  "description": "From studying medicine to understanding the person behind it. Since 2012, Dr. Mohini Mutha's journey has been shaped by thousands of patient conversations, continuous learning and the connection between physical and emotional well-being.",
+  "description": "From studying medicine to understanding the person behind it. Since 2012, Dr. Mohini Mutha's journey has been shaped by thousands of patient conversations, continuous learning and the connection between physical and emotional wellbeing.",
   "headings": [
    "From studying medicine to understanding the person behind it.",
    "My clinical journey started",
@@ -526,19 +528,19 @@
   "description": "Learn how Trivana Wellness collects, uses and protects personal information on the Dr. Mohini Mutha website.",
   "headings": [
    "Privacy Policy",
-   "1 Information we collect",
-   "2 How we use your information",
-   "3 Health information",
-   "4 Cookies and analytics",
-   "5 Third-party services",
-   "6 How we protect your information",
+   "1 . Information we collect",
+   "2 . How we use your information",
+   "3 . Health information",
+   "4 . Cookies and analytics",
+   "5 . Third-party services",
+   "6 . How we protect your information",
    "How long we keep information",
-   "7 Your privacy choices",
-   "8 International visitors",
-   "9 Children's privacy",
-   "10 Links to other websites",
-   "11 Changes to this policy",
-   "12 Questions about your privacy?"
+   "7 . Your privacy choices",
+   "8 . International visitors",
+   "9 . Children's privacy",
+   "10 . Links to other websites",
+   "11 . Changes to this policy",
+   "12 . Questions about your privacy?"
   ]
  },
  {
@@ -656,7 +658,7 @@
  {
   "path": "/sitemap",
   "group": "Legal",
-  "title": "Sitemap",
+  "title": "Site Map",
   "description": "A simple guide to our website, consultations, health resources and information about Dr. Mohini Mutha.",
   "headings": [
    "Explore Dr. Mohini Mutha's website and find the information you need",
@@ -672,15 +674,15 @@
  {
   "path": "/terms-and-conditions",
   "group": "Legal",
-  "title": "Terms and Conditions",
+  "title": "Terms & Conditions",
   "description": "These terms explain the use of the Trivana Wellness website, online consultations and related services.",
   "headings": [
    "Our terms and conditions",
-   "1 Our services",
-   "2 Patient responsibilities",
-   "3 Prohibited activities",
-   "4 Services management",
-   "5 Contact information"
+   "1 . Our services",
+   "2 . Patient responsibilities",
+   "3 . Prohibited activities",
+   "4 . Services management",
+   "5 . Contact information"
   ]
  }
 ]

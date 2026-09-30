@@ -60,7 +60,7 @@ export default function IntegratedHealingPage() {
             <p className="ap-related">
               See also: <Link href="/clinical-philosophy">Clinical Philosophy</Link>
               {' · '}
-              <Link href="/">Integrated Anxiety Care</Link>
+              <Link href="/expertise/mental-emotional-psychosomatic-wellness">Mental, Emotional &amp; Psychosomatic Wellness</Link>
             </p>
           </div>
         </section>
@@ -86,12 +86,12 @@ export default function IntegratedHealingPage() {
         tiles: [
           { kind: 'explore', title: 'Explore your care options', text: 'Understand the different approaches available to you.', href: '/my-approach' },
           { kind: 'chat', title: 'Chat with me', text: 'Discuss your needs and questions.' },
-          { kind: 'book', title: 'Book a consultation', text: 'Choose a convenient time to connect.' },
+          { kind: 'book', title: 'Book a Consultation', text: 'Choose a convenient time to connect.' },
         ],
       }}
       image={{
-        src: '/images/photos/meditation-practice.jpg',
-        alt: 'Guided meditation as part of integrated mind-body care',
+        src: '/images/photos/hd/meditation-sunset-hd.webp',
+        alt: 'A person meditating outdoors at sunset, framed by warm golden light',
       }}
     />
   );

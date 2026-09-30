@@ -23,10 +23,10 @@ export default function MythsVsFactsPage() {
         title="Myths vs Facts"
         subtitle="Separating common beliefs from better understanding"
         breadcrumbs={[
-          { label: 'Resources', path: '/resources/patient-stories' },
+          { label: 'Resources' },
           { label: 'Myths vs Facts' },
         ]}
-        primaryCtaText="Book a consultation"
+        primaryCtaText="Book a Consultation"
         primaryCtaLink="/book-a-consultation"
         secondaryCtaText="Blogs"
         secondaryCtaLink="/resources/blogs"
@@ -52,7 +52,7 @@ export default function MythsVsFactsPage() {
         </div>
       </section>
 
-      <section className="section photo-band" style={{ '--band-img': "url('/images/photos/patient-conversation.jpg')" }}>
+      <section className="section photo-band" style={{ '--band-img': "url('/images/photos/patient-conversation.webp')" }}>
         <div className="container">
           <SectionHeader
             badge="Better information"
