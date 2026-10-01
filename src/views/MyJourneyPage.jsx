@@ -122,12 +122,12 @@ export default function MyJourneyPage() {
                     {ch.id === 'beginning' && (
                       <figure className="ab-photo" style={{ margin: '1.25rem 0' }}>
                         <Image
-                          src="/images/about/dr-mohini-portrait.webp"
-                          alt="A smiling doctor in a white coat standing in a clinic"
-                          width={800}
-                          height={1067}
+                          src="/images/founder-mohini-mutha-2026-hd.webp"
+                          alt="Dr. Mohini Mutha in a white coat with a stethoscope"
+                          width={900}
+                          height={1123}
                           sizes="(max-width: 900px) 100vw, 400px"
-                          style={{ width: '100%', maxHeight: '420px', objectFit: 'cover', objectPosition: 'top', borderRadius: 'var(--radius-md)' }}
+                          style={{ width: '100%', maxHeight: '420px', objectFit: 'cover', objectPosition: 'center 45%', borderRadius: 'var(--radius-md)' }}
                         />
                         <figcaption>Dr. Mohini Mutha · Homeopathic Physician &amp; Consultant</figcaption>
                       </figure>
