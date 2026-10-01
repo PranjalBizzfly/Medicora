@@ -12,6 +12,20 @@
   .header-wrapper .header-icon-btn { width: 36px; height: 36px; }
 }
 
+/* Menu drawer on phones: logo, theme and close buttons fit in one row
+   without cutting the logo off. */
+@media (max-width: 480px) {
+  .mobile-drawer .mobile-drawer-header { gap: 0.5rem; }
+  .mobile-drawer .mobile-drawer-header .brand-logo-crop { width: 156px; height: 25px; flex-shrink: 0; }
+  .mobile-drawer .mobile-drawer-header .brand-logo-img { width: 205px; left: -24px; top: -14px; }
+  .mobile-drawer .mobile-drawer-theme { margin-right: 0.25rem; }
+}
+
+@media (max-width: 340px) {
+  .mobile-drawer .mobile-drawer-header .brand-logo-crop { width: 136px; height: 22px; }
+  .mobile-drawer .mobile-drawer-header .brand-logo-img { width: 179px; left: -21px; top: -12px; }
+}
+
 /* Hero slider dots: same thin bar, but a 24px-tall tap area. */
 .hero-slider .hero-slider-dot {
   height: 24px;
