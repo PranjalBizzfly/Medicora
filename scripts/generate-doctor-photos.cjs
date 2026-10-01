@@ -1,10 +1,10 @@
-// Makes web-sized WebP copies of Dr. Mohini's HD photoshoot (public/Photo)
+// Makes web-sized WebP copies of Dr. Mohini's HD photoshoot (source-docs, private)
 // for use on the site. Originals are left untouched. Metadata is stripped.
 const sharp = require('sharp');
 const path = require('path');
 const fs = require('fs');
 
-const SRC = path.join(__dirname, '..', 'public', 'Photo');
+const SRC = path.join(__dirname, '..', 'source-docs', 'Doctor HD Photos');
 const OUT = path.join(__dirname, '..', 'public', 'images', 'doctor');
 
 const targets = [
