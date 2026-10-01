@@ -23,7 +23,7 @@ export default function ConsultationProcessPage() {
           icon: CalendarCheck,
           title: 'Book your consultation',
           text: 'Choose a convenient time for your online consultation and share a few details about your concerns.',
-          linkText: 'Explore your care',
+          linkText: 'Discover more',
           href: '/book-a-consultation',
         },
         {

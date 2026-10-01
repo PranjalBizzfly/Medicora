@@ -446,8 +446,18 @@
 .home-people-body h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
 .home-people-body p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
 
-.home-difference-text { max-width: 720px; margin: 3rem auto 0; text-align: center; color: var(--text-muted); font-size: 1.05rem; }
+/* Closing line under the cards: one wide, centred line (wraps on small screens). */
+.site-main p.home-difference-text {
+  max-width: 880px;
+  margin: 3rem auto 0;
+  text-align: center;
+  text-align-last: center;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
 .home-difference-text + .home-center-action { margin-top: 1.5rem; }
+
 
 /* ---------- Steps ---------- */
 .home-steps {
@@ -675,3 +685,33 @@
 
 :root[data-theme='dark'] .quick-info-icon { background: var(--bg-subtle); }
 .home-page .quick-info-strip { border: none; border-radius: 0; box-shadow: none; background: transparent; overflow: visible; }
+
+/* ---------- Client corrections (Dr. Mohini M. Changes.pdf) ---------- */
+/* Ways to consult: links line up at the bottom of every column. */
+.home-page .quick-info-col { align-items: stretch; }
+.home-page .quick-info-icon { align-self: flex-start; }
+.home-page .quick-info-body { display: flex; flex-direction: column; gap: 0.35rem; }
+.home-page .quick-info-link { margin-top: auto; padding-top: 0.6rem; }
+
+/* Service cards: points in one consistent format, one per line. */
+.home-service-points { flex-direction: column; align-items: flex-start; }
+
+/* Cards in a row share row tracks (subgrid), so the line, title, text, points
+   and button start at the same height in every card of the row. */
+.home-service-grid { row-gap: 1.75rem; }
+.home-service-card {
+  display: grid;
+  grid-row: span 5;
+  grid-template-rows: subgrid;
+  row-gap: 0;
+  align-content: start;
+}
+.home-service-card > * { margin-top: 0; }
+.home-service-card > h3 { margin-bottom: 0.75rem; }
+.home-service-card > p { margin-bottom: 1.25rem; }
+.home-service-card > .home-service-points { margin-bottom: 1.75rem; align-self: start; }
+.home-service-card > .home-soft-btn { align-self: end; justify-self: start; }
+
+/* "Begin with a conversation": buttons line up across both cards. */
+.home-contact-card > p:first-of-type { min-height: calc(1.65em * 3); }
+@media (max-width: 900px) { .home-contact-card > p:first-of-type { min-height: 0; } }

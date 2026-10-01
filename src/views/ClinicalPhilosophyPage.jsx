@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Hero from '../components/Hero';
@@ -9,20 +9,9 @@ import {
   Brain,
   Sparkles,
   Activity,
-  HeartPulse,
-  Leaf,
-  User,
   ArrowRight
 } from 'lucide-react';
 import '../styles/about.css';
-
-// Sitemap brief p.17–18 (Page 5 – Clinical Philosophy)
-const equation = [
-  { icon: HeartPulse, label: 'Physical health' },
-  { icon: Brain, label: 'Emotional wellbeing' },
-  { icon: Leaf, label: 'Lifestyle' },
-  { icon: User, label: 'Individual context' }
-];
 
 // Source: Website Content PDF, "Page 5 – Clinical Philosophy", Section 3
 const principles = [
@@ -59,12 +48,6 @@ const supports = [
   }
 ];
 
-// Section 5
-const philosophyStats = [
-  { number: '14+ Years', label: 'Clinical experience' },
-  { number: '12,000+', label: 'Patients consulted' },
-  { number: '3 Countries', label: 'India · UAE · USA' }
-];
 
 export default function ClinicalPhilosophyPage() {
   return (
@@ -116,20 +99,6 @@ export default function ClinicalPhilosophyPage() {
                   height={600}
                   style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }}
                 />
-              </div>
-              <h3 className="ab-panel-title">Health is more than a set of symptoms</h3>
-              <div className="ab-equation">
-                {equation.map(({ icon: Icon, label }, idx) => (
-                  <Fragment key={label}>
-                    {idx > 0 && <div className="ab-eq-op" aria-hidden="true">+</div>}
-                    <div className="ab-eq-item">
-                      <span className="icon-tile"><Icon size={20} aria-hidden="true" /></span>
-                      <span>{label}</span>
-                    </div>
-                  </Fragment>
-                ))}
-                <div className="ab-eq-op" aria-hidden="true">↓</div>
-                <div className="ab-eq-result">A more complete understanding of the patient</div>
               </div>
             </div>
           </div>
@@ -195,7 +164,7 @@ export default function ClinicalPhilosophyPage() {
         eyebrow="Experience"
         title="A philosophy shaped by real clinical experience"
         subtitle="This approach has developed through more than a decade of clinical practice and conversations with thousands of patients. Every consultation, every case and every individual experience has reinforced the importance of listening carefully, looking beyond the obvious and keeping care personal."
-        items={philosophyStats}
+        items={[]}
       />
 
       {/* Section 6 – Final CTA */}

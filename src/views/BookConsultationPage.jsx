@@ -25,9 +25,9 @@ import {
 // privacy note from Privacy Policy (Website Content PDF).
 
 const steps = [
-  { icon: CalendarClock, title: 'Choose your time', text: 'Select a consultation time that works comfortably with your schedule.', linkText: 'Book your slot', href: '#booking-form' },
-  { icon: ClipboardList, title: 'Share your concerns', text: "Tell us what you'd like to discuss before your consultation.", linkText: 'Prepare for your consultation', href: '#consultation-experience' },
-  { icon: Video, title: 'Meet Dr. Mohini', text: 'Connect online and have a thoughtful conversation about your health and wellbeing.', linkText: 'Know what to expect', href: '/my-approach/consultation-process' },
+  { icon: CalendarClock, title: 'Choose your time', text: 'Select a consultation time that works comfortably with your schedule.', linkText: 'Discover more', href: '#booking-form' },
+  { icon: ClipboardList, title: 'Share your concerns', text: "Tell us what you'd like to discuss before your consultation.", linkText: 'Discover more', href: '#consultation-experience' },
+  { icon: Video, title: 'Meet Dr. Mohini', text: 'Connect online and have a thoughtful conversation about your health and wellbeing.', linkText: 'Discover more', href: '/my-approach/consultation-process' },
 ];
 
 const coverAreas = [
@@ -70,7 +70,6 @@ export default function BookConsultationPage() {
               <div className="card ap-card" key={title}>
                 <div className="ap-card-top">
                   <span className="icon-tile"><Icon size={24} /></span>
-                  <span className="ap-card-num">0{i + 1}</span>
                 </div>
                 <h3>{title}</h3>
                 <p>{text}</p>
@@ -176,7 +175,6 @@ export default function BookConsultationPage() {
             {experience.map(({ title, text }, i) => (
               <li className="card ap-card" key={title}>
                 <div className="ap-card-top">
-                  <span className="ap-card-num">0{i + 1}</span>
                 </div>
                 <h3>{title}</h3>
                 <p>{text}</p>

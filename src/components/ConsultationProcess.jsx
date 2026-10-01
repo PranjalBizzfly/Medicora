@@ -28,7 +28,6 @@ export default function ConsultationProcess({
             return (
               <li key={step.number} className="card process-step">
                 <div className="process-step-top">
-                  <span className="process-step-number">{step.number}</span>
                   <span className="icon-tile">
                     <Icon size={22} />
                   </span>

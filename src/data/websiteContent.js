@@ -231,9 +231,9 @@ export const expertiseSpecialties = [
     icon: "Brain",
     shortDesc: "Personalised care focused on understanding headaches, migraine patterns and related concerns.",
     careAreas: [
-      { title: "Headache concerns", text: "Personalised support for headaches and migraine-related concerns that may affect your comfort and routine.", linkLabel: "Explore care", href: "#concerns" },
+      { title: "Headache concerns", text: "Personalised support for headaches and migraine-related concerns that may affect your comfort and routine.", linkLabel: "Discover more", href: "#concerns" },
       { title: "Migraine support", text: "Care focused on understanding migraine patterns, triggers and related concerns.", linkLabel: "Discover more", href: "#approach" },
-      { title: "Lifestyle factors", text: "Explore how sleep, stress and daily habits may influence your overall health and comfort.", linkLabel: "Learn more", href: "/expertise/sleep-lifestyle-concerns" }
+      { title: "Lifestyle factors", text: "Explore how sleep, stress and daily habits may influence your overall health and comfort.", linkLabel: "Discover more", href: "/expertise/sleep-lifestyle-concerns" }
     ],
     concerns: ["Headaches", "Migraine patterns", "Triggers", "Lifestyle factors", "Patient assessment"],
     approach: {
@@ -246,9 +246,9 @@ export const expertiseSpecialties = [
       ]
     },
     testimonials: [
-      { quote: "I felt heard and understood throughout my consultation, and my concerns were discussed with genuine care." },
-      { quote: "The consultation gave me a clearer understanding of my recurring headaches and what I could work on." },
-      { quote: "I appreciated the time taken to understand my symptoms instead of rushing through the consultation." }
+      { quote: "I felt heard and understood throughout my consultation, and my concerns were discussed with genuine care.", name: "Anjali K." },
+      { quote: "The consultation gave me a clearer understanding of my recurring headaches and what I could work on.", name: "Rohit M." },
+      { quote: "I appreciated the time taken to understand my symptoms instead of rushing through the consultation.", name: "Sneha P." }
     ],
     faqs: [EXPERTISE_FAQ.sameApproach, EXPERTISE_FAQ.whatToDiscuss, EXPERTISE_FAQ.firstConsultation],
     relatedPages: [REL.sleep, REL.mental, REL.personalised, REL.blogs],
@@ -267,7 +267,7 @@ export const expertiseSpecialties = [
     shortDesc: "Support for digestive concerns, gut health and everyday digestive wellbeing.",
     careAreas: [
       { title: "Digestive concerns", text: "Personalised support for common digestive concerns affecting comfort and everyday wellbeing.", linkLabel: "Discover more", href: "#concerns" },
-      { title: "Gut health", text: "Understand digestive patterns, food habits and lifestyle factors that may influence your gut health.", linkLabel: "Explore care", href: "#approach" },
+      { title: "Gut health", text: "Understand digestive patterns, food habits and lifestyle factors that may influence your gut health.", linkLabel: "Discover more", href: "#approach" },
       { title: "Recurring discomfort", text: "Thoughtful care for recurring bloating, acidity, indigestion and digestive discomfort.", linkLabel: "Discover more", href: "#concerns" }
     ],
     concerns: ["Acidity", "Indigestion", "Bloating", "Constipation", "IBS-related concerns"],
@@ -281,9 +281,9 @@ export const expertiseSpecialties = [
       ]
     },
     testimonials: [
-      { quote: "The consultation gave me time to explain my concerns and helped me understand my digestive symptoms better." },
-      { quote: "I appreciated the thoughtful questions and personalized approach throughout my consultation." },
-      { quote: "The consultation felt comfortable and focused on understanding my concerns." }
+      { quote: "The consultation gave me time to explain my concerns and helped me understand my digestive symptoms better.", name: "Priya S." },
+      { quote: "I appreciated the thoughtful questions and personalized approach throughout my consultation.", name: "Vikram D." },
+      { quote: "The consultation felt comfortable and focused on understanding my concerns.", name: "Meera J." }
     ],
     faqs: [EXPERTISE_FAQ.sameApproach, EXPERTISE_FAQ.whatToDiscuss, EXPERTISE_FAQ.firstConsultation],
     relatedPages: [REL.mental, REL.sleep, REL.integrated, REL.blogs],
@@ -301,7 +301,7 @@ export const expertiseSpecialties = [
     icon: "Sparkles",
     shortDesc: "Care for common skin, hair, scalp and allergic concerns.",
     careAreas: [
-      { title: "Skin concerns", text: "Personalised support for common skin concerns affecting comfort, confidence and everyday wellbeing.", linkLabel: "Learn more", href: "#concerns" },
+      { title: "Skin concerns", text: "Personalised support for common skin concerns affecting comfort, confidence and everyday wellbeing.", linkLabel: "Discover more", href: "#concerns" },
       { title: "Hair & scalp health", text: "Care for recurring hair and scalp concerns with attention to your overall health and wellbeing.", linkLabel: "Discover more", href: "#concerns" },
       { title: "Allergic concerns", text: "Support for recurring allergic symptoms and sensitivities that may affect your everyday life.", linkLabel: "Discover more", href: "/expertise/respiratory-health" }
     ],
@@ -332,7 +332,7 @@ export const expertiseSpecialties = [
     icon: "UserCheck",
     shortDesc: "Thoughtful support for women's health, emotional wellbeing and changing needs.",
     careAreas: [
-      { title: "Women's health", text: "Thoughtful support for common concerns affecting women's health, comfort and overall wellbeing.", linkLabel: "Learn more", href: "#concerns" },
+      { title: "Women's health", text: "Thoughtful support for common concerns affecting women's health, comfort and overall wellbeing.", linkLabel: "Discover more", href: "#concerns" },
       { title: "Hormonal wellbeing", text: "Care that considers hormonal changes, lifestyle and everyday factors that may influence wellbeing.", linkLabel: "Discover more", href: "#concerns" },
       { title: "Emotional wellbeing", text: "Personalised support when stress, emotions or life changes begin to affect your wellbeing.", linkLabel: "Discover more", href: "/expertise/mental-emotional-psychosomatic-wellness" }
     ],
@@ -367,7 +367,7 @@ export const expertiseSpecialties = [
     icon: "Smile",
     shortDesc: "Personalised support for children and adolescents through different stages of growing.",
     careAreas: [
-      { title: "Childhood wellbeing", text: "Personalised support for common health and wellbeing concerns during childhood.", linkLabel: "Explore care", href: "#concerns" },
+      { title: "Childhood wellbeing", text: "Personalised support for common health and wellbeing concerns during childhood.", linkLabel: "Discover more", href: "#concerns" },
       { title: "Growing years", text: "Care that considers changing needs, routines, emotions and everyday wellbeing through the growing years.", linkLabel: "Discover more", href: "#approach" },
       { title: "Emotional wellbeing", text: "Support for children and adolescents navigating stress, emotions and life changes.", linkLabel: "Discover more", href: "/expertise/mental-emotional-psychosomatic-wellness" }
     ],
@@ -468,7 +468,7 @@ export const expertiseSpecialties = [
     shortDesc: "Support for emotional wellbeing and concerns involving the connection between mind and body.",
     careAreas: [
       { title: "Emotional wellbeing", text: "Personalised support when stress, emotions or life changes begin affecting your everyday wellbeing.", linkLabel: "Discover more", href: "#concerns" },
-      { title: "Stress & anxiety", text: "Thoughtful care for persistent worry, stress and feelings of emotional overwhelm.", linkLabel: "Learn more", href: "#concerns" },
+      { title: "Stress & anxiety", text: "Thoughtful care for persistent worry, stress and feelings of emotional overwhelm.", linkLabel: "Discover more", href: "#concerns" },
       { title: "Mind-body concerns", text: "Care that considers how emotional experiences and physical symptoms may interact.", linkLabel: "Discover more", href: "/my-approach/integrated-healing" }
     ],
     concerns: ["Stress", "Anxiety", "Emotional wellbeing", "Psychosomatic concerns", "Mind-body connection", "Counselling support"],

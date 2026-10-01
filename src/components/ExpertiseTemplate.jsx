@@ -184,7 +184,6 @@ export default function ExpertiseTemplate({ id, badge = 'Area of Expertise' }) {
                 <div key={item.title} className="card expertise-approach-card">
                   <div className="expertise-approach-top">
                     <span className="icon-tile"><Icon size={22} /></span>
-                    <span className="expertise-approach-index">0{idx + 1}</span>
                   </div>
                   <h3>{item.title}</h3>
                   <p>{item.text}</p>
@@ -202,7 +201,7 @@ export default function ExpertiseTemplate({ id, badge = 'Area of Expertise' }) {
             <SectionHeader title="Patient experience" centered={true} />
             <div className="grid-3 expertise-testimonials">
               {testimonials.map((t) => (
-                <TestimonialCard key={t.quote} quote={t.quote} author="Patient experience" location="" />
+                <TestimonialCard key={t.quote} quote={t.quote} author={t.name || 'Patient experience'} location="" />
               ))}
             </div>
           </div>

@@ -35,7 +35,6 @@ export default function ApproachTemplate({
               <div className="card ap-card" key={title}>
                 <div className="ap-card-top">
                   <span className="icon-tile"><Icon size={24} /></span>
-                  <span className="ap-card-num">0{i + 1}</span>
                 </div>
                 <h3>{title}</h3>
                 <p>{text}</p>

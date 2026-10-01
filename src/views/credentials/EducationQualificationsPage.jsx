@@ -21,7 +21,7 @@ const qualifications = [
       ['University', 'Maharashtra University of Health Sciences (MUHS), Nashik'],
       ['Year', '2012'],
     ],
-    link: { label: 'Learn more', href: '/about-me' },
+    link: { label: 'Discover more', href: '/about-me' },
   },
   {
     icon: BookOpen,

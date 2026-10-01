@@ -231,13 +231,6 @@
 /* Scroll buttons pop in and out. */
 .scroll-btn { transition: opacity var(--motion-base) var(--motion-ease), transform var(--motion-base) var(--motion-ease), background-color var(--motion-fast) ease; }
 
-/* FAQ answers open smoothly. */
-@keyframes motion-fade-down {
-  from { opacity: 0; transform: translateY(-6px); }
-  to { opacity: 1; transform: none; }
-}
-.faq-item.is-open .faq-answer,
-.faq-item.is-open [class*='answer'] { animation: motion-fade-down var(--motion-base) var(--motion-ease) both; }
 
 /* Search and Explore overlays ease in. */
 .search-dialog { animation: motion-scale-in var(--motion-base) var(--motion-ease) both; }

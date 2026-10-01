@@ -4,11 +4,7 @@ import React from 'react';
 const defaultStats = [
   { number: '12,000+', label: 'Patients consulted' },
   { number: '14+', label: 'Years of clinical experience' },
-  {
-    number: '8 Years',
-    label: 'Consultant Homoeopathic Physician at ONGC',
-    note: 'Since 2018, Dr. Mohini Mutha has served as a Consultant Homoeopathic Physician with ONGC, alongside her clinical practice.',
-  },
+  { number: '8 Years', label: 'Consultant Homoeopathic Physician at ONGC' },
   { number: '3 Countries', label: 'Patients consulted across India, UAE & USA' },
 ];
 
@@ -29,15 +25,17 @@ export default function StatsStrip({
           </div>
         )}
 
-        <div className={`stats-grid ${items.length === 3 ? 'stats-grid-3' : ''}`}>
-          {items.map((stat) => (
-            <div key={stat.label} className="stat-box">
-              <div className="stat-number">{stat.number}</div>
-              <div className="stat-label">{stat.label}</div>
-              {stat.note && <p className="stat-note">{stat.note}</p>}
-            </div>
-          ))}
-        </div>
+        {items.length > 0 && (
+          <div className={`stats-grid ${items.length === 3 ? 'stats-grid-3' : ''}`}>
+            {items.map((stat) => (
+              <div key={stat.label} className="stat-box">
+                <div className="stat-number">{stat.number}</div>
+                <div className="stat-label">{stat.label}</div>
+                {stat.note && <p className="stat-note">{stat.note}</p>}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

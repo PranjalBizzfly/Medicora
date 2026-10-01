@@ -404,6 +404,7 @@
 }
 
 .ap-tile {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
@@ -443,15 +444,19 @@
 }
 
 .ap-tile-title {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
+  display: block;
+  margin-top: 0.5rem;
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 1.05rem;
+  line-height: 1.35;
 }
 
+/* Arrow sits in the top-right corner, level with the icon, on every tile. */
 .ap-tile-title svg {
+  position: absolute;
+  top: calc(1.35rem + 12px);
+  right: 1.25rem;
   color: var(--color-primary);
   flex-shrink: 0;
   transition: transform var(--transition-fast);
@@ -525,6 +530,11 @@
   .ap-tiles {
     grid-template-columns: 1fr;
   }
+}
+
+/* Side-by-side tiles: titles share a two-line slot so descriptions line up. */
+@media (min-width: 901px) {
+  .ap-tile-title { min-height: calc(1.05rem * 1.35 * 2); }
 }
 
 @media (max-width: 640px) {

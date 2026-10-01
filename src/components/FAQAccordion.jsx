@@ -29,11 +29,19 @@ export default function FAQAccordion({ items = [], defaultOpenIndex = 0 }) {
               </span>
             </button>
 
-            {isOpen && (
-              <div id={panelId} className="faq-answer">
+            {/* Always mounted so it can animate closed as well as open; hidden
+                from assistive tech and keyboard focus while collapsed. */}
+            <div
+              id={panelId}
+              className="faq-panel"
+              role="region"
+              aria-hidden={!isOpen}
+              inert={!isOpen ? true : undefined}
+            >
+              <div className="faq-answer">
                 <p>{item.a}</p>
               </div>
-            )}
+            </div>
           </div>
         );
       })}

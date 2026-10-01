@@ -89,15 +89,6 @@ export default function MyJourneyPage() {
         ]}
         primaryCtaText="Book a Consultation"
         primaryCtaLink="/book-a-consultation"
-        sideCard={
-          <div>
-            <ul className="ab-milestones">
-              <li><strong>14+</strong><span>years</span></li>
-              <li><strong>12,000+</strong><span>patients</span></li>
-              <li><strong>3</strong><span>countries</span></li>
-            </ul>
-          </div>
-        }
       />
 
       {/* Sections 2–6 – chapters */}

@@ -241,13 +241,13 @@ export default function AboutMePage() {
               She has also conducted and participated in free homeopathic medical camps in Navi Mumbai, with an emphasis on health awareness and encouraging conversations around emotional wellbeing.
             </p>
           </div>
+          <p className="tv-photo-cards-title">Free Homeopathic Medical Camp, Navi Mumbai</p>
           <div className="tv-photo-cards">
             {campPhotos.map((photo) => (
               <figure key={photo.src} className="tv-photo-card">
                 <div className="tv-photo-card-media">
                   <Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 900px) 100vw, 33vw" style={{ objectFit: 'cover' }} />
                 </div>
-                <figcaption>Free homeopathic medical camp, Navi Mumbai</figcaption>
               </figure>
             ))}
           </div>

@@ -289,7 +289,7 @@ export default function HomePage() {
               Her approach looks beyond individual symptoms to understand the person, the pattern and the factors influencing their wellbeing.
             </p>
             <p className="home-body">
-              <strong>Areas of interest:</strong> anxiety, stress-related concerns, emotional wellbeing and psychosomatic concerns.
+              <strong>Areas of Interest:</strong> Anxiety, Stress-Related Concerns, Emotional Wellbeing and Psychosomatic Concerns.
             </p>
             <div className="hero-actions">
               <Link href="/about-me" className="btn btn-primary">
@@ -373,7 +373,6 @@ export default function HomePage() {
           <SectionHeader
             badge="Our difference"
             title="Experience, empathy, and Approach to anxiety care"
-            subtitle="With 14+ years of clinical experience, Dr. Mohini Mutha believes in bringing personalised care to every consultation."
             centered={true}
           />
 

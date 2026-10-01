@@ -408,10 +408,27 @@
   color: #FFFFFF;
 }
 
-.faq-answer {
-  padding: 0 1.5rem 1.35rem;
-  animation: fadeIn 0.25s ease;
+/* Height animates via grid rows (0fr -> 1fr), so opening and closing are both
+   smooth and the content below moves gradually instead of jumping. */
+.faq-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 320ms cubic-bezier(0.22, 1, 0.36, 1), opacity 240ms ease;
 }
+
+.faq-item.is-open .faq-panel {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.faq-answer {
+  min-height: 0;
+  overflow: hidden;
+  padding: 0 1.5rem;
+}
+
+.faq-answer > :last-child { margin-bottom: 1.35rem; }
 
 .faq-answer p {
   font-size: 0.965rem;

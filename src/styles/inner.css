@@ -457,8 +457,69 @@
 @media (max-width: 1024px) { .cr-cert-grid > li, .cr-cert-grid > li.is-portrait { flex-basis: calc((100% - var(--cert-gap)) / 2); } }
 @media (max-width: 600px) { .cr-cert-grid > li, .cr-cert-grid > li.is-portrait { flex-basis: 100%; } }
 
+/* Body paragraphs are fully justified site-wide (client correction): even
+   edges on both sides, last line starting at the left. */
+.site-main p { text-align: justify; text-align-last: left; hyphens: manual; }
+
+/* One-line titles stay centred. */
+.site-main p.tv-photo-cards-title { text-align: center; text-align-last: center; }
+
+/* Short text in narrow grid cards keeps normal alignment: justifying a few
+   words per line leaves large gaps. */
+.site-main :is([class*='grid'], [class*='-tiles'], .quick-info-strip, .home-highlights, .home-people-body, .stat-box) p { text-align: inherit; text-align-last: auto; }
+
+/* Wide prose that happens to sit inside a layout grid is still justified. */
+.site-main :is(.tv-founder-grid, .ab-credentials-line, .rs-pending, .home-about, .tv-split, .split-section, .home-contact-card) p,
+.site-main p.cr-certificates-note { text-align: justify; text-align-last: left; }
+
+/* Short single-line labels are not stretched. */
+.site-main :is(.rs-tile, .stat-box, figcaption, .quick-info-col, .breadcrumbs, .bk-form, .search-dialog) p,
+.site-main p:is(.badge, .rs-label, .home-contact-note, .lg-doc-meta) { text-align: inherit; }
+
+.tv-photo-cards-title { margin: 0 0 1.25rem; text-align: center; font-family: var(--font-heading); font-weight: 600; font-size: 1.1rem; color: var(--text-main); }
+
+/* Cards in a row: the closing link/button sits at the bottom of every card, so
+   actions line up across the row whatever the text length (client correction). */
+.site-main :is(.grid-2, .grid-3, .grid-4) > .card { display: flex; flex-direction: column; }
+.site-main :is(.grid-2, .grid-3, .grid-4) > .card > :last-child:is(a, button, .link-arrow, [class*='-link'], [class*='-footer']) { margin-top: auto; align-self: flex-start; }
+
+/* CTA tiles inside centred panels: icon sits right beside the title. */
+.cta-panel .rs-tile {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 0.75rem;
+  row-gap: 0.15rem;
+  align-items: center;
+  text-align: left;
+}
+
+.cta-panel .rs-tile-icon { grid-row: span 2; margin: 0; }
+.cta-panel :is(.expertise-cta-tile, .expertise-cta-tile-text, .ap-tile) { text-align: left; }
+.cta-panel .expertise-cta-tile { align-items: center; }
+
 /* ---------- Dark theme ---------- */
 :root[data-theme='dark'] .badge { background-color: rgba(207, 225, 229, 0.12); color: var(--color-primary); }
 :root[data-theme='dark'] .bg-sand,
 :root[data-theme='dark'] .bg-soft { background-color: var(--bg-subtle); }
 :root[data-theme='dark'] .cta-panel { background: linear-gradient(135deg, #4D1102 0%, #2A0901 100%); }
+
+/* Standalone centred lines (section subtitles, intros, CTA lines): centre them
+   instead of justifying, so short sentences don't stretch their word spacing. */
+.site-main .section-header.text-center p,
+.site-main .stats-strip-head p,
+.site-main p.page-intro-text,
+.site-main p.cta-panel-subtitle,
+.site-main p.ab-note-lead,
+.site-main p.ab-note-sign,
+.site-main p.rs-faq-intro,
+.site-main p.ab-closing {
+  text-align: center;
+  text-align-last: center;
+}
+
+/* Multi-sentence body paragraphs in centred blocks: justified, last line centred. */
+.site-main .tv-text-block p,
+.site-main .ab-note p.ab-body {
+  text-align: justify;
+  text-align-last: center;
+}

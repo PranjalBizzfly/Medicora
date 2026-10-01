@@ -25,7 +25,7 @@ export default function WhyHomeopathyPage() {
           icon: Sparkles,
           title: 'Individualised care',
           text: 'Homeopathy considers your symptoms alongside your individual health history, experiences and overall wellbeing.',
-          linkText: 'Learn more',
+          linkText: 'Discover more',
           href: '/my-approach/personalised-treatment',
         },
         {

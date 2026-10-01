@@ -18,19 +18,19 @@ const themes = [
     Icon: Users,
     title: 'Every story is different',
     text: 'Each patient comes with their own concerns, experiences and expectations.',
-    link: { label: 'Learn about the consultation', href: '/my-approach/consultation-process' },
+    link: { label: 'Discover more', href: '/my-approach/consultation-process' },
   },
   {
     Icon: MessageCircle,
     title: 'A space to be heard',
     text: 'Many patients value having the time and space to openly discuss what they are experiencing.',
-    link: { label: 'Read the story', href: '#patient-stories' },
+    link: { label: 'Discover more', href: '#patient-stories' },
   },
   {
     Icon: HeartHandshake,
     title: 'Care that feels personal',
     text: 'The most meaningful part of practice is seeing patients feel understood throughout their journey.',
-    link: { label: 'Read the story', href: '#patient-stories' },
+    link: { label: 'Discover more', href: '#patient-stories' },
   },
 ];
 

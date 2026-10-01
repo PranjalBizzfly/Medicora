@@ -2,21 +2,12 @@
 
 import { useEffect } from 'react';
 
-// Cards and photos that tilt in 3D under the pointer.
+// Photos that tilt in 3D under the pointer. Cards with text are left out:
+// a 3D transform makes browsers render text blurry (client correction).
 const TILT = [
-  '.site-main .card',
-  '.site-main .tv-card',
-  '.site-main .tv-glass-card',
-  '.site-main .tv-photo-card',
   '.site-main .tv-photo',
   '.site-main .tv-portrait',
-  '.site-main .home-service-card',
-  '.site-main .home-glass-card',
-  '.site-main .home-people-card',
-  '.site-main .home-blog-card',
-  '.site-main .home-contact-card',
   '.site-main .home-about-photo',
-  '.site-main .stat-box',
 ].join(',');
 
 // Buttons that lean toward the pointer.

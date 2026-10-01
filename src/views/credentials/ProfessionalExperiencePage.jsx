@@ -72,7 +72,6 @@ export default function ProfessionalExperiencePage() {
               <div className="card cr-card" key={title}>
                 <div className="cr-card-top">
                   <span className="icon-tile"><Icon size={22} aria-hidden="true" /></span>
-                  <span className="cr-card-num" aria-hidden="true">0{i + 1}</span>
                 </div>
                 <h3>{title}</h3>
                 <p>{text}</p>

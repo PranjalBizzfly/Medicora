@@ -21,7 +21,7 @@ const keyMilestones = [
     icon: CalendarCheck,
     title: '14+ years of practice',
     text: 'More than a decade of clinical experience across diverse health concerns.',
-    link: { label: 'Connect with Dr. Mohini', href: '/book-a-consultation' },
+    link: { label: 'Discover more', href: '/book-a-consultation' },
   },
   {
     icon: Building2,
