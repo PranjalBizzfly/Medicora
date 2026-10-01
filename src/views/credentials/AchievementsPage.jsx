@@ -121,6 +121,7 @@ export default function AchievementsPage() {
             subtitle="Participating in free homeopathic medical camps focused on health awareness."
             centered={true}
           />
+          <p className="tv-photo-cards-title">Free Homeopathic Medical Camp, Navi Mumbai</p>
           <div className="cr-gallery">
             {campPhotos.map((p) => (
               <figure key={p.src} className={p.tall ? 'cr-gallery-tall' : undefined}>
@@ -129,9 +130,8 @@ export default function AchievementsPage() {
                   alt={p.alt}
                   width={p.width}
                   height={p.height}
-                  sizes="(max-width: 760px) 100vw, (max-width: 1200px) 66vw, 800px"
+                  sizes="(max-width: 760px) 100vw, 50vw"
                 />
-                <figcaption>{p.caption}</figcaption>
               </figure>
             ))}
           </div>
