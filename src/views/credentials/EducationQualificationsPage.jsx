@@ -49,6 +49,15 @@ const learning = [
   { title: 'Broader perspective', text: 'PGDPC added training in psychological counselling and emotional wellbeing.' },
 ];
 
+// Masked previews of the original certificates (scripts/mask-certificates.cjs).
+const certificates = [
+  { src: '/images/certificates/bhms-degree.webp', width: 2000, height: 1610, title: 'BHMS Degree Certificate', issuer: 'Maharashtra University of Health Sciences, Nashik · 2012', alt: 'BHMS degree certificate issued to Jain Mohini Kantilal by Maharashtra University of Health Sciences, Nashik, at the convocation on 26 April 2012' },
+  { src: '/images/certificates/bhms-passing.webp', width: 2000, height: 1496, title: 'BHMS Passing Certificate', issuer: 'Final B.H.M.S., Nov/Dec 2010', alt: 'Passing certificate for the Final B.H.M.S. examination, November/December 2010, Maharashtra University of Health Sciences' },
+  { src: '/images/certificates/md-passing.webp', width: 2000, height: 1304, title: 'MD (Homoeopathy) Passing Certificate', issuer: 'M.D. Homoeopathy Final, Summer 2016', alt: 'Passing certificate for the M.D. Homoeopathy Final (Homoeopathic Materia Medica) examination, Summer 2016' },
+  { src: '/images/certificates/md-degree.webp', width: 2000, height: 2557, title: 'MD (Homoeopathy) Degree Certificate', issuer: 'Maharashtra University of Health Sciences, Nashik · 2016', alt: 'Doctor of Medicine in Homoeopathy (Homoeopathic Materia Medica) degree certificate, convocation 20 December 2016, Maharashtra University of Health Sciences' },
+  { src: '/images/certificates/registration.webp', width: 2000, height: 2858, title: 'Certificate of Registration', issuer: 'Maharashtra Council of Homoeopathy, Mumbai · 2012', alt: 'Certificate of Registration from the Maharashtra Council of Homoeopathy, Mumbai, dated 28 June 2012' },
+];
+
 export default function EducationQualificationsPage() {
   return (
     <div className="education-qualifications-page">
@@ -104,6 +113,28 @@ export default function EducationQualificationsPage() {
               <BadgeCheck size={18} aria-hidden="true" />
               <span>Registered with the Maharashtra Council of Homoeopathy, Mumbai (2012).</span>
             </p>
+          </div>
+
+          <div className="cr-certificates rs-section-gap">
+            <h3>Certificates</h3>
+            <p className="cr-certificates-note">
+              Registration numbers, PRNs, barcodes and signatures are blurred for privacy. Select a certificate to view it in full.
+            </p>
+            <ul className="cr-cert-grid">
+              {certificates.map((c) => (
+                <li key={c.src} className={c.height > c.width ? "is-portrait" : "is-landscape"}>
+                  <a href={c.src} target="_blank" rel="noopener noreferrer" className="cr-cert-card">
+                    <span className="cr-cert-media">
+                      <Image src={c.src} alt={c.alt} width={c.width} height={c.height} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+                    </span>
+                    <span className="cr-cert-caption">
+                      <strong>{c.title}</strong>
+                      <small>{c.issuer}</small>
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>

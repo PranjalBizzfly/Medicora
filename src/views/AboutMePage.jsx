@@ -154,8 +154,8 @@ export default function AboutMePage() {
           <div>
             <div className="tv-portrait">
               <Image
-                src="/images/founder-mohini-mutha-2026-hd.webp"
-                alt="Dr. Mohini Mutha, homeopathic physician, standing with her arms folded"
+                src="/images/doctor/dr-mohini-portfolio.webp"
+                alt="Dr. Mohini Mutha, homeopathic physician, holding a folder in her clinic coat"
                 fill
                 quality={85}
                 sizes="(max-width: 900px) 100vw, 40vw"
@@ -205,7 +205,7 @@ export default function AboutMePage() {
       </section>
 
       {/* Section 5 – My journey as step cards */}
-      <section className="section photo-band" style={{ '--band-img': "url('/images/photos/dr-mohini-garden-portrait.webp')" }}>
+      <section className="section photo-band" style={{ '--band-img': "url('/images/photos/senior-patient-examination.webp')" }}>
         <div className="container">
           <SectionHeader badge="My journey" title="Growing through every stage of practice" centered={true} />
           <div className="tv-card-grid tv-card-grid-3">

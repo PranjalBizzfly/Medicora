@@ -403,6 +403,60 @@
 .scroll-btn { background: var(--brand-maroon); border-color: var(--brand-maroon); color: #FFFFFF; }
 .scroll-btn:hover { background: var(--brand-maroon-deep); border-color: var(--brand-maroon-deep); }
 
+/* ---------- Certificate gallery (Education & Qualifications) ---------- */
+.cr-certificates h3 { margin-bottom: 0.5rem; }
+.cr-certificates-note { color: var(--text-muted); margin-bottom: 1.75rem; }
+
+/* Centred rows so the last row (2 of 5) sits in the middle. */
+.cr-cert-grid {
+  --cert-gap: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--cert-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cr-cert-grid > li { flex: 0 0 calc((100% - 2 * var(--cert-gap)) / 3); }
+
+.cr-cert-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  background: var(--bg-surface);
+  color: var(--text-main);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.cr-cert-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); color: var(--text-main); }
+
+.cr-cert-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
+  background: var(--bg-subtle);
+}
+
+/* Larger preview: the certificate fills the frame with a slim margin. */
+.cr-cert-media { position: relative; overflow: hidden; }
+.cr-cert-media img { position: absolute; inset: 0.6rem; width: calc(100% - 1.2rem) !important; height: calc(100% - 1.2rem) !important; object-fit: contain; filter: drop-shadow(0 4px 10px rgba(26, 26, 26, 0.15)); }
+.cr-cert-caption { display: grid; gap: 0.25rem; padding: 1.1rem 1.25rem 1.3rem; text-align: center; }
+.cr-cert-caption small { color: var(--text-muted); font-size: 0.88rem; }
+
+/* Row 1: three landscape certificates. Row 2: two portrait ones, centred. */
+.cr-cert-grid > li.is-landscape .cr-cert-media { aspect-ratio: 4 / 3; }
+.cr-cert-grid > li.is-portrait .cr-cert-media { aspect-ratio: 3 / 4; }
+.cr-cert-grid > li.is-portrait { flex-basis: calc((100% - 2 * var(--cert-gap)) / 3); }
+
+@media (max-width: 1024px) { .cr-cert-grid > li, .cr-cert-grid > li.is-portrait { flex-basis: calc((100% - var(--cert-gap)) / 2); } }
+@media (max-width: 600px) { .cr-cert-grid > li, .cr-cert-grid > li.is-portrait { flex-basis: 100%; } }
+
 /* ---------- Dark theme ---------- */
 :root[data-theme='dark'] .badge { background-color: rgba(207, 225, 229, 0.12); color: var(--color-primary); }
 :root[data-theme='dark'] .bg-sand,

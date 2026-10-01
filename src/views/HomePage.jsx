@@ -155,8 +155,8 @@ const homeSteps = [
 // Section 6 – differentiator (3 source cards only)
 const differences = [
   {
-    image: '/images/photos/dr-mohini-desk-portrait.webp',
-    alt: 'A doctor in a white coat seated at her desk before bookshelves and framed certificates',
+    image: '/images/photos/child-consultation.webp',
+    alt: 'A doctor in consultation with a young patient and her mother',
     icon: Stethoscope,
     title: '14+ Years of Clinical Experience',
     text: 'Dr. Mohini has been practising since 2012 across clinical and institutional healthcare settings.',
@@ -251,12 +251,12 @@ export default function HomePage() {
           <div className="home-about-media">
             <div className="home-about-photo">
               <Image
-                src="/images/founder-mohini-mutha-2026-hd.webp"
-                alt="Portrait of Dr. Mohini Mutha in her white coat with a stethoscope"
+                src="/images/doctor/dr-mohini-standing.webp"
+                alt="Dr. Mohini Mutha in her white coat, standing with her hands clasped"
                 fill
                 quality={85}
                 sizes="(max-width: 900px) 100vw, 45vw"
-                style={{ objectFit: 'cover', objectPosition: 'center 22%' }}
+                style={{ objectFit: 'cover', objectPosition: 'center 6%' }}
               />
             </div>
             <div className="home-about-stat">

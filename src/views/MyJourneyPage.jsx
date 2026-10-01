@@ -122,12 +122,12 @@ export default function MyJourneyPage() {
                     {ch.id === 'beginning' && (
                       <figure className="ab-photo" style={{ margin: '1.25rem 0' }}>
                         <Image
-                          src="/images/founder-mohini-mutha-2026-hd.webp"
-                          alt="Dr. Mohini Mutha in a white coat with a stethoscope"
-                          width={900}
-                          height={1123}
+                          src="/images/doctor/dr-mohini-stethoscope.webp"
+                          alt="Dr. Mohini Mutha in a white coat with a stethoscope, arms folded"
+                          width={1000}
+                          height={1500}
                           sizes="(max-width: 900px) 100vw, 400px"
-                          style={{ width: '100%', maxHeight: '420px', objectFit: 'cover', objectPosition: 'center 45%', borderRadius: 'var(--radius-md)' }}
+                          style={{ width: '100%', maxHeight: '420px', objectFit: 'cover', objectPosition: 'center 10%', borderRadius: 'var(--radius-md)' }}
                         />
                         <figcaption>Dr. Mohini Mutha · Homeopathic Physician &amp; Consultant</figcaption>
                       </figure>
@@ -161,7 +161,7 @@ export default function MyJourneyPage() {
       </section>
 
       {/* Section 7 – Beyond the clinic */}
-      <section className="section photo-band" style={{ '--band-img': "url('/images/photos/dr-mohini-garden-portrait.webp')" }}>
+      <section className="section photo-band" style={{ '--band-img': "url('/images/photos/calm-woman-nature.webp')" }}>
         <div className="container">
           <div className="split-section ab-split">
             <div>
