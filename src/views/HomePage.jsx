@@ -340,7 +340,7 @@ export default function HomePage() {
 
       {/* Areas of expertise – photo background with glass cards */}
       <section className="section home-photo-section home-expertise-section">
-        <Image src="/images/photos/hd/green-leaves.webp" alt="Close-up of lush green leaves, reflecting a natural and holistic approach to care" fill sizes="100vw" className="home-photo-bg" />
+        <Image src="/images/photos/hd/green-leaves.webp" alt="Close-up of green leaves" fill sizes="100vw" className="home-photo-bg" />
         <div className="home-photo-overlay" aria-hidden="true" />
         <div className="container home-photo-inner">
           <SectionHeader badge="Expertise" badgeType="dark" title="Areas of Expertise" centered={true} />

@@ -174,7 +174,7 @@ export default function MyJourneyPage() {
               <figure className="ab-photo ab-photo-portrait">
                 <Image
                   src="/images/camp/medical-camp-2.webp"
-                  alt="Dr. Mohini Mutha examining a woman at the Navratri health camp"
+                  alt="Dr. Mohini Mutha examining a patient at a free homeopathic medical camp in Navi Mumbai"
                   width={640}
                   height={1280}
                   sizes="(max-width: 900px) 50vw, 25vw"
@@ -192,7 +192,7 @@ export default function MyJourneyPage() {
               <figure className="ab-photo">
                 <Image
                   src="/images/camp/medical-camp-1.webp"
-                  alt="A camp worker noting patient details at a registration table"
+                  alt="A doctor reviewing a patient's details at a free homeopathic medical camp in Navi Mumbai"
                   width={1280}
                   height={640}
                   sizes="(max-width: 900px) 50vw, 25vw"

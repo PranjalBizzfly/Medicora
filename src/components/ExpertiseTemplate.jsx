@@ -64,7 +64,7 @@ const EXPERTISE_HERO_IMAGES = {
   },
   'respiratory-health': {
     src: '/images/photos/mind-body-nature.webp',
-    alt: 'A young man sitting on a rock beside a forest stream, breathing slowly with eyes closed',
+    alt: 'A young man sitting quietly on a rock beside a forest stream',
   },
   'skin-hair-allergies': {
     src: '/images/photos/patient-conversation.webp',

@@ -42,7 +42,7 @@ const campPhotos = [
     src: '/images/camp/medical-camp-1.webp',
     width: 1280,
     height: 640,
-    alt: 'Women seated under a tent while a camp worker records patient details in Navi Mumbai',
+    alt: "A doctor reviewing a patient's details at a free homeopathic medical camp in Navi Mumbai",
     caption: 'Free homeopathic medical camp, Navi Mumbai.',
   },
   {

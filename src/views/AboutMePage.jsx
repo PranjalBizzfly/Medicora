@@ -65,7 +65,7 @@ const journey = [
 ];
 
 const campPhotos = [
-  { src: '/images/camp/medical-camp-2.webp', alt: 'Dr. Mohini Mutha consulting a patient at a free Navratri medical camp' },
+  { src: '/images/camp/medical-camp-2.webp', alt: 'Dr. Mohini Mutha consulting a patient at a free homeopathic medical camp in Navi Mumbai' },
   { src: '/images/camp/medical-camp-3.webp', alt: 'Residents seated on red chairs, waiting for consultations at a free camp in Navi Mumbai' },
   { src: '/images/camp/medical-camp-1.webp', alt: 'A patient being attended to at the camp desk under a white tent in Navi Mumbai' },
 ];
@@ -114,7 +114,7 @@ export default function AboutMePage() {
 
       {/* Section 3b – Values on a photo band */}
       <section className="section tv-photo-band">
-        <Image src="/images/photos/mind-body-nature.webp" alt="A man meditating on a rock by a forest stream in soft morning light" fill sizes="100vw" className="tv-photo-band-bg" />
+        <Image src="/images/photos/mind-body-nature.webp" alt="A man sitting quietly on a rock beside a forest stream" fill sizes="100vw" className="tv-photo-band-bg" />
         <div className="tv-photo-band-overlay" aria-hidden="true" />
         <div className="container tv-photo-band-inner">
           <SectionHeader badge="My approach" badgeType="dark" title="Listen carefully. Understand deeply. Care personally." centered={true} />
