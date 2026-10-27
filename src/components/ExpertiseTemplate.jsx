@@ -21,7 +21,7 @@ import {
   UserRound,
   ListChecks
 } from 'lucide-react';
-import { expertiseSpecialties, siteConfig } from '../data/websiteContent';
+import { expertiseSpecialties } from '../data/websiteContent';
 import '../styles/expertise.css';
 
 const approachIcons = [Ear, Search, Sparkles];
@@ -32,7 +32,7 @@ const WHATSAPP_URL = 'https://wa.me/919423972150';
 function tileTarget(tile) {
   switch (tile.type) {
     case 'message':
-      return { href: `mailto:${siteConfig.email}`, external: true, Icon: Mail };
+      return { href: '/contact#message', external: false, Icon: Mail };
     case 'chat':
       return { href: WHATSAPP_URL, external: true, Icon: MessageCircle };
     case 'book':
@@ -284,7 +284,9 @@ export default function ExpertiseTemplate({ id, badge = 'Area of Expertise' }) {
               <p className="cta-panel-subtitle">{cta.intro}</p>
               {cta.primaryLabel && (
                 <div className="cta-panel-actions">
-                  <Link href={cta.primaryHref} className="btn btn-primary btn-lg">
+                  <Link href={cta.primaryHref} className="btn btn-primary btn-lg" data-no-modal="">
+                    {/* AUD-13: opens the full Book a Consultation page (options, process,
+                        locations); the "Book a Consultation" tile below opens the booking form. */}
                     <span>{cta.primaryLabel}</span>
                     <ArrowRight size={18} />
                   </Link>

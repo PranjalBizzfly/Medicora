@@ -72,8 +72,8 @@ const sitemapStructure = [
     icon: CalendarCheck,
     links: [
       { name: 'Invite Me To Speak', path: '/resources/invite-me-to-speak', desc: 'Explore speaking, workshop, panel and health-awareness opportunities with Dr. Mohini.', cta: 'Invite Me To Speak' },
-      // No dedicated /contact route exists; "Contact" points to the booking page.
-      { name: 'Contact', path: '/book-a-consultation', key: 'contact', desc: 'Have a question or want to discuss a consultation? Get in touch with Trivana Wellness.', cta: 'Contact Us' },
+      // Contact points to the dedicated /contact page (audit AUD-18).
+      { name: 'Contact', path: '/contact', key: 'contact', desc: 'Have a question or want to discuss a consultation? Get in touch with Trivana Wellness.', cta: 'Contact Us' },
       { name: 'Book a Consultation', path: '/book-a-consultation', desc: 'Choose a convenient time for an online consultation with Dr. Mohini.', cta: 'Book a Consultation' },
     ],
   },

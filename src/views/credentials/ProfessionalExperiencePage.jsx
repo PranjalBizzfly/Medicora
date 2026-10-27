@@ -68,7 +68,7 @@ export default function ProfessionalExperiencePage() {
       <section className="section bg-surface">
         <div className="container">
           <div className="grid-3">
-            {areas.map(({ icon: Icon, title, text, href }, i) => (
+            {areas.map(({ icon: Icon, title, text, href }) => (
               <div className="card cr-card" key={title}>
                 <div className="cr-card-top">
                   <span className="icon-tile"><Icon size={22} aria-hidden="true" /></span>

@@ -1,11 +1,12 @@
 'use client';
 
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, Loader2, Video, Building2, AlertTriangle } from 'lucide-react';
+import { ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, Video, Building2 } from 'lucide-react';
 import { siteConfig } from '../data/websiteContent';
 import { SLOTS, CLOSED_WEEKDAYS, BOOKING_WINDOW_DAYS } from '../data/booking';
 import { formatPhone, validateEmail, validateName, validatePhone, validateText } from '../lib/validation';
-import { Field, FieldError, Honeypot, PhoneField, fieldAria, postJSON, useFormState } from './form/FormFields';
+import { Field, FieldError, Honeypot, PhoneField, fieldAria, useFormState } from './form/FormFields';
+import { submitForm } from '../lib/handoff';
 
 const WEEKDAYS = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
 
@@ -159,32 +160,20 @@ function Calendar({ id, value, onChange, error }) {
 }
 
 /**
- * Booking form: details, then date and time. Posts to /api/book.
+ * Booking form: details, then date and time. Sends through WhatsApp/email (front end only).
  * `variant="modal"` is the popup layout; `onClose` adds a Close button to the success view.
  */
 export default function BookingForm({ variant = 'page', onClose }) {
   const form = useFormState(INITIAL, RULES);
   const { values: data, errors, setValue: set, blur } = form;
-  const [taken, setTaken] = useState([]);
-  const [loadingSlots, setLoadingSlots] = useState(false);
-  const [status, setStatus] = useState('idle'); // idle | sending | done | error
-  const [serverMsg, setServerMsg] = useState('');
+  // No server for now: slots are not checked against other bookings; the clinic
+  // confirms the time when it replies.
+  const loadingSlots = false;
+  const [status, setStatus] = useState('idle'); // idle | handoff
   const [submitted, setSubmitted] = useState(null);
-  const sending = useRef(false);
+  const [sending, setSending] = useState(false);
+  const [failed, setFailed] = useState(false);
   const doneRef = useRef(null);
-  const alertRef = useRef(null);
-
-  useEffect(() => {
-    if (!data.date) return undefined;
-    let cancelled = false;
-    setLoadingSlots(true);
-    fetch(`/api/book?date=${data.date}`)
-      .then((r) => (r.ok ? r.json() : { taken: [] }))
-      .then((j) => { if (!cancelled) setTaken(j.taken || []); })
-      .catch(() => { if (!cancelled) setTaken([]); })
-      .finally(() => { if (!cancelled) setLoadingSlots(false); });
-    return () => { cancelled = true; };
-  }, [data.date]);
 
   const slotsForDate = useMemo(() => {
     if (!data.date) return [];
@@ -193,13 +182,12 @@ export default function BookingForm({ variant = 'page', onClose }) {
     return SLOTS.map((t) => {
       const [h, m] = t.split(':').map(Number);
       const past = isToday && h * 60 + m <= now.getHours() * 60 + now.getMinutes() + 60;
-      return { t, unavailable: past || taken.includes(t) };
+      return { t, unavailable: past };
     });
-  }, [data.date, taken]);
+  }, [data.date]);
 
   useEffect(() => {
-    if (status === 'done') doneRef.current?.focus();
-    if (status === 'error') alertRef.current?.focus();
+    if (status === 'handoff') doneRef.current?.focus();
   }, [status]);
 
   const focusField = (key) => {
@@ -211,78 +199,55 @@ export default function BookingForm({ variant = 'page', onClose }) {
     el?.focus();
   };
 
+  // Front-end delivery (src/lib/handoff.js): no redirect; shows "Submitted".
   const submit = async (ev) => {
     ev.preventDefault();
-    if (sending.current) return; // blocks double clicks / repeated Enter
+    if (sending) return;
     if (form.validateAll()) {
       focusField(ORDER.find((k) => RULES[k](data[k], data)));
       return;
     }
-    sending.current = true;
-    setStatus('sending');
-    setServerMsg('');
-    const payload = {
-      ...data,
+    if (data.website) { setStatus('handoff'); setSubmitted({}); return; } // honeypot: look successful
+    const req = {
       name: data.name.trim(),
       email: data.email.trim(),
       city: data.city.trim(),
       phone: formatPhone(data.phone, data.country),
+      mode: data.mode,
+      date: data.date,
+      time: data.time,
     };
-    const { ok, status: code, json } = await postJSON('/api/book', payload);
-    sending.current = false;
-
-    if (ok) {
-      setSubmitted(payload);
-      form.reset();
-      setTaken([]);
-      setStatus('done');
-      return;
-    }
-    if (code === 409) {
-      setTaken((t) => [...t, data.time]);
-      set('time', '');
-      form.setError('time', 'That slot was just booked by someone else. Please pick another time.');
-      setStatus('idle');
-      focusField('time');
-      return;
-    }
-    if (code === 422 && Array.isArray(json.fields)) {
-      json.fields.forEach((f) => RULES[f] && form.setError(f, RULES[f](data[f], data) || 'Please check this field.'));
-      setStatus('idle');
-      focusField(ORDER.find((k) => json.fields.includes(k)));
-      return;
-    }
-    setServerMsg(json.error || 'Something went wrong while sending your booking.');
-    setStatus('error');
+    setSending(true);
+    setFailed(false);
+    const ok = await submitForm(`Consultation request: ${req.name}`, [
+      ['Name', req.name], ['Email', req.email], ['Mobile', req.phone], ['City', req.city],
+      ['Mode', req.mode === 'online' ? 'Online (video call)' : 'In-person, Kopar Khairne'],
+      ['Preferred date', formatLongDate(req.date)], ['Preferred time', `${formatSlot(req.time)} (IST)`],
+    ], req.email);
+    setSending(false);
+    if (!ok) { setFailed(true); return; }
+    setSubmitted(req);
+    form.reset();
+    setStatus('handoff');
   };
 
-  if (status === 'done' && submitted) {
+  if (status === 'handoff' && submitted) {
     return (
       <div className={`bk-form bk-form--${variant}`}>
         <div className="bk-done" role="status" aria-live="polite">
           <span className="bk-done-icon"><CheckCircle2 size={40} aria-hidden="true" /></span>
-          <h2 ref={doneRef} tabIndex={-1} id="bk-title">Appointment requested</h2>
-          <p>Thank you, <strong>{submitted.name}</strong>. Your request has been received.</p>
-          <dl className="bk-done-list">
-            <div><dt>Date</dt><dd>{formatLongDate(submitted.date)}</dd></div>
-            <div><dt>Time</dt><dd>{formatSlot(submitted.time)} (IST)</dd></div>
-            <div><dt>Mode</dt><dd>{submitted.mode === 'online' ? 'Online consultation' : 'In-person, Kopar Khairne'}</dd></div>
-            <div><dt>Mobile</dt><dd>{submitted.phone}</dd></div>
-            <div><dt>Email</dt><dd>{submitted.email}</dd></div>
-          </dl>
-          <p className="bk-done-note">We'll confirm your slot on WhatsApp or email shortly.</p>
-          <div className="bk-done-actions">
-            <button type="button" className="btn btn-primary" onClick={() => { setSubmitted(null); setStatus('idle'); }}>
-              Book another appointment
-            </button>
-            {onClose && <button type="button" className="btn btn-outline" onClick={onClose}>Close</button>}
-          </div>
+          <h2 ref={doneRef} tabIndex={-1} id="bk-title">Submitted</h2>
+          {onClose && (
+            <div className="bk-done-actions">
+              <button type="button" className="btn btn-primary" onClick={onClose}>Close</button>
+            </div>
+          )}
         </div>
       </div>
     );
   }
 
-  const isSending = status === 'sending';
+  const isSending = sending;
 
   return (
     <form className={`bk-form bk-form--${variant}`} onSubmit={submit} noValidate aria-labelledby="bk-title" aria-busy={isSending}>
@@ -410,26 +375,16 @@ export default function BookingForm({ variant = 'page', onClose }) {
         </div>
       </fieldset>
 
-      {status === 'error' && (
-        <div ref={alertRef} tabIndex={-1} className="bk-alert" role="alert">
-          <AlertTriangle size={18} aria-hidden="true" />
-          <div>
-            <strong>Your booking wasn't sent.</strong>
-            <p>
-              {serverMsg} Your details are still here. Please try again, or call{' '}
-              <a href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`}>{siteConfig.phone}</a>.
-            </p>
-          </div>
-        </div>
+      {failed && (
+        <p className="bk-alert" role="alert">
+          Your booking wasn&apos;t sent. Please try again, or call{' '}
+          <a href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`}>{siteConfig.phone}</a>.
+        </p>
       )}
-
       <button type="submit" className="btn btn-primary btn-lg bk-submit" disabled={isSending} aria-disabled={isSending}>
-        {isSending
-          ? <><Loader2 size={18} className="bk-spin" aria-hidden="true" /> <span>Booking…</span></>
-          : <><span>{status === 'error' ? 'Try again' : 'Confirm Appointment'}</span> <ArrowRight size={18} aria-hidden="true" /></>}
+        <span>{isSending ? 'Submitting…' : 'Confirm Appointment'}</span> <ArrowRight size={18} aria-hidden="true" />
       </button>
-      <p className="bk-sr" aria-live="polite">{isSending ? 'Sending your booking, please wait.' : ''}</p>
-      <p className="bk-fine">We never share your details. Not for emergencies: please call your local emergency service.</p>
+      <p className="bk-fine">Not for emergencies: please call your local emergency service.</p>
     </form>
   );
 }

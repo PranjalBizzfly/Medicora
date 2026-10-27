@@ -2,14 +2,13 @@ import React from 'react';
 import Link from 'next/link';
 import { ArrowRight, Calendar, Compass, Mail, MessageCircle } from 'lucide-react';
 import BrandMark from '../../components/BrandMark';
-import { siteConfig } from '../../data/websiteContent';
 
 const WHATSAPP_URL = 'https://wa.me/919423972150';
 
 const KIND = {
   explore: { icon: Compass },
   chat: { icon: MessageCircle, href: WHATSAPP_URL, external: true },
-  message: { icon: Mail, href: `mailto:${siteConfig.email}`, external: true },
+  message: { icon: Mail, href: '/contact#message' },
   book: { icon: Calendar, href: '/book-a-consultation' },
 };
 

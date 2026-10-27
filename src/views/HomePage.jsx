@@ -32,12 +32,16 @@ const heroSlides = [
   {
     eyebrow: 'Homeopathy • Counselling • Mind-Body Care',
     title: 'A thoughtful approach to your health and wellbeing',
+    // AUD-02: description reused from the About Me hero (Content PDF p.13).
+    subtitle: 'With 14+ years of clinical experience and 12,000+ patients consulted, Dr. Mohini Mutha combines homeopathy, counselling and a personalised understanding of every patient.',
     secondary: { href: '/about-me', label: 'Meet Dr. Mohini' },
     image: '/images/photos/patient-consultation.webp',
     alt: 'A smiling doctor listening to a patient across her clinic desk',
     position: '65% center',
   },
   {
+    // AUD-02: eyebrow is the source service title "Online Anxiety Care" (Content PDF, Home section 4).
+    eyebrow: 'Online Anxiety Care',
     title: 'Feel better. Understand your anxiety',
     subtitle: 'Personalised online anxiety care combining homeopathy, counselling, and mind-body support.',
     secondary: { href: '/expertise/mental-emotional-psychosomatic-wellness', label: 'Explore her expertise' },
@@ -48,6 +52,8 @@ const heroSlides = [
   {
     eyebrow: 'Integrated Healing',
     title: 'Homeopathy, counselling, yoga and meditation in one care plan',
+    // AUD-02: description reused from the Integrated Healing page hero.
+    subtitle: 'Bringing homeopathy, counselling and mind-body practices into one thoughtful approach.',
     secondary: { href: '/my-approach/integrated-healing', label: 'See how it works' },
     image: '/images/hero3.webp',
     alt: 'A woman meditating cross-legged on a terrace at sunset, overlooking the sea',

@@ -13,6 +13,7 @@ const GROUPS = [
     links: [
       { label: 'Home', path: '/' },
       { label: 'Book a Consultation', path: '/book-a-consultation' },
+      { label: 'Contact', path: '/contact' },
     ],
   },
   ...navigationLinks.filter((n) => n.children).map((n) => ({ title: n.label, links: n.children })),

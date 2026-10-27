@@ -5,7 +5,6 @@ import SectionHeader from '../components/SectionHeader';
 import StatsStrip from '../components/StatsStrip';
 import ConsultationProcess from '../components/ConsultationProcess';
 import BrandMark from '../components/BrandMark';
-import { siteConfig } from '../data/websiteContent';
 import {
   HeartHandshake,
   Sparkles,
@@ -66,7 +65,7 @@ const relatedLinks = [
 
 // Section 3 – contact tiles
 const tiles = [
-  { icon: Mail, title: 'Message me', text: 'Share your concerns with me.', href: `mailto:${siteConfig.email}`, external: true },
+  { icon: Mail, title: 'Message me', text: 'Share your concerns with me.', href: '/contact#message' },
   { icon: Calendar, title: 'Book a Consultation', text: 'Choose a convenient consultation time.', href: '/book-a-consultation' },
   { icon: Layers, title: 'Explore your options', text: 'Understand the care available to you.', href: '/my-approach/integrated-healing' }
 ];

@@ -14,7 +14,7 @@
 }
 
 /* ---------- Scroll reveal (driven by ScrollReveal.jsx) ---------- */
-.motion-ready [data-reveal]:not(.is-revealed) {
+.motion-ready [data-reveal]:not([data-revealed]) {
   opacity: 0;
   transform: translateY(var(--motion-distance));
 }
@@ -28,7 +28,7 @@
 }
 
 /* Images reveal with a soft upward wipe. */
-.motion-ready figure[data-reveal]:not(.is-revealed) img {
+.motion-ready figure[data-reveal]:not([data-revealed]) img {
   clip-path: inset(12% 0 0 0 round var(--radius-lg));
   transform: scale(1.04);
 }
@@ -134,19 +134,19 @@
 .site-main figure:hover img { transform: scale(1.03); }
 
 /* ---------- Reveal variants ---------- */
-.motion-ready [data-reveal='left']:not(.is-revealed) { transform: translateX(calc(var(--motion-distance) * -2)); }
-.motion-ready [data-reveal='right']:not(.is-revealed) { transform: translateX(calc(var(--motion-distance) * 2)); }
-.motion-ready [data-reveal='zoom']:not(.is-revealed) { transform: translateY(var(--motion-distance)) scale(0.96); }
+.motion-ready [data-reveal='left']:not([data-revealed]) { transform: translateX(calc(var(--motion-distance) * -2)); }
+.motion-ready [data-reveal='right']:not([data-revealed]) { transform: translateX(calc(var(--motion-distance) * 2)); }
+.motion-ready [data-reveal='zoom']:not([data-revealed]) { transform: translateY(var(--motion-distance)) scale(0.96); }
 
 /* Cards tip up gently in 3D as they arrive: one subtle movement, once. */
-.motion-ready :is(.card, .stat-box, .tv-card, .tv-glass-card, .home-service-card, .home-glass-card, .home-contact-card, .home-step)[data-reveal='']:not(.is-revealed) {
+.motion-ready :is(.card, .stat-box, .tv-card, .tv-glass-card, .home-service-card, .home-glass-card, .home-contact-card, .home-step)[data-reveal='']:not([data-revealed]) {
   transform: perspective(1000px) rotateX(8deg) translateY(var(--motion-distance));
   transform-origin: 50% 100%;
 }
 
 /* Section labels draw in slightly after their section. */
 .motion-ready .section-header[data-reveal] .badge { transition: letter-spacing 900ms var(--motion-ease) 150ms; }
-.motion-ready .section-header[data-reveal]:not(.is-revealed) .badge { letter-spacing: 0.3em; }
+.motion-ready .section-header[data-reveal]:not([data-revealed]) .badge { letter-spacing: 0.3em; }
 
 /* ---------- Photo sections: slow parallax on the background ---------- */
 @supports (animation-timeline: view()) {

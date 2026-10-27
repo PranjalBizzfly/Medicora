@@ -43,7 +43,8 @@ export default function Hero({
       {hasIntro && (
         <section className="page-intro">
           <div className="container page-intro-inner">
-            {badge && <span className="badge">{badge}</span>}
+            {/* An h2 so the page outline goes H1 > H2 > H3 (cards follow the intro). */}
+            {badge && <h2 className="badge page-intro-label">{badge}</h2>}
             {subtitle && <p className="page-intro-text">{subtitle}</p>}
             {hasActions && (
               <div className="hero-actions">

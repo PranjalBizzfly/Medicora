@@ -26,6 +26,23 @@
   .mobile-drawer .mobile-drawer-header .brand-logo-img { width: 179px; left: -21px; top: -12px; }
 }
 
+/* AUD-01: the full menu, search, theme and "Book a Consultation" need ~1280px.
+   Below that the menu drawer takes over; between 1280px and 1440px the menu
+   is tightened so the button always stays fully on screen. */
+@media (max-width: 1279px) {
+  .header-wrapper .nav-menu,
+  .header-wrapper .navbar-actions .btn.navbar-cta { display: none; }
+  .header-wrapper .navbar .mobile-toggle { display: inline-flex; }
+}
+
+@media (min-width: 1280px) and (max-width: 1440px) {
+  .header-wrapper .navbar .container { gap: 0.75rem; padding-left: 1rem; padding-right: 1rem; }
+  .header-wrapper .nav-menu { gap: 0; }
+  .header-wrapper .nav-link { padding: 0.5rem 0.45rem; font-size: 0.86rem; }
+  .header-wrapper .navbar-actions { gap: 0.4rem; }
+  .header-wrapper .navbar-actions .btn.navbar-cta { padding-left: 0.9rem; padding-right: 0.9rem; font-size: 0.86rem; }
+}
+
 /* Hero slider dots: same thin bar, but a 24px-tall tap area. */
 .hero-slider .hero-slider-dot {
   height: 24px;

@@ -162,10 +162,6 @@ export default function AboutMePage() {
                 style={{ objectFit: 'cover', objectPosition: 'center 25%' }}
               />
             </div>
-            <blockquote className="tv-quote">
-              <p>&ldquo;A doctor who believes every patient deserves to be heard&rdquo;</p>
-              <cite>Dr. Mohini Mutha · Homeopathic Physician · MD (Homeopathy) · PGDPC</cite>
-            </blockquote>
             <div className="tv-profile-card">
               <p>Consultant Homoeopathic Physician with ONGC since 2018 · Founder, Trivana Wellness</p>
               <ul>
@@ -185,6 +181,11 @@ export default function AboutMePage() {
             <p className="tv-body">
               Her professional journey has taken her through clinical practice, reputed healthcare settings and institutional healthcare. Since 2018, she has also served as a Consultant Homoeopathic Physician with ONGC, adding around eight years of experience within a structured healthcare environment.
             </p>
+            {/* AUD-07: quote sits on the right, above the qualifications panel. */}
+            <blockquote className="tv-quote">
+              <p>&ldquo;A doctor who believes every patient deserves to be heard&rdquo;</p>
+              <cite>Dr. Mohini Mutha · Homeopathic Physician · MD (Homeopathy) · PGDPC</cite>
+            </blockquote>
             <div className="ab-credentials-line">
               <GraduationCap size={20} aria-hidden="true" />
               <p>

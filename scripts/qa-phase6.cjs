@@ -42,7 +42,7 @@ const check = (name, ok, detail = '') => log.push(`${ok ? 'PASS' : 'FAIL'}  ${na
   await page.getByRole('button', { name: 'Explore all pages' }).click();
   check('search panel closes when explore opens', (await page.locator('.search-dialog').count()) === 0);
   const exploreLinks = await page.locator('.explore-link').count();
-  check('explore lists all 34 pages', exploreLinks === 34, `${exploreLinks} links`);
+  check('explore lists all 35 pages', exploreLinks === 35, `${exploreLinks} links`);
   await page.screenshot({ path: path.join(out, 'desktop-explore.png') });
   await page.keyboard.press('Escape');
   check('Escape closes explore', (await page.locator('.explore-dialog').count()) === 0);
@@ -93,7 +93,7 @@ const check = (name, ok, detail = '') => log.push(`${ok ? 'PASS' : 'FAIL'}  ${na
   await m.keyboard.press('Escape');
   await m.getByRole('button', { name: 'Search the website' }).first().click();
   await m.getByRole('button', { name: 'Explore all pages' }).click();
-  check('mobile: explore opens from search', (await m.locator('.explore-link').count()) === 34);
+  check('mobile: explore opens from search', (await m.locator('.explore-link').count()) === 35);
   await m.screenshot({ path: path.join(out, 'mobile-explore.png') });
   await m.close();
 

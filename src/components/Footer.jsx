@@ -110,7 +110,7 @@ export default function Footer() {
             © {currentYear} Dr. Mohini Mutha. All rights reserved.
           </div>
           <div className="footer-legal-links">
-            <a href={`mailto:${siteConfig.email}`}>Contact</a>
+            <Link href="/contact">Contact</Link>
             <Link href="/book-a-consultation">Book a Consultation</Link>
             <Link href="/privacy-policy">Privacy Policy</Link>
             <Link href="/terms-and-conditions">Terms & Conditions</Link>

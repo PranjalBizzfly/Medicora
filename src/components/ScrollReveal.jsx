@@ -10,7 +10,9 @@ const SELECTOR = [
   '.site-main .section-header',
   '.site-main .card',
   '.site-main .stat-box',
-  '.site-main .faq-item',
+  // FAQ items re-render their className on toggle, which would drop a reveal class
+  // and hide them (AUD-12); the list is revealed as one block instead.
+  '.site-main .faq-list',
   '.site-main .cta-panel',
   '.site-main figure',
   '.site-main .quick-info-col',
@@ -81,7 +83,7 @@ export default function ScrollReveal() {
 
     const root = document.documentElement;
     const elements = [...document.querySelectorAll(SELECTOR)].filter(
-      (el) => !el.closest(EXCLUDE) && !el.classList.contains('is-revealed')
+      (el) => !el.closest(EXCLUDE) && !el.hasAttribute('data-revealed')
     );
 
     elements.forEach((el) => {
@@ -117,7 +119,7 @@ export default function ScrollReveal() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const el = entry.target;
-            el.classList.add('is-revealed');
+            el.setAttribute('data-revealed', ''); // an attribute, so React re-renders of className can't remove it
             observer.unobserve(el);
             // Drop the stagger once revealed so hover effects respond instantly.
             window.setTimeout(() => el.style.removeProperty('--reveal-delay'), 1400);

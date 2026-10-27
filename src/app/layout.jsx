@@ -14,6 +14,7 @@ import '../styles/header-tools.css';
 import '../styles/inner.css';
 import '../styles/titlecase.css';
 import '../styles/responsive.css';
+import '../styles/audit-fixes.css';
 
 // Applies the saved theme (or the device preference) before first paint, so pages never flash.
 const themeInitScript = `(function(){try{var t=localStorage.getItem('medicora-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();`;
@@ -50,6 +51,8 @@ export const metadata = {
   description:
     'With 14+ years of clinical experience and 12,000+ patients consulted, Dr. Mohini Mutha combines homeopathy, counselling and a personalised understanding of every patient.',
   icons: { icon: '/brand/logo-icon.webp' },
+  // Staging/preview builds are not indexed; set SITE_INDEXABLE=true on production (see src/lib/seo.js).
+  robots: process.env.SITE_INDEXABLE === 'true' ? undefined : { index: false, follow: false },
 };
 
 export default function RootLayout({ children }) {

@@ -33,7 +33,7 @@ const routes = fs.readdirSync('src/app', { recursive: true })
         const all = [...document.querySelectorAll('[data-reveal]')];
         return {
           total: all.length,
-          stuck: all.filter((el) => !el.classList.contains('is-revealed') || Number(getComputedStyle(el).opacity) < 0.99).length,
+          stuck: all.filter((el) => !el.hasAttribute('data-revealed') || Number(getComputedStyle(el).opacity) < 0.99).length,
           overflow: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
         };
       });

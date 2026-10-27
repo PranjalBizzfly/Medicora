@@ -1,0 +1,243 @@
+/* ==========================================================================
+   Website Audit Report, 15 October 2026 — layout and visual fixes.
+   Each block is labelled with its audit ID. Rules are scoped under .site-main
+   or a page class so they win over the page stylesheets that load later.
+   ========================================================================== */
+
+/* AUD-03 — Home highlight row: one deliberate row on desktop, then balanced
+   grids, instead of the last item wrapping on its own. */
+.site-main .home-highlights ul {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  justify-content: center;
+  gap: 0.75rem 1.75rem;
+}
+.site-main .home-highlights li { white-space: nowrap; }
+@media (max-width: 1100px) {
+  .site-main .home-highlights ul { grid-template-columns: repeat(3, auto); }
+}
+@media (max-width: 700px) {
+  .site-main .home-highlights ul { grid-template-columns: repeat(2, minmax(0, 1fr)); justify-content: stretch; }
+  .site-main .home-highlights li { white-space: normal; }
+}
+@media (max-width: 400px) {
+  .site-main .home-highlights ul { grid-template-columns: 1fr; }
+}
+
+/* LCP: the first hero photo is the largest element on load; no zoom transition
+   on it, so the browser can report it as painted as soon as it arrives. */
+.home-hero .hero-slide:first-child .hero-slide-img { transform: none; transition: none; }
+
+/* SEO heading order: the intro label is an h2 but keeps the pill styling. */
+.page-intro .page-intro-label {
+  margin: 0 0 1.4rem;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  line-height: 1.4;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-wrap: nowrap;
+}
+
+/* AUD-04 / AUD-05 — "A Word About Dr. Mutha": both columns start at the same
+   top edge, and the credentials sit in two columns so the photo side is no
+   longer much taller than the text side. */
+.site-main .home-about { align-items: start; }
+.site-main .home-about-copy { padding-top: 0; }
+.site-main .home-about-copy > .badge { margin-top: 0; }
+.site-main .home-about-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 1.5rem;
+  padding: 0 0.5rem;
+}
+@media (max-width: 560px) {
+  .site-main .home-about-list { grid-template-columns: 1fr; }
+}
+
+/* AUD-07 — About Me "Who I Am": the quote moved to the right column; keep
+   the profile card spaced under the portrait. */
+.about-me-page .tv-founder-grid .tv-profile-card { margin-top: 1.5rem; }
+.about-me-page .tv-founder-grid .tv-quote { margin: 1.5rem 0; }
+
+/* AUD-08 — About Me "More than qualifications": wider heading measure so the
+   title sits on two lines on desktop; normal wrapping on phones. */
+.about-me-page .section-header.text-center { max-width: 980px; }
+@media (min-width: 900px) {
+  .about-me-page .section-header.text-center h2 { max-width: 900px; margin-inline: auto; }
+}
+
+/* AUD-10 — Clinical Philosophy terms: three equal cards, term + one line. */
+.cp-terms {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+.cp-terms li {
+  display: grid;
+  gap: 0.35rem;
+  align-content: start;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  background: var(--bg-page);
+}
+.cp-terms strong { font-family: var(--font-heading); color: var(--color-primary); font-size: 1rem; }
+.site-main .cp-terms p { margin: 0; font-size: 0.9rem; line-height: 1.55; color: var(--text-muted); text-align: left; text-align-last: auto; }
+@media (max-width: 700px) {
+  .cp-terms { grid-template-columns: 1fr; }
+}
+
+/* AUD-11 — Expertise "Concerns you can discuss": evenly spaced pills with
+   consistent padding and gaps, wrapping cleanly on any screen. */
+.site-main .expertise-concerns-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.site-main .expertise-concerns-list li {
+  align-items: center;
+  padding: 0.5rem 0.95rem;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-full);
+  background: var(--bg-surface);
+}
+.site-main .expertise-concerns-list svg { margin-top: 0; }
+
+/* AUD-15 — Integrated Healing "See also": centred under the centred chips. */
+.site-main .ap-related { text-align: center; text-align-last: center; margin-inline: auto; }
+
+/* AUD-16 — Closing CTA tiles: one layout everywhere — icon on the left,
+   beside the title and short text; same padding and alignment. */
+.cta-panel :is(.rs-tile, .ap-tile, .expertise-cta-tile) {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 0.85rem;
+  row-gap: 0.2rem;
+  align-items: center;
+  align-content: center;
+  height: 100%;
+  padding: 1.1rem 1.25rem;
+  text-align: left;
+}
+.cta-panel :is(.rs-tile-icon, .ap-tile-icon, .expertise-cta-tile-icon) {
+  grid-row: span 2;
+  align-self: center;
+  margin: 0;
+}
+.cta-panel .ap-tile-title { display: flex; align-items: center; gap: 0.35rem; margin-top: 0; }
+.cta-panel .ap-tile-title svg { position: static; }
+.cta-panel .expertise-cta-tile-text { display: grid; gap: 0.2rem; }
+.cta-panel .ap-tile-text,
+.cta-panel .rs-tile-text,
+.cta-panel .expertise-cta-tile-text span { text-align: left; }
+
+/* AUD-14 — WhatsApp shortcut: last item in the bottom-right button stack, so
+   it never overlaps the scroll buttons; 48px tap target. */
+.scroll-buttons { align-items: center; }
+.whatsapp-float {
+  width: 52px;
+  height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #1E8E4E; /* darker WhatsApp green: 4.6:1 with the white icon */
+  color: #FFFFFF;
+  box-shadow: 0 8px 22px rgba(26, 26, 26, 0.22);
+  transition: transform var(--transition-fast), background-color var(--transition-fast);
+}
+.whatsapp-float:hover { background: #176F3D; color: #FFFFFF; transform: translateY(-2px); }
+.whatsapp-float:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 3px; }
+@media (max-width: 640px) {
+  /* Fewer floating controls over text on phones: keep WhatsApp and
+     scroll-to-top only, closer to the screen edge. */
+  .scroll-buttons { right: 10px; bottom: 12px; gap: 0.5rem; }
+  .scroll-buttons .scroll-btn:nth-child(2) { display: none; }
+  .whatsapp-float { width: 46px; height: 46px; }
+  .scroll-buttons .scroll-btn { width: 40px; height: 40px; }
+}
+
+/* AUD-18 / AUD-09 — Contact page: details beside the message form. */
+.ct-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: start;
+}
+.ct-layout .section-header { margin-bottom: 1.5rem; }
+.ct-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
+.ct-list li { display: flex; gap: 0.9rem; align-items: flex-start; }
+.ct-icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+.ct-text { display: grid; gap: 0.1rem; min-width: 0; overflow-wrap: anywhere; }
+.ct-text strong { color: var(--text-main); font-size: 0.95rem; }
+.ct-text a, .ct-text span { color: var(--text-muted); }
+.ct-text a:hover { color: var(--color-primary); }
+.ct-note {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  padding: 1rem 1.15rem;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  background: var(--bg-page);
+  color: var(--color-primary);
+}
+.ct-note svg { flex-shrink: 0; margin-top: 0.2rem; }
+.site-main .ct-note p { margin: 0; font-size: 0.9rem; color: var(--text-muted); text-align: left; text-align-last: auto; }
+.ct-consent { display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.92rem; color: var(--text-main); cursor: pointer; }
+.site-main .ct-consent,
+.site-main .ct-consent span { text-transform: none; font-weight: 400; color: var(--text-main); font-family: var(--font-body); }
+.site-main .ct-consent a { text-transform: none; }
+.ct-consent input { margin-top: 0.1rem; width: 22px; height: 22px; accent-color: var(--brand-maroon); flex-shrink: 0; }
+@media (max-width: 900px) {
+  .ct-layout { grid-template-columns: 1fr; }
+}
+
+/* AUD-20 — Footer disclaimer link stays visible on hover and focus. */
+.footer .footer-disclaimer-box a:hover,
+.footer .footer-disclaimer-box a:focus-visible {
+  color: #CFE1E5;
+  text-decoration-thickness: 2px;
+}
+.footer .footer-disclaimer-box a:focus-visible {
+  outline: 2px solid #CFE1E5;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* AUD-21 — Case study structure: the five steps share rows (number, title,
+   text) so they line up; text is left-aligned, not justified. */
+.site-main .rs-structure {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-rows: auto auto 1fr;
+  align-items: start;
+}
+.site-main .rs-structure li {
+  display: grid;
+  grid-row: span 3;
+  grid-template-rows: subgrid;
+  row-gap: 0.4rem;
+}
+.site-main .rs-structure li::before { margin: 0; color: #CFE1E5; }
+.site-main .rs-structure h3 { margin: 0; }
+.site-main .rs-structure p { text-align: left; text-align-last: auto; }
+@media (max-width: 1024px) {
+  .site-main .rs-structure { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .site-main .rs-structure { grid-template-columns: 1fr; }
+}

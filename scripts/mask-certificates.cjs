@@ -19,9 +19,6 @@ const CERTS = {
   'md-passing': [[130, 205, 270, 65], [1045, 145, 245, 58], [1075, 205, 150, 48], [1095, 800, 230, 112]],
 };
 
-const mask = ([x, y, w, h]) =>
-  `<g><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="8" fill="#E9E4DC"/>` +
-  `<text x="${x + w / 2}" y="${y + h / 2}" font-family="Arial, sans-serif" font-size="${Math.min(22 * (w / Math.max(w, 1)) * 1.5, h * 0.45)}" fill="#8A8178" text-anchor="middle" dominant-baseline="middle">Hidden for privacy</text></g>`;
 
 (async () => {
   fs.mkdirSync(OUT, { recursive: true });

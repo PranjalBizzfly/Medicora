@@ -1,10 +1,11 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import { AlertTriangle, CheckCircle2, ChevronDown, Loader2, Mic } from 'lucide-react';
+import { CheckCircle2, ChevronDown, Mic } from 'lucide-react';
 import { siteConfig } from '../data/websiteContent';
 import { formatPhone, validateEmail, validateName, validatePhone, validateText } from '../lib/validation';
-import { Field, Honeypot, PhoneField, fieldAria, postJSON, useFormState } from './form/FormFields';
+import { Field, Honeypot, PhoneField, fieldAria, useFormState } from './form/FormFields';
+import { submitForm } from '../lib/handoff';
 
 const MESSAGE_MAX = 2000;
 
@@ -13,7 +14,7 @@ const todayISO = () => { const d = new Date(); return `${d.getFullYear()}-${pad(
 
 const ORDER = ['name', 'organization', 'email', 'phone', 'eventType', 'eventDate', 'message'];
 
-/** "Invite Dr. Mohini to Speak" enquiry. Posts to /api/speaking. */
+/** "Invite Dr. Mohini to Speak" enquiry. Sends through WhatsApp/email (front end only). */
 export default function SpeakingForm({ eventTypes }) {
   const initial = useRef({
     name: '', organization: '', email: '', country: 'IN', phone: '',
@@ -32,71 +33,49 @@ export default function SpeakingForm({ eventTypes }) {
 
   const form = useFormState(initial, rules);
   const { values: f, errors, setValue: set, blur } = form;
-  const [status, setStatus] = useState('idle'); // idle | sending | done | error
-  const [serverMsg, setServerMsg] = useState('');
-  const [sentTo, setSentTo] = useState('');
-  const sending = useRef(false);
+  const [status, setStatus] = useState('idle'); // idle | handoff
+  const [handoff, setHandoff] = useState(null);
   const doneRef = useRef(null);
-  const alertRef = useRef(null);
   const [minDate, setMinDate] = useState('');
   useEffect(() => setMinDate(todayISO()), []);
 
   useEffect(() => {
-    if (status === 'done') doneRef.current?.focus();
-    if (status === 'error') alertRef.current?.focus();
+    if (status === 'handoff') doneRef.current?.focus();
   }, [status]);
 
+  // Front-end delivery (src/lib/handoff.js): no redirect; shows "Submitted".
   const submit = async (e) => {
     e.preventDefault();
-    if (sending.current) return;
+    if (handoff === 'sending') return;
     if (form.validateAll()) {
       document.getElementById(`sp-${ORDER.find((k) => rules[k](f[k], f))}`)?.focus();
       return;
     }
-    sending.current = true;
-    setStatus('sending');
-    const { ok, status: code, json } = await postJSON('/api/speaking', {
-      ...f,
-      name: f.name.trim(),
-      organization: f.organization.trim(),
-      email: f.email.trim(),
-      message: f.message.trim(),
-      phone: formatPhone(f.phone, f.country),
-    });
-    sending.current = false;
-
-    if (ok) {
-      setSentTo(f.email.trim());
-      form.reset();
-      setStatus('done');
-      return;
-    }
-    if (code === 422 && Array.isArray(json.fields)) {
-      json.fields.forEach((k) => rules[k] && form.setError(k, rules[k](f[k], f) || 'Please check this field.'));
-      setStatus('idle');
-      document.getElementById(`sp-${ORDER.find((k) => json.fields.includes(k))}`)?.focus();
-      return;
-    }
-    setServerMsg(json.error || 'Something went wrong while sending your invitation.');
-    setStatus('error');
+    if (f.website) { setHandoff(true); setStatus('handoff'); return; } // honeypot
+    setHandoff('sending');
+    const ok = await submitForm(`Speaking invitation: ${f.organization.trim()}`, [
+      ['Name', f.name.trim()], ['Organisation', f.organization.trim()], ['Email', f.email.trim()],
+      ['Phone', formatPhone(f.phone, f.country)], ['Event type', f.eventType], ['Tentative date', f.eventDate],
+      ['Details', f.message.trim()],
+    ], f.email.trim());
+    if (!ok) { setHandoff('failed'); return; }
+    setHandoff(true);
+    form.reset();
+    setStatus('handoff');
   };
 
-  if (status === 'done') {
+  if (status === 'handoff' && handoff === true) {
     return (
       <div className="card rs-form-card">
         <div className="bk-done" role="status" aria-live="polite">
           <span className="bk-done-icon"><CheckCircle2 size={40} aria-hidden="true" /></span>
-          <h3 ref={doneRef} tabIndex={-1}>Thank you, your invitation has been sent</h3>
-          <p>Dr. Mohini's team will reply to <strong>{sentTo}</strong> soon to discuss your event.</p>
-          <div className="bk-done-actions">
-            <button type="button" className="btn btn-primary" onClick={() => setStatus('idle')}>Send another invitation</button>
-          </div>
+          <h3 ref={doneRef} tabIndex={-1}>Submitted</h3>
         </div>
       </div>
     );
   }
 
-  const isSending = status === 'sending';
+  const isSending = handoff === 'sending';
 
   return (
     <div className="card rs-form-card">
@@ -158,25 +137,15 @@ export default function SpeakingForm({ eventTypes }) {
           </div>
         </fieldset>
 
-        {status === 'error' && (
-          <div ref={alertRef} tabIndex={-1} className="bk-alert" role="alert">
-            <AlertTriangle size={18} aria-hidden="true" />
-            <div>
-              <strong>Your invitation wasn't sent.</strong>
-              <p>
-                {serverMsg} Your details are still here. Please try again, or email{' '}
-                <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>.
-              </p>
-            </div>
-          </div>
+        {handoff === 'failed' && (
+          <p className="bk-alert" role="alert">
+            Your invitation wasn&apos;t sent. Please try again, or email{' '}
+            <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>.
+          </p>
         )}
-
         <button type="submit" className="btn btn-primary btn-lg bk-submit" disabled={isSending} aria-disabled={isSending}>
-          {isSending
-            ? <><Loader2 size={18} className="bk-spin" aria-hidden="true" /> <span>Sending…</span></>
-            : <><Mic size={16} aria-hidden="true" /> <span>{status === 'error' ? 'Try again' : 'Invite Dr. Mohini to Speak'}</span></>}
+          <Mic size={16} aria-hidden="true" /> <span>{isSending ? 'Submitting…' : 'Invite Dr. Mohini to Speak'}</span>
         </button>
-        <p className="bk-sr" aria-live="polite">{isSending ? 'Sending your invitation, please wait.' : ''}</p>
       </form>
     </div>
   );

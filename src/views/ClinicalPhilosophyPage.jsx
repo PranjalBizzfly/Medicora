@@ -64,10 +64,11 @@ export default function ClinicalPhilosophyPage() {
         primaryCtaText="Book a Consultation"
         primaryCtaLink="/book-a-consultation"
         sideCard={
-          <ul className="ab-milestones ab-tagline-list">
-            <li><strong>Understanding</strong></li>
-            <li><strong>Individualised</strong></li>
-            <li><strong>Whole Person</strong></li>
+          // AUD-10: each term with one explanatory line, verbatim from the Content PDF.
+          <ul className="cp-terms">
+            <li><strong>Understanding</strong><p>Taking time to listen to each patient&apos;s concerns and experiences.</p></li>
+            <li><strong>Individualised</strong><p>No two people experience anxiety in exactly the same way.</p></li>
+            <li><strong>Whole Person</strong><p>Anxiety can influence more than emotional health.</p></li>
           </ul>
         }
       />

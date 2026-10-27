@@ -66,7 +66,7 @@ export default function BookConsultationPage() {
       <section className="section bg-surface">
         <div className="container">
           <div className="grid-3 bk-steps">
-            {steps.map(({ icon: Icon, title, text, linkText, href }, i) => (
+            {steps.map(({ icon: Icon, title, text, linkText, href }) => (
               <div className="card ap-card" key={title}>
                 <div className="ap-card-top">
                   <span className="icon-tile"><Icon size={24} /></span>
@@ -172,7 +172,7 @@ export default function BookConsultationPage() {
             centered={true}
           />
           <ol className="grid-3 bk-cover-list">
-            {experience.map(({ title, text }, i) => (
+            {experience.map(({ title, text }) => (
               <li className="card ap-card" key={title}>
                 <div className="ap-card-top">
                 </div>

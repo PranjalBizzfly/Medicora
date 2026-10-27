@@ -25,7 +25,8 @@ export default function BookingModal() {
     const onClick = (e) => {
       if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
       const a = e.target.closest?.('a[href]');
-      if (!a || a.target === '_blank') return;
+      // data-no-modal links go to the full page (used where a page also has a booking tile).
+      if (!a || a.target === '_blank' || a.hasAttribute('data-no-modal')) return;
       const url = new URL(a.href, window.location.href);
       if (url.origin !== window.location.origin || url.pathname.replace(/\/$/, '') !== BOOK_PATH) return;
       if (window.location.pathname.replace(/\/$/, '') === BOOK_PATH) return;

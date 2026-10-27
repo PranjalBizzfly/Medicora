@@ -31,7 +31,7 @@ export default function ApproachTemplate({
         <div className="container">
           {cardsHeader && <SectionHeader {...cardsHeader} centered={true} />}
           <div className="grid-3">
-            {cards.map(({ icon: Icon, title, text, linkText, href }, i) => (
+            {cards.map(({ icon: Icon, title, text, linkText, href }) => (
               <div className="card ap-card" key={title}>
                 <div className="ap-card-top">
                   <span className="icon-tile"><Icon size={24} /></span>

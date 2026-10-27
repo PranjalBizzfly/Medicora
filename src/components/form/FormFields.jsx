@@ -139,14 +139,3 @@ export function Honeypot({ value, onChange }) {
     </div>
   );
 }
-
-/** POST JSON, normalising network failures and API errors into one shape. */
-export async function postJSON(url, body) {
-  try {
-    const res = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
-    const json = await res.json().catch(() => ({}));
-    return { ok: res.ok, status: res.status, json };
-  } catch {
-    return { ok: false, status: 0, json: { error: 'You appear to be offline.' } };
-  }
-}

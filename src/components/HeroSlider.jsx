@@ -17,8 +17,20 @@ export default function HeroSlider({ slides }) {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
+  const [laterSlides, setLaterSlides] = useState(false);
   const rootRef = useRef(null);
   const count = slides.length;
+
+  useEffect(() => {
+    let id;
+    const start = () => { id = window.setTimeout(() => setLaterSlides(true), 1000); };
+    if (document.readyState === 'complete') start();
+    else window.addEventListener('load', start, { once: true });
+    return () => {
+      window.removeEventListener('load', start);
+      window.clearTimeout(id);
+    };
+  }, []);
 
   useEffect(() => {
     if (typeof window === 'undefined' || !window.matchMedia) return undefined;
@@ -67,16 +79,18 @@ export default function HeroSlider({ slides }) {
             aria-hidden={!isActive}
             inert={!isActive ? true : undefined}
           >
-            <Image
+            {/* Slides 2 and 3 load only after the page has loaded, so they don't
+                compete with slide 1 (the LCP image) for bandwidth. */}
+            {(idx === 0 || isActive || laterSlides) && <Image
               src={slide.image}
               alt={slide.alt || ''}
               fill
               priority={idx === 0}
-              quality={85}
+              quality={60}
               sizes="100vw"
               className="hero-slide-img"
               style={{ objectFit: 'cover', objectPosition: slide.position || 'center' }}
-            />
+            />}
             <div className="hero-slide-overlay" aria-hidden="true" />
             <div className="container hero-slide-content">
               {slide.eyebrow && <span className="hero-pill">{slide.eyebrow}</span>}
