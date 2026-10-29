@@ -5,6 +5,8 @@ import Hero from '../components/Hero';
 import SectionHeader from '../components/SectionHeader';
 import StatsStrip from '../components/StatsStrip';
 import CTABanner from '../components/CTABanner';
+import CareValues from '../components/CareValues';
+import BrandMark from '../components/BrandMark';
 import {
   HeartHandshake,
   ArrowRight,
@@ -12,7 +14,9 @@ import {
   Compass,
   MapPin,
   Globe,
-  GraduationCap
+  GraduationCap,
+  Target,
+  Eye
 } from 'lucide-react';
 import '../styles/about.css';
 
@@ -62,6 +66,14 @@ const journey = [
     title: 'Continuing the journey',
     text: 'With more than 12,000 patients consulted, Dr. Mohini continues to provide personalised care to patients in India and internationally, including the UAE and USA.'
   }
+];
+
+// C.A.R.E. values — exact wording from "Dr. Mohini Mission, vision values.pdf".
+const careValues = [
+  { letter: 'C', word: 'Compassion', text: 'Approaching every individual with empathy, kindness and genuine understanding.' },
+  { letter: 'A', word: 'Awareness', text: 'Encouraging health education and empowering individuals to make informed decisions about their wellbeing.' },
+  { letter: 'R', word: 'Respect', text: "Recognising every individual's unique health concerns, experiences and personal needs." },
+  { letter: 'E', word: 'Excellence', text: 'Committed to continuous learning, ethical practice and improving the quality of patient care.' },
 ];
 
 const campPhotos = [
@@ -201,6 +213,46 @@ export default function AboutMePage() {
                 <ArrowRight size={16} aria-hidden="true" />
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Mission, Vision & C.A.R.E. values — exact wording from
+          "Dr. Mohini Mission, vision values.pdf" (do not edit the text). */}
+      <section className="section mv-section" id="mission-vision-values" aria-label="Mission, vision and values">
+        <div className="container">
+          <div className="mv-panel">
+            <BrandMark className="mv-panel-mark" />
+            <div className="mv-grid">
+              <article className="mv-card mv-card--mission">
+                <span className="mv-icon"><Target size={24} aria-hidden="true" /></span>
+                <h2 className="mv-label">Mission</h2>
+                <p className="mv-text">
+                  To provide compassionate, personalised and patient-centred healthcare by understanding individuals beyond their symptoms, while promoting awareness, education and a more holistic understanding of physical and emotional wellbeing.
+                </p>
+              </article>
+              <article className="mv-card mv-card--vision">
+                <span className="mv-icon"><Eye size={24} aria-hidden="true" /></span>
+                <h2 className="mv-label">Vision</h2>
+                <p className="mv-text">
+                  To contribute to a healthcare environment where every individual feels heard, understood and empowered to make informed decisions about their health, with equal importance given to physical and emotional wellbeing.
+                </p>
+              </article>
+            </div>
+          </div>
+
+          <div className="care-block">
+            <div className="care-head">
+              <h2 className="care-title">C.A.R.E. — The Values Behind My Practice</h2>
+              <p className="care-intro">
+                A simple, meaningful framework that reflects Dr. Mohini Mutha&apos;s patient-centred philosophy and approach to healthcare.
+              </p>
+            </div>
+            <CareValues
+              values={careValues}
+              taglineLead="C.A.R.E. —"
+              phrases={['Compassion in approach.', 'Awareness in action.', 'Respect for every individual.', 'Excellence in practice.']}
+            />
           </div>
         </div>
       </section>

@@ -37,6 +37,9 @@ const SELECTOR = [
   '.site-main .home-quote',
   '.site-main .home-final-cta',
   '.site-main .lg-doc-section',
+  '.site-main .mv-card',
+  '.site-main .care-head',
+  '.site-main .care-card',
 ].join(',');
 
 // Two-column layouts slide in from their own side; photos zoom in.
